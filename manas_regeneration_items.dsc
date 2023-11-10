@@ -22,10 +22,10 @@ item_amphora_mana_use:
 	    on player right clicks block with:item_amphora_mana:
 		  - if <player.has_flag[cd]> = false:
 		    - if <placeholder[mystery_mana].player[<player>]> < <placeholder[mystery_maxmana].player[<player>]>:
-		    - execute as_server silent "my addmana <player.name> 20"
-			- flag <player> cd expire:2s
-			- actionbar "<&6><&l>Вы восстановили 20 маны."
-		    - take from:<player.inventory> item_amphora_mana quantity:1
+		      - execute as_server silent "my addmana <player.name> 20"
+			  - flag <player> cd expire:2s
+			  - actionbar "<&6><&l>Вы восстановили 20 маны."
+		      - take from:<player.inventory> item_amphora_mana quantity:1
 	    on player consumes item_amphora_mana:
 		  - determine passively cancelled
 item_bug_with_mana:
