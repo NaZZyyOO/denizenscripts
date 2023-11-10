@@ -18,9 +18,9 @@ item_sword_wood:
 		    display:  "<&f><&l>Training Sword"
 			rarity: common
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Sword"
-			  rare: "<&7><&l>Type: <&f>Common
+			  rare: "<&7><&l>Type: <&f>Common"
 			  text: "<n><&7><&o>Common wooden training sword, you have to try really hard to kill someone with it."
 			  attributes: "<n><&7>When in mainhand:<n><&7>Damage:<&c> +1<n><&7>Attack speed bonus:<&e> +4"
 			attribute_modifiers:
@@ -54,9 +54,9 @@ item_sword_stone:
 		    display:  "<&f><&l>Statue's Bulky Sword"
 			rarity: common
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Sword substitute"
-			  rare: "<&7><&l>Type: <&f>Common
+			  rare: "<&7><&l>Type: <&f>Common"
 			  text: "<n><&7><&o>Too heavy for a short man like you."
 			  attributes: "<n><&7>When in mainhand:<n><&7>Damage:<&c> +9<n><&7>Attack speed bonus:<&e> -1.8<n><&7>Movement speed bonus:<&a> -15.0%"
 			attribute_modifiers:
@@ -101,9 +101,9 @@ item_sword_adventurer_01:
 			   gemstone: true
 		    custom_model_data: 1
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Blade"
-			  rare: "<&7><&l>Type: <&f>Common
+			  rare: "<&7><&l>Type: <&f>Common"
 			  gemstone: <[gemstone]>
 			  poison: <[poison]>
 			  text: "<n><&7><&o>Despite the rust, it hasn't lost its sharpness.<n><&7><&o>The most common weapon among adventurers."
@@ -154,9 +154,9 @@ item_sword_adventurer_02:
 			   gemstone: true
 		    custom_model_data: 2
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Blade"
-			  rare: "<&7><&l>Type: <&9>Rare
+			  rare: "<&7><&l>Type: <&9>Rare"
 			  gemstone: <[gemstone]>
 			  poison: <[poison]>
 			  text: "<n><&7><&o>Cleaned of rust, it became even sharper!<n><&7><&o>From such a sword you can get that you facing a sturdy adventurer."
@@ -207,9 +207,9 @@ item_sword_adventurer_03:
 			   gemstone: true
 		    custom_model_data: 3
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Blade"
-			  rare: "<&7><&l>Type: <&9>Rare
+			  rare: "<&7><&l>Type: <&9>Rare"
 			  gemstone: <[gemstone]>
 			  poison: <[poison]>
 			  text: "<n><&7><&o>Clean and shiny, well sharpened blade.<n><&7><&o>Not every adventurer can afford such sword."
@@ -260,9 +260,9 @@ item_sword_adventurer_04:
 			   gemstone: true
 		    custom_model_data: 4
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Blade"
-			  rare: "<&7><&l>Type: <&9>Rare
+			  rare: "<&7><&l>Type: <&9>Rare"
 			  gemstone: <[gemstone]>
 			  poison: <[poison]>
 			  text: "<n><&7><&o>Clean and shiny blade, made according to the best design.<n><&7><&o>Only few adventurers can afford such sword."
@@ -312,9 +312,9 @@ item_iron_hammer_01:
 			   gemstone: true
 		    custom_model_data: 1
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Mace"
-			  rare: "<&7><&l>Type: <&f>Common
+			  rare: "<&7><&l>Type: <&f>Common"
 			  gemstone: <[gemstone]>
 			  text: "<n><&7><&o>Despite the raw appearance, it is still usable.<n><&7><&o>Will do as a not very heavy and not very bad weapon."
 			  abilities: "<n><&7>Effect on hit:<n><&a> - With 10% chance will break target's bones <n><&a> casts on it Slowness I(0.04) and Weakness I(0.04)<n><&a> and cause darkening in the eyes for a while."
@@ -373,9 +373,9 @@ item_iron_hammer_02:
 			   gemstone: true
 		    custom_model_data: 2
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Mace"
-			  rare: "<&7><&l>Type: <&9>Rare
+			  rare: "<&7><&l>Type: <&9>Rare"
 			  gemstone: <[gemstone]>
 			  text: "<n><&7><&o>Rough iron hammer, better than his previous version, but heavier than it.<n><&7><&o>Because of his roughest, it can break target's bones on accurate hit."
 			  abilities: "<n><&7>Effect on hit:<n><&a> - With 10% chance will break target's bones <n><&a> casts on it Slowness II(0.06) and Weakness I(0.06)<n><&a> and cause darkening in the eyes for a while."
@@ -434,9 +434,9 @@ item_iron_hammer_03:
 			   gemstone: true
 		    custom_model_data: 3
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Mace"
-			  rare: "<&7><&l>Type: <&9>Rare
+			  rare: "<&7><&l>Type: <&9>Rare"
 			  gemstone: <[gemstone]>
 			  text: "<n><&7><&o>Well designed iron hammer, with which only the strong can fight.<n><&7><&o>Deal a good damage, if the hit is accurate."
 			  abilities: "<n><&7>Effect on hit:<n><&a> - With 10% chance will break target's bones <n><&a> casts on it Slowness II(0.08) and Weakness II(0.06)<n><&a> and cause darkening in the eyes for a while."
@@ -495,9 +495,9 @@ item_iron_hammer_04:
 			   gemstone: true
 		    custom_model_data: 3
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Mace"
-			  rare: "<&7><&l>Type: <&9>Rare
+			  rare: "<&7><&l>Type: <&9>Rare"
 			  gemstone: <[gemstone]>
 			  text: "<n><&7><&o>Clean and shiny hammer, with which only the strong can fight.<n><&7><&o>It is not very popular, because of his high weight."
 			  abilities: "<n><&7>Effect on hit:<n><&a> - With 10% chance will break target's bones <n><&a> casts on it Slowness III(0.10) and Weakness II(0.08)<n><&a> and cause darkening in the eyes for a while."
@@ -555,9 +555,9 @@ item_iron_axe_01:
 			   gemstone: true
 		    custom_model_data: 7
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Axe"
-			  rare: "<&7><&l>Type: <&f>Common
+			  rare: "<&7><&l>Type: <&f>Common"
 			  gemstone: <[gemstone]>
 			  text: "<n><&7><&o>Despite the raw appearance, it is still usable."
 			  abilities: "<n><&7>Using:<n><&a> - Makes a leap forward, dealing 5 damage <n><&a> to all targets around the player.<n><&a> Can be used once in 3 seconds."
@@ -622,9 +622,9 @@ item_iron_axe_02:
 			   gemstone: true
 		    custom_model_data: 8
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Axe"
-			  rare: "<&7><&l>Type: <&9>Rare
+			  rare: "<&7><&l>Type: <&9>Rare"
 			  gemstone: <[gemstone]>
 			  text: "<n><&7><&o>Iron axe, sharper and cleaner than its previous version."
 			  abilities: "<n><&7>Using:<n><&a> - Makes a leap forward, dealing 7 damage <n><&a> to all targets around the player.<n><&a> Can be used once in 4 seconds."
@@ -689,9 +689,9 @@ item_iron_axe_03:
 			   gemstone: true
 		    custom_model_data: 9
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Axe"
-			  rare: "<&7><&l>Type: <&9>Rare
+			  rare: "<&7><&l>Type: <&9>Rare"
 			  gemstone: <[gemstone]>
 			  text: "<n><&7><&o>Well-designed double-headed iron Axe,<n><&7><&o>capable of inflicting deep wounds to the enemy."
 			  abilities: "<n><&7>Using:<n><&a> - Makes a leap forward, dealing 10 damage <n><&a> to all targets around the player.<n><&a> Can be used once in 5 seconds."
@@ -756,9 +756,9 @@ item_iron_axe_04:
 			   gemstone: true
 		    custom_model_data: 10
 			lore:
-			  item: "<&8><&l>Item: <&c>Weapom"
+			  item: "<&8><&l>Item: <&c>Weapon"
 			  type: "<&7><&l>Kind: <&4>Axe"
-			  rare: "<&7><&l>Type: <&9>Rare
+			  rare: "<&7><&l>Type: <&9>Rare"
 			  gemstone: <[gemstone]>
 			  text: "<n><&7><&o>Clean and shiny, double-headed iron axe,<n><&7><&o>capable to chop enemies to pieces effortlessly."
 			  abilities: "<n><&7>Using:<n><&a> - Makes a leap forward, dealing 15 damage <n><&a> to all targets around the player.<n><&a> Can be used once in 6 seconds."
