@@ -7,7 +7,7 @@ item_amphora_mana:
       unbreakable: true
     data:
 	    stats:
-		    display:  "Амфора маны"
+		    display: "Амфора маны"
 			  rarity: rare
 		    custom_model_data: 41
 			  lore:
