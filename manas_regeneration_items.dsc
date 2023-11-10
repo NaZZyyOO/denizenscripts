@@ -47,12 +47,12 @@ item_bug_with_mana:
 			  abilities: "<n><&7>Использование:<n><&a> - Восстанавливает 80 маны."
 item_bug_with_mana_use:
     type: world
-	  debug: false
-	  events:
-	      on player right clicks block with:item_bug_with_mana:
-		    - if <player.has_flag[cd]> = false:
-		      - if <placeholder[mystery_mana].player[<player>]> < <placeholder[mystery_maxmana].player[<player>]>:
-		        - execute as_server silent "my addmana <player.name> 80"
-			    - flag <player> cd expire:2s
-			    - actionbar "<&6>Вы восстановили 80 маны."
-			    - take from:<player.inventory> item_bug_with_mana quantity:1
+    debug: false
+	events:
+	    on player right clicks block with:item_bug_with_mana:
+		  - if <player.has_flag[cd]> = false:
+		    - if <placeholder[mystery_mana].player[<player>]> < <placeholder[mystery_maxmana].player[<player>]>:
+		      - execute as_server silent "my addmana <player.name> 80"
+			  - flag <player> cd expire:2s
+			  - actionbar "<&6>Вы восстановили 80 маны."
+			  - take from:<player.inventory> item_bug_with_mana quantity:1
