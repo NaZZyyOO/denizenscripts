@@ -26,7 +26,7 @@ item_generate:
 		    - if <[item].flag[poison]> != false:
 			  - define gemstone "<&7>[Яд] - <item[<[item].flag[poison]>].display><&7>."
 			- else:
-			 - define poison "<&7>[Пустой слот] - Яд."
+			  - define poison "<&7>[Пустой слот] - Яд."
 		  - else:
 			- define poison "<&8>[Пустой слот] - Яд."
 	    - else:
