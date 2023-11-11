@@ -1,0 +1,54 @@
+weapon_sweep:
+  type: world
+  debug: false
+  events:
+    on player left clicks block:
+      - if <player.has_flag[sweep_cd]> = false:
+        - if <player.item_in_hand.material.is[==].to[m@iron_sword]>:
+          - flag <player> sweep_cd expire:15t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.5 pitch:1.3
+          - playsound <player.location> sound:item_trident_throw volume:0.2 pitch:1.1
+          - playeffect at:<player.location.forward.add[0,1.2,0]> effect:sweep_attack offset:0 visibility:2 
+        - if <player.item_in_hand.material.is[==].to[m@diamond_sword]>:
+          - flag <player> sweep_cd expire:15t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.3 pitch:1.2
+          - playsound <player.location> sound:item_trident_throw volume:0.5 pitch:1
+          - playeffect at:<player.location.forward.add[0,1.2,0]> effect:sweep_attack offset:0 visibility:2 
+        - if <player.item_in_hand.material.is[==].to[m@diamond_axe]>:
+          - flag <player> sweep_cd expire:20t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.4 pitch:1
+          - playsound <player.location> sound:item_trident_throw volume:0.2 pitch:0.8
+        - if <player.item_in_hand.material.is[==].to[m@iron_axe]>:
+          - flag <player> sweep_cd expire:20t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.4 pitch:0.8
+          - playsound <player.location> sound:item_trident_throw volume:0.2 pitch:1
+        - if <player.item_in_hand.material.is[==].to[m@golden_sword]>:
+          - flag <player> sweep_cd expire:10t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.5 pitch:1.3
+          - playsound <player.location> sound:item_trident_throw volume:0.2 pitch:1.1
+          - playeffect at:<player.location.forward.add[0,1.2,0]> effect:sweep_attack offset:0 visibility:2 
+        - if <player.item_in_hand.material.is[==].to[m@golden_axe]>:
+          - flag <player> sweep_cd expire:18t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.4 pitch:0.8
+          - playsound <player.location> sound:item_trident_throw volume:0.2 pitch
+        - if <player.item_in_hand.material.is[==].to[m@wooden_sword]>:
+          - flag <player> sweep_cd expire:10t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.5 pitch:1.3
+        - if <player.item_in_hand.material.is[==].to[m@wooden_axe]>:
+          - flag <player> sweep_cd expire:15t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.4 pitch:0.8
+        - if <player.item_in_hand.material.is[==].to[m@stone_axe]>:
+          - flag <player> sweep_cd expire:20t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.4 pitch:0.7
+        - if <player.item_in_hand.material.is[==].to[m@stone_sword]>:
+          - flag <player> sweep_cd expire:15t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.5 pitch:1
+        - if <player.item_in_hand.material.is[==].to[m@netherite_sword]>:
+          - flag <player> sweep_cd expire:18t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.5 pitch:0.9
+          - playsound <player.location> sound:item_trident_throw volume:0.2 pitch:0.8
+          - playeffect at:<player.location.forward.add[0,1.2,0]> effect:sweep_attack offset:0 visibility:2 
+        - if <player.item_in_hand.material.is[==].to[m@netherite_axe]>:
+          - flag <player> sweep_cd expire:22t
+          - playsound <player.location> sound:entity_player_attack_sweep volume:0.4 pitch:0.8
+          - playsound <player.location> sound:item_trident_throw volume:0.2 pitch:0.7
