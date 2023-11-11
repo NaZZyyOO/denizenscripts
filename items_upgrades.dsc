@@ -154,18 +154,18 @@ slots_activate:
     type: world
 	debug: false
 	events:
-	    on player right clicks block:
+	    on player right clicks block with:!air:
 		  - define hand_scipt <script[<player.item_in_hand.script.name>]||null>
 		  - if <[hand_scipt]> = null:
 		    - stop
 		  - if <[offhand_script]> = null:
 		    - stop
 		  - define offhand_script <script[<player.item_in_offhand.script.name>]||null>
-		  - if <[offhand_script].data_key[data.stats.rarity]> = <[hand_scipt].data_key[data.stats.rarity]>:
-		    - if <[hand_scipt].data_key[data.stats].contains[upgrading]> = true:
-			  - define context_upgrading <[hand_scipt].data_key[data.stats.upgrading]>
-			  - if <player.item_in_offhand.has_flag[<[context_upgrading]>]> = false:
+		  - if <[hand_scipt].data_key[data.stats].contains[upgrading]> = true:
+		    - define context_upgrading <[hand_scipt].data_key[data.stats.upgrading]>
+			- if <player.item_in_offhand.has_flag[<[context_upgrading]>]> = false:
+			  - if <[offhand_script].data_key[data.stats.rarity]> = <[hand_scipt].data_key[data.stats.rarity]>:
 				- inventory flag slot:offhand <[context_upgrading]>:false
 				- inventory set slot:hand item:air
-		  - else:
-		    - actionbar "<&6>Редкость активатора слота и предмета не совпадают."
+		    - else if <[offhand_script].data_key[data.stats.rarity]> != <[hand_scipt].data_key[data.stats.rarity]>:
+		      - actionbar "<&6><&l>Редкость активатора слота и предмета не совпадают."
