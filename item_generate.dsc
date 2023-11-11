@@ -7,28 +7,28 @@ item_generate:
 	    - define lore_for_item <list[]>
 		- if <[script]> = null:
 		  - stop
-		- define gemstone "<&8>[Пустой слот] - Инкрустация."
+		- define gemstone "<&8>[Empty Slot] - Gemstone."
 		- define gemstone_upgrade <[script].data_key[data.stats.upgrades.gemstone]||null>
 		- if <[gemstone_upgrade]> = true:
 		  - if <[item].has_flag[gemstone]> = true:
 		    - if <[item].flag[gemstone]> != false:
-			  - define gemstone "<&7>[Инкрустация] - <item[<[item].flag[gemstone]>].display><&7>."
+			  - define gemstone "<&7>[Gemstone] - <item[<[item].flag[gemstone]>].display><&7>."
 			- else:
-			  - define gemstone "<&7>[Пустой слот] - Инкрустация."
+			  - define gemstone "<&7>[Empty Slot] - Gemstone."
 		  - else:
-		    - define gemstone "<&8>[Пустой слот] - Инкрустация."
+		    - define gemstone "<&8>[Empty Slot] - Gemstone."
 		- else:
 		  - define gemstone ""
-		- define poison "<&8>[Пустой слот] - Яд."
+		- define poison "<&8>[Empty Slot] - Poison."
 	    - define poison_upgrade <[script].data_key[data.stats.upgrades.poison]||null>
 		- if <[poison_upgrade]> = true:
 		  - if <[item].has_flag[poison]> = true:
 		    - if <[item].flag[poison]> != false:
-			  - define gemstone "<&7>[Яд] - <item[<[item].flag[poison]>].display><&7>."
+			  - define gemstone "<&7>[Poison] - <item[<[item].flag[poison]>].display><&7>."
 			- else:
-			  - define poison "<&7>[Пустой слот] - Яд."
+			  - define poison "<&7>[Empty Slot] - Poison."
 		  - else:
-			- define poison "<&8>[Пустой слот] - Яд."
+			- define poison "<&8>[Empty Slot] - Poison."
 	    - else:
 		  - define poison ""
 		- if <[script].data_key[data.stats].contains[lore]> = true:
