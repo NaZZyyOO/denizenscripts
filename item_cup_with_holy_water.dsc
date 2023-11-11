@@ -17,8 +17,3 @@ item_cup_with_holy_water:
 	- "<&a>восстановит уровень здоровья игроков."
 	- "<&7>При ударе:"
 	- "<&a>???????? ???? ????? ?? ??????? 10 ??????."
-    mechanisms:
-      custom_model_data: 4
-      nbt_attributes:
-      - generic.max_health/mainhand/0.0/14.0
-	  - generic.movement_speed/mainhand/1.0/-0.2
