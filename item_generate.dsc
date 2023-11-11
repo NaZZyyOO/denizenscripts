@@ -40,10 +40,7 @@ item_generate:
 		  - define item <[item].with[custom_model_data=<[custom_model_data]>]>
 	    - if <[script].data_key[data.stats].contains[display]> = true:
 		  - define display <[script].data_key[data.stats.display]>
-		  - define rarity <[script].data_key[data.stats.rarity]>
-		  - define color <script[rarity_colors].data_key[<[rarity]>.color]>
-		  - define display_name <element[<[color]><[display]>].parsed>
-		  - define item <[item].with[display=<[display_name]>]>
+		  - define item <[item].with[display=<[display]>]>
 		- define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>]>]>
 	    - determine <[item]>
 item_generate_event:
@@ -56,3 +53,8 @@ item_generate_event:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
+			- define rarity <[script].data_key[data.stats.rarity]>
+		    - define color <script[rarity_colors].data_key[<[rarity]>.color]>
+			- define display <context.item.display>
+		    - define display_name <[display].replace_text[<[display]>].with[<[color]><[display]>]>
+			- determine passively ITEM:<[item].with[display=<[display_name]>]>
