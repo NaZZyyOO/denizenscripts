@@ -2,7 +2,7 @@ item_sword_wood:
     type: item
     debug: false
     material: wooden_sword
-    display name: "<&f><&l>Training Sword"
+    display name: "Training Sword"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -15,7 +15,7 @@ item_sword_wood:
 	  modifiers: false
 	data:
 	    stats:
-		    display:  "<&f><&l>Training Sword"
+		    display:  "Training Sword"
 			rarity: common
 			lore:
 			  item: "<&8><&l>Item: <&c>Weapon"
@@ -38,7 +38,7 @@ item_sword_stone:
     type: item
     debug: false
     material: stone_sword
-    display name: "<&f><&l>Statue's Bulky Sword"
+    display name: "Statue's Bulky Sword"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -51,7 +51,7 @@ item_sword_stone:
 	  modifiers: false
 	data:
 	    stats:
-		    display:  "<&f><&l>Statue's Bulky Sword"
+		    display:  "Statue's Bulky Sword"
 			rarity: common
 			lore:
 			  item: "<&8><&l>Item: <&c>Weapon"
@@ -79,7 +79,7 @@ item_sword_adventurer_01:
     type: item
     debug: false
     material: iron_sword
-    display name: "<&f><&l>Adventurer's Rusty Blade"
+    display name: "Adventurer's Rusty Blade"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -94,7 +94,7 @@ item_sword_adventurer_01:
 	  poison: false
 	data:
 	    stats:
-		    display:  "<&f><&l>Adventurer's Rusty Blade"
+		    display:  "Adventurer's Rusty Blade"
 			rarity: common
 		    upgrades:
 			   poison: true
@@ -132,7 +132,7 @@ item_sword_adventurer_02:
     type: item
     debug: false
     material: iron_sword
-    display name: "<&9><&l>Adventurer's Blade"
+    display name: "Adventurer's Blade"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -147,7 +147,7 @@ item_sword_adventurer_02:
 	  poison: false
 	data:
 	    stats:
-		    display:  "<&9><&l>Adventurer's Blade"
+		    display:  "Adventurer's Blade"
 			rarity: rare
 		    upgrades:
 			   poison: true
@@ -185,7 +185,7 @@ item_sword_adventurer_03:
     type: item
     debug: false
     material: iron_sword
-    display name: "<&9><&l>Adventurer's Polished Blade"
+    display name: "Adventurer's Polished Blade"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -200,7 +200,7 @@ item_sword_adventurer_03:
 	  poison: false
 	data:
 	    stats:
-		    display:  "<&9><&l>Adventurer's Polished Blade"
+		    display:  "Adventurer's Polished Blade"
 			rarity: rare
 		    upgrades:
 			   poison: true
@@ -238,7 +238,7 @@ item_sword_adventurer_04:
     type: item
     debug: false
     material: iron_sword
-    display name: "<&9><&l>Adventurer's Shining Blade"
+    display name: "Adventurer's Shining Blade"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -253,7 +253,7 @@ item_sword_adventurer_04:
 	  poison: false
 	data:
 	    stats:
-		    display:  "<&9><&l>Adventurer's Shining Blade"
+		    display:  "Adventurer's Shining Blade"
 			rarity: rare
 		    upgrades:
 			   poison: true
