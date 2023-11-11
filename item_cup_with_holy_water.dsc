@@ -45,7 +45,15 @@ item_cup_with_holy_water_use:
 			      - playeffect effect:VILLAGER_HAPPY at:<player.location.add[0,1,0]> quantity:100 offset:0.5 velocity:10
 				  - define players <list[]>
 			      - foreach <player.location.find.living_entities.within[5].exclude[<player>]>:
-			        - define players <[players].as_list.include[<[value]>]>
+				    - if <[value].is_player> = true:
+			          - define players <[players].as_list.include[<[value].name>]>
+				  - foreach <[players].list_keys> as:healed:
+				    - wait 5t
+			        - define target_lvl <placeholder[mystery_legacylevel].player[<[healed]>]>
+			   	    - if <placeholder[mystery_mana].player[<player>].is_less_than[<[target_lvl].mul[2]>]> = false:       
+				      - heal <[healed]> <[level].div[1.5]>
+			          - execute as_server silent "my rmmana <[healed]> <[target_lvl].mul[2]>"
+				      - playeffect effect:VILLAGER_HAPPY at:<player[<[healed]>].location.add[0,1,0]> quantity:100 offset:0.5 velocity:10
 		on player damages entity with:item_cup_with_holy_water:
 		  - if <util.random.int[0].to[100]> <= 15:
 		    - foreach <player.location.find.living_entities.within[10].exclude[<player>]>:
