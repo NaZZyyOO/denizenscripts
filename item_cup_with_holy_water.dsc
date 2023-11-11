@@ -45,8 +45,6 @@ item_cup_with_holy_water_use:
 			      - foreach <player.location.find_entities[player].within[10].exclude[<player>]>:
 			        - wait 5t
 			        - define target_lvl <placeholder[mystery_legacylevel].player[<[value]>]>
-					- if <placeholder[mystery_mana].player[<player>].is_less_than[<[target_lvl].mul[2]>]> = true:
-					  - stop
 			   	    - if <placeholder[mystery_mana].player[<player>].is_less_than[<[target_lvl].mul[2]>]> = false:       
 				      - heal <[value]> <[level].div[1.5]>
 			          - execute as_server silent "my rmmana <[value].name> <[target_lvl].mul[2]>"
