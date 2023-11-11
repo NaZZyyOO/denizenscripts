@@ -42,13 +42,18 @@ item_cup_with_holy_water_use:
 		          - heal <player> <[level]>
 			      - execute as_server silent "my rmmana <player> <[level].mul[2]>"
 			      - playeffect effect:VILLAGER_HAPPY at:<player.location.add[0,1,0]> quantity:100 offset:0.5 velocity:10
-			      - foreach <player.location.find_entities[player].within[10].exclude[<player>]>:
+			      - foreach <player.location.find.living_entities.within[10].exclude[<player>]>:
 			        - wait 5t
-			        - define target_lvl <placeholder[mystery_legacylevel].player[<[value]>]>
-			   	    - if <placeholder[mystery_mana].player[<player>].is_less_than[<[target_lvl].mul[2]>]> = false:       
-				      - heal <[value]> <[level].div[1.5]>
-			          - execute as_server silent "my rmmana <[value].name> <[target_lvl].mul[2]>"
-				      - playeffect effect:VILLAGER_HAPPY at:<[value].location.add[0,1,0]> quantity:100 offset:0.5 velocity:10
+					- if <[value].is_player> = true:
+			          - define target_lvl <placeholder[mystery_legacylevel].player[<[value]>]>
+			   	      - if <placeholder[mystery_mana].player[<player>].is_less_than[<[target_lvl].mul[2]>]> = false:       
+				        - heal <[value]> <[level].div[1.5]>
+			            - execute as_server silent "my rmmana <[value].name> <[target_lvl].mul[2]>"
+				        - playeffect effect:VILLAGER_HAPPY at:<[value].location.add[0,1,0]> quantity:100 offset:0.5 velocity:10
+			    - else:
+			      - actionbar "<&6><&l>У вас не достаточно маны на использование данного предмета."
+			- else:
+			  - actionbar "<&6><&l>Для использования данной способности нужна стихия <&9>Вода<&6><&l>."
 		on player damages entity with:item_cup_with_holy_water:
 		  - if <util.random.int[0].to[100]> <= 15:
 		    - foreach <player.location.find.living_entities.within[10].exclude[<player>]>:
