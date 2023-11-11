@@ -90,8 +90,6 @@ item_sword_adventurer_01:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
-	  poison: false
 	data:
 	    stats:
 		    display:  "Adventurer's Rusty Blade"
@@ -143,8 +141,6 @@ item_sword_adventurer_02:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
-	  poison: false
 	data:
 	    stats:
 		    display:  "Adventurer's Blade"
@@ -196,8 +192,6 @@ item_sword_adventurer_03:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
-	  poison: false
 	data:
 	    stats:
 		    display:  "Adventurer's Polished Blade"
@@ -249,8 +243,6 @@ item_sword_adventurer_04:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
-	  poison: false
 	data:
 	    stats:
 		    display:  "Adventurer's Shining Blade"
@@ -302,8 +294,6 @@ item_iron_hammer_01:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
-	  poison: false
 	data:
 	    stats:
 		    display:  "<&f><&l>Rusty Iron Hammer"
@@ -363,8 +353,6 @@ item_iron_hammer_02:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
-	  poison: false
 	data:
 	    stats:
 		    display:  "<&9><&l>Rough Iron Hammer"
@@ -424,8 +412,6 @@ item_iron_hammer_03:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
-	  poison: false
 	data:
 	    stats:
 		    display:  "<&9><&l>Iron Hammer"
@@ -485,8 +471,6 @@ item_iron_hammer_04:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
-	  poison: false
 	data:
 	    stats:
 		    display:  "<&9><&l>Polished Iron Hammer"
@@ -546,7 +530,6 @@ item_iron_axe_01:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
 	data:
 	    stats:
 		    display:  "<&f><&l>Rusty Iron Axe"
@@ -613,7 +596,6 @@ item_iron_axe_02:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
 	data:
 	    stats:
 		    display:  "Iron Axe"
@@ -680,7 +662,6 @@ item_iron_axe_03:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
 	data:
 	    stats:
 		    display:  "<&9><&l>Double-headed Iron Axe"
@@ -747,7 +728,6 @@ item_iron_axe_04:
 				  slot: hand
 	flags:
 	  modifiers: true
-	  gemstone: false
 	data:
 	    stats:
 		    display:  "<&9><&l>Double-headed Polished Iron Axe"
