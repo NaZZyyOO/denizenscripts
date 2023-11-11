@@ -32,7 +32,7 @@ item_generate:
 	    - else:
 		  - define poison ""
 		- if <[script].data_key[data.stats].contains[lore]> = true:
-	      - foreach <[script].data_key[data.stats.lore].keys> as:line:
+	      - foreach <[script].data_key[data.stats.lore].keys.exclude[item].exclude[rare].exclude[type]> as:line:
 		    - define lore_for_item <[lore_for_item].as_list.include[<[script].data_key[data.stats.lore.<[line]>].parsed>]>
 		    - define item <[item].with[lore=<[lore_for_item]>]>
 	    - if <[script].data_key[data.stats].contains[custom_model_data]> = true:
@@ -40,7 +40,10 @@ item_generate:
 		  - define item <[item].with[custom_model_data=<[custom_model_data]>]>
 	    - if <[script].data_key[data.stats].contains[display]> = true:
 		  - define display <[script].data_key[data.stats.display].parsed>
-		  - define item <[item].with[display=<[display]>]>
+		  - define rarity <[script].data_key[data.stats.rarity]>
+		  - define color <script[rarity_colors].data_key[<[rarity]>].parsed>
+		  - define item <[item].with[display=<[color]><[display]>]>
+		- define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script]>]>]>
 	    - determine <[item]>
 item_generate_event:
     type: world
