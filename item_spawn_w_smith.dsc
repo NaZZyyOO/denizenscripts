@@ -271,6 +271,11 @@ item_sword_adventurer_04:
 			      operation: ADD_NUMBER
 				  amount: -2.0
 				  slot: hand
+			  generic_movement_speed:
+			      type: vanilla
+				  operation: ADD_SCALAR
+				  among: +0.05
+				  slot: hand
 item_sword_adventurer_04_use:
     type: world
     debug: false
