@@ -39,10 +39,11 @@ item_generate:
 		  - define custom_model_data <[script].data_key[data.stats.custom_model_data]>
 		  - define item <[item].with[custom_model_data=<[custom_model_data]>]>
 	    - if <[script].data_key[data.stats].contains[display]> = true:
-		  - define display <[script].data_key[data.stats.display].parsed>
+		  - define display <[script].data_key[data.stats.display]>
 		  - define rarity <[script].data_key[data.stats.rarity]>
 		  - define color <script[rarity_colors].data_key[<[rarity]>.color]>
-		  - define item <[item].with[display=<element[<[color]>].parse_color><[display]>]>
+		  - define display_name <element[<[color]><[display]>].parsed>
+		  - define item <[item].with[display=<[display_name]>]>
 		- define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>]>]>
 	    - determine <[item]>
 item_generate_event:
