@@ -33,7 +33,8 @@ item_cup_with_holy_water_use:
 			    - playeffect effect:VILLAGER_HAPPY at:<player.location.add[0,1,0]> quantity:100 offset:0.5 velocity:10
 			  - else:
 			    - actionbar "<&6><&l>У вас не достаточно маны на использование данного предмета."
-		  - else:
+		on player right clicks block with:item_cup_with_holy_water:
+		  - if <player.is_sneaking> = true:
 		    - if <placeholder[mystery_legacy].player[<player>]> = WATER:
 			  - if <player.has_flag[cup_cd]> = false:
 		        - define level <placeholder[mystery_legacylevel].player[<player>]>
@@ -42,10 +43,9 @@ item_cup_with_holy_water_use:
 		          - heal <player> <[level]>
 			      - execute as_server silent "my rmmana <player> <[level].mul[2]>"
 			      - playeffect effect:VILLAGER_HAPPY at:<player.location.add[0,1,0]> quantity:100 offset:0.5 velocity:10
-			      - foreach <player.location.find.living_entities.within[10].exclude[<player>]>:
-			        - wait 5t
-					- if <[value].is_player> = true:
-			          - define target_lvl <placeholder[mystery_legacylevel].player[<[value]>]>
+				  - define players <list[]>
+			      - foreach <player.location.find.living_entities.within[5].exclude[<player>]>:
+			        - define players <[players].as_list.include[<[value]>]>
 		on player damages entity with:item_cup_with_holy_water:
 		  - if <util.random.int[0].to[100]> <= 15:
 		    - foreach <player.location.find.living_entities.within[10].exclude[<player>]>:
