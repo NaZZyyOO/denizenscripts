@@ -45,6 +45,7 @@ item_generate:
 		  - define display_name <element[<[color]><[display]>].parsed>
 		  - define item <[item].with[display=<[display_name]>]>
 		- define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>]>]>
+		- define item <[item].with[raw_nbt=<map[Lingo=string:en]>]>
 	    - determine <[item]>
 item_generate_event:
     type: world
