@@ -102,16 +102,16 @@ server_npcs_animation:
 		  #Кузнец на спавне.
           - if <util.random.int[0].to[100]> <= 65:
             - define smith <npc[31]>
-            - animate <[smith]> animation:ARM_SWING
+            - animate n@31 animation:ARM_SWING
             - playsound <[smith].location> sound:block_anvil_place volume:<util.random.decimal[0.2].to[0.3]> pitch:<util.random.decimal[0.1].to[0.6]>
             - playeffect effect:LAVA at:SmithSpaks quantity:60
 		  #Лесорубы в порту диких земель.
 		  - if <util.random.int[0].to[100]> <= 80:
             - define lumber <npc[45]>
-            - animate <[lumber]> animation:ARM_SWING
+            - animate n@45 animation:ARM_SWING
             - playsound <[lumber].location> sound:ITEM_AXE_STRIP volume:<util.random.decimal[1.0].to[2.5]> pitch:<util.random.decimal[0.1].to[0.6]>
           - if <util.random.int[0].to[100]> <= 80:
             - wait <util.random.decimal[0.1].to[0.5]>
             - define lumber <npc[49]>
-            - animate <[lumber]> animation:ARM_SWING
+            - animate n@49 animation:ARM_SWING
             - playsound <[lumber].location> sound:ITEM_AXE_STRIP volume:<util.random.decimal[1.0].to[2.5]> pitch:<util.random.decimal[0.1].to[0.6]>
