@@ -167,3 +167,7 @@ slots_activate:
 				    - inventory set slot:hand item:air
 			  - else:
 			    - actionbar "<&6>Редкость активатора слота и предмета не совпадают."
+			- else:
+			  - stop
+		  - else:
+		    - stop
