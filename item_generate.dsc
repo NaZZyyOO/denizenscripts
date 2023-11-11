@@ -41,7 +41,7 @@ item_generate:
 	    - if <[script].data_key[data.stats].contains[display]> = true:
 		  - define display <[script].data_key[data.stats.display].parsed>
 		  - define rarity <[script].data_key[data.stats.rarity]>
-		  - define color <script[rarity_colors].data_key[<[rarity]>]>
+		  - define color <script[rarity_colors].data_key[<[rarity]>.color]>
 		  - define item <[item].with[display=<element[<[color]>]><[display]>]>
 		- define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script]>]>]>
 	    - determine <[item]>
