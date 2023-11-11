@@ -43,7 +43,7 @@ item_generate:
 		  - define rarity <[script].data_key[data.stats.rarity]>
 		  - define color <script[rarity_colors].data_key[<[rarity]>.color]>
 		  - define item <[item].with[display=<[color]><[display]>]>
-		- define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script]>]>]>
+		- define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>]>]>
 	    - determine <[item]>
 item_generate_event:
     type: world
