@@ -17,6 +17,7 @@ item_cup_with_holy_water:
 	- "<&a>восстановит уровень здоровья игроков."
     mechanisms:
       custom_model_data: 4
+	  
 item_cup_with_holy_water_use:
     type: world
 	debug: false
@@ -55,9 +56,3 @@ item_cup_with_holy_water_use:
 			      - actionbar "<&6><&l>У вас не достаточно маны на использование данного предмета."
 			- else:
 			  - actionbar "<&6><&l>Для использования данной способности нужна стихия <&9>Вода<&6><&l>."
-		on player damages entity with:item_cup_with_holy_water:
-		  - if <util.random.int[0].to[100]> <= 15:
-		    - foreach <player.location.find.living_entities.within[10].exclude[<player>]>:
-			  - playeffect effect:SMOKE_LARGE at:<[value].location> quantity:100 offset:0.6
-			  - explode <[value].location> power:4
-			  - cast SLOW <[value]> a:2 d:10
