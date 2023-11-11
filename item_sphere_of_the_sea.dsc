@@ -17,9 +17,6 @@ item_sphere_of_the_sea:
 	- "<&a>несколько сердец,аналогично обычному использованию."
     mechanisms:
       custom_model_data: 1
-      nbt_attributes:
-      - generic.max_health/mainhand/0.0/8.0
-	  - generic.movement_speed/mainhand/1.0/-0.05
 item_sphere_of_the_sea_use:
     type: world
 	debug: false
