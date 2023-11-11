@@ -53,7 +53,7 @@ item_generate_event:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
-			- define rarity <[script].data_key[data.stats.rarity]>
+			- define rarity <[item].data_key[data.stats.rarity]>
 		    - define color <script[rarity_colors].data_key[<[rarity]>.color]>
 			- define display <context.item.display>
 		    - define display_name <[display].replace_text[<[display]>].with[<[color]><[display]>]>
