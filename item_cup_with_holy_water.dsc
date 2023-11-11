@@ -41,7 +41,7 @@ item_cup_with_holy_water_use:
 		    - if <placeholder[mystery_legacy].player[<player>]> = WATER:
 			  - if <player.has_flag[cup_cd]> = false:
 		        - define level <placeholder[mystery_legacylevel].player[<player>]>
-			    - if <placeholder[mystery_mana].player[<player>]> > <[level].mul[2]>:
+			    - if <placeholder[mystery_mana].player[<player>].is_less_than[<[level].mul[2]>]> = false:
 				  - flag <player> cup_cd expire:40s
 		          - heal <player> <[level]>
 			      - execute as_server silent "my rmmana <player> <[level].mul[2]>"
