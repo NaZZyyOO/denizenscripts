@@ -154,18 +154,19 @@ slots_activate:
     type: world
 	debug: false
 	events:
-	    on player right clicks block with:!air:
+	    on player right clicks block:
 		  - define hand_scipt <script[<player.item_in_hand.script.name>]||null>
 		  - if <[hand_scipt]> = null:
 		    - stop
 		  - if <[offhand_script]> = null:
 		    - stop
-		  - define offhand_script <script[<player.item_in_offhand.script.name>]||null>
-		  - if <[hand_scipt].data_key[data.stats].contains[upgrading]> = true:
-		    - define context_upgrading <[hand_scipt].data_key[data.stats.upgrading]>
-			- if <player.item_in_offhand.has_flag[<[context_upgrading]>]> = false:
-			  - if <[offhand_script].data_key[data.stats.rarity]> = <[hand_scipt].data_key[data.stats.rarity]>:
-				- inventory flag slot:offhand <[context_upgrading]>:false
-				- inventory set slot:hand item:air
-		    - else if <[offhand_script].data_key[data.stats.rarity]> != <[hand_scipt].data_key[data.stats.rarity]>:
-		      - actionbar "<&6><&l>Редкость активатора слота и предмета не совпадают."
+		  - if <player.item_in_hand.material.name> != air && <player.item_in_offhand.material.name> != air:
+		    - define offhand_script <script[<player.item_in_offhand.script.name>]||null>
+		    - if <[hand_scipt].data_key[data.stats].contains[upgrading]> = true:
+		      - define context_upgrading <[hand_scipt].data_key[data.stats.upgrading]>
+			  - if <player.item_in_offhand.has_flag[<[context_upgrading]>]> = false:
+			    - if <[offhand_script].data_key[data.stats.rarity]> = <[hand_scipt].data_key[data.stats.rarity]>:
+				  - inventory flag slot:offhand <[context_upgrading]>:false
+				  - inventory set slot:hand item:air
+		        - else if <[offhand_script].data_key[data.stats.rarity]> != <[hand_scipt].data_key[data.stats.rarity]>:
+		          - actionbar "<&6><&l>Редкость активатора слота и предмета не совпадают."
