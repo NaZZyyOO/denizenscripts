@@ -166,7 +166,7 @@ item_chaorit:
 			lore:
 			  item: "<&8><&l>Item: <&d>Gem"
 			  rare: "<&7><&l>Type: <&9>Rare"
-			  text: "<n><&7><&o>Semiprecious gemstone.<n><&7><&o>This gem also known as "stone of enchanters". Contains<n><&7><&o>magical potential, but not every one can reveal it.<n><n><&7>Can be inserted into sockets for gems."
+			  text: "<n><&7><&o>Semiprecious gemstone.<n><&7><&o>This gem also known as stone of enchanters. Contains<n><&7><&o>magical potential, but not every one can reveal it.<n><n><&7>Can be inserted into sockets for gems."
 
 item_brilliant:
     type: item
