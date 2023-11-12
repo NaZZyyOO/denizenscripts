@@ -1,8 +1,10 @@
-item_sphere_of_the_sea:
+item_sphere_of_sea:
     type: item
     debug: false
     material: HEART_OF_THE_SEA
     display name: "Сфера моря"
+	mechanisms:
+      unbreakable: true
 	data:
 	    stats:
 		    display:  "Сфера моря"
@@ -14,11 +16,11 @@ item_sphere_of_the_sea:
 			  text: "<n><&7><&o>Редчайший морской артефакт, обладающий<n><&7><&o>большой силой магии исцеления. Может<n><&7><&o>вылечить лёгкие раны."
 			  abilities_01: "<n><&7>Использование:<n><&a> - Восстановит несколько сердец, взависимости<n><&a> от уровня игрока поделенный на 2, поглотит<n><&a> 4 маны за каждое сердце."
 			  abilities_02: "<&7>Использовани с зажатым shift:<n><&a> - Создаст круг исцеления, который восстановит<n><&a> несколько сердец,аналогично обычному использованию."
-item_sphere_of_the_sea_use:
+item_sphere_of_sea_use:
     type: world
 	debug: false
 	events:
-	    on player right clicks block with:item_sphere_of_the_sea:
+	    on player right clicks block with:item_sphere_of_sea:
 		  - if <player.is_sneaking> = false:
 		    - if <player.has_flag[sphere_cd]> = false:
 		      - define level <placeholder[mystery_legacylevel].player[<player>]>
@@ -29,7 +31,7 @@ item_sphere_of_the_sea_use:
 			    - playeffect effect:VILLAGER_HAPPY at:<player.location.add[0,1,0]> quantity:100 offset:0.5 velocity:10
 			  - else:
 			    - actionbar "<&6><&l>У вас не достаточно маны на использование данного предмета."
-		on player right clicks block with:item_sphere_of_the_sea:
+		on player right clicks block with:item_sphere_of_sea:
 		  - if <player.is_sneaking> = true:
 		    - if <placeholder[mystery_legacy].player[<player>]> = WATER:
 			  - if <player.has_flag[sphere_cd]> = false:
