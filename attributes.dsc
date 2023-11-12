@@ -92,14 +92,6 @@ stats_calculation_event:
 		        - flag <player> stats_map:<[attributes]>
 		  - run stats_give
 		on player equips item:
-		  - define item_old <context.old_item.script.name||null>
-		  - define script <script[<[item_old]>]||null>
-		  - if <[script]> = null:
-		    - stop
-		  - else:
-		    - run stats_calculation_slot def:<[script]>|exclude save:attributes_old
-		    - define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
-			- flag <player> stats_map:<[attributes_old]>
 		  - define item_new <context.new_item.script.name||null>
 		  - define script <script[<[item_new]>]||null>
 		  - if <[script]> = null:
