@@ -83,7 +83,7 @@ stats_calculation_event:
 		  - define script <script[<[item]>]||null>
 		  - if <context.clicked_inventory> = <player.inventory>:
 		    - if <player.held_item_slot> = <context.slot>:
-			  - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].list_keys.first>.slot]> = hand:
+			  - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
 			    - if <[script]> = null:
 			      - stop
 			    - else:
@@ -91,7 +91,7 @@ stats_calculation_event:
 	              - define attributes <entry[attributes].created_queue.determination.get[1]>
 		          - flag <player> stats_map:<[attributes]>
 			- if <element[37]> = <context.slot>:
-			  - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].list_keys.first>.slot]> = offhand:
+			  - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = offhand:
 			    - if <[script]> = null:
 			      - stop
 			    - else:
@@ -138,15 +138,15 @@ stats_calculation_event:
 		  - run stats_give
 		on player swaps items:
 		  - define mainhand_slot <player.inventory.slot[<context.main>].script.name||null>
-		  - define hand_script <script[<[mainhand_slot]>]||null>
-		  - if <[hand_script]> != null:
-		    - run stats_calculation_slot def:<[hand_script]>|exclude save:attributes_old
+		  - define script <script[<[mainhand_slot]>]||null>
+		  - if <[script]> != null:
+		    - run stats_calculation_slot def:<[script]>|exclude save:attributes_old
 			- define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
 			- flag <player> stats_map:<[attributes_old]>
 		  - define offhand_slot <player.inventory.slot[<context.offhand>].script.name||null>
-		  - define offhand_script <script[<[offhand_slot]>]||null>
-		  - if <[offhand_script]> != null:
-		    - run stats_calculation_slot def:<[offhand_script]>|include save:attributes_new
+		  - define script <script[<[offhand_slot]>]||null>
+		  - if <[script]> != null:
+		    - run stats_calculation_slot def:<[script]>|include save:attributes_new
 			- define attributes_new <entry[attributes_new].created_queue.determination.get[1]>
 			- flag <player> stats_map:<[attributes_new]>
 		  - run stats_give
