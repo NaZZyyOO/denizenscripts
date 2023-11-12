@@ -2,271 +2,271 @@ item_aquamarine:
     type: item
     debug: false
     material: diamond
-    display name: "<&3><&l>Аквамарин"
+    display name: "Aquamarine"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&3><&l>Аквамарин"
+		    display:  "Aquamarine"
+			rarity: epic
 		    custom_model_data: 1
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&3>Эпический"
-			  text: "<n><&7><&o>Драгоценный камень.<n><&7><&o>По составу схож с изумрудом.<n><&7><&o> По легендам, укрепляет дух и волю владельца.<n><&7><&o>Станет желанным образцом любой коллекции."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&5>Epic"
+			  text: "<n><&7><&o>A precious gemstone.<n><&7><&o>Similar in origin to emerald.<n><&7><&o>According to legends, strengthens the spirit and will of the wearer.<n><n><&7>Can be inserted into sockets for gems."
 
 item_avanturin:
     type: item
     debug: false
     material: diamond
-    display name: "<&9><&l>Авантюрин"
+    display name: "Avanturine"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&9><&l>Авантюрин"
+		    display:  "Avanturine"
+			rarity: rare
 		    custom_model_data: 2
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&9>Редкий"
-			  text: "<n><&7><&o>Полудрагоценный камень.<n><&7><&o>Самоцвет, наделяющий уравновешенностью<n><&7><&o>и даром предвидения, а также раскрывает тайное.<n><&7><&o>Станет желанным образцом любой коллекции."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&9>Rare"
+			  text: "<n><&7><&o>Semiprecious gemstone.<n><&7><&o>It's ancient magic will give you poise,<n><&7><&o>and reveals the secrets.<n><n><&7>Can be inserted into sockets for gems."
 
 item_geliodor:
     type: item
     debug: false
     material: diamond
-    display name: "<&3><&l>Гелиодор"
+    display name: "Heliodore"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&3><&l>Гелиодор"
+		    display:  "Heliodore"
+			rarity: epic
 		    custom_model_data: 3
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&3>Эпический"
-			  text: "<n><&7><&o>Драгоценный камень.<n><&7><&o>Камень света, способен оказывать помощь<n><&7><&o>в обретении сил, и исцелять болезни.<n><&7><&o>Станет желанным образцом любой коллекции."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&5>Epic"
+			  text: "<n><&7><&o>A precious gemstone.<n><&7><&o>A stone of Light, his ancient magic will aid in<n><&7><&o>gaining strength, and healing illnesses.<n><n><&7>Can be inserted into sockets for gems."
 
 item_granat:
     type: item
     debug: false
     material: diamond
-    display name: "<&9><&l>Гранат"
+    display name: "Garnet"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&9><&l>Гранат"
+		    display:  "Garnet"
+			rarity: rare
 		    custom_model_data: 4
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&9>Редкий"
-			  text: "<n><&7><&o>Полудрагоценный камень.<n><&7><&o>Красивый и элегантный камень, зачастую<n><&7><&o>затмевает разум, не позволяя здраво оценить свои силы.<n><&7><&o>Станет желанным образцом любой коллекции."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&9>Rare"
+			  text: "<n><&7><&o>Semiprecious gemstone.<n><&7><&o>A beautiful and elegant gem, that oftem<n><&7><&o>clouds the judgement, not allowing you to assess your strengths.<n><n><&7>Can be inserted into sockets for gems."
 
 item_onyx:
     type: item
     debug: false
     material: diamond
-    display name: "<&9><&l>Оникс"
+    display name: "Onyx"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&9><&l>Оникс"
+		    display:  "Onyx"
+			rarity: rare
 		    custom_model_data: 5
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&9>Редкий"
-			  text: "<n><&7><&o>Полудрагоценный камень.<n><&7><&o>Считается, что этот камень приносит счастье<n><&7><&o>и долголетие, а также символизирует преданность.<n><&7><&o>Станет желанным образцом любой коллекции."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&9>Rare"
+			  text: "<n><&7><&o>Semiprecious gemstone.<n><&7><&o>This stone is believed to bring happiness<n><&7><&o>and longevity, and also symbolizes loyalty.<n><n><&7>Can be inserted into sockets for gems."
 
 item_rodolit:
     type: item
     debug: false
     material: diamond
-    display name: "<&9><&l>Родолит"
+    display name: "Rhodolite"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&9><&l>Родолит"
+		    display:  "Rhodolite"
+			rarity: rare
 		    custom_model_data: 6
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&9>Редкий"
-			  text: "<n><&7><&o>Полудрагоценный камень.<n><&7><&o>Минерал избавляющий от навязчивых мыслей,<n><&7><&o>и укрепляющий уверенность в себе.<n><&7><&o>Станет желанным образцом любой коллекции."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&9>Rare"
+			  text: "<n><&7><&o>Semiprecious gemstone.<n><&7><&o>A mineral that gives freedom from annoying ment,<n><&7><&o>and gives self-confidence.<n><n><&7>Can be inserted into sockets for gems."
 
 item_ruby:
     type: item
     debug: false
     material: diamond
-    display name: "<&3><&l>Рубин"
+    display name: "Ruby"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&3><&l>Рубин"
+		    display:  "Ruby"
+			rarity: epic
 		    custom_model_data: 7
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&3>Эпический"
-			  text: "<n><&7><&o>Драгоценный камень.<n><&7><&o>Алый камень, связанный с потоком крови. Он способен<n><&7><&o>как усилить кровообращение, так и останавливать кровотечение.<n><&7><&o>Станет желанным образцом любой коллекции."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&5>Epic"
+			  text: "<n><&7><&o>A precious gemstone.<n><&7><&o>Red gemstone, that related with torrent of blood.<n><&7><&o>It's ancient magic can both force your blood<n><&7><&o>circulation, and stop bleeding.<n><n><&7>Can be inserted into sockets for gems."
 
 item_sapphire:
     type: item
     debug: false
     material: diamond
-    display name: "<&4><&l>Сапфир"
+    display name: "Sapphire"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&4><&l>Сапфир"
+		    display:  Sapphire"
+			rarity: legendary
 		    custom_model_data: 8
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&4>Легендарный"
-			  text: "<n><&7><&o>Драгоценный камень.<n><&7><&o>Камень целомудрия и скромности, приносит счастье<n><&7><&o>и способен помочь обрести цель в жизни. Очень редко<n><&7><&o>может быть добыт качественной киркой из сапфировой руды."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&4>Legendary"
+			  text: "<n><&7><&o>A precious gemstone.<n><&7><&o>An ultramarine stone, that symbolizes<n><&7><&o>chasity and modesty..<n><n><&7>Can be inserted into sockets for gems."
 
 item_thopaz:
     type: item
     debug: false
     material: diamond
-    display name: "<&9><&l>Топаз"
+    display name: "Topaz"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&9><&l>Топаз"
+		    display:  "Topaz"
+			rarity: rare
 		    custom_model_data: 9
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&9>Редкий"
-			  text: "<n><&7><&o>Полудрагоценный камень.<n><&7><&o>Минерал избавляющий от навязчивых мыслей,<n><&7><&o>и укрепляющий уверенность в себе.<n><&7><&o>Станет желанным образцом любой коллекции."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&9>Rare"
+			  text: "<n><&7><&o>Semiprecious gemstone.<n><&7><&o>Inside of it's sky-blue depth you find serenity.<n><n><&7>Can be inserted into sockets for gems."
 
 item_chaorit:
     type: item
     debug: false
     material: diamond
-    display name: "<&9><&l>Чаорит"
+    display name: "Chaorite"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&9><&l>Чаорит"
+		    display:  "Chaorite"
+			rarity: rare
 		    custom_model_data: 10
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&9>Редкий"
-			  text: "<n><&7><&o>Полудрагоценный камень.<n><&7><&o>Самоцвет, также известный как камень колдунов. Имеет в себе<n><&7><&o>магический потенциал, но не каждому под силу его раскрыть.<n><&7><&o>Станет желанным образцом любой коллекции."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&9>Rare"
+			  text: "<n><&7><&o>Semiprecious gemstone.<n><&7><&o>This gem also known as "stone of enchanters". Contains<n><&7><&o>magical potential, but not every one can reveal it.<n><n><&7>Can be inserted into sockets for gems."
 
 item_brilliant:
     type: item
     debug: false
     material: diamond
-    display name: "<&4><&l>Бриллиант"
+    display name: "Brilliant"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&4><&l>Бриллиант"
+		    display:  "Brilliant"
+			rarity: legendary
 		    custom_model_data: 11
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&4>Легендарный"
-			  text: "<n><&7><&o>Драгоценный камень.<n><&7><&o>Идеальный, чистый алмаз без единого изъяна.<n><&7><&o>Такие иногда называют бриллиантами чистой воды. Очень редко<n><&7><&o>может быть добыт качественной киркой из алмазной руды."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&4>Legendary"
+			  text: "<n><&7><&o>A precious gemstone.<n><&7><&o>A perfect, pure diamond, without any flaws.<n><&7><&o>Such diamonds sometimes referred to as "diamond of pure water".<n><&7><&o>Сan very rarely be mined with a quality<n><&7><&o>pickaxe from diamond ore.<n><n><&7>Can be inserted into sockets for gems."
 
 item_demantoid:
     type: item
     debug: false
     material: diamond
-    display name: "<&4><&l>Демантоид"
+    display name: "Demantoid"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&4><&l>Демантоид"
+		    display:  "Demantoid"
+			rarity: legendary
 		    custom_model_data: 12
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&4>Легендарный"
-			  text: "<n><&7><&o>Драгоценный камень.<n><&7><&o>Невероятно редкая разновидность граната.<n><&7><&o>Очень редко может быть добыт<n><&7><&o>качественной киркой из изумрудной руды."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&4>Legendary"
+			  text: "<n><&7><&o>A precious gemstone.<n><&7><&o>An incredibly rare variety of garnet.<n><&7><&o>Сan very rarely be mined with a quality<n><&7><&o>pickaxe from emerald ore.<n><n><&7>Can be inserted into sockets for gems."
 
 item_spinel:
     type: item
     debug: false
     material: diamond
-    display name: "<&3><&l>Шпинель"
+    display name: "Spinel"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&3><&l>Шпинель"
+		    display:  "Spinel"
+			rarity: epic
 		    custom_model_data: 13
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&3>Эпический"
-			  text: "<n><&7><&o>Драгоценный камень.<n><&7><&o>Прозрачный драгоценный кристалл.<n><&7><&o>Очень редко может быть добыт<n><&7><&o>качественной киркой из железной руды."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&5>Epic"
+			  text: "<n><&7><&o>A precious gemstone.<n><&7><&o>Transparent precious crystall.<n><&7><&o>Сan very rarely be mined with a quality<n><&7><&o>pickaxe from iron ore.<n><n><&7>Can be inserted into sockets for gems."
 
 item_amber:
     type: item
     debug: false
     material: diamond
-    display name: "<&4><&l>Янтарь"
+    display name: "Amber"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&4><&l>Янтарь"
+		    display:  "Amber"
+			rarity: legendary
 		    custom_model_data: 14
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&4>Легендарный"
-			  text: "<n><&7><&o>Драгоценный камень.<n><&7><&o>Тёплый оранжевый самоцвет, символизирующий<n><&7><&o>процветание и благоденствие замка Амбер.<n><&7><&o>Очень редко может быть добыт качественной киркой из золотой руды."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&4>Legendary"
+			  text: "<n><&7><&o>A precious gemstone.<n><&7><&o>A warm orange stone, that symbolizes<n><&7><&o>wealth and prosperity of Amber Kingdom.<n><&7><&o>Сan very rarely be mined with a quality<n><&7><&o>pickaxe from golden ore in desert.<n><n><&7>Can be inserted into sockets for gems."
 
 
 item_alexandrit:
     type: item
     debug: false
     material: diamond
-    display name: "<&4><&l>Александрит"
+    display name: "Alexandrite"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&4><&l>Александрит"
+		    display:  "Alexandrite"
+			rarity: legendary
 		    custom_model_data: 15
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&4>Легендарный"
-			  text: "<n><&7><&o>Драгоценный камень.<n><&7><&o>Загадочный камень, меняющий свой цвет при дневном свете. Среди искателей<n><&7><&o>самоцветов есть поверье, что где нашёл александрит, там уже напрасно искать изумруд.<n><&7><&o>Очень редко может быть добыт качественной киркой из изумрудной руды."
-			  abilities: "<n><&7>Может быть инкрустирован в слоты для камней."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&4>Legendary"
+			  text: "<n><&7><&o>A precious gemstone.<n><&7><&o>Mysterious stone, that may change it's color on sunlight.<n><&7><&o>Among gem hunters there is a belief:<n><&7><&o>Where you find Alexander's Stone, you don't find emerald.<n><&7><&o>Сan very rarely be mined with a quality<n><&7><&o>pickaxe from emerald ore.<n><n><&7>Can be inserted into sockets for gems."
 
 item_malachite:
     type: item
     debug: false
     material: diamond
-    display name: "<&3><&l>Малахит"
+    display name: "Malachite"
     mechanisms:
       unbreakable: true
 	data:
 	    stats:
-		    display:  "<&3><&l>Малахит"
+		    display:  "Malachite"
+			rarity: rare
 		    custom_model_data: 16
 			lore:
-			  item: "<&8><&l>Предмет: <&c>Ингридиент"
-			  rare: "<&7><&l>Тип: <&4>Легендарный"
-			  text: "<n><&7><&o>Полудрагоценный камень.<n><&7><&o>Непрозрачный, узорчатый камень. Используется в создании украшений,<n><&7><&o>но при правильной обработке из него можно сделать оружие.<n><&7><&o>Очень редко может быть добыт качественной киркой из медной руды."
-			  abilities: "<n><&7>Используется как ингридиент при крафте."
+			  item: "<&8><&l>Item: <&d>Gem"
+			  rare: "<&7><&l>Type: <&9>Rare"
+			  text: "<n><&7><&o>Semiprecious mineral.<n><&7><&o>An opaque, patterned mineral.<n><&7><&o>Used in jewerly, and brewing.<n><&7><&o>Сan very rarely be mined with a quality<n><&7><&o>pickaxe from copper ore.<n><n><&7>Used for crafting."
