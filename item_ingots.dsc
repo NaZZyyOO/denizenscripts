@@ -8,7 +8,7 @@ item_steel_ingot:
 	data:
 	    stats:
 		    display:  "Steel Ingot"
-			  rarity: rare
+			rarity: rare
 		    custom_model_data: 5
 			lore:
 			  item: "<&8><&l>Item: <&c>Material"

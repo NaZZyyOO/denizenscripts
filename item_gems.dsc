@@ -183,7 +183,7 @@ item_brilliant:
 			lore:
 			  item: "<&8><&l>Item: <&d>Gem"
 			  rare: "<&7><&l>Type: <&4>Legendary"
-			  text: "<n><&7><&o>A precious gemstone.<n><&7><&o>A perfect, pure diamond, without any flaws.<n><&7><&o>Such diamonds sometimes referred to as "diamond of pure water".<n><&7><&o>Сan very rarely be mined with a quality<n><&7><&o>pickaxe from diamond ore.<n><n><&7>Can be inserted into sockets for gems."
+			  text: "<n><&7><&o>A precious gemstone.<n><&7><&o>A perfect, pure diamond, without any flaws.<n><&7><&o>Such diamonds sometimes referred to as diamond of pure water.<n><&7><&o>Сan very rarely be mined with a quality<n><&7><&o>pickaxe from diamond ore.<n><n><&7>Can be inserted into sockets for gems."
 
 item_demantoid:
     type: item
