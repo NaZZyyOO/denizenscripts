@@ -83,7 +83,7 @@ stats_calculation_event:
 		  - define script <script[<[item]>]||null>
 		  - if <context.clicked_inventory> = <player.inventory>:
 		    - if <player.held_item_slot> = <context.slot>:
-			  - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers>].list_keys.first>.slot]> = hand:
+			  - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].list_keys.first>.slot]> = hand:
 			    - if <[script]> = null:
 			      - stop
 			    - else:
