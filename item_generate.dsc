@@ -32,7 +32,7 @@ item_generate:
 	    - else:
 		  - define poison ""
 		- if <[script].data_key[data.stats].contains[lore]> = true:
-	      - foreach <[script].data_key[data.stats.lore].keys.exclude[item].exclude[rare].exclude[type]> as:line:
+	      - foreach <[script].data_key[data.stats.lore].keys> as:line:
 		    - define lore_for_item <[lore_for_item].as_list.include[<[script].data_key[data.stats.lore.<[line]>].parsed>]>
 		    - define item <[item].with[lore=<[lore_for_item]>]>
 	    - if <[script].data_key[data.stats].contains[custom_model_data]> = true:
