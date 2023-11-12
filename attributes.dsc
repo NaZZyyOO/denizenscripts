@@ -90,7 +90,7 @@ stats_calculation_event:
 		          - run stats_calculation_slot def:<[script]>|<[proc]> save:attributes
 	              - define attributes <entry[attributes].created_queue.determination.get[1]>
 		          - flag <player> stats_map:<[attributes]>
-			- if <element[37]> = <context.slot>:
+			- if <element[41]> = <context.slot>:
 			  - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = offhand:
 			    - if <[script]> = null:
 			      - stop
