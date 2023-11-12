@@ -8,13 +8,6 @@ items_upgrades_menu:
     - [empty] [empty] [empty] [empty] [] [empty] [empty] [empty] [empty]
 	- [] [empty] [empty] [empty] [empty] [empty] [empty] [empty] []
 	- [empty] [empty] [empty] [empty] [empty] [empty] [empty] [empty] [empty]
-empty:
-  type: item
-  debug: false
-  material: black_stained_glass_pane
-  display name: "<&7>Пусто"
-  flags:
-    GUI:
 item_upgrading_process:
   type: item
   debug: false

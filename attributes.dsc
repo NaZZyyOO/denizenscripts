@@ -109,16 +109,6 @@ stats_calculation_event:
 		    - define attributes_new <entry[attributes_new].created_queue.determination.get[1]>
 			- flag <player> stats_map:<[attributes_new]>
 		  - run stats_give
-		on player unequips item:
-		  - define item_old <context.old_item.script.name||null>
-		  - define script <script[<[item_old]>]||null>
-		  - if <[script]> = null:
-		    - stop
-		  - else:
-		    - run stats_calculation_slot def:<[script]>|exclude save:attributes_old
-		    - define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
-			- flag <player> stats_map:<[attributes_old]>
-		  - run stats_give
 		on player scrolls their hotbar:
 		  - define old_slot <player.inventory.slot[<context.previous_slot>].script.name||null>
 		  - define script <script[<[old_slot]>]||null>
