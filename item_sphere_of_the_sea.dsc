@@ -1,8 +1,19 @@
 item_sphere_of_the_sea:
     type: item
     debug: false
-    material: heart_of_the_sea
-    display name: "<&5><&l>Сфера моря"
+    material: HEART_OF_THE_SEA
+    display name: "Сфера моря"
+	data:
+	    stats:
+		    display:  "Сфера моря"
+			rarity: epic
+		    custom_model_data: 4
+			lore:
+			  item: "<&8><&l>Предмет: <&9>Сфера"
+			  rare: "<&7><&l>Вид: <&5>Эпический"
+			  text: "<n><&7><&o>Редчайший морской артефакт, обладающий<n><&7><&o>большой силой магии исцеления. Может<n><&7><&o>вылечить лёгкие раны."
+			  abilities_01: "<n><&7>Использование:<n><&a> - Восстановит несколько сердец, взависимости<n><&a> от уровня игрока поделенный на 2, поглотит<n><&a> 4 маны за каждое сердце."
+			  abilities_02: "<&7>Использовани с зажатым shift:<n><&a> - Создаст круг исцеления, который восстановит<n><&a> несколько сердец,аналогично обычному использованию."
 item_sphere_of_the_sea_use:
     type: world
 	debug: false
