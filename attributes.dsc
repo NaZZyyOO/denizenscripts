@@ -82,7 +82,7 @@ stats_calculation_event:
 			- define proc <element[include]>
 		  - define script <script[<[item]>]||null>
 		  - if <context.clicked_inventory> = <player.inventory>:
-		    - define slots <list[37|<player.held_item_slot>]>
+		    - define slots <list[37|38|39|40|41|<player.held_item_slot>]>
 		    - if <[slots].contains[<context.slot>]> = true:
 			  - if <[script]> = null:
 			    - stop
@@ -118,6 +118,7 @@ stats_calculation_event:
 		    - run stats_calculation_slot def:<[script]>|exclude save:attributes_old
 		    - define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
 			- flag <player> stats_map:<[attributes_old]>
+		  - run stats_give
 		on player scrolls their hotbar:
 		  - define old_slot <player.inventory.slot[<context.previous_slot>].script.name||null>
 		  - define script <script[<[old_slot]>]||null>
