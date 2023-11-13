@@ -167,3 +167,13 @@ emerald_ore:
 		item_aquamarine:
 		    crystalization: 6
 			pristine: 0.01
+deepslate_emerald_ore:
+    type: data
+	debug: false
+	gemstones:
+	    item_malachite:
+		    main_gemstone: true
+			crystalization: 5
+		item_aquamarine:
+		    crystalization: 1
+			pristine: 0.3
