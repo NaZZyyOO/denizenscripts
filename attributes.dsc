@@ -152,9 +152,9 @@ stats_calculation_event:
 		  - define script <script[<[mainhand_slot]>]||null>
 		  - if <[script]> != null:
 		    - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
-		      - define proc <element[exclude]>
+		      - define proc <element[include]>
 			  - if <[mainhand_slot]> = null:
-			    - define proc <element[include]>
+			    - define proc <element[exclude]>
 			  - run stats_calculation_slot def:<[script]>|<[proc]> save:attributes_old
 			  - define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
 			  - flag <player> stats_map:<[attributes_old]>
