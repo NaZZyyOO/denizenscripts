@@ -15,8 +15,11 @@ stats_calculation_all_slots:
 		    - foreach <[attributes].keys> as:attribute:
 		      - if <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.type]> = vanilla:
 		        - define attribute_value <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.amount]>
-			    - define stats_map_value <[stats_map].get[<[attribute]>]>
-		        - define stats_map <[stats_map].as_map.with[<[attribute]>].as[<[stats_map_value].add[<[attribute_value]>]>
+		        - if <[stats_map].as_map.contains[<[attribute]>]> = false:
+			      - define stats_map <[stats_map].as_map.include[<[attribute]>=<[attribute_value]>]>
+			    - else:
+			      - define stats_map_value <[stats_map].get[<[attribute]>]>
+		          - define stats_map <[stats_map].as_map.with[<[attribute]>].as[<[stats_map_value].add[<[attribute_value]>]>
 			  - else if <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.type]> = custom:
 			    - define attribute_value <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.amount]>
 			    - define custom_stats_map_value <player.flag[custom_stats_map].get[<[attribute]>]>
