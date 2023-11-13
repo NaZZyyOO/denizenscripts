@@ -143,10 +143,11 @@ stats_calculation_event:
 		  - define new_slot <player.inventory.slot[<context.new_slot>].script.name||null>
 		  - define script <script[<[new_slot]>]||null>
 		  - if <[script]> != null:
-		    - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
-		      - run stats_calculation_slot def:<[script]>|include save:attributes_new
-			  - define attributes_new <entry[attributes_new].created_queue.determination.get[1]>
-			  - flag <player> stats_map:<[attributes_new]>
+		    - if <[script].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
+		      - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
+		        - run stats_calculation_slot def:<[script]>|include save:attributes_new
+			    - define attributes_new <entry[attributes_new].created_queue.determination.get[1]>
+			    - flag <player> stats_map:<[attributes_new]>
 		  - run stats_give
 		on player swaps items:
 		  - define mainhand_slot <context.main.script.name||null>
@@ -155,9 +156,9 @@ stats_calculation_event:
 		  - define offhand_script <script[<[offhand_slot]>]||null>
 		  - if <[hand_script]> != null && <[offhand_script]> = null:
 		    - if <[hand_script].data_key[data.stats.attribute_modifiers.<[hand_script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
-		      - define proc <element[exclude]>
+		      - define proc <element[include]>
 			- else if <[hand_script].data_key[data.stats.attribute_modifiers.<[hand_script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = offhand:
-			  - define proc <element[include]>
+			  - define proc <element[exclude]>
 			- run stats_calculation_slot def:<[hand_script]>|exclude save:attributes_old
 			- define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
 		    - flag <player> stats_map:<[attributes_old]>
