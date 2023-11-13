@@ -94,20 +94,20 @@ stats_calculation_event:
 		  - define script <script[<[item]>]||null>
 		  - if <context.clicked_inventory> = <player.inventory>:
 		    - if <player.held_item_slot> = <context.slot>:
-			  - if <script[<[item]>].data_key[data.stats].key.contains[attribute_modifiers]> = true:
-			    - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
-			      - if <[script]> = null:
-			        - stop
-			      - else:
+			  - if <[script]> = null:
+			    - stop
+			  - else:
+			    - if <script[<[item]>].data_key[data.stats].key.contains[attribute_modifiers]> = true:
+				  - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
 		            - run stats_calculation_slot def:<[script]>|<[proc]> save:attributes
 	                - define attributes <entry[attributes].created_queue.determination.get[1]>
 		            - flag <player> stats_map:<[attributes]>
 			- if <element[41]> = <context.slot>:
-			  - if <script[<[item]>].data_key[data.stats].key.contains[attribute_modifiers]> = true:
-			    - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = offhand:
-			      - if <[script]> = null:
-			        - stop
-			      - else:
+			  - if <[script]> = null:
+			    - stop
+			  - else:
+			    - if <script[<[item]>].data_key[data.stats].key.contains[attribute_modifiers]> = true:
+				  - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = offhand:
 		            - run stats_calculation_slot def:<[script]>|<[proc]> save:attributes
 	                - define attributes <entry[attributes].created_queue.determination.get[1]>
 		            - flag <player> stats_map:<[attributes]>
