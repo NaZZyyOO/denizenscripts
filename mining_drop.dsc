@@ -7,19 +7,19 @@ gemstones_drop:
 		    - if <player.item_in_hand.enchantment_map.contains[silk_touch]> = false:
 			  - define ore <context.material>
 			  - define drop_result <map[]>
-			  - if <script[<[ore]>].keys.contains[gemstones]> = true:
+			  - if <script[<[ore]>].list_keys.contains[gemstones]> = true:
 			    - define gemstones <script[<[ore]>].data_key[gemstones]>
 			    - foreach <[gemstones].list_keys>:
 			      - define crystalization <script[<[ore]>].data_key[gemstones.<[value]>.crystalization]>
 				  - define pristine <script[<[ore]>].data_key[gemstones.<[value]>.pristine]>
-				  - if <script[<[ore]>].data_key[gemstones.<[value]>].keys.contains[main_gemstone]> = true:
+				  - if <script[<[ore]>].data_key[gemstones.<[value]>].list_keys.contains[main_gemstone]> = true:
 				    - define drop_result <[drop_result].with[<[value]>].as[<[crystalization]>]>
 				  - else:
 				    - if <player.flag[custom_stats_map].contains[pristine]> = true:
 				      - if <player.flag[custom_stats_map].get[pristine]> >= <[pristine]>:
 				        - if <util.random.int[0].to[100]> <= <[pristine].mul[100]>:
 				          - define drop_result <[drop_result].with[<[value]>].as[<[crystalization]>]>
-			  - if <script[<[ore]>].keys.contains[metals]> = true:
+			  - if <script[<[ore]>].list_keys.contains[metals]> = true:
 			    - define metals <script[<[ore]>].data_key[metals]>
 			    - foreach <[metals].list_keys>:
 			      - define chance <script[<[ore]>].data_key[metals.<[value]>.chance]>
