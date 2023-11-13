@@ -3,7 +3,7 @@ stats_calculation_all_slots:
 	debug: false
 	definitions: player
 	script:
-	    - define slots <list[HEAD|CHEST|LEGS|FEETS|HAND|OFFHAND]>
+	    - define slots <list[<player.held_item_slot>|41|37|38|39|40]>
 		- define stats_map <map[]>
 		- foreach <[slots]>:
 		  - if <[player].inventory.slot[<[value]>].material.name> = AIR:
@@ -16,8 +16,9 @@ stats_calculation_all_slots:
 		      - define attribute_value <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.amount]>
 		      - if <[stats_map].as_map.contains[<[attribute]>]> = false:
 			    - define stats_map <[stats_map].as_map.include[<[attribute]>=<[attribute_value]>]>
-			  - define stats_map_value <[stats_map].get[<[attribute]>]>
-		      - define stats_map <[stats_map].as_map.with[<[attribute]>].as[<[stats_map_value].add[<[attribute_value]>]>
+			  - else:
+			    - define stats_map_value <[stats_map].get[<[attribute]>]>
+		        - define stats_map <[stats_map].as_map.with[<[attribute]>].as[<[stats_map_value].add[<[attribute_value]>]>
 			- else if <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.type]> = custom:
 			  - define attribute_value <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.amount]>
 			  - define custom_stats_map_value <player.flag[custom_stats_map].get[<[attribute]>]>
