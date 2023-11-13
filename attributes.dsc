@@ -162,9 +162,9 @@ stats_calculation_event:
 		  - define script <script[<[offhand_slot]>]||null>
 		  - if <[script]> != null:
 		    - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = offhand:
-		      - define proc <element[include]>
+		      - define proc <element[exclude]>
 			  - if <context.main.script.name> = null:
-			    - define proc <element[exclude]>
+			    - define proc <element[include]>
 			  - run stats_calculation_slot def:<[script]>|<[proc]> save:attributes_new
 			  - define attributes_new <entry[attributes_new].created_queue.determination.get[1]>
 			  - flag <player> stats_map:<[attributes_new]>
