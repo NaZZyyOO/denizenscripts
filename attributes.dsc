@@ -151,7 +151,7 @@ stats_calculation_event:
 		  - define mainhand_slot <context.main.script.name||null>
 		  - define hand_script <script[<[mainhand_slot]>]||null>
 		  - define offhand_slot <context.offhand.script.name||null>
-		  - define script <script[<[offhand_slot]>]||null>
+		  - define offhand_script <script[<[offhand_slot]>]||null>
 		  - if <[offhand_script]> != null:
 		    - run stats_calculation_slot def:<[hand_script]>|exclude save:attributes_old
 			- define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
