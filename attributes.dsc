@@ -149,25 +149,17 @@ stats_calculation_event:
 		  - run stats_give
 		on player swaps items:
 		  - define mainhand_slot <context.main.script.name||null>
-		  - define script <script[<[mainhand_slot]>]||null>
-		  - if <[script]> != null:
-		    - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
-		      - define proc <element[exclude]>
-			  - if <context.offhand.script.name> = null:
-			    - define proc <element[include]>
-			  - run stats_calculation_slot def:<[script]>|<[proc]> save:attributes_old
-			  - define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
-			  - flag <player> stats_map:<[attributes_old]>
+		  - define hand_script <script[<[mainhand_slot]>]||null>
 		  - define offhand_slot <context.offhand.script.name||null>
 		  - define script <script[<[offhand_slot]>]||null>
-		  - if <[script]> != null:
-		    - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = offhand:
-		      - define proc <element[include]>
-			  - if <context.main.script.name> = null:
-			    - define proc <element[exclude]>
-			  - run stats_calculation_slot def:<[script]>|<[proc]> save:attributes_new
-			  - define attributes_new <entry[attributes_new].created_queue.determination.get[1]>
-			  - flag <player> stats_map:<[attributes_new]>
+		  - if <[offhand_script]> != null:
+		    - run stats_calculation_slot def:<[hand_script]>|exclude save:attributes_old
+			- define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
+			- flag <player> stats_map:<[attributes_old]>
+		  - if <[hand_script]> != null:
+		    - run stats_calculation_slot def:<[offhand_script]>|include save:attributes_new
+			- define attributes_new <entry[attributes_new].created_queue.determination.get[1]>
+			- flag <player> stats_map:<[attributes_new]>
 		  - run stats_give
 		on player breaks held item:
 		  - if <context.item> = null:
