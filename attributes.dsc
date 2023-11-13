@@ -148,12 +148,6 @@ stats_calculation_event:
 			  - flag <player> stats_map:<[attributes_new]>
 		  - run stats_give
 		on player swaps items:
-		  - define mainhand_slot <context.main.script.name||null>
-		  - define script <script[<[mainhand_slot]>]||null>
-		  - if <[script]> != null:
-		    - run stats_calculation_slot def:<[script]>|exclude save:attributes_old
-			- define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
-			- flag <player> stats_map:<[attributes_old]>
 		  - define offhand_slot <context.offhand.script.name||null>
 		  - define script <script[<[offhand_slot]>]||null>
 		  - if <[script]> != null:
