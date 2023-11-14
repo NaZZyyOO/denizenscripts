@@ -9,10 +9,10 @@ gemstones_drop:
 			  - define drop_result <map[]>
 			  - if <script[<[ore]>].list_keys.contains[gemstones]> = true:
 			    - define gemstones <script[<[ore]>].data_key[gemstones]>
-			    - foreach <[gemstones].list_keys>:
+			    - foreach <[gemstones].keys>:
 			      - define crystalization <script[<[ore]>].data_key[gemstones.<[value]>.crystalization]>
 				  - define pristine <script[<[ore]>].data_key[gemstones.<[value]>.pristine]>
-				  - if <script[<[ore]>].data_key[gemstones.<[value]>].list_keys.contains[main_gemstone]> = true:
+				  - if <script[<[ore]>].data_key[gemstones.<[value]>].keys.contains[main_gemstone]> = true:
 				    - define drop_result <[drop_result].with[<[value]>].as[<[crystalization]>]>
 				  - else:
 				    - if <player.flag[custom_stats_map].contains[pristine]> = true:
@@ -33,7 +33,7 @@ gemstones_drop:
 			      - define chance <[drop_result].get[<[value]>]>
 				  - if <util.random.int[0].to[100]> <= <[chance]>:
 				    - drop <context.location> <[value]> quantity:1
-				    - actionbar "<&7>Вы нашли драгоценный камень - [<script[<[value].script.name>].display><&7>]."
+				    - actionbar "<&7>Вы нашли драгоценный камень - [<script[<[value]>].display><&7>]."
 				    - stop
 coal_ore:
     type: data
