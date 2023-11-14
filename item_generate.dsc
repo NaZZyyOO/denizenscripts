@@ -52,7 +52,7 @@ item_upgrading_generate:
 	definitions: item
 	debug: false
 	script:
-	    - if <[item].raw_nbt.get[Lingo]> != <element[string:en]>:
+	    - if <[item].raw_nbt.contains[Lingo]> = true && <[item].raw_nbt.get[Lingo]> != <element[string:en]>:
 		  - define script <script[<[item].script.name>]>
 		  - define rarity <[script].data_key[data.stats.rarity]>
 		  - define color <script[rarity_colors].data_key[<[rarity]>.color]>
