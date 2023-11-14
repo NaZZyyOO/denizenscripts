@@ -12,7 +12,7 @@ item_generate:
 		- if <[gemstone_upgrade]> = true:
 		  - if <[item].has_flag[gemstone]> = true:
 		    - if <[item].flag[gemstone]> != false:
-			  - define gemstone "<&7>[Gemstone] - <item[<[item].flag[gemstone]>].display><&7>."
+			  - define gemstone "<&7>[Gemstone] - <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[gemstone]>].display>]><&7>."
 			- else:
 			  - define gemstone "<&7>[Empty Slot] - Gemstone."
 		  - else:
@@ -24,7 +24,7 @@ item_generate:
 		- if <[poison_upgrade]> = true:
 		  - if <[item].has_flag[poison]> = true:
 		    - if <[item].flag[poison]> != false:
-			  - define gemstone "<&7>[Poison] - <item[<[item].flag[poison]>].display><&7>."
+			  - define poison "<&7>[Poison] - <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[poison]>].display>]><&7>."
 			- else:
 			  - define poison "<&7>[Empty Slot] - Poison."
 		  - else:
@@ -39,10 +39,7 @@ item_generate:
 		  - define custom_model_data <[script].data_key[data.stats.custom_model_data]>
 		  - define item <[item].with[custom_model_data=<[custom_model_data]>]>
 	    - if <[script].data_key[data.stats].contains[display]> = true:
-		  - define display <[script].data_key[data.stats.display]>
-		  - define rarity <[script].data_key[data.stats.rarity]>
-		  - define color <script[rarity_colors].data_key[<[rarity]>.color]>
-		  - define display_name <element[<[color]><[display]>].parsed>
+		  - define display_name <[script].data_key[data.stats.display]>
 		  - define item <[item].with[display=<[display_name]>]>
 		- define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>]>]>
 		- define item <[item].with[raw_nbt=<map[Lingo=string:en]>]>
@@ -57,3 +54,40 @@ item_generate_event:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
+		    - wait 1s
+		    - if <[item].raw_nbt.get[Lingo]> != <element[string:en]>:
+		      - define script <script[<[item].script.name>]>
+		      - define rarity <[script].data_key[data.stats.rarity]>
+		      - define color <script[rarity_colors].data_key[<[rarity]>.color]>
+		      - define display_name <element[<[color]><[item].display>].parsed>
+		      - define updated_display <[item].display.replace_text[<[item].display>].with[<[display_name]>]>
+			  - define item <[item].with[display=<[updated_display]>]>
+			  - define eng_poison "<&7>[Poison] - <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[poison]>].display>]><&7>."
+			  - define eng_gemstone "<&7>[Gemstone] - <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[gemstone]>].display>]><&7>."
+			  - if <[item].raw_nbt.get[Lingo]> = <element[string:ua]>:
+				- define poison "<&8>[Пустий слот] - Отрута."
+				- define gemstone "<&8>[Пустий слот] - Інкрустація."
+				- if <[item].has_flag[poison]> = true:
+				  - define poison "<&7>[Пустой слот] - Отрута."
+				  - if <[item].flag[poison]> != false:
+				    - define poison "<&7>[Отрута] - <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[poison]>].display>]><&7>."
+				- if <[item].has_flag[gemstone]> = true:
+				  - define gemstone "<&7>[Пустий слот] - Інкрустація."
+				  - if <[item].flag[gemstone]> != false:
+				    - define poison "<&7>[Інкрустація] - <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[gemstone]>].display>]><&7>."
+			  - if <[item].raw_nbt.get[Lingo]> = <element[string:ru]>:
+				- define poison "<&8>[Пустой слот] - Яд."
+				- define gemstone "<&8>[Пустой слот] - Инкрустация."
+				- if <[item].has_flag[poison]> = true:
+				  - define poison "<&7>[Пустой слот] - Яд."
+				  - if <[item].flag[poison]> != false:
+				    - define poison "<&7>[Яд] - <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[poison]>].display>]><&7>."
+				- if <[item].has_flag[gemstone]> = true:
+				  - define gemstone "<&7>[Пустой слот] - Инкрустация."
+				  - if <[item].flag[gemstone]> != false:
+				    - define poison "<&7>[Инкрустация] - <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[gemstone]>].display>]><&7>."
+			  - define lore <[item].lore>
+			  - define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
+			  - define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
+			  - define item <[item].with[lore=<[lore]>]>
+			  - determine passively ITEM:<[item]>
