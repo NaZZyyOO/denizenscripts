@@ -59,8 +59,10 @@ item_upgrading_generate:
 		  - define display_name <element[<[color]><[item].display>].parsed>
 		  - define updated_display <[item].display.replace_text[<[item].display>].with[<[display_name]>]>
 	      - define item <[item].with[display=<[updated_display]>]>
-	      - define eng_poison "<&7>[Poison] - <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[poison]>].display>]><&7>."
-		  - define eng_gemstone "<&7>[Gemstone] - <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[gemstone]>].display>]><&7>."
+		  - if <[item].flag[poison]> != false:
+	        - define eng_poison "<&7>[Poison] - <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[poison]>].display>]><&7>."
+		  - if <[item].flag[gemstone]> != false:
+		    - define eng_gemstone "<&7>[Gemstone] - <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[gemstone]>].display>]><&7>."
 		  - if <[item].raw_nbt.get[Lingo]> = <element[string:ua]>:
 		    - define poison "<&8>[Пустий слот] - Отрута."
 			- define gemstone "<&8>[Пустий слот] - Інкрустація."
