@@ -21,7 +21,7 @@ gemstones_drop:
 				      - if <player.flag[custom_stats_map].get[pristine]> >= <[pristine]>:
 				        - if <util.random.int[0].to[100]> <= <[pristine].mul[100]>:
 				          - define drop_result <[drop_result].with[<[value]>].as[<[crystalization]>]>
-			  - if <script[<[ore]>].keys.contains[metals]> = true:
+			  - if <script[<[ore]>].list_keys.contains[metals]> = true:
 			    - define metals <script[<[ore]>].data_key[metals]>
 			    - foreach <[metals].list_keys>:
 			      - define chance <script[<[ore]>].data_key[metals.<[value]>.chance]>
