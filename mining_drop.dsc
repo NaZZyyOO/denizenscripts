@@ -7,6 +7,8 @@ gemstones_drop:
 		    - if <player.item_in_hand.enchantment_map.contains[silk_touch]> = false:
 			  - define ore <context.material.name>
 			  - define drop_result <map[]>
+			  - if <script[<[ore]>]> = null:
+			    - stop
 			  - if <script[<[ore]>].list_keys.contains[gemstones]> = true:
 			    - define gemstones <script[<[ore]>].data_key[gemstones]>
 			    - foreach <[gemstones].keys>:
