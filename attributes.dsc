@@ -9,10 +9,12 @@ stats_calculation_all_slots:
 		- foreach <[slots]>:
 		  - if <[player].inventory.slot[<[value]>].material.name> = AIR:
   		    - foreach next
-		  - if <[player].inventory.slot[<[value]>].script.name> = null:
-		    - foreach next
 		  - define item <[player].inventory.slot[<[value]>]>
+		  - if <[item].script.name> = null:
+		    - foreach next
 		  - define script <script[<[item].script.name>]>
+		  - if <[script]> = null:
+		    - foreach next
 		  - if <[value]> = <[player].held_item_slot>:
 		    - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>]>.slot> != hand:
 			  - foreach next
