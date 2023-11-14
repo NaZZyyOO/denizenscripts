@@ -11,11 +11,11 @@ gemstones_drop:
 			    - define gemstones <script[<[ore]>].data_key[gemstones]>
 			    - foreach <[gemstones].keys>:
 			      - define crystalization <script[<[ore]>].data_key[gemstones.<[value]>.crystalization]>
-				  - define pristine <script[<[ore]>].data_key[gemstones.<[value]>.pristine]>
 				  - if <script[<[ore]>].data_key[gemstones.<[value]>].keys.contains[main_gemstone]> = true:
 				    - define drop_result <[drop_result].with[<[value]>].as[<[crystalization]>]>
 				  - else:
 				    - if <player.flag[custom_stats_map].contains[pristine]> = true:
+					  - define pristine <script[<[ore]>].data_key[gemstones.<[value]>.pristine]>
 				      - if <player.flag[custom_stats_map].get[pristine]> >= <[pristine]>:
 				        - if <util.random.int[0].to[100]> <= <[pristine].mul[100]>:
 				          - define drop_result <[drop_result].with[<[value]>].as[<[crystalization]>]>
@@ -29,7 +29,7 @@ gemstones_drop:
 					- define chance <[chance].mul[<[metalurgist_coef]>]>
 				  - define drop_result <[drop_result].with[<[value]>].as[<[chance]>]>
 			  - if <[drop_result].size> > 0:
-			    - foreach <[drop_result].list_keys>:
+			    - foreach <[drop_result].keys>:
 			      - define chance <[drop_result].get[<[value]>]>
 				  - if <util.random.int[0].to[100]> <= <[chance]>:
 				    - drop <context.location> <[value]> quantity:1
