@@ -119,6 +119,8 @@ stats_calculation_event:
 	                - define attributes <entry[attributes].created_queue.determination.get[1]>
 		            - flag <player> stats_map:<[attributes]>
 		            - flag <player> stats_map:<[attributes]>
+			- if <context.click> = SWAP_OFFHAND:
+			  
 		  - run stats_give
 		on player equips item:
 		  - define item_new <context.new_item.script.name||null>
@@ -163,6 +165,7 @@ stats_calculation_event:
 		  - define hand_script <script[<[mainhand_slot]>]||null>
 		  - define offhand_slot <context.offhand.script.name||null>
 		  - define offhand_script <script[<[offhand_slot]>]||null>
+		  # головна рука
 		  - if <[hand_script]> != null && <[offhand_script]> = null:
 		    - if <[hand_script].data_key[data.stats.attribute_modifiers.<[hand_script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
 		      - define proc <element[include]>
@@ -171,8 +174,25 @@ stats_calculation_event:
 			- run stats_calculation_slot def:<[hand_script]>|<[proc]> save:attributes_old
 			- define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
 		    - flag <player> stats_map:<[attributes_old]>
+		  # ліва рука
 		  - if <[offhand_script]> != null && <[hand_script]> = null:
 		    - if <[offhand_script].data_key[data.stats.attribute_modifiers.<[offhand_script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = offhand:
+		      - define proc <element[include]>
+			- else if <[offhand_script].data_key[data.stats.attribute_modifiers.<[offhand_script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
+			  - define proc <element[exclude]>
+			- run stats_calculation_slot def:<[offhand_script]>|<[proc]> save:attributes_new
+			- define attributes_new <entry[attributes_new].created_queue.determination.get[1]>
+			- flag <player> stats_map:<[attributes_new]>
+		  # дві руки
+		  - if <[offhand_script]> != null && <[hand_script]> != null:
+		    - if <[hand_script].data_key[data.stats.attribute_modifiers.<[hand_script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
+		      - define proc <element[include]>
+			- else if <[hand_script].data_key[data.stats.attribute_modifiers.<[hand_script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = offhand:
+			  - define proc <element[exclude]>
+			- run stats_calculation_slot def:<[hand_script]>|<[proc]> save:attributes_old
+			- define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
+		    - flag <player> stats_map:<[attributes_old]>
+			- if <[offhand_script].data_key[data.stats.attribute_modifiers.<[offhand_script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = offhand:
 		      - define proc <element[include]>
 			- else if <[offhand_script].data_key[data.stats.attribute_modifiers.<[offhand_script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
 			  - define proc <element[exclude]>
