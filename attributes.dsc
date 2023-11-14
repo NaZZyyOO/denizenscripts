@@ -119,8 +119,8 @@ stats_calculation_event:
 	                - define attributes <entry[attributes].created_queue.determination.get[1]>
 		            - flag <player> stats_map:<[attributes]>
 		            - flag <player> stats_map:<[attributes]>
-			- if <context.click> = SWAP_OFFHAND:
-			  - determine passively cancelled
+		  - if <context.click> = SWAP_OFFHAND:
+		    - determine passively cancelled
 		  - run stats_give
 		on player equips item:
 		  - define item_new <context.new_item.script.name||null>
