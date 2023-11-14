@@ -23,7 +23,7 @@ gemstones_drop:
 				          - define drop_result <[drop_result].with[<[value]>].as[<[crystalization]>]>
 			  - if <script[<[ore]>].list_keys.contains[metals]> = true:
 			    - define metals <script[<[ore]>].data_key[metals]>
-			    - foreach <[metals].list_keys>:
+			    - foreach <[metals].keys>:
 			      - define chance <script[<[ore]>].data_key[metals.<[value]>.chance]>
 				  - if <player.flag[custom_stats_map].contains[metalurgist]> = true:
 				    - define metalurgist <player.flag[custom_stats_map].get[metalurgist]>
