@@ -10,6 +10,7 @@ stats_calculation_all_slots:
 		  - if <[player].inventory.slot[<[value]>].material.name> = AIR:
   		    - foreach next
 		  - define item <[player].inventory.slot[<[value]>]>
+		  - define script <script[<[item].script.name>]>
 		  - if <[item].script.name> = null:
 		    - foreach next
 		  - if <[value]> = <[player].held_item_slot>:
