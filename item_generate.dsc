@@ -96,7 +96,7 @@ item_generate_event:
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
 		after player picks up item:
-		  - define <context.item.script.name||null>
+		  - define item <context.item.script.name||null>
 		  - if <[item]> != null:
 		    - run item_upgrading_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
