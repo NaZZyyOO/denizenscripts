@@ -148,23 +148,20 @@ slots_activate:
 	debug: false
 	events:
 	    on player right clicks block:
-		  - if <player.item_in_hand.script.name||null> != null:
-		    - define hand_scipt <script[<player.item_in_hand.script.name>]||null>
-		    - if <[hand_scipt]> = null:
-		      - stop
-		    - if <player.item_in_hand.material.name> != air && <player.item_in_offhand.material.name> != air:
-		      - define offhand_script <script[<player.item_in_offhand.script.name>]||null>
-			  - if <[offhand_script]> = null:
-		        - stop
-		      - if <[hand_scipt].data_key[data.stats].contains[upgrading]> = true:
-		        - define context_upgrading <[hand_scipt].data_key[data.stats.upgrading]>
-			    - if <player.item_in_offhand.has_flag[<[context_upgrading]>]> = false:
-			      - if <[offhand_script].data_key[data.stats.rarity]> = <[hand_scipt].data_key[data.stats.rarity]>:
-				    - inventory flag slot:offhand <[context_upgrading]>:false
-				    - inventory set slot:hand item:air
-		          - else if <[offhand_script].data_key[data.stats.rarity]> != <[hand_scipt].data_key[data.stats.rarity]>:
-		            - actionbar "<&6><&l>Редкость активатора слота и предмета не совпадают."
-			  - else:
-			    - stop
-		  - else:
+		  - if <context.item.script.name> = null:
 		    - stop
+		  - define hand_script <script[<context.item.script.name>]||null>
+		  - if <[hand_script]> = null:
+		    - stop
+		  - if <player.item_in_hand.material.name> != air && <player.item_in_offhand.material.name> != air:
+		    - define offhand_script <script[<player.item_in_offhand.script.name>]||null>
+		    - if <[offhand_script]> = null:
+		      - stop
+		    - if <[hand_script].data_key[data.stats].contains[upgrading]> = true:
+		      - define context_upgrading <[hand_script].data_key[data.stats.upgrading]>
+			  - if <player.item_in_offhand.has_flag[<[context_upgrading]>]> = false:
+			    - if <[offhand_script].data_key[data.stats.rarity]> = <[hand_script].data_key[data.stats.rarity]>:
+				  - inventory flag slot:offhand <[context_upgrading]>:false
+				  - inventory set slot:hand item:air
+		        - else if <[offhand_script].data_key[data.stats.rarity]> != <[hand_script].data_key[data.stats.rarity]>:
+		          - actionbar "<&6><&l>Редкость активатора слота и предмета не совпадают."
