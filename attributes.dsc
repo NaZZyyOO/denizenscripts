@@ -104,7 +104,7 @@ stats_calculation_event:
 			  - if <[script]> = null:
 			    - stop
 			  - else:
-			    - if <script[<[item]>].data_key[data.stats].key.contains[attribute_modifiers]> = true:
+			    - if <script[<[item]>].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
 				  - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
 		            - run stats_calculation_slot def:<[script]>|<[proc]> save:attributes
 	                - define attributes <entry[attributes].created_queue.determination.get[1]>
@@ -113,7 +113,7 @@ stats_calculation_event:
 			  - if <[script]> = null:
 			    - stop
 			  - else:
-			    - if <script[<[item]>].data_key[data.stats].key.contains[attribute_modifiers]> = true:
+			    - if <script[<[item]>].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
 				  - if <script[<[item]>].data_key[data.stats.attribute_modifiers.<script[<[item]>].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = offhand:
 		            - run stats_calculation_slot def:<[script]>|<[proc]> save:attributes
 	                - define attributes <entry[attributes].created_queue.determination.get[1]>
