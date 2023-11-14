@@ -148,15 +148,14 @@ slots_activate:
 	debug: false
 	events:
 	    on player right clicks block:
-		  - if <context.item.script.name> = null:
-		    - stop
-		  - define hand_script <script[<context.item.script.name>]||null>
+		  - define hand_script <player.item_in_hand.script.name||null>
 		  - if <[hand_script]> = null:
 		    - stop
 		  - if <player.item_in_hand.material.name> != air && <player.item_in_offhand.material.name> != air:
 		    - define offhand_script <script[<player.item_in_offhand.script.name>]||null>
 		    - if <[offhand_script]> = null:
 		      - stop
+			- define hand_script <script[<[hand_script]>]>
 		    - if <[hand_script].data_key[data.stats].contains[upgrading]> = true:
 		      - define context_upgrading <[hand_script].data_key[data.stats.upgrading]>
 			  - if <player.item_in_offhand.has_flag[<[context_upgrading]>]> = false:
