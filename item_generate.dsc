@@ -98,6 +98,7 @@ item_generate_event:
 		after player picks up item:
 		  - define item <context.item.script.name||null>
 		  - if <[item]> != null:
-		    - run item_upgrading_generate def:<context.item> save:item
-			- define item <entry[item].created_queue.determination.get[1]>
-			- determine passively ITEM:<[item]>
+		    - if <[item].raw_nbt.get[Lingo]> != <element[string:en]>:
+		      - run item_upgrading_generate def:<context.item> save:item
+			  - define item <entry[item].created_queue.determination.get[1]>
+			  - determine passively ITEM:<[item]>
