@@ -33,7 +33,7 @@ gemstones_drop:
 			      - define chance <[drop_result].get[<[value]>]>
 				  - if <util.random.int[0].to[100]> <= <[chance]>:
 				    - drop <context.location> <[value]> quantity:1
-				    - actionbar "<&7>Вы нашли драгоценный камень - [<script[<[value]>].display><&7>]."
+				    - actionbar "<&7>Вы выбили необычное ископаемое..."
 				    - stop
 coal_ore:
     type: data
