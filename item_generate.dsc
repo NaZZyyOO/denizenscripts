@@ -102,3 +102,13 @@ item_generate_event:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
+		on player right clicks block:
+		  - if <player.item_in_hand> = null:
+		    - stop
+		  - else:
+		    - if <script[<player.item_in_hand.script.name>]> = null:
+			  - stop
+			- else:
+			  - run item_generate def:<player.item_in_hand> save:item
+			  - define item <entry[item].created_queue.determination.get[1]>
+			  - inventory set slot:hand item:<[item]>
