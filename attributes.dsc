@@ -28,11 +28,11 @@ stats_calculation_all_slots:
 		        - define stats_map <[stats_map].with[<[attribute]>].as[<[stats_map_value].add[<[attribute_value]>]>
 			  - else if <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.type]> = custom:
 			    - define attribute_value <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.amount]>
-			    - define custom_stats_map_value <player.flag[custom_stats_map].get[<[attribute]>]>
-			    - if <player.flag[custom_stats_map].contains[<[attribute]>]> = false:
-			      - flag <player> custom_stats_map:<player.flag[custom_stats_map].as_map.with[<[attribute]>].as[<[custom_stats_map_value].add[<[attribute_value]>]>
-		- foreach <player.flag[stats_map].keys> as:attribute:
-		  - define attribute_flag_value <player.flag[stats_map].get[<[attribute]>]>
+			    - define custom_stats_map_value <[player].flag[custom_stats_map].get[<[attribute]>]>
+			    - if <[player].flag[custom_stats_map].contains[<[attribute]>]> = false:
+			      - flag <[player]> custom_stats_map:<[player].flag[custom_stats_map].as_map.with[<[attribute]>].as[<[custom_stats_map_value].add[<[attribute_value]>]>
+		- foreach <[player].flag[stats_map].keys> as:attribute:
+		  - define attribute_flag_value <[player].flag[stats_map].get[<[attribute]>]>
 		  - if <[stats_map].contains[<[attribute]>]> = true:
 		    - define stats_map_value <[stats_map].get[<[attribute]>]>
 		  - else:
