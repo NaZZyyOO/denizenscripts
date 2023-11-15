@@ -7,7 +7,7 @@ mining_drop:
 		    - if <player.item_in_hand.enchantment_map.contains[silk_touch]> = false && <script[<context.material.name>]> != null:
 			  - define ore <context.material.name>
 			  - define drop_result <map[]>
-			  - if <script[<[ore]>]> != null && <[ore].contains_text[ore]> = true:
+			  - if <[ore].contains_text[ore]> = true:
 			    - if <script[<[ore]>].list_keys.contains[gemstones]> = true:
 			      - define gemstones <script[<[ore]>].data_key[gemstones]>
 			      - foreach <[gemstones].keys>:
