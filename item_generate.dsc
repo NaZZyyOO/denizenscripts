@@ -42,7 +42,7 @@ item_generate:
 		  - define display <[script].data_key[data.stats.display]>
 		  - define rarity <[script].data_key[data.stats.rarity]>
 		  - define color <script[rarity_colors].data_key[<[rarity]>.color]>
-		  - define display_name <element[<[color]><[script].display>].parsed>
+		  - define display_name <element[<[color]><[display]>].parsed>
 		  - define item <[item].with[display=<[display_name]>]>
 		- define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>]>]>
 		- define item <[item].with[raw_nbt=<map[Lingo=string:en]>]>
