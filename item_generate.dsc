@@ -59,32 +59,36 @@ item_upgrading_generate:
 		  - define display_name <element[<[color]><[item].display>].parsed>
 		  - define updated_display <[item].display.replace_text[<[item].display>].with[<[display_name]>]>
 	      - define item <[item].with[display=<[updated_display]>]>
+		  - define eng_poison "<&8>[Empty Slot] - Poison."
+		  - define eng_gemstone "<&8>[Empty Slot] - Gemstone."
 		  - if <[item].flag[poison]> != false:
-	        - define eng_poison "<&7>[Poison] - <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[poison]>].display>]><&7>."
+		    - define poison_color <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]>
+	        - define eng_poison "<&7>[Poison] - <[poison_color]><item[<[item].flag[poison]>].display>]><&7>."
 		  - if <[item].flag[gemstone]> != false:
-		    - define eng_gemstone "<&7>[Gemstone] - <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[gemstone]>].display>]><&7>."
+		    - define gemstone_color <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]>
+		    - define eng_gemstone "<&7>[Gemstone] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>]><&7>."
 		  - if <[item].raw_nbt.get[Lingo]> = <element[string:ua]>:
 		    - define poison "<&8>[Пустий слот] - Отрута."
 			- define gemstone "<&8>[Пустий слот] - Інкрустація."
 			- if <[item].has_flag[poison]> = true:
 			  - define poison "<&7>[Пустой слот] - Отрута."
 			  - if <[item].flag[poison]> != false:
-				- define poison "<&7>[Отрута] - <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[poison]>].display>].parsed><&7>."
+				- define poison "<&7>[Отрута] - <[poison_color]><item[<[item].flag[poison]>].display>].parsed><&7>."
 			  - if <[item].has_flag[gemstone]> = true:
 				- define gemstone "<&7>[Пустий слот] - Інкрустація."
 				- if <[item].flag[gemstone]> != false:
-				  - define poison "<&7>[Інкрустація] - <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
+				  - define poison "<&7>[Інкрустація] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
 		  - if <[item].raw_nbt.get[Lingo]> = <element[string:ru]>:
 			- define poison "<&8>[Пустой слот] - Яд."
 		    - define gemstone "<&8>[Пустой слот] - Инкрустация."
 			- if <[item].has_flag[poison]> = true:
 			  - define poison "<&7>[Пустой слот] - Яд."
 			  - if <[item].flag[poison]> != false:
-				- define poison "<&7>[Яд] - <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[poison]>].display>].parsed><&7>."
+				- define poison "<&7>[Яд] - <[poison_color]><item[<[item].flag[poison]>].display>].parsed><&7>."
 			  - if <[item].has_flag[gemstone]> = true:
 				- define gemstone "<&7>[Пустой слот] - Инкрустация."
 				- if <[item].flag[gemstone]> != false:
-				  - define poison "<&7>[Инкрустация] - <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
+				  - define poison "<&7>[Инкрустация] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
 		  - define lore <[item].lore>
 		  - if <[item].flag[poison]> != false:
 			- define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
@@ -103,12 +107,61 @@ item_generate_event:
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
 		on player right clicks block:
-		  - if <player.item_in_hand> = null:
-		    - stop
-		  - else:
-		    - if <script[<player.item_in_hand.script.name>]> = null:
-			  - stop
-			- else:
-			  - run item_generate def:<player.item_in_hand> save:item
-			  - define item <entry[item].created_queue.determination.get[1]>
-			  - inventory set slot:hand item:<[item]>
+		  - if <script[<player.item_in_hand.script.name>]> != null:
+			- run item_generate def:<player.item_in_hand> save:item
+			- define item <entry[item].created_queue.determination.get[1]>
+			- inventory set slot:hand item:<[item]>
+ua_displays:
+    type: data
+	debug: false
+	item_ruby:
+	    display: Рубін
+	item_saphire:
+	    display: Сапфір
+    item_thopaz:
+	    display: Топаз
+	item_chaorit:
+	    display: Чаорит
+	item_onix:
+	    display: Онікс
+	item_avanturin:
+	    display: Авантюрин
+    item_geliodor:
+	    display: Геліодор
+	item_granat:
+	    display: Гранат
+	item_brilliant:
+	    display: Діамант
+	item_demantoid:
+	    display: Демантоїд
+	item_spinel:
+	    display: Шпінель
+	item_alexandrite:
+	    display: Олександрит
+ru_displays:
+    type: data
+	debug: false
+	item_ruby:
+	    display: Рубин
+	item_saphire:
+	    display: Сапфир
+    item_thopaz:
+	    display: Топаз
+	item_chaorit:
+	    display: Чаорит
+	item_onix:
+	    display: Оникс
+	item_avanturin:
+	    display: Авантюрин
+    item_geliodor:
+	    display: Гелиодор
+	item_granat:
+	    display: Гранат
+	item_brilliant:
+	    display: Бриллиант
+	item_demantoid:
+	    display: Демантоид
+	item_spinel:
+	    display: Шпинель
+	item_alexandrite:
+	    display: Александрит
