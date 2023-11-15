@@ -7,29 +7,28 @@ mining_drop:
 		    - if <player.item_in_hand.enchantment_map.contains[silk_touch]> = false && <script[<context.material.name>]> != null:
 			  - define ore <context.material.name>
 			  - define drop_result <map[]>
-			  - if <script[<[ore]>]> = null:
-			    - stop
-			  - if <script[<[ore]>].list_keys.contains[gemstones]> = true:
-			    - define gemstones <script[<[ore]>].data_key[gemstones]>
-			    - foreach <[gemstones].keys>:
-			      - define crystalization <script[<[ore]>].data_key[gemstones.<[value]>.crystalization]>
-				  - if <script[<[ore]>].data_key[gemstones.<[value]>].keys.contains[main_gemstone]> = true:
-				    - define drop_result <[drop_result].with[<[value]>].as[<[crystalization]>]>
-				  - else:
-				    - if <player.flag[custom_stats_map].contains[pristine]> = true:
-					  - define pristine <script[<[ore]>].data_key[gemstones.<[value]>.pristine]>
-				      - if <player.flag[custom_stats_map].get[pristine]> >= <[pristine]>:
-				        - if <util.random.int[0].to[100]> <= <[pristine].mul[100]>:
-				          - define drop_result <[drop_result].with[<[value]>].as[<[crystalization]>]>
-			  - if <script[<[ore]>].list_keys.contains[metals]> = true:
-			    - define metals <script[<[ore]>].data_key[metals]>
-			    - foreach <[metals].keys>:
-			      - define chance <script[<[ore]>].data_key[metals.<[value]>.chance]>
-				  - if <player.flag[custom_stats_map].contains[metalurgist]> = true:
-				    - define metalurgist <player.flag[custom_stats_map].get[metalurgist]>
-					- define metalurgist_coef <[metalurgist].add[1]>
-					- define chance <[chance].mul[<[metalurgist_coef]>]>
-				  - define drop_result <[drop_result].with[<[value]>].as[<[chance]>]>
+			  - if <script[<[ore]>]> != null:
+			    - if <script[<[ore]>].list_keys.contains[gemstones]> = true:
+			      - define gemstones <script[<[ore]>].data_key[gemstones]>
+			      - foreach <[gemstones].keys>:
+			        - define crystalization <script[<[ore]>].data_key[gemstones.<[value]>.crystalization]>
+				    - if <script[<[ore]>].data_key[gemstones.<[value]>].keys.contains[main_gemstone]> = true:
+				      - define drop_result <[drop_result].with[<[value]>].as[<[crystalization]>]>
+				    - else:
+				      - if <player.flag[custom_stats_map].contains[pristine]> = true:
+					    - define pristine <script[<[ore]>].data_key[gemstones.<[value]>.pristine]>
+				        - if <player.flag[custom_stats_map].get[pristine]> >= <[pristine]>:
+				          - if <util.random.int[0].to[100]> <= <[pristine].mul[100]>:
+				            - define drop_result <[drop_result].with[<[value]>].as[<[crystalization]>]>
+			    - if <script[<[ore]>].list_keys.contains[metals]> = true:
+			      - define metals <script[<[ore]>].data_key[metals]>
+			      - foreach <[metals].keys>:
+			        - define chance <script[<[ore]>].data_key[metals.<[value]>.chance]>
+				    - if <player.flag[custom_stats_map].contains[metalurgist]> = true:
+				      - define metalurgist <player.flag[custom_stats_map].get[metalurgist]>
+					  - define metalurgist_coef <[metalurgist].add[1]>
+					  - define chance <[chance].mul[<[metalurgist_coef]>]>
+				    - define drop_result <[drop_result].with[<[value]>].as[<[chance]>]>
 			  - if <[drop_result].size> > 0:
 			    - foreach <[drop_result].keys>:
 			      - define chance <[drop_result].get[<[value]>]>
