@@ -21,7 +21,7 @@ stats_calculation_all_slots:
 		    - foreach <[attributes].keys> as:attribute:
 		      - if <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.type]> = vanilla:
 		        - define attribute_value <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.amount]>
-		        - if <[stats_map].as_map.contains[<[attribute]>]> = false:
+		        - if <[stats_map].contains[<[attribute]>]> = false:
 			      - define stats_map <[stats_map].as_map.include[<[attribute]>=<[attribute_value]>]>
 			    - else:
 			      - define stats_map_value <[stats_map].get[<[attribute]>]>
