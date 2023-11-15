@@ -11,27 +11,25 @@ stats_calculation_all_slots:
   		    - foreach next
 		  - define item <[player].inventory.slot[<[value]>]>
 		  - define script <script[<[item].script.name>]>
-		  - if <[script]> = null:
-		    - foreach next
 		  - if <[script].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
+		    - if <[script]> = null:
+		      - foreach next
 		    - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>]>.slot> != hand:
 			  - if <[player].held_item_slot> = <[value]>:
 			    - foreach next
-		  - if <[script].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
 		    - define attributes <[script].data_key[data.stats.attribute_modifiers]>
 		    - foreach <[attributes].keys> as:attribute:
 		      - if <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.type]> = vanilla:
 		        - define attribute_value <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.amount]>
-		        - define stats_map_value <element[0]>
-				- if <[stats_map].contains[<[attribute]>]> = true:
-			      - define stats_map_value <[stats_map].get[<[attribute]>]>
-		        - define stats_map <[stats_map].with[<[attribute]>].as[<[stats_map_value].add[<[attribute_value]>]>
+		      - if <[stats_map].as_map.contains[<[attribute]>]> = false:
+			    - define stats_map <[stats_map].as_map.include[<[attribute]>=<[attribute_value]>]>
+			  - define stats_map_value <[stats_map].get[<[attribute]>]>
+		      - define stats_map <[stats_map].as_map.with[<[attribute]>].as[<[stats_map_value].add[<[attribute_value]>]>
 			  - else if <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.type]> = custom:
 			    - define attribute_value <[script].data_key[data.stats.attribute_modifiers.<[attribute]>.amount]>
 			    - define custom_stats_map_value <[player].flag[custom_stats_map].get[<[attribute]>]>
 			    - if <[player].flag[custom_stats_map].contains[<[attribute]>]> = false:
 			      - flag <[player]> custom_stats_map:<[player].flag[custom_stats_map].as_map.with[<[attribute]>].as[<[custom_stats_map_value].add[<[attribute_value]>]>
-		- narrate <[stats_map]>
 		- foreach <[player].flag[stats_map].keys> as:attribute:
 		  - define attribute_flag_value <[player].flag[stats_map].get[<[attribute]>]>
 		  - if <[stats_map].contains[<[attribute]>]> = true:
