@@ -6,7 +6,7 @@ stats_calculation_all_slots:
 	    - define slots <list[<[player].held_item_slot>|41|37|38|39|40]>
 		- define stats_map <map[]>
 		- define stats_map_context <map[]>
-		- foreach <[slots].keys>:
+		- foreach <[slots]>:
 		  - if <[player].inventory.slot[<[value]>].material.name> = AIR:
   		    - foreach next
 		  - define item <[player].inventory.slot[<[value]>]>
