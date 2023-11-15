@@ -98,7 +98,7 @@ server_npcs_animation:
     type: world
 	debug: false
 	events:
-	    on delta time secondly every:3:
+	    on tick every:60:
 		  #Кузнец на спавне.
           - if <util.random.int[0].to[100]> <= 65:
             - define smith <npc[31]>
