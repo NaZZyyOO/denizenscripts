@@ -40,7 +40,10 @@ stats_calculation_slot:
 	    - define script <[script]||null>
 		- if <[script]> = null:
 		  - stop
-	    - define attributes <[script].data_key[data.stats.attribute_modifiers]>
+		- if <[script].data_key[data.stats].contains[attribute_modifiers]> = true:
+	      - define attributes <[script].data_key[data.stats.attribute_modifiers]>
+		- else:
+		  - stop
 		- define stats_map <map[]>
 		- define custom_stats_map <map[]>
 		- foreach <[attributes].keys> as:attribute:
