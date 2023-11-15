@@ -85,10 +85,12 @@ item_upgrading_generate:
 				- define gemstone "<&7>[Пустой слот] - Инкрустация."
 				- if <[item].flag[gemstone]> != false:
 				  - define poison "<&7>[Инкрустация] - <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
-			- define lore <[item].lore>
+		  - define lore <[item].lore>
+		  - if <[item].flag[poison]> != false:
 			- define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
+		  - if <[item].flag[gemstone]> != false:
 			- define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
-			- define item <[item].with[lore=<[lore]>]>
+		  - define item <[item].with[lore=<[lore]>]>
 	    - determine <[item]>
 item_generate_event:
     type: world
