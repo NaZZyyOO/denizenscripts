@@ -103,6 +103,7 @@ item_upgrading_generate:
 				  - define poison "<&7>[Инкрустация] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
 			- define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
 		  - define item <[item].with[lore=<[lore]>]>
+		- narrate <[lore]>
 	    - determine <[item]>
 item_generate_event:
     type: world
