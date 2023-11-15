@@ -103,7 +103,6 @@ item_generate_event:
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
 		on player picks up item:
-		  - wait 1s
 		  - define item <context.item.script.name||null>
 		  - if <[item]> != null:
 		    - if <context.item.raw_nbt.get[Lingo]> != <element[string:en]>:
