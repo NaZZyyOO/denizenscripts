@@ -61,12 +61,18 @@ item_upgrading_generate:
 	      - define item <[item].with[display=<[updated_display]>]>
 		  - define eng_poison "<&8>[Empty Slot] - Poison."
 		  - define eng_gemstone "<&8>[Empty Slot] - Gemstone."
-		  - if <[item].flag[poison]> != false:
-		    - define poison_color <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]>
-	        - define eng_poison "<&7>[Poison] - <[poison_color]><item[<[item].flag[poison]>].display>]><&7>."
-		  - if <[item].flag[gemstone]> != false:
-		    - define gemstone_color <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]>
-		    - define eng_gemstone "<&7>[Gemstone] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>]><&7>."
+		  - if <[item].has_flag[poison]> = true:
+		    - if <[item].flag[poison]> = false:
+		      - define eng_poison "<&7>[Empty Slot] - Poison."
+			- if <[item].flag[poison]> != false:
+		      - define poison_color <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]>
+	          - define eng_poison "<&7>[Poison] - <[poison_color]><item[<[item].flag[poison]>].display>]><&7>."
+		  - if <[item].has_flag[gemstone]> = true:
+		    - if <[item].flag[gemstone]> = false:
+		      - define eng_gemstone "<&7>[Empty Slot] - Gemstone."
+		    - if <[item].flag[gemstone]> != false:
+		      - define gemstone_color <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]>
+		      - define eng_gemstone "<&7>[Gemstone] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>]><&7>."
 		  - if <[item].raw_nbt.get[Lingo]> = <element[string:ua]>:
 		    - define poison "<&8>[Пустий слот] - Отрута."
 			- define gemstone "<&8>[Пустий слот] - Інкрустація."
@@ -113,8 +119,6 @@ item_generate_event:
 		    - run item_upgrading_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- inventory set slot:hand <[item]>
-			- narrate <context.item.flag[poison]>
-			- narrate <context.item.flag[gemstone]>
 ua_displays:
     type: data
 	debug: false
