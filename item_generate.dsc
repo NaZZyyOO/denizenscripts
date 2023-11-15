@@ -113,6 +113,8 @@ item_generate_event:
 		    - run item_upgrading_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- inventory set slot:hand <[item]>
+			- narrate <context.item.flag[poison]>
+			- narrate <context.item.flag[gemstone]>
 ua_displays:
     type: data
 	debug: false
