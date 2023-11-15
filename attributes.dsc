@@ -89,7 +89,7 @@ stats_calculation_event:
 			- define item <context.cursor_item.script.name||null>
 			- define proc <element[include]>
 		  - define script <script[<[item]>]||null>
-		  - if <context.clicked_inventory> = <player.inventory>:
+		  - if <player.is_online> = true:
 		    - if <player.held_item_slot> = <context.slot>:
 			  - if <[script]> = null:
 			    - stop
@@ -208,7 +208,7 @@ stats_calculation_event:
 		    - stop
 		  - else:
 		    - define script <context.item.script.name||null>
-		    - if <player.inventory.slot[<player.held_item_slot>]> = <context.item>:
+		    - if <player.inventory.slot[<player.held_item_slot>].script.name> = <context.item.script.name>:
 			  - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
 			    - run stats_calculation_slot def:<[script]>|include save:attributes
 		        - define attributes <entry[attributes].created_queue.determination.get[1]>
