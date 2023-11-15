@@ -96,10 +96,12 @@ item_upgrading_generate:
 				- if <[item].flag[gemstone]> != false:
 				  - define poison "<&7>[Инкрустация] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
 		  - define lore <[item].lore>
-		  - if <[item].flag[poison]> != false:
-			- define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
-		  - if <[item].flag[gemstone]> != false:
-			- define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
+		  - if <[item].has_flag[poison]> = true:
+		    - if <[item].flag[poison]> != false:
+			  - define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
+		  - if <[item].has_flag[gemstone]> = true:
+		    - if <[item].flag[gemstone]> != false:
+			  - define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
 		  - define item <[item].with[lore=<[lore]>]>
 	    - determine <[item]>
 item_generate_event:
