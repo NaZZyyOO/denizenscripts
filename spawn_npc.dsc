@@ -5,44 +5,44 @@ spawn_npc_click:
     events:
         on player right clicks entity:
           - ratelimit <player> 1t
-          - if <context.entity.entity_type.is[==].to[player]||false>:
-            - if <context.entity.name> == "<&4>Стражник Виктор":
+          - if <player.is_online> = true:
+            - if <context.entity.name> == "Стражник Виктор":
               - inventory open d:spawn_dialogue_guard_viktor
-            - if <context.entity.name> == "<&4>Стражник Кристер":
+            - if <context.entity.name> == "Стражник Кристер":
               - inventory open d:spawn_dialogue_guard_krister
-            - if <context.entity.name> == "<&6>Начертатель Йенс":
+            - if <context.entity.name> == "Начертатель Йенс":
               - inventory open d:spawn_dialogue_scribe
-            - if <context.entity.name> == "<&6>Травница Флавия":
+            - if <context.entity.name> == "Травница Флавия":
               - inventory open d:spawn_dialogue_herbalist
-            - if <context.entity.name> == "<&6>Скупщик Леон":
+            - if <context.entity.name> == "Скупщик Леон":
               - inventory open d:spawn_dialogue_buyer
-            - if <context.entity.name> == "<&6>Меняла":
+            - if <context.entity.name> == "Меняла":
               - inventory open d:spawn_dialogue_moneychanger
-			- if <context.entity.name> == "<&6>Скупщик-меняла":
+			- if <context.entity.name> == "Скупщик-меняла":
 			  - inventory open d:spawn_dialogue_moneychanger_buyer
-            - if <context.entity.name> == "<&6>Алхимик Хорст":
+            - if <context.entity.name> == "Алхимик Хорст":
               - inventory open d:spawn_dialogue_alchemist
-            - if <context.entity.name> == "<&6>Каменщик Скорн":
+            - if <context.entity.name> == "Каменщик Скорн":
               - inventory open d:spawn_dialogue_mason
-            - if <context.entity.name> == "<&6>Зачарователь Беата":
+            - if <context.entity.name> == "Зачарователь Беата":
               - inventory open d:spawn_dialogue_enchanter
-            - if <context.entity.name> == "<&6>Трактирщик Берси":
+            - if <context.entity.name> == "Трактирщик Берси":
               - inventory open d:spawn_dialogue_bersi
-            - if <context.entity.name> == "<&6>Кузнец Илья":
+            - if <context.entity.name> == "Кузнец Илья":
               - inventory open d:spawn_dialogue_smith_ilya
-            - if <context.entity.name> == "<&6>Бронник Олос":
+            - if <context.entity.name> == "Бронник Олос":
               - inventory open d:spawn_dialogue_olos
-            - if <context.entity.name> == "<&6>Оружейник Орсон":
+            - if <context.entity.name> == "Оружейник Орсон":
               - inventory open d:spawn_dialogue_orson
-            - if <context.entity.name> == "<&6>Фермер Густав":
+            - if <context.entity.name> == "Фермер Густав":
               - inventory open d:spawn_dialogue_gustav
-            - if <context.entity.name> == "<&6>Капитан Фалко":
+            - if <context.entity.name> == "Капитан Фалко":
               - inventory open d:spawn_dialogue_captain_falco
-            - if <context.entity.name> == "<&6>Проповедник Гарет":
+            - if <context.entity.name> == "Проповедник Гарет":
               - inventory open d:spawn_dialogue_garet
-            - if <context.entity.name> == "<&6>Трактирщик Чарли":
+            - if <context.entity.name> == "Трактирщик Чарли":
               - inventory open d:spawn_dialogue_charli
-            - if <context.entity.name> == "<&6>Травница Флавия":
+            - if <context.entity.name> == "Травница Флавия":
               - inventory open d:spawn_dialogue_flavia
 spawn_dialogue_guard_viktor:
   type: inventory
