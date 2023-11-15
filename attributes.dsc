@@ -210,7 +210,7 @@ stats_calculation_event:
 		    - define script <context.item.script.name||null>
 		    - if <player.inventory.slot[<player.held_item_slot>]> = <context.item>:
 			  - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
-			    - run stats_calculation_slot def:<script[<[script]>]>|include save:attributes
+			    - run stats_calculation_slot def:<[script]>|include save:attributes
 		        - define attributes <entry[attributes].created_queue.determination.get[1]>
 			    - flag <player> stats_map:<[attributes]>
 		        - run stats_give
