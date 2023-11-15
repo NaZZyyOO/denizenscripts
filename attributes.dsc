@@ -4,8 +4,7 @@ stats_calculation_all_slots:
 	definitions: player
 	script:
 	    - define slots <list[<[player].held_item_slot>|41|37|38|39|40]>
-		- define stats_map <map[]>
-		- define stats_map_context <map[]>
+		- define stats_map <map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
 		- foreach <[slots]>:
 		  - if <[player].inventory.slot[<[value]>].material.name> = AIR:
   		    - foreach next
@@ -34,15 +33,7 @@ stats_calculation_all_slots:
 			    - define custom_stats_map_value <[player].flag[custom_stats_map].get[<[attribute]>]>
 			    - if <[player].flag[custom_stats_map].contains[<[attribute]>]> = false:
 			      - flag <[player]> custom_stats_map:<[player].flag[custom_stats_map].as_map.with[<[attribute]>].as[<[custom_stats_map_value].add[<[attribute_value]>]>
-		- foreach <[player].flag[stats_map].keys> as:attribute:
-		  - define attribute_flag_value <[player].flag[stats_map].get[<[attribute]>]>
-		  - if <[stats_map].contains[<[attribute]>]> = true:
-		    - define stats_map_value <[stats_map].get[<[attribute]>]>
-		  - else:
-		    - define stats_map_value <element[0]>
-		  - define attribute_value <[attribute_flag_value].add[<[stats_map_value]>]>
-		  - define stats_map_context <[stats_map_context].with[<[attribute]>].as[<[attribute_value]>]>
-		- determine <[stats_map_context]>
+		- determine <[stats_map]>
 stats_calculation_slot:
     type: procedure
 	debug: false
