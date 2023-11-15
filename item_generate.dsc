@@ -59,6 +59,7 @@ item_upgrading_generate:
 		  - define display_name <element[<[color]><[item].display>].parsed>
 		  - define updated_display <[item].display.replace_text[<[item].display>].with[<[display_name]>]>
 	      - define item <[item].with[display=<[updated_display]>]>
+		  - define lore <[item].lore>
 		  - define eng_poison "<&8>[Empty Slot] - Poison."
 		  - define eng_gemstone "<&8>[Empty Slot] - Gemstone."
 		  - if <[item].has_flag[poison]> = true:
@@ -80,10 +81,13 @@ item_upgrading_generate:
 			  - define poison "<&7>[Пустой слот] - Отрута."
 			  - if <[item].flag[poison]> != false:
 				- define poison "<&7>[Отрута] - <[poison_color]><item[<[item].flag[poison]>].display>].parsed><&7>."
+			- define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
+			- if <[item].has_flag[gemstone]> = true:
 			  - if <[item].has_flag[gemstone]> = true:
 				- define gemstone "<&7>[Пустий слот] - Інкрустація."
 				- if <[item].flag[gemstone]> != false:
 				  - define poison "<&7>[Інкрустація] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
+			- define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
 		  - if <[item].raw_nbt.get[Lingo]> = <element[string:ru]>:
 			- define poison "<&8>[Пустой слот] - Яд."
 		    - define gemstone "<&8>[Пустой слот] - Инкрустация."
@@ -91,17 +95,13 @@ item_upgrading_generate:
 			  - define poison "<&7>[Пустой слот] - Яд."
 			  - if <[item].flag[poison]> != false:
 				- define poison "<&7>[Яд] - <[poison_color]><item[<[item].flag[poison]>].display>].parsed><&7>."
+			- define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
+			- if <[item].has_flag[gemstone]> = true:
 			  - if <[item].has_flag[gemstone]> = true:
 				- define gemstone "<&7>[Пустой слот] - Инкрустация."
 				- if <[item].flag[gemstone]> != false:
 				  - define poison "<&7>[Инкрустация] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
-		  - define lore <[item].lore>
-		  - if <[item].has_flag[poison]> = true:
-		    - if <[item].flag[poison]> != false:
-			  - define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
-		  - if <[item].has_flag[gemstone]> = true:
-		    - if <[item].flag[gemstone]> != false:
-			  - define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
+			- define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
 		  - define item <[item].with[lore=<[lore]>]>
 	    - determine <[item]>
 item_generate_event:
