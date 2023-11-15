@@ -112,7 +112,7 @@ item_generate_event:
 		  - if <[item]> != null:
 		    - run item_upgrading_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
-			- determine passively ITEM:<[item]>
+			- inventory set slot:hand <[item]>
 ua_displays:
     type: data
 	debug: false
