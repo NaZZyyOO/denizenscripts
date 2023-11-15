@@ -106,7 +106,7 @@ item_generate_event:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
-		on player picks up item:
+		on player right clicks block:
 		  - wait 1s
 		  - define item <context.item.script.name||null>
 		  - if <[item]> != null:
