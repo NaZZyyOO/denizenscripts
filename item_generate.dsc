@@ -106,12 +106,13 @@ item_generate_event:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
-		on player right clicks block:
-		  - if <context.item.material.name> != air:
-		    - if <context.item.script.name||null> != null:
-			  - run item_upgrading_generate def:<context.item> save:item
-			  - define item <entry[item].created_queue.determination.get[1]>
-			  - inventory set slot:hand item:<[item]>
+		on player picks up item:
+		  - wait 1s
+		  - define item <context.item.script.name||null>
+		  - if <[item]> != null:
+		    - run item_upgrading_generate def:<context.item> save:item
+			- define item <entry[item].created_queue.determination.get[1]>
+			- determine passively ITEM:<[item]>
 ua_displays:
     type: data
 	debug: false
