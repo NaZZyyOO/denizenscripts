@@ -31,6 +31,7 @@ stats_calculation_all_slots:
 			    - define custom_stats_map_value <[player].flag[custom_stats_map].get[<[attribute]>]>
 			    - if <[player].flag[custom_stats_map].contains[<[attribute]>]> = false:
 			      - flag <[player]> custom_stats_map:<[player].flag[custom_stats_map].as_map.with[<[attribute]>].as[<[custom_stats_map_value].add[<[attribute_value]>]>
+		- narrate <[stats_map]>
 		- foreach <[player].flag[stats_map].keys> as:attribute:
 		  - define attribute_flag_value <[player].flag[stats_map].get[<[attribute]>]>
 		  - if <[stats_map].contains[<[attribute]>]> = true:
