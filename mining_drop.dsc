@@ -1,10 +1,10 @@
-gemstones_drop:
+mining_drop:
     type: world
 	debug: false
 	events:
 	    on player breaks block:
 		  - if <player.gamemode> != creative:
-		    - if <player.item_in_hand.enchantment_map.contains[silk_touch]> = false:
+		    - if <player.item_in_hand.enchantment_map.contains[silk_touch]> = false && <script[<context.material.name>]> != null:
 			  - define ore <context.material.name>
 			  - define drop_result <map[]>
 			  - if <script[<[ore]>]> = null:
