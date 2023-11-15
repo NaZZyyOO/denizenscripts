@@ -5,7 +5,7 @@ spawn_npc_click:
     events:
         on player right clicks entity:
           - ratelimit <player> 1t
-          - if <player.is_online> = true:
+          - if <context.entity.entity_type.is[==].to[player]||false>:
             - if <context.entity.name> == "<&4>Стражник Виктор":
               - inventory open d:spawn_dialogue_guard_viktor
             - if <context.entity.name> == "<&4>Стражник Кристер":
@@ -16,7 +16,7 @@ spawn_npc_click:
               - inventory open d:spawn_dialogue_herbalist
             - if <context.entity.name> == "<&6>Скупщик Леон":
               - inventory open d:spawn_dialogue_buyer
-            - if <context.entity.name> == <&6>Меняла:
+            - if <context.entity.name> == "<&6>Меняла":
               - inventory open d:spawn_dialogue_moneychanger
 			- if <context.entity.name> == "<&6>Скупщик-меняла":
 			  - inventory open d:spawn_dialogue_moneychanger_buyer
