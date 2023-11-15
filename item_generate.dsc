@@ -109,7 +109,7 @@ item_generate_event:
 		on player right clicks block:
 		  - if <context.item> != null:
 		    - if <script[<context.item.script.name>]> != null:
-			  - run item_generate def:<player.item_in_hand> save:item
+			  - run item_upgrading_generate def:<context.item> save:item
 			  - define item <entry[item].created_queue.determination.get[1]>
 			  - inventory set slot:hand item:<[item]>
 ua_displays:
