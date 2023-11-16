@@ -122,9 +122,9 @@ item_generate_event:
 			- determine passively ITEM:<[item]>
 		on player right clicks block:
 		  - wait 1s
-		  - define item_script <context.item.script.name||null>
+		  - define item_script <player.item_in_hand.script.name||null>
 		  - if <[item_script]> != null:
-		    - define item <context.item>
+		    - define item <player.item_in_hand>
 		    - if <[item].raw_nbt.contains[Lingo]> = true && <[item].raw_nbt.get[Lingo]> != <element[string:en]>:
 		    - define script <script[<[item].script.name>]>
 		    - define rarity <[script].data_key[data.stats.rarity]>
