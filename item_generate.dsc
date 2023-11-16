@@ -128,7 +128,7 @@ item_generate_event:
 		    - define item <player.item_in_hand>
 			- if <[item].has_flag[cd_regenerate]> = true:
 			  - stop
-		    - if <[item].raw_nbt.contains[Lingo]> = true && <[item].raw_nbt.get[Lingo]> != <element[string:en]>:
+		    - if <[item].raw_nbt.contains[Lingo]> = true:
 		      - define script <script[<[item].script.name>]>
 		      - define rarity <[script].data_key[data.stats.rarity]>
 		      - define color <script[rarity_colors].data_key[<[rarity]>.color]>
@@ -137,17 +137,7 @@ item_generate_event:
 			  - inventory adjust slot:hand display:<[updated_display]>
 		      - define lore <[item].lore>
 			  - if <[item].raw_nbt.get[Lingo]> = <element[string:ru]>:
-			    - define poison_origin "<&8>[Пустой слот] - Яд."
-			    - if <[item].has_flag[poison]> = true:
-			      - if <[item].flag[poison]> = false:
-			        - define poison "<&7>[Пустой слот] - Яд."
-					- define lore <[lore].replace_text[<[poison_origin]>].with[<[poison]>]>
-					- inventory adjust slot:hand lore:<[lore]>
-			      - if <[item].flag[poison]> != false:
-				    - define poison_color <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]>
-			  	    - define poison "<&7>[Яд] - <[poison_color]><item[<[item].flag[poison]>].display>].parsed><&7>."
-				    - define lore <[lore].replace_text[<[poison_origin]>].with[<[poison]>]>
-					- inventory adjust slot:hand lore:<[lore]>
+				- define lore <[item].lore>
 			    - define gemstone_origin "<&8>[Пустой слот] - Инкрустация."
 			    - if <[item].has_flag[gemstone]> = true:
 			      - if <[item].flag[gemstone]> = false:
