@@ -133,35 +133,22 @@ item_generate_event:
 		    - define updated_display <[item].display.replace_text[<[item].display>].with[<[display_name]>]>
 			- inventory adjust slot:hand display:<[updated_display]>
 		    - define lore <[item].lore>
-			- define eng_poison "<&8>[Empty Slot] - Poison."
-		    - define eng_gemstone "<&8>[Empty Slot] - Gemstone."
-		    - if <[item].has_flag[poison]> = true:
-		      - if <[item].flag[poison]> = false:
-		        - define eng_poison "<&7>[Empty Slot] - Poison."
-			  - if <[item].flag[poison]> != false:
-		        - define poison_color <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]>
-	            - define eng_poison "<&7>[Poison] - <[poison_color]><item[<[item].flag[poison]>].display>]><&7>."
-		    - if <[item].has_flag[gemstone]> = true:
-		      - if <[item].flag[gemstone]> = false:
-		        - define eng_gemstone "<&7>[Empty Slot] - Gemstone."
-		      - if <[item].flag[gemstone]> != false:
-		        - define gemstone_color <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]>
-		        - define eng_gemstone "<&7>[Gemstone] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>]><&7>."
 			- if <[item].raw_nbt.get[Lingo]> = <element[string:ru]>:
-			  - define poison "<&8>[Пустой слот] - Яд."
+			  - define poison_origin "<&8>[Пустой слот] - Яд."
 			  - if <[item].has_flag[poison]> = true:
 			    - if <[item].flag[poison]> = false:
 			      - define poison "<&7>[Пустой слот] - Яд."
 			    - if <[item].flag[poison]> != false:
 			  	  - define poison "<&7>[Яд] - <[poison_color]><item[<[item].flag[poison]>].display>].parsed><&7>."
-			  - define gemstone "<&8>[Пустой слот] - Инкрустация."
+			  - define gemstone_origin "<&8>[Пустой слот] - Инкрустация."
 			  - define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
 			  - if <[item].has_flag[gemstone]> = true:
 			    - if <[item].flag[gemstone]> = false:
 			      - define gemstone "<&7>[Пустой слот] - Инкрустация."
 			    - if <[item].flag[gemstone]> != false:
 				  - define poison "<&7>[Инкрустация] - <[gemstone_color]><script[ru_displays].data_key[<[item].flag[gemstone]>.display]>].parsed><&7>."
-			  - define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
+			  - define lore <[lore].replace_text[<[gemstone_origin]>].with[<[gemstone]>]>
+			  - define lore <[lore].replace_text[<[poison_origin]>].with[<[poison]>]>
 			  - inventory adjust slot:hand lore:<[lore]>
 		    
 ua_displays:
