@@ -137,13 +137,13 @@ item_generate_event:
 			  - inventory adjust slot:hand display:<[updated_display]>
 		      - define lore <[item].lore>
 			  - if <[item].raw_nbt.get[Lingo]> = <element[string:ru]>:
-			    - define poison_origin "<&8>[Пустой Слот] - Яд."
+			   - define poison_origin "<&8>[Пустой Слот] - Яд."
 			    - if <[item].has_flag[poison]> = true:
 			      - if <[item].flag[poison]> = false:
 			        - define poison "<&7>[Пустой Слот] - Яд."
 			      - if <[item].flag[poison]> != false:
 				    - define poison_color <script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]>
-			  	    - define poison "<&7>[Яд] - <element[<[poison_color]><item[<[item].flag[poison]>].display>]>].parsed><&7>."
+				    - define poison "<&7>[Яд] - <element[<[poison_color]><script[ru_displays].data_key[<[item].flag[poison]>.display]>].parsed><&7>."
 				  - define lore <[lore].replace_text[<[poison_origin]>].with[<[poison]>]>
 				  - inventory adjust slot:hand lore:<[lore]>
 			    - define gemstone_origin "<&8>[Пустой Слот] - Инкрустация."
@@ -152,7 +152,7 @@ item_generate_event:
 			        - define gemstone "<&7>[Пустой Слот] - Инкрустация."
 			      - if <[item].flag[gemstone]> != false:
 				    - define gemstone_color <script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]>
-				    - define gemstone "<&7>[Инкрустация] - <element[<[gemstone_color]><script[ru_displays].data_key[<[item].flag[gemstone]>.display]>]>].parsed><&7>."
+				    - define gemstone "<&7>[Инкрустация] - <element[<[gemstone_color]><script[ru_displays].data_key[<[item].flag[gemstone]>.display]>].parsed><&7>."
 			      - define lore <[lore].replace_text[<[gemstone_origin]>].with[<[gemstone]>]>
 			      - inventory adjust slot:hand lore:<[lore]>
 			    - inventory flag slot:hand cd_regenerate expire:30s
