@@ -117,8 +117,8 @@ item_generate_event:
 		on player picks up item:
 		  - define item <context.item.script.name||null>
 		  - if <[item]> != null:
-		    - narrate <[item].display>
-			- narrate <[item].lore>
+		    - narrate <context.item.display>
+			- narrate <context.item.lore>
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
