@@ -123,7 +123,9 @@ item_generate_event:
 		on player right clicks block:
 		  - wait 1s
 		  - define item_hand <player.item_in_hand||null>
-		  - if <[item_hand]> != null:
+		  - if <[item_hand]> = null:
+		    - stop
+		  - else:
 		    - define item <player.item_in_hand>
 		    - if <[item].raw_nbt.contains[Lingo]> = true && <[item].raw_nbt.get[Lingo]> != <element[string:en]>:
 		    - define script <script[<[item].script.name>]>
