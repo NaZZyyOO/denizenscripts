@@ -137,10 +137,10 @@ item_generate_event:
 			  - inventory adjust slot:hand display:<[updated_display]>
 		      - define lore <[item].lore>
 			  - if <[item].raw_nbt.get[Lingo]> = <element[string:ru]>:
-			   - define poison_origin "<&8>[Пустой Слот] - Яд."
+			    - define poison_origin "<&8>[Пустой Слот] - Яд."
 			    - if <[item].has_flag[poison]> = true:
 			      - if <[item].flag[poison]> = false:
-			        - define poison "<&7>[Пустой Слот] - Яд."
+			       - define poison "<&7>[Пустой Слот] - Яд."
 			      - if <[item].flag[poison]> != false:
 				    - define poison_color <script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]>
 				    - define poison "<&7>[Яд] - <element[<[poison_color]><script[ru_displays].data_key[<[item].flag[poison]>.display]>].parsed><&7>."
