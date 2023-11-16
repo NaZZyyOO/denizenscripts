@@ -120,7 +120,7 @@ item_generate_event:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
-		on player left clicks block:
+		on player right clicks block:
 		  - define item_hand <player.item_in_hand||null>
 		  - if <[item_hand]> = null:
 		    - stop
@@ -142,20 +142,23 @@ item_generate_event:
 			      - if <[item].flag[poison]> = false:
 			        - define poison "<&7>[Пустой слот] - Яд."
 					- define lore <[lore].replace_text[<[poison_origin]>].with[<[poison]>]>
+					- inventory adjust slot:hand lore:<[lore]>
 			      - if <[item].flag[poison]> != false:
 				    - define poison_color <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]>
 			  	    - define poison "<&7>[Яд] - <[poison_color]><item[<[item].flag[poison]>].display>].parsed><&7>."
 				    - define lore <[lore].replace_text[<[poison_origin]>].with[<[poison]>]>
+					- inventory adjust slot:hand lore:<[lore]>
 			    - define gemstone_origin "<&8>[Пустой слот] - Инкрустация."
 			    - if <[item].has_flag[gemstone]> = true:
 			      - if <[item].flag[gemstone]> = false:
 			        - define gemstone "<&7>[Пустой слот] - Инкрустация."
 					- define lore <[lore].replace_text[<[gemstone_origin]>].with[<[gemstone]>]>
+					- inventory adjust slot:hand lore:<[lore]>
 			      - if <[item].flag[gemstone]> != false:
 				    - define gemstone_color <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]>
 				    - define gemstone "<&7>[Инкрустация] - <[gemstone_color]><script[ru_displays].data_key[<[item].flag[gemstone]>.display]>].parsed><&7>."
 			        - define lore <[lore].replace_text[<[gemstone_origin]>].with[<[gemstone]>]>
-			    - inventory adjust slot:hand lore:<[lore]>
+			        - inventory adjust slot:hand lore:<[lore]>
 			    - inventory flag slot:hand cd_regenerate expire:30s
 		    
 ua_displays:
