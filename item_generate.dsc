@@ -78,30 +78,35 @@ item_upgrading_generate:
 		    - define poison "<&8>[Пустий слот] - Отрута."
 			- define gemstone "<&8>[Пустий слот] - Інкрустація."
 			- if <[item].has_flag[poison]> = true:
-			  - define poison "<&7>[Пустой слот] - Отрута."
+			  - if <[item].flag[poison]> = false:
+			    - define poison "<&7>[Пустой слот] - Отрута."
 			  - if <[item].flag[poison]> != false:
 				- define poison "<&7>[Отрута] - <[poison_color]><item[<[item].flag[poison]>].display>].parsed><&7>."
 			- define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
+			- narrate <[lore]>
 			- if <[item].has_flag[gemstone]> = true:
-			  - if <[item].has_flag[gemstone]> = true:
-				- define gemstone "<&7>[Пустий слот] - Інкрустація."
-				- if <[item].flag[gemstone]> != false:
-				  - define poison "<&7>[Інкрустація] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
+			  - if <[item].flag[gemstone]> = false:
+		        - define gemstone "<&7>[Пустий слот] - Інкрустація."
+			  - if <[item].flag[gemstone]> != false:
+				- define poison "<&7>[Інкрустація] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
 			- define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
+			- narrate <[lore]>
 		  - if <[item].raw_nbt.get[Lingo]> = <element[string:ru]>:
 			- define poison "<&8>[Пустой слот] - Яд."
 		    - define gemstone "<&8>[Пустой слот] - Инкрустация."
 			- if <[item].has_flag[poison]> = true:
-			  - define poison "<&7>[Пустой слот] - Яд."
+			  - if <[item].flag[poison]> = false:
+			    - define poison "<&7>[Пустой слот] - Яд."
 			  - if <[item].flag[poison]> != false:
 				- define poison "<&7>[Яд] - <[poison_color]><item[<[item].flag[poison]>].display>].parsed><&7>."
 			- define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
 			- if <[item].has_flag[gemstone]> = true:
-			  - if <[item].has_flag[gemstone]> = true:
-				- define gemstone "<&7>[Пустой слот] - Инкрустация."
-				- if <[item].flag[gemstone]> != false:
-				  - define poison "<&7>[Инкрустация] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
+			  - if <[item].flag[gemstone]> = false:
+			    - define gemstone "<&7>[Пустой слот] - Инкрустация."
+			  - if <[item].flag[gemstone]> != false:
+				- define poison "<&7>[Инкрустация] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
 			- define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
+			- narrate <[lore]>
 		  - define item <[item].with[lore=<[lore]>]>
 		- narrate <[lore]>
 	    - determine <[item]>
@@ -112,9 +117,13 @@ item_generate_event:
 		on player picks up item:
 		  - define item <context.item.script.name||null>
 		  - if <[item]> != null:
+		    - narrate <[item].display>
+			- narrate <[item].lore>
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
+			- narrate <[item].display>
+			- narrate <[item].lore>
 		on player right clicks block:
 		  - wait 1s
 		  - define item <context.item.script.name||null>
