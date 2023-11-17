@@ -47,85 +47,15 @@ item_generate:
 		- define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>]>]>
 		- define item <[item].with[raw_nbt=<map[Lingo=string:en]>]>
 	    - determine <[item]>
-item_upgrading_generate:
+item_lore_regenerate:
     type: procedure
+	debug: false
 	definitions: item
-	debug: false
 	script:
-	    - if <[item].raw_nbt.contains[Lingo]> = true && <[item].raw_nbt.get[Lingo]> != <element[string:en]>:
-		  - define script <script[<[item].script.name>]>
-		  - define rarity <[script].data_key[data.stats.rarity]>
-		  - define color <script[rarity_colors].data_key[<[rarity]>.color]>
-		  - define display_name <element[<[color]><[item].display>].parsed>
-		  - define updated_display <[item].display.replace_text[<[item].display>].with[<[display_name]>]>
-	      - define item <[item].with[display=<[updated_display]>]>
-		  - define lore <[item].lore>
-		  - define eng_poison "<&8>[Empty Slot] - Poison."
-		  - define eng_gemstone "<&8>[Empty Slot] - Gemstone."
-		  - if <[item].has_flag[poison]> = true:
-		    - if <[item].flag[poison]> = false:
-		      - define eng_poison "<&7>[Empty Slot] - Poison."
-			- if <[item].flag[poison]> != false:
-		      - define poison_color <element[<script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]>
-	          - define eng_poison "<&7>[Poison] - <[poison_color]><item[<[item].flag[poison]>].display>]><&7>."
-		  - if <[item].has_flag[gemstone]> = true:
-		    - if <[item].flag[gemstone]> = false:
-		      - define eng_gemstone "<&7>[Empty Slot] - Gemstone."
-		    - if <[item].flag[gemstone]> != false:
-		      - define gemstone_color <element[<script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]>
-		      - define eng_gemstone "<&7>[Gemstone] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>]><&7>."
-		  - if <[item].raw_nbt.get[Lingo]> = <element[string:ua]>:
-		    - define poison "<&8>[Пустий слот] - Отрута."
-			- define gemstone "<&8>[Пустий слот] - Інкрустація."
-			- if <[item].has_flag[poison]> = true:
-			  - if <[item].flag[poison]> = false:
-			    - define poison "<&7>[Пустой слот] - Отрута."
-			  - if <[item].flag[poison]> != false:
-				- define poison "<&7>[Отрута] - <[poison_color]><item[<[item].flag[poison]>].display>].parsed><&7>."
-			- define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
-			- narrate <[lore]>
-			- if <[item].has_flag[gemstone]> = true:
-			  - if <[item].flag[gemstone]> = false:
-		        - define gemstone "<&7>[Пустий слот] - Інкрустація."
-			  - if <[item].flag[gemstone]> != false:
-				- define poison "<&7>[Інкрустація] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
-			- define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
-			- narrate <[lore]>
-		  - if <[item].raw_nbt.get[Lingo]> = <element[string:ru]>:
-			- define poison "<&8>[Пустой слот] - Яд."
-		    - define gemstone "<&8>[Пустой слот] - Инкрустация."
-			- if <[item].has_flag[poison]> = true:
-			  - if <[item].flag[poison]> = false:
-			    - define poison "<&7>[Пустой слот] - Яд."
-			  - if <[item].flag[poison]> != false:
-				- define poison "<&7>[Яд] - <[poison_color]><item[<[item].flag[poison]>].display>].parsed><&7>."
-			- define lore <[lore].replace_text[<[eng_poison]>].with[<[poison]>]>
-			- if <[item].has_flag[gemstone]> = true:
-			  - if <[item].flag[gemstone]> = false:
-			    - define gemstone "<&7>[Пустой слот] - Инкрустация."
-			  - if <[item].flag[gemstone]> != false:
-				- define poison "<&7>[Инкрустация] - <[gemstone_color]><item[<[item].flag[gemstone]>].display>].parsed><&7>."
-			- define lore <[lore].replace_text[<[eng_gemstone]>].with[<[gemstone]>]>
-			- narrate <[lore]>
-		  - define item <[item].with[lore=<[lore]>]>
-		- narrate <[lore]>
-	    - determine <[item]>
-item_generate_event:
-    type: world
-	debug: false
-	events:
-		on player picks up item:
-		  - define item <context.item.script.name||null>
-		  - if <[item]> != null:
-		    - run item_generate def:<context.item> save:item
-			- define item <entry[item].created_queue.determination.get[1]>
-			- determine passively ITEM:<[item]>
-		on player right clicks block:
-		  - define item_hand <player.item_in_hand||null>
+	      - define item_hand <[item].script.name||null>
 		  - if <[item_hand]> = null:
 		    - stop
 		  - else:
-		    - define item <player.item_in_hand>
 			- if <[item].has_flag[cd_regenerate]> = true:
 			  - stop
 		    - if <[item].raw_nbt.contains[Lingo]> = true:
@@ -154,8 +84,34 @@ item_generate_event:
 				    - define gemstone_color <script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]>
 				    - define gemstone "<&7>[Инкрустация] - <element[<[gemstone_color]><script[ru_displays].data_key[<[item].flag[gemstone]>.display]>].parsed><&7>."
 			      - define lore <[lore].replace_text[<[gemstone_origin]>].with[<[gemstone]>]>
-			      - inventory adjust slot:hand lore:<[lore]>
-			    - inventory flag slot:hand cd_regenerate expire:30s
+	      - determine <[lore]>
+item_generate_event:
+    type: world
+	debug: false
+	events:
+		on player picks up item:
+		  - define item <context.item.script.name||null>
+		  - if <[item]> != null:
+		    - run item_generate def:<context.item> save:item
+			- define item <entry[item].created_queue.determination.get[1]>
+			- determine passively ITEM:<[item]>
+		    - wait 1s
+		    - run item_lore_regenerate run:<[item]> save:item
+			- define item <entry[item].created_queue.determination.get[1]>
+			- determine passively ITEM:<[item]>
+		on player right clicks block:
+		  - ratelimit 5s
+		  - define item_hand <player.item_in_hand||null>
+		  - if <[item_hand]> = null:
+		    - stop
+		  - else:
+		    - define item <player.item_in_hand>
+			- if <[item].has_flag[cd_regenerate]> = true:
+			  - stop
+            - run item_lore_regenerate run:<[item]> save:item
+			- define item <entry[item].created_queue.determination.get[1]>
+			- inventory adjust slot:hand lore:<[lore]>
+			- inventory flag slot:hand cd_regenerate expire:30s
 		    
 ua_displays:
     type: data
