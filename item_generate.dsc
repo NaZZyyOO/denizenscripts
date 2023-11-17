@@ -50,7 +50,7 @@ item_generate:
 item_lore_regenerate:
     type: procedure
 	debug: false
-	definitions: item
+	definitions: item|slot
 	script:
 	      - define item_hand <[item].script.name||null>
 		  - if <[item_hand]> = null:
@@ -64,7 +64,7 @@ item_lore_regenerate:
 		      - define color <script[rarity_colors].data_key[<[rarity]>.color]>
 		      - define display_name <element[<[color]><[item].display>].parsed>
 		      - define updated_display <[item].display.replace_text[<[item].display>].with[<[display_name]>]>
-			  - inventory adjust slot:<[value]> display:<[updated_display]>
+			  - inventory adjust slot:<[slot]> display:<[updated_display]>
 		      - define lore <[item].lore>
 			  - if <[item].raw_nbt.get[Lingo]> = <element[string:ru]>:
 			    - define poison_origin "<&8>[Пустой Слот] - Яд."
@@ -103,7 +103,7 @@ item_generate_event:
 			  - define item <player.inventory.map_slots.get[<[value]>]>
 			  - if <[item].script.name||null> != null:
 			    - if <script[<[item].script.name>].data_key[data.stats].keys.contains[lore]> = true:
-		          - run item_lore_regenerate def:<[item]> save:lore
+		          - run item_lore_regenerate def:<[item]>|<[value]> save:lore
 			      - define lore <entry[lore].created_queue.determination.get[1]>
 			      - inventory adjust slot:<[value]> lore:<[lore]>
 		    - flag <player> cd_regenerate expire:5s
