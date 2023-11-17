@@ -102,7 +102,7 @@ item_generate_event:
 			    - foreach next
 			  - define item <player.inventory.map_slots.get[<[value]>]>
 			  - if <[item].script.name||null> != null:
-			    - if <script[<[item]>].data_key[data.stats].keys.contains[lore]> = true:
+			    - if <script[<[item].script.name>].data_key[data.stats].keys.contains[lore]> = true:
 		          - run item_lore_regenerate run:<context.item> save:item
 			      - define item <entry[item].created_queue.determination.get[1]>
 			      - inventory set slot:<[value]> item:<[item]> 
