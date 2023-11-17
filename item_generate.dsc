@@ -75,7 +75,6 @@ item_lore_regenerate:
 				    - define poison_color <script[rarity_colors].data_key[<script[<[item].flag[poison]>].data_key[data.stats.rarity]>.color]>
 				    - define poison "<&7>[Яд] - <element[<[poison_color]><script[ru_displays].data_key[<[item].flag[poison]>.display]>].parsed><&7>."
 				  - define lore <[lore].replace_text[<[poison_origin]>].with[<[poison]>]>
-				  - inventory adjust slot:hand lore:<[lore]>
 			    - define gemstone_origin "<&8>[Пустой Слот] - Инкрустация."
 			    - if <[item].has_flag[gemstone]> = true:
 			      - if <[item].flag[gemstone]> = false:
