@@ -98,9 +98,9 @@ item_generate_event:
 			- determine passively ITEM:<[item]>
 		    - wait 1s
 			- foreach <player.inventory.map_slots>:
-			  - define item <player.inventory.map_slots.get[<[value]>]>
-			  - if <[item]> = air:
+			  - if <player.inventory.slot[<[value]>].material.name> = air:
 			    - foreach next
+			  - define item <player.inventory.map_slots.get[<[value]>]>
 			  - if <[item].script.name||null> != null:
 			    - if <script[<[item]>].data_key[data.stats].keys.contains[lore]> = true:
 		        - run item_lore_regenerate run:<context.item> save:item
