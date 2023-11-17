@@ -97,7 +97,7 @@ item_generate_event:
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
 		    - wait 1s
-			- foreach <player.inventory.map_slots>:
+			- foreach <player.inventory.map_slots.keys>:
 			  - if <player.inventory.slot[<[value]>].material.name> = air:
 			    - foreach next
 			  - define item <player.inventory.map_slots.get[<[value]>]>
