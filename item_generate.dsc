@@ -56,7 +56,7 @@ item_lore_regenerate:
 		  - if <[item_hand]> = null:
 		    - stop
 		  - else:
-			- if <[item].has_flag[cd_regenerate]> = true:
+			- if <player.has_flag[cd_regenerate]> = true:
 			  - stop
 		    - if <[item].raw_nbt.contains[Lingo]> = true:
 		      - define script <script[<[item].script.name>]>
@@ -90,29 +90,23 @@ item_generate_event:
 	debug: false
 	events:
 		on player picks up item:
+		  - ratelimit 1s
 		  - define item <context.item.script.name||null>
 		  - if <[item]> != null:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
 		    - wait 1s
-		    - run item_lore_regenerate run:<context.item> save:item
-			- define item <entry[item].created_queue.determination.get[1]>
-			- determine passively ITEM:<[item]>
-		on player right clicks block:
-		  - ratelimit 5s
-		  - define item_hand <player.item_in_hand||null>
-		  - if <[item_hand]> = null:
-		    - stop
-		  - else:
-		    - define item <player.item_in_hand>
-			- if <[item].has_flag[cd_regenerate]> = true:
-			  - stop
-            - run item_lore_regenerate run:<[item]> save:item
-			- define item <entry[item].created_queue.determination.get[1]>
-			- inventory adjust slot:hand lore:<[lore]>
-			- inventory flag slot:hand cd_regenerate expire:30s
-		    
+			- foreach <player.inventory.map_slot>:
+			  - define item <player.inventory.map_slot.get[<[value]>]>
+			  - if <[item].material.name> = air:
+			    - foreach next
+			  - if <[item].script.name||null> != null:
+			    - if <[item].data_key[data.stats].keys.contains[lore]> = true:
+		        - run item_lore_regenerate run:<context.item> save:item
+			    - define item <entry[item].created_queue.determination.get[1]>
+			    - inventory set slot:<[value]> item:<[item]> 
+		    - flag <player> cd_regenerate expire:5s
 ua_displays:
     type: data
 	debug: false
