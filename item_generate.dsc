@@ -98,7 +98,7 @@ item_generate_event:
 			- determine passively ITEM:<[item]>
 		    - wait 1s
 			- foreach <player.inventory.map_slots>:
-			  - define item <player.inventory.map_slot.get[<[value]>]>
+			  - define item <player.inventory.map_slots.get[<[value]>]>
 			  - if <[item]> = air:
 			    - foreach next
 			  - if <[item].script.name||null> != null:
