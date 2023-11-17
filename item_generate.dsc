@@ -103,7 +103,7 @@ item_generate_event:
 			  - define item <player.inventory.map_slots.get[<[value]>]>
 			  - if <[item].script.name||null> != null:
 			    - if <script[<[item].script.name>].data_key[data.stats].keys.contains[lore]> = true:
-		          - run item_lore_regenerate run:<[item]> save:item
+		          - run item_lore_regenerate def:<[item]> save:item
 			      - define item <entry[item].created_queue.determination.get[1]>
 			      - inventory set slot:<[value]> item:<[item]> 
 		    - flag <player> cd_regenerate expire:5s
