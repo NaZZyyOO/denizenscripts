@@ -96,7 +96,7 @@ item_generate_event:
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
 		    - wait 1s
-		    - run item_lore_regenerate run:<[item]> save:item
+		    - run item_lore_regenerate run:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
 		on player right clicks block:
