@@ -90,16 +90,16 @@ item_generate_event:
 	debug: false
 	events:
 		on player picks up item:
-		  - ratelimit 1s
+		  - ratelimit <player> 1s
 		  - define item <context.item.script.name||null>
 		  - if <[item]> != null:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
 		    - wait 1s
-			- foreach <player.inventory.map_slot>:
+			- foreach <player.inventory.map_slots>:
 			  - define item <player.inventory.map_slot.get[<[value]>]>
-			  - if <[item].material.name> = air:
+			  - if <[item]> = air:
 			    - foreach next
 			  - if <[item].script.name||null> != null:
 			    - if <[item].data_key[data.stats].keys.contains[lore]> = true:
