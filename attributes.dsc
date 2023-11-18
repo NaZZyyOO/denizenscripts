@@ -205,11 +205,12 @@ stats_calculation_event:
 		    - define script <context.item.script.name||null>
 			- if <[script]> = null:
 			  - stop
-		  	- if <script[<[script]>].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
-		      - run stats_calculation_slot def:<script[<context.item.script.name>]>|exclude save:attributes
-		      - define attributes <entry[attributes].created_queue.determination.get[1]>
-			  - flag <player> stats_map:<[attributes]>
-		      - run stats_give
+			- else:
+		  	  - if <script[<[script]>].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
+		        - run stats_calculation_slot def:<[script]>|exclude save:attributes
+		        - define attributes <entry[attributes].created_queue.determination.get[1]>
+			    - flag <player> stats_map:<[attributes]>
+		        - run stats_give
 		on player picks up item:
 		  - if <context.item> = null:
 		    - stop
