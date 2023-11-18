@@ -199,18 +199,13 @@ stats_calculation_event:
 			- flag <player> stats_map:<[attributes]>
 		    - run stats_give
 		on player drops item:
-		  - if <context.item> = null:
-		    - stop
-		  - else:
-		    - define script <context.item.script.name||null>
-			- if <[script]> = null:
-			  - stop
-			- else:
-		  	  - if <script[<[script]>].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
-		        - run stats_calculation_slot def:<[script]>|exclude save:attributes
-		        - define attributes <entry[attributes].created_queue.determination.get[1]>
-			    - flag <player> stats_map:<[attributes]>
-		        - run stats_give
+		  - define script <context.item.script.name||null>
+		  - if <[script]> != null:
+		  	- if <script[<[script]>].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
+		      - run stats_calculation_slot def:<[script]>|exclude save:attributes
+		      - define attributes <entry[attributes].created_queue.determination.get[1]>
+			  - flag <player> stats_map:<[attributes]>
+		      - run stats_give
 		on player picks up item:
 		  - if <context.item> = null:
 		    - stop
