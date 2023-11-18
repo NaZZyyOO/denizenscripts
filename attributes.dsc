@@ -209,16 +209,16 @@ stats_calculation_event:
 			    - flag <player> stats_map:<[attributes_old]>
 		  - run stats_give
 		on player picks up item:
-		  - if <context.item> = null:
-		    - stop
-		  - else:
+		  - define item_script <context.item.script.name||null>
+		  - define script <script[<[item_script]>]||null>
+		  - if <[script]> != null:
 		    - flag <player> stats_map:<map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
             - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
 		    - wait 1s
 		    - run stats_calculation_all_slots def:<player> save:attributes
 		    - define attributes <entry[attributes].created_queue.determination.get[1]>
 		    - flag <player> stats_map:<[attributes]>
-		    - run stats_give
+		  - run stats_give
 		on player dies:
 		  - flag <player> stats_map:<map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
 		  - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
