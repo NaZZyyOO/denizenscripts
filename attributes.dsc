@@ -6,10 +6,10 @@ stats_calculation_all_slots:
 	    - define slots <list[<[player].held_item_slot>|41|37|38|39|40]>
 		- define stats_map <map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
 		- foreach <[slots]>:
-		  - if <[player].inventory.slot[<[value]>].material.name> = AIR:
+		  - if <[player].inventory.slot[<[value]>].material.name> = air:
   		    - foreach next
 		  - define item <[player].inventory.slot[<[value]>]>
-		  - if <[item].script.name> = null:
+		  - if <[item]> = null:
 		    - foreach next
 		  - define script <script[<[item].script.name>]>
 		  - if <[script]> = null:
