@@ -203,7 +203,9 @@ stats_calculation_event:
 		    - stop
 		  - else:
 		    - define script <context.item.script.name||null>
-			- if <[script]> != null:
+			- if <[script]> = null:
+			  - stop
+			- else:
 		  	  - if <script[<[script]>].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
 		        - run stats_calculation_slot def:<script[<context.item.script.name>]>|exclude save:attributes
 		        - define attributes <entry[attributes].created_queue.determination.get[1]>
