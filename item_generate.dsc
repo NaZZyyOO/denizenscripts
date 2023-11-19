@@ -56,8 +56,6 @@ item_lore_regenerate:
 		  - if <[item_hand]> = null:
 		    - stop
 		  - else:
-			- if <player.has_flag[cd_regenerate]> = true:
-			  - stop
 		    - if <[item].raw_nbt.contains[Lingo]> = true:
 		      - define script <script[<[item].script.name>]>
 		      - define rarity <[script].data_key[data.stats.rarity]>
@@ -112,15 +110,16 @@ item_generate_event:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
-		  - foreach <player.inventory.map_slots.keys>:
-			- if <player.inventory.slot[<[value]>].material.name> = air:
-			  - foreach next
-			- define item <player.inventory.map_slots.get[<[value]>]>
-			- if <[item].script.name||null> != null:
-			  - if <script[<[item].script.name>].data_key[data.stats].keys.contains[lore]> = true:
-		        - run item_lore_regenerate def:<[item]>|<[value]> save:lore
-			    - define lore <entry[lore].created_queue.determination.get[1]>
-			    - inventory adjust slot:<[value]> lore:<[lore]>
+		  - if <player.has_flag[cd_regenerate]> = false:
+		    - foreach <player.inventory.map_slots.keys>:
+			  - if <player.inventory.slot[<[value]>].material.name> = air:
+			    - foreach next
+			  - define item <player.inventory.map_slots.get[<[value]>]>
+			  - if <[item].script.name||null> != null:
+			    - if <script[<[item].script.name>].data_key[data.stats].keys.contains[lore]> = true:
+		          - run item_lore_regenerate def:<[item]>|<[value]> save:lore
+			      - define lore <entry[lore].created_queue.determination.get[1]>
+			      - inventory adjust slot:<[value]> lore:<[lore]>
 		  - flag <player> cd_regenerate expire:5s
 ua_displays:
     type: data
