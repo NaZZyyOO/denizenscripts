@@ -98,7 +98,7 @@ item_lore_regenerate:
 				    - define gemstone_color <script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]>
 				    - define gemstone "<&7>[Інкрустація] - <element[<[gemstone_color]><script[ua_displays].data_key[<[item].flag[gemstone]>.display]>].parsed><&7>."
 			      - define lore <[lore].replace_text[<[gemstone_origin]>].with[<[gemstone]>]>
-	      - determine <[lore]>
+	        - determine <[lore]>
 item_generate_event:
     type: world
 	debug: false
@@ -118,6 +118,8 @@ item_generate_event:
 			  - if <[item]> = null:
 			    - foreach next
 			  - if <[item].script.name||null> = null:
+			    - foreach next
+			  - if <script[<[item].script.name>].data_key[data]||null> = null:
 			    - foreach next
 			  - if <script[<[item].script.name>].data_key[data.stats].keys.contains[lore]> = false:
 			    - foreach next
