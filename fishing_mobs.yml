@@ -1,0 +1,251 @@
+fishing_squid:
+  Type: drowned
+  Disguise: SQUID
+  Display: '&6Squid'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float swim
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Modules:
+    ThreatTable: true
+  Health: 10
+  Damage: 1
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.2
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.8
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+fishing_rider_of_the_deep:
+  Type: drowned
+  Display: '&6Rider of the deepth'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float swim
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Equipment:
+  - CHAINMAIL_HELMET HEAD
+  - CHAINMAIL_CHESTPLATE CHEST
+  - CHAINMAIL_LEGGINGS LEGS
+  - CHAINMAIL_BOOTS FEET
+  - DIAMOND_SWORD HAND
+  - AIR OFFHAND
+  Modules:
+    ThreatTable: true
+  Health: 120
+  Damage: 4
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.2
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.8
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+fishing_drowned:
+  Type: DROWNED 
+  Display: '&6Drowned'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float swim
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Equipment:
+  - AIR HEAD
+  - LEATHER_CHESTPLATE{color=LIGHT_BLUE} CHEST
+  - AIR LEGS
+  - AIR FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Modules:
+    ThreatTable: true
+  Health: 30
+  Damage: 4
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.2
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.8
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+fishing_guardian:
+  Type: GUARDIAN
+  Display: '&6Sea Guard'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float swim
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Modules:
+    ThreatTable: true
+  Health: 40
+  Damage: 10
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.2
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.8
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+fishing_merman:
+  Type: DROWNED 
+  Display: '&6Merman'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float swim
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Equipment:
+  - PLAYER_HEAD{SkullTexture=ewogICJ0aW1lc3RhbXAiIDogMTY4MDM2NzM1NTk3OSwKICAicHJvZmlsZUlkIiA6ICJhNWVmNzE3YWI0MjA0MTQ4ODlhOTI5ZDA5OTA0MzcwMyIsCiAgInByb2ZpbGVOYW1lIiA6ICJkZXBsZXRpbmciLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGE3ZTdiYmUyYTNiMzJmZDA0Mjc3YjY4ZTFkYmZhYjdmMDQ3YWZjYTViZDYwODkzYjljMWU2Y2FlY2FkZGM0ZCIKICAgIH0KICB9Cn0=} HEAD
+  - LEATHER_CHESTPLATE{color=LIGHT_BLUE} CHEST
+  - LEATHER_LEGGINGS{color=LIGHT_BLUE} LEGS
+  - LEATHER_BOOTS{color=GREEN} FEET
+  - TRIDENT HAND
+  - AIR OFFHAND
+  Modules:
+    ThreatTable: true
+  Health: 100
+  Damage: 7
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.2
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.8
+    PreventOtherDrops: true
+    PreventSunburn: true
+    PreventRandomEquipment: true
+fishing_captain_northen_flot:
+  Type: STRAY 
+  Display: '&5Captain of Northen Flot'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float swim
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Equipment:
+  - NETHERITE_HELMET HEAD
+  - NETHERITE_CHESTPLATE CHEST
+  - NETHERITE_LEGGINGS LEGS
+  - NETHERITE_BOOTS FEET
+  - IRON_SWORD HAND
+  - IRON_SWORD OFFHAND
+  Modules:
+    ThreatTable: true
+  Health: 420
+  Damage: 9
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.1
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.6
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+fishing_seas_emperor:
+  Type: SKELETON
+  Display: '&4Sea Emperor'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float swim
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Equipment:
+  - PLAYER_HEAD{SkullTexture=ewogICJ0aW1lc3RhbXAiIDogMTYwMzAzOTEwMjI1NCwKICAicHJvZmlsZUlkIiA6ICJhMTY4NjE3MmY4ZjI0ZmEwYmI0M2I1YWM4OTIyNThjMiIsCiAgInByb2ZpbGVOYW1lIiA6ICJJRW5kZXJEZXN0cm95ZXJJIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzVhNDQ4OTg5ZjdkZjMwM2VkNDYxN2U4OTcxZDZjZGY4ODM4MThjMmQ5NTY2NDhhNWRjOTJjYWZhNDkyZTNiZDYiCiAgICB9CiAgfQp9} HEAD
+  - NETHERITE_CHESTPLATE CHEST
+  - AIR LEGS
+  - AIR FEET
+  - GOLDEN_SWORD HAND
+  - GOLDEN_SWORD OFFHAND
+  Modules:
+    ThreatTable: true
+  Health: 500
+  Damage: 2
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.1
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.6
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+  Skills:
+  - mount{type=fishing_emperors_guardian} ~onSpawn
+fishing_emperors_guardian:
+  Type: GUARDIAN
+  Display: '&5Sea Emperor's Guard'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float swim
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Modules:
+    ThreatTable: true
+  Health: 100
+  Damage: 2
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.1
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.6
+    PreventOtherDrops: true
+    PreventRandomEquipment: true

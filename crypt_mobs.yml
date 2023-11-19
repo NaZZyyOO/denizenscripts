@@ -1,0 +1,270 @@
+amber_skeleton_scavenger:
+  Type: SKELETON
+  Display: '&6Skeleton scavenger'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 35
+  Damage: 5
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - END_ROD HAND
+  - END_ROD OFFHAND
+  Options:
+    MovementSpeed: 0.31
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_silverfish:
+  Type: ENDERMITE
+  Disguise: SILVERFISH
+  Display: '&6A pile of bones'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 15
+  Damage: 3
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.25
+    FollowRange: 15
+    Silent: false
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_skeleton_horse:
+  Type: VINDICATOR  
+  Disguise: SKELETON_HORSE
+  Display: '&6Fallen horse'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 100
+  Damage: 8
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.25
+    FollowRange: 15
+    Silent: false
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_skeleton_ghost_archer:
+  Type: SKELETON
+  Disguise: STRAY
+  Display: '&6Ghostly archer'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 bowattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 40
+  Damage: 5
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - BOW HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.18
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_fallen_warrior:
+  Type: HUSK
+  Display: '&6Fallen warrior'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 90
+  Damage: 8
+  DamageModifiers:
+  - HOT_FLOOR 0
+  - PROJECTILE 0
+  Equipment:
+  - SKELETON_SKULL HEAD
+  - NETHERITE_CHESTPLATE CHEST
+  - NETHERITE_LEGGINGS LEGS
+  - AIR FEET
+  - IRON_AXE HAND
+  - SHIELD OFFHAND
+  Options:
+    MovementSpeed: 0.2
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 1.0
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_fallen_archer:
+  Type: PILLAGER
+  Disguise: HUSK
+  Display: '&6Fallen archer'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 crossbowAttack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 80
+  Damage: 8
+  DamageModifiers:
+  - HOT_FLOOR 0
+  - PROJECTILE 0
+  Equipment:
+  - SKELETON_SKULL HEAD
+  - NETHERITE_CHESTPLATE CHEST
+  - NETHERITE_LEGGINGS LEGS
+  - AIR FEET
+  - CROSSBOW HAND
+  - SHIELD OFFHAND
+  Options:
+    MovementSpeed: 0.23
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_fallen_officer:
+  Type: WITHER_SKELETON
+  Disguise: HUSK
+  Display: '&6Fallen officer'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 90
+  Damage: 6
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - SKELETON_SKULL HEAD
+  - NETHERITE_CHESTPLATE CHEST
+  - NETHERITE_LEGGINGS LEGS
+  - AIR FEET
+  - IRON_SWORD HAND
+  - SOUL_TORCH OFFHAND
+  Options:
+    MovementSpeed: 0.25
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_fallen_heroe:
+  Type: WITHER_SKELETON
+  Display: '&5Fallen hero'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 420
+  Damage: 8
+  DamageModifiers:
+  - HOT_FLOOR 0
+  - PROJECTILE 0
+  Equipment:
+  - SKELETON_SKULL HEAD
+  - NETHERITE_CHESTPLATE CHEST
+  - NETHERITE_LEGGINGS LEGS
+  - AIR FEET
+  - IRON_SWORD HAND
+  - SHIELD OFFHAND
+  Options:
+    MovementSpeed: 0.26
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 1.0
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_lighthouse_keeper:
+  Type: VINDICATOR  
+  Disguise: STRAY
+  Display: '&5Lighhouse keeper'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 80
+  Damage: 5
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - ELYTRA CHEST
+  - IRON_LEGGINGS LEGS
+  - AIR FEET
+  - TORCH HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 1.0
+    PreventOtherDrops: true
+    PreventRandomEquipment: true

@@ -1,0 +1,585 @@
+amber_wolf:
+  Type: VINDICATOR  
+  Disguise: WOLF
+  Display: '&6Wilf wolf'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 15
+  Damage: 4
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_fox:
+  Type: VINDICATOR  
+  Disguise: FOX
+  Display: '&6Hungry fox'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 13
+  Damage: 4
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_skeleton:
+  Type: VINDICATOR  
+  Disguise: SKELETON
+  Display: '&6Fragile skeleton'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 20
+  Damage: 8
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - IRON_SWORD HAND
+  - SHIELD OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_skeleton_archer:
+  Type: SKELETON
+  Display: '&6Fragile skeleton-archer'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 bowattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 20
+  Damage: 8
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - BOW HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_skeleton_crossbow:
+  Type: PILLAGER  
+  Disguise: SKELETON
+  Display: '&6Fragile skeleton-crossbowman'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 crossbowAttack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 35
+  Damage: 8
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - CHAINMAIL_CHESTPLATE CHEST
+  - CHAINMAIL_LEGGINGS LEGS
+  - AIR FEET
+  - CROSSBOW HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_skeleton_ghost:
+  Type: VINDICATOR  
+  Disguise: STRAY
+  Display: '&6Skeleton-ghost'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 30
+  Damage: 10
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - IRON_SWORD HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_skeleton_lich_lesser:
+  Type: VINDICATOR  
+  Disguise: STRAY
+  Display: '&5Lesser Lich'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 50
+  Damage: 12
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - ELYTRA CHEST
+  - CHAINMAIL_LEGGINGS LEGS
+  - CHAINMAIL_BOOTS FEET
+  - NETHERITE_SWORD HAND
+  - ENDER_EYE OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_zombie_summon:
+  Type: VINDICATOR  
+  Disguise: HUSK
+  Display: '&6reanimated corpse'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 10
+  Damage: 3
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_lord_bale:
+  Type: VINDICATOR  
+  Disguise: STRAY
+  Display: '&5Lord Conrad Bale'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 250
+  Damage: 15
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - ELYTRA CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  - IRON_SWORD HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 1.0
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_looter:
+  Type: VINDICATOR
+  Disguise: PILLAGER
+  Display: '&6Pillager'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 30
+  Damage: 6
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - IRON_SWORD HAND
+  - AIR OFFHAND
+amber_bandit:
+  Type: VINDICATOR
+  Display: '&6Bandit'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 45
+  Damage: 7
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - IRON_AXE HAND
+  - AIR OFFHAND
+amber_looter_archer:
+  Type: SKELETON
+  Disguise: PILLAGER
+  Display: '&6Pillager-archer'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 bowattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 25
+  Damage: 8
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - BOW HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 40
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_bandit_crossbowman:
+  Type: PILLAGER
+  Display: '&6Bandit-crossbowman'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 crossbowAttack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 40
+  Damage: 8
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - CROSSBOW HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 40
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_brigadier_hrut:
+  Type: VINDICATOR
+  Display: '&5Brigadier Hrut'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 300
+  Damage: 15
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - IRON_AXE HAND
+  - IRON_AXE OFFHAND
+  Options:
+    MovementSpeed: 0.25
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 1.0
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+sewers_goblin:
+  Type: BABY_ZOMBIE_VILLAGER
+  Display: '&6Goblin'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 45
+  Damage: 5
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - STONE_AXE HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.23
+    FollowRange: 20
+    Silent: true
+    PreventSunburn: true
+    KnockbackResistance: 0.2
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+sewers_goblin_archer:
+  Type: SKELETON
+  Disguise: babyzombievillager
+  Display: '&6Goblin-archer'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 bowattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 30
+  Damage: 7
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - BOW HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.23
+    FollowRange: 20
+    Silent: true
+    PreventSunburn: true
+    KnockbackResistance: 0.2
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+sewers_goblin_crossbowman:
+  Type: PILLAGER
+  Disguise: babyzombievillager
+  Display: '&6Goblin-crossbowman'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 crossbowAttack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 45
+  Damage: 7
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - CROSSBOW HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.23
+    FollowRange: 20
+    Silent: true
+    PreventSunburn: true
+    KnockbackResistance: 0.2
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+sewers_tunnel_ogre:
+  Type: RAVAGER
+  Display: '&5Tunnel ogre'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 450
+  Damage: 15
+  DamageModifiers:
+  - HOT_FLOOR 0
+  - PROJECTILE 0
+  - FIRE_TICK 0
+  - POISON 0
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 30
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 1.0
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+sewers_goblin_big:
+  Type: ZOMBIE_VILLAGER
+  Display: '&5Big Goblin'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 120
+  Damage: 9
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - CHAINMAIL_HELMET HEAD
+  - LEATHER_CHESTPLATE CHEST
+  - LEATHER_LEGGINGS LEGS
+  - LEATHER_BOOTS FEET
+  - STONE_AXE HAND
+  - SHIELD OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: true
+    PreventSunburn: true
+    KnockbackResistance: 0.6
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+amber_boar:
+  Type: ZOGLIN
+  Display: '&6Boar'
+  Disguise:
+    Type: hoglin
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 60
+  Damage: 4
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: true
+    PreventSunburn: true
+    KnockbackResistance: 0.8
+    PreventOtherDrops: true
+    PreventRandomEquipment: true

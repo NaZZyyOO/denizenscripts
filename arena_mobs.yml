@@ -1,0 +1,391 @@
+arena_piglin_crossbow:
+  Type: PIGLIN
+  Display: '&6Crossbowman'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 crossbowAttack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 70
+  Damage: 7
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - CROSSBOW HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.31
+    FollowRange: 20
+    Silent: false
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+arena_piglin_bow:
+  Type: SKELETON
+  Disguise: PIGLIN
+  Display: '&6Archer'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 bowattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 50
+  Damage: 5
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - BOW HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+arena_piglin_axes:
+  Type: PIGLIN
+  Display: '&6Axeman'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 85
+  Damage: 8
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - IRON_AXE HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+arena_piglin_swordes:
+  Type: PIGLIN
+  Display: '&6Swordman'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 75
+  Damage: 7
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - IRON_SWORD HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+arena_wizard:
+  Type: VINDICATOR
+  Disguise: EVOKER
+  Display: '&6Wizard'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 90
+  Damage: 4
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.156
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+arena_gladiator_dematar:
+  Type: PIGLIN_BRUTE
+  Display: '&5Dematar'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 80
+  Damage: 9
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - NETHERITE_HELMET HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - IRON_SWORD HAND
+  - IRON_SWORD OFFHAND
+  Options:
+    MovementSpeed: 0.256
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+arena_gladiator_retriarchy:
+  Type: HUSK
+  Display: '&5Retriarhy'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 95
+  Damage: 9
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - CHAINMAIL_CHESTPLATE CHEST
+  - CHAINMAIL_LEGGINGS LEGS
+  - CHAINMAIL_BOOTS FEET
+  - TRIDENT HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.28
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+arena_gladiator_murmilliot:
+  Type: PIGLIN_BRUTE
+  Display: '&5Murmilliot'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 110
+  Damage: 9
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - IRON_AXE HAND
+  - SHIELD OFFHAND
+  Options:
+    MovementSpeed: 0.18
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.6
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+arena_gladiator_bestyary:
+  Type: SKELETON
+  Disguise: ILLUSIONER
+  Display: '&5Bestyary'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 bowattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 140
+  Damage: 4
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - BOW HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.26
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+arena_viewer:
+  Type: VINDICATOR
+  Disguise: VILLAGER
+  Display: '&6Viewer'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 spiderattack
+  - 2 fleeplayers
+  AITargetSelectors:
+  - 0 clear
+  Modules:
+    ThreatTable: true
+  Health: 25
+  Damage: 0
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.26
+    FollowRange: 1
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+arena_lanista_teobald:
+  Type: SKELETON
+  Disguise: ILLUSIONER
+  Display: '&5Lanista Teobald'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 bowattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 120
+  Damage: 4
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - BOW HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.23
+    FollowRange: 30
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 0.1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+arena_gubernator_septimiy:
+  Type: PIGLIN
+  Disguise: ILLUSIONER
+  Display: '&5Gubernator Septimiy'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 340
+  Damage: 5
+  DamageModifiers:
+  - HOT_FLOOR 0
+  - FIRE 0
+  - PROJECTILE 0
+  - MAGIC 0
+  Equipment:
+  - AIR HEAD
+  - AIR CHEST
+  - AIR LEGS
+  - AIR FEET
+  - IRON_SWORD HAND
+  - AIR OFFHAND
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 20
+    Silent: false
+    PreventSunburn: true
+    KnockbackResistance: 1.0
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
