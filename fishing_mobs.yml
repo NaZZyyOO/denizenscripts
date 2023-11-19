@@ -220,7 +220,7 @@ fishing_seas_emperor:
   - mount{type=fishing_emperors_guardian} ~onSpawn
 fishing_emperors_guardian:
   Type: GUARDIAN
-  Display: '&5Sea Emperor's Guard'
+  Display: '&5Sea Emperors Guard'
   AIGoalSelectors:
   - 0 clear
   - 1 meleeattack
