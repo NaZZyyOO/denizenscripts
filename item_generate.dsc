@@ -183,4 +183,5 @@ trades_regenerate:
     type: world
 	debug: false
 	events:
-	    
+	    on player trades with merchant:
+		  - narrate <context.trade>
