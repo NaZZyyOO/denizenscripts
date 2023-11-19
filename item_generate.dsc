@@ -179,9 +179,3 @@ ru_displays:
 	    display: Шпинель
 	item_alexandrite:
 	    display: Александрит
-trades_regenerate:
-    type: world
-	debug: false
-	events:
-	    on player trades with merchant:
-		  - narrate <player.open_inventory.trades>
