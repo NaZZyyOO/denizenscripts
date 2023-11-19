@@ -94,7 +94,7 @@ stats_calculation_event:
 			- define item <context.cursor_item.script.name||null>
 			- define proc <element[include]>
 		  - define script <script[<[item]>]||null>
-		  - if <[script].data_key[data]> = null:
+		  - if <script[<[item]>].data_key[data]||null> = null:
             - stop		  
 		  - if <player.is_online> = true:
 		    - if <player.held_item_slot> = <context.slot>:
