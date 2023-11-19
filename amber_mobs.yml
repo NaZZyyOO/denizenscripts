@@ -560,8 +560,7 @@ sewers_goblin_big:
 amber_boar:
   Type: ZOGLIN
   Display: '&6Boar'
-  Disguise:
-    Type: hoglin
+  Disguise: HOGLIn
   AIGoalSelectors:
   - 0 clear
   - 1 meleeattack
