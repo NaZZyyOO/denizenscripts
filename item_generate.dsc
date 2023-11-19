@@ -106,7 +106,7 @@ item_generate_event:
 	debug: false
 	events:
 		on player picks up item:
-		  - ratelimit <player> 1s
+		  - ratelimit <player> 1t
 		  - define item <context.item.script.name||null>
 		  - if <[item]> != null:
 		    - run item_generate def:<context.item> save:item
@@ -177,3 +177,8 @@ ru_displays:
 	    display: Шпинель
 	item_alexandrite:
 	    display: Александрит
+trades_regenerate:
+    type: world
+	debug: false
+	events:
+	    

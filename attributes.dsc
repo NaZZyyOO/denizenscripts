@@ -87,6 +87,7 @@ stats_calculation_event:
 	debug: false
 	events:
 		on player !CONTROL_DROP clicks item in inventory:
+		  - ratelimit <player> 1t
 		  - define item <context.item.script.name||null>
 		  - define proc <element[exclude]>
 		  - if <[item]> = null:
@@ -117,6 +118,7 @@ stats_calculation_event:
 		    - determine passively cancelled
 		  - run stats_give
 		on player equips item:
+		  - ratelimit <player> 1t
 		  - define item_new <context.new_item.script.name||null>
 		  - define script <script[<[item_new]>]||null>
 		  - if <[script]> = null:
@@ -127,6 +129,7 @@ stats_calculation_event:
 			- flag <player> stats_map:<[attributes_new]>
 		  - run stats_give
 		on player unequips item:
+		  - ratelimit <player> 1t
 		  - define item_old <context.old_item.script.name||null>
 		  - define script <script[<[item_old]>]||null>
 		  - if <[script]> = null:
@@ -137,6 +140,7 @@ stats_calculation_event:
 			- flag <player> stats_map:<[attributes_old]>
 		  - run stats_give
 		on player scrolls their hotbar:
+		  - ratelimit <player> 1t
 		  - define old_slot <player.inventory.slot[<context.previous_slot>].script.name||null>
 		  - define script <script[<[old_slot]>]||null>
 		  - if <[script]> != null:
@@ -155,6 +159,7 @@ stats_calculation_event:
 			    - flag <player> stats_map:<[attributes_new]>
 		  - run stats_give
 		on player swaps items:
+		  - ratelimit <player> 1t
 		  - define mainhand_slot <context.main.script.name||null>
 		  - define hand_script <script[<[mainhand_slot]>]||null>
 		  - define offhand_slot <context.offhand.script.name||null>
@@ -192,6 +197,7 @@ stats_calculation_event:
 			- flag <player> stats_map:<[attributes_new]>
 		  - run stats_give
 		on player breaks held item:
+		  - ratelimit <player> 1t
 		  - if <context.item> = null:
 		    - stop
 		  - else:
@@ -200,6 +206,7 @@ stats_calculation_event:
 			- flag <player> stats_map:<[attributes]>
 		    - run stats_give
 		on player drops item:
+		  - ratelimit <player> 1t
 		  - define item_script <context.item.script.name||null>
 		  - define script <script[<[item_script]>]||null>
 		  - if <[script]> != null:
@@ -210,6 +217,7 @@ stats_calculation_event:
 			    - flag <player> stats_map:<[attributes_old]>
 		  - run stats_give
 		on player picks up item:
+		  - ratelimit <player> 1t
 		  - define item_script <context.item.script.name||null>
 		  - define script <script[<[item_script]>]||null>
 		  - if <[script]> != null:
@@ -221,9 +229,11 @@ stats_calculation_event:
 		    - flag <player> stats_map:<[attributes]>
 		  - run stats_give
 		on player dies:
+		  - ratelimit <player> 1t
 		  - flag <player> stats_map:<map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
 		  - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
 		on player respawns:
+		  - ratelimit <player> 1t
 		  - flag <player> stats_map:<map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
 		  - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
 		  - run stats_calculation_all_slots def:<player> save:attributes
@@ -231,6 +241,7 @@ stats_calculation_event:
 		  - flag <player> stats_map:<[attributes]>
 		  - run stats_give
 		on player changes world from world to world:
+		  - ratelimit <player> 1t
 		  - flag <player> stats_map:<map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
           - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
 		  - run stats_calculation_all_slots def:<player> save:attributes
@@ -238,6 +249,7 @@ stats_calculation_event:
 		  - flag <player> stats_map:<[attributes]>
 		  - run stats_give
 		on player enters cuboid:
+		  - ratelimit <player> 1t
 		  - if <context.area.has_flag[attribute_remove]> = true:
 		    - flag <player> stats_map:<map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
 stats_give:
