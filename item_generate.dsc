@@ -117,8 +117,12 @@ item_generate_event:
 			  - define item <player.inventory.map_slots.get[<[value]>]>
 			  - if <[item]> = null:
 			    - foreach next
+			  - if <[item].script.name||null> = null:
+			    - foreach next
 			  - if <[item].script.name||null> != null:
-			    - if <script[<[item].script.name>].data_key[data.stats].keys.contains[lore]> = true:
+			    - if <script[<[item].script.name>].data_key[data.stats].keys.contains[lore]> = false:
+				  - foreach next
+				- else:
 		          - run item_lore_regenerate def:<[item]>|<[value]> save:lore
 			      - define lore <entry[lore].created_queue.determination.get[1]>
 			      - inventory adjust slot:<[value]> lore:<[lore]>
