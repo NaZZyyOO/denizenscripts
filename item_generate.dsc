@@ -115,12 +115,16 @@ item_generate_event:
 			  - if <player.inventory.slot[<[value]>].material.name> = air:
 			    - foreach next
 			  - define item <player.inventory.map_slots.get[<[value]>]>
+			  - if <[item]> = null:
+			    - foreach next
 			  - if <[item].script.name||null> != null:
 			    - if <script[<[item].script.name>].data_key[data.stats].keys.contains[lore]> = true:
 		          - run item_lore_regenerate def:<[item]>|<[value]> save:lore
 			      - define lore <entry[lore].created_queue.determination.get[1]>
 			      - inventory adjust slot:<[value]> lore:<[lore]>
-		  - flag <player> cd_regenerate expire:5s
+		    - flag <player> cd_regenerate expire:5s
+	      - else:
+		    - stop
 ua_displays:
     type: data
 	debug: false
