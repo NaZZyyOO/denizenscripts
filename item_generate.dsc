@@ -117,11 +117,13 @@ item_generate_event:
 			  - define item <player.inventory.map_slots.get[<[value]>]>
 			  - if <[item]> = null:
 			    - foreach next
-			  - if <[item].script.name||null> != null:
-			    - if <script[<[item].script.name>].data_key[data.stats].keys.contains[lore]> = true:
-		          - run item_lore_regenerate def:<[item]>|<[value]> save:lore
-			      - define lore <entry[lore].created_queue.determination.get[1]>
-			      - inventory adjust slot:<[value]> lore:<[lore]>
+			  - if <[item].script.name||null> = null:
+			    - foreach next
+			  - if <script[<[item].script.name>].data_key[data.stats].keys.contains[lore]> = false:
+			    - foreach next
+		      - run item_lore_regenerate def:<[item]>|<[value]> save:lore
+			  - define lore <entry[lore].created_queue.determination.get[1]>
+			  - inventory adjust slot:<[value]> lore:<[lore]>
 		    - flag <player> cd_regenerate expire:5s
 ua_displays:
     type: data
@@ -182,4 +184,4 @@ trades_regenerate:
 	debug: false
 	events:
 	    on player trades with merchant:
-		  - narrate <context.trade>
+		  - narrate <player.open_inventory.trades>
