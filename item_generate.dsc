@@ -112,6 +112,7 @@ item_generate_event:
 			- determine passively ITEM:<[item]>
 		  - if <player.has_flag[cd_regenerate]> = false:
 		    - foreach <player.inventory.map_slots.keys>:
+			  - wait 5t
 			  - if <player.inventory.slot[<[value]>].material.name> = air:
 			    - foreach next
 			  - define item <player.inventory.map_slots.get[<[value]>]>
