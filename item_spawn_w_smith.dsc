@@ -475,7 +475,6 @@ item_iron_hammer_04:
 	    stats:
 		    display:  "<&9><&l>Polished Iron Hammer"
 			rarity: rare
-			lvl_req: 30
 		    upgrades:
 			   gemstone: true
 		    custom_model_data: 3
@@ -574,7 +573,7 @@ item_iron_axe_01_use:
 				- animate <player> animation:ARM_SWING for:<server.online_players>
 				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
 				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:4
-				- flag <player> iron_axe_01_cd duration:3s
+				- flag <player> iron_axe_01_cd expire:3s
 				- feed <player> amount:-1
 				- wait 0.2
 				- foreach <player.location.find.living_entities.within[4].exclude[<player>]> as:victim:
@@ -643,7 +642,7 @@ item_iron_axe_02_use:
 				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
 				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:6
 				- feed <player> amount:-1
-				- flag <player> iron_axe_02_cd duration:4s
+				- flag <player> iron_axe_02_cd expire:4s
 				- wait 0.2
 				- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
 			 	  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
@@ -711,7 +710,7 @@ item_iron_axe_03_use:
 				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
 				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:8
 				- feed <player> amount:-1
-				- flag <player> iron_axe_03_cd duration:5s
+				- flag <player> iron_axe_03_cd expire:5s
 				- wait 0.2
 				- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
 			 	  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
@@ -779,7 +778,7 @@ item_iron_axe_04_use:
 				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
 				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:10
 				- feed <player> amount:-1
-				- flag <player> iron_axe_04_cd duration:6s
+				- flag <player> iron_axe_04_cd expire:6s
 				- wait 0.2
 				- foreach <player.location.find.living_entities.within[3].exclude[<player>]> as:victim:
 			      - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
