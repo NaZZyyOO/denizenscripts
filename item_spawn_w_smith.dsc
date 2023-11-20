@@ -567,20 +567,18 @@ item_iron_axe_01_use:
 	events:
 	    on player right clicks block with:item_iron_axe_01:
 		  - if <player.has_flag[iron_axe_01_cd]> = false:
-		    - if <player.is_sneaking> = false:
-			  - if <player.is_on_ground> = true:
-				- adjust <player> velocity:<player.location.direction.vector.mul[1.2]>
-				- animate <player> animation:ARM_SWING for:<server.online_players>
-				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
-				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:4
-				- flag <player> iron_axe_01_cd expire:3s
-				- feed <player> amount:-1
-				- wait 0.2
-				- foreach <player.location.find.living_entities.within[4].exclude[<player>]> as:victim:
-			      - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			        - hurt <[victim]> 5 source:<player> cause:entity_attack
-			        - playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-				    - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.2
+			- adjust <player> velocity:<player.location.direction.vector.mul[1.2]>
+			- animate <player> animation:ARM_SWING for:<server.online_players>
+			- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
+			- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:4
+			- flag <player> iron_axe_01_cd duration:3s
+			- feed <player> amount:-1
+			- wait 0.2
+			- foreach <player.location.find.living_entities.within[4].exclude[<player>]> as:victim:
+			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
+			    - hurt <[victim]> 5 source:<player> cause:entity_attack
+				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
+				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.2
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag[iron_axe_01_cd].expiration.formatted>"
 item_iron_axe_02:
@@ -635,20 +633,18 @@ item_iron_axe_02_use:
 	events:
 	    on player right clicks block with:item_iron_axe_02:
 		  - if <player.has_flag[iron_axe_02_cd]> = false:
-		    - if <player.is_sneaking> = false:
-			  - if <player.is_on_ground> = true:
-				- adjust <player> velocity:<player.location.direction.vector.mul[1.3]>
-				- animate <player> animation:ARM_SWING for:<server.online_players>
-				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
-				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:6
-				- feed <player> amount:-1
-				- flag <player> iron_axe_02_cd expire:4s
-				- wait 0.2
-				- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
-			 	  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			    	- hurt <[victim]> 7 source:<player> cause:entity_attack
-					- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-					- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.3
+			- adjust <player> velocity:<player.location.direction.vector.mul[1.3]>
+			- animate <player> animation:ARM_SWING for:<server.online_players>
+			- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
+			- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:6
+			- feed <player> amount:-1
+			- flag <player> iron_axe_02_cd expire:4s
+			- wait 0.2
+			- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
+			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
+			    - hurt <[victim]> 7 source:<player> cause:entity_attack
+				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
+				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.3
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag[iron_axe_02_cd].expiration.formatted>"
 item_iron_axe_03:
@@ -703,20 +699,18 @@ item_iron_axe_03_use:
 	events:
 	    on player right clicks block with:item_iron_axe_03:
 		  - if <player.has_flag[iron_axe_03_cd]> = false:
-		    - if <player.is_sneaking> = false:
-			  - if <player.is_on_ground> = true:
-				- adjust <player> velocity:<player.location.direction.vector.mul[1.4]>
-				- animate <player> animation:ARM_SWING for:<server.online_players>
-				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
-				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:8
-				- feed <player> amount:-1
-				- flag <player> iron_axe_03_cd expire:5s
-				- wait 0.2
-				- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
-			 	  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			    	- hurt <[victim]> 10 source:<player> cause:entity_attack
-					- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-					- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.6
+			- adjust <player> velocity:<player.location.direction.vector.mul[1.4]>
+			- animate <player> animation:ARM_SWING for:<server.online_players>
+			- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
+			- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:8
+			- feed <player> amount:-1
+			- flag <player> iron_axe_03_cd duration:5s
+			- wait 0.2
+			- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
+			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
+			    - hurt <[victim]> 10 source:<player> cause:entity_attack
+				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
+				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.6
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag[iron_axe_03_cd].expiration.formatted>"
 item_iron_axe_04:
@@ -771,19 +765,17 @@ item_iron_axe_04_use:
 	events:
 	    on player right clicks block with:item_iron_axe_04:
 		  - if <player.has_flag[iron_axe_04_cd]> = false:
-		    - if <player.is_sneaking> = false:
-			  - if <player.is_on_ground> = true:
-				- adjust <player> velocity:<player.location.direction.vector.mul[1.5]>
-				- animate <player> animation:ARM_SWING for:<server.online_players>
-				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
-				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:10
-				- feed <player> amount:-1
-				- flag <player> iron_axe_04_cd expire:6s
-				- wait 0.2
-				- foreach <player.location.find.living_entities.within[3].exclude[<player>]> as:victim:
-			      - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			        - hurt <[victim]> 15 source:<player> cause:entity_attack
-				    - playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-					- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.8
+			- adjust <player> velocity:<player.location.direction.vector.mul[1.5]>
+			- animate <player> animation:ARM_SWING for:<server.online_players>
+			- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
+			- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:10
+			- feed <player> amount:-1
+			- flag <player> iron_axe_04_cd duration:6s
+			- wait 0.2
+			- foreach <player.location.find.living_entities.within[3].exclude[<player>]> as:victim:
+			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
+			    - hurt <[victim]> 15 source:<player> cause:entity_attack
+				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
+				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.8
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag[iron_axe_04_cd].expiration.formatted>"
