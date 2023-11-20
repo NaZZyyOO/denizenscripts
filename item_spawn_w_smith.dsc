@@ -2,7 +2,7 @@ item_sword_wood:
     type: item
     debug: false
     material: wooden_sword
-    display name: "Training Sword"
+    display name: "<&f><&l>Training Sword"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -15,7 +15,7 @@ item_sword_wood:
 	  modifiers: false
 	data:
 	    stats:
-		    display:  "Training Sword"
+		    display:  "<&f><&l>Training Sword"
 			rarity: common
 			lore:
 			  item: "<&8><&l>Item: <&c>Weapon"
@@ -38,7 +38,7 @@ item_sword_stone:
     type: item
     debug: false
     material: stone_sword
-    display name: "Statue's Bulky Sword"
+    display name: "<&f><&l>Statue's Bulky Sword"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -51,7 +51,7 @@ item_sword_stone:
 	  modifiers: false
 	data:
 	    stats:
-		    display:  "Statue's Bulky Sword"
+		    display:  "<&f><&l>Statue's Bulky Sword"
 			rarity: common
 			lore:
 			  item: "<&8><&l>Item: <&c>Weapon"
@@ -79,7 +79,7 @@ item_sword_adventurer_01:
     type: item
     debug: false
     material: iron_sword
-    display name: "Adventurer's Rusty Blade"
+    display name: "<&f><&l>Adventurer's Rusty Blade"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -92,7 +92,7 @@ item_sword_adventurer_01:
 	  modifiers: true
 	data:
 	    stats:
-		    display:  "Adventurer's Rusty Blade"
+		    display:  "<&f><&l>Adventurer's Rusty Blade"
 			rarity: common
 		    upgrades:
 			   poison: true
@@ -130,7 +130,7 @@ item_sword_adventurer_02:
     type: item
     debug: false
     material: iron_sword
-    display name: "Adventurer's Blade"
+    display name: "<&9><&l>Adventurer's Blade"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -143,7 +143,7 @@ item_sword_adventurer_02:
 	  modifiers: true
 	data:
 	    stats:
-		    display:  "Adventurer's Blade"
+		    display:  "<&9><&l>Adventurer's Blade"
 			rarity: rare
 		    upgrades:
 			   poison: true
@@ -181,7 +181,7 @@ item_sword_adventurer_03:
     type: item
     debug: false
     material: iron_sword
-    display name: "Adventurer's Polished Blade"
+    display name: "<&9><&l>Adventurer's Polished Blade"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -194,7 +194,7 @@ item_sword_adventurer_03:
 	  modifiers: true
 	data:
 	    stats:
-		    display:  "Adventurer's Polished Blade"
+		    display:  "<&9><&l>Adventurer's Polished Blade"
 			rarity: rare
 		    upgrades:
 			   poison: true
@@ -232,7 +232,7 @@ item_sword_adventurer_04:
     type: item
     debug: false
     material: iron_sword
-    display name: "Adventurer's Shining Blade"
+    display name: "<&9><&l>Adventurer's Shining Blade"
     mechanisms:
 	  hides: ATTRIBUTES
       attribute_modifiers:
@@ -245,7 +245,7 @@ item_sword_adventurer_04:
 	  modifiers: true
 	data:
 	    stats:
-		    display:  "Adventurer's Shining Blade"
+		    display:  "<&9><&l>Adventurer's Shining Blade"
 			rarity: rare
 		    upgrades:
 			   poison: true
@@ -270,11 +270,6 @@ item_sword_adventurer_04:
 			      type: vanilla
 			      operation: ADD_NUMBER
 				  amount: -2.0
-				  slot: hand
-			  generic_movement_speed:
-			      type: vanilla
-				  operation: ADD_SCALAR
-				  amount: 0.05
 				  slot: hand
 item_sword_adventurer_04_use:
     type: world
@@ -480,6 +475,7 @@ item_iron_hammer_04:
 	    stats:
 		    display:  "<&9><&l>Polished Iron Hammer"
 			rarity: rare
+			lvl_req: 30
 		    upgrades:
 			   gemstone: true
 		    custom_model_data: 3
@@ -572,18 +568,20 @@ item_iron_axe_01_use:
 	events:
 	    on player right clicks block with:item_iron_axe_01:
 		  - if <player.has_flag[iron_axe_01_cd]> = false:
-			- adjust <player> velocity:<player.location.direction.vector.mul[1.2]>
-			- animate <player> animation:ARM_SWING for:<server.online_players>
-			- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
-			- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:4
-			- flag <player> iron_axe_01_cd duration:3s
-			- feed <player> amount:-1
-			- wait 0.2
-			- foreach <player.location.find.living_entities.within[4].exclude[<player>]> as:victim:
-			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			    - hurt <[victim]> 5 source:<player> cause:entity_attack
-				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.2
+		    - if <player.is_sneaking> = false:
+			  - if <player.is_on_ground> = true:
+				- adjust <player> velocity:<player.location.direction.vector.mul[1.2]>
+				- animate <player> animation:ARM_SWING for:<server.online_players>
+				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
+				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:4
+				- flag <player> iron_axe_01_cd duration:3s
+				- feed <player> amount:-1
+				- wait 0.2
+				- foreach <player.location.find.living_entities.within[4].exclude[<player>]> as:victim:
+			      - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
+			        - hurt <[victim]> 5 source:<player> cause:entity_attack
+			        - playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
+				    - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.2
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag[iron_axe_01_cd].expiration.formatted>"
 item_iron_axe_02:
@@ -615,7 +613,7 @@ item_iron_axe_02:
 			  gemstone: <[gemstone]>
 			  text: "<n><&7><&o>Iron axe, sharper and cleaner than its previous version."
 			  abilities: "<n><&7>Using:<n><&a> - Makes a leap forward, dealing 7 damage <n><&a> to all targets around the player.<n><&a> Can be used once in 4 seconds."
-			  attributes: "<n><&7>When in mainhand:<n><&7>Damage:<&c> +13<n><&7>Attack speed bonus:<&e> -2.4<n><&7>Бонус к скорости бега:<&a> -15.0%"
+			  attributes: "<n><&7>When in mainhand:<n><&7>Damage:<&c> +13<n><&7>Attack speed bonus:<&e> -2.4<n><&7>Movement speed bonus:<&a> -15.0%"
 			attribute_modifiers:
 	          generic_attack_damage:
 			      type: vanilla
@@ -638,18 +636,20 @@ item_iron_axe_02_use:
 	events:
 	    on player right clicks block with:item_iron_axe_02:
 		  - if <player.has_flag[iron_axe_02_cd]> = false:
-			- adjust <player> velocity:<player.location.direction.vector.mul[1.3]>
-			- animate <player> animation:ARM_SWING for:<server.online_players>
-			- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
-			- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:6
-			- feed <player> amount:-1
-			- flag <player> iron_axe_02_cd duration:4s
-			- wait 0.2
-			- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
-			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			    - hurt <[victim]> 7 source:<player> cause:entity_attack
-				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.3
+		    - if <player.is_sneaking> = false:
+			  - if <player.is_on_ground> = true:
+				- adjust <player> velocity:<player.location.direction.vector.mul[1.3]>
+				- animate <player> animation:ARM_SWING for:<server.online_players>
+				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
+				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:6
+				- feed <player> amount:-1
+				- flag <player> iron_axe_02_cd duration:4s
+				- wait 0.2
+				- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
+			 	  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
+			    	- hurt <[victim]> 7 source:<player> cause:entity_attack
+					- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
+					- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.3
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag[iron_axe_02_cd].expiration.formatted>"
 item_iron_axe_03:
@@ -681,7 +681,7 @@ item_iron_axe_03:
 			  gemstone: <[gemstone]>
 			  text: "<n><&7><&o>Well-designed double-headed iron Axe,<n><&7><&o>capable of inflicting deep wounds to the enemy."
 			  abilities: "<n><&7>Using:<n><&a> - Makes a leap forward, dealing 10 damage <n><&a> to all targets around the player.<n><&a> Can be used once in 5 seconds."
-			  attributes: "<n><&7>When in mainhand:<n><&7>Damage:<&c> +14.5<n><&7>Attack speed bonus:<&e> -2.4<n><&7>Бонус к скорости бега:<&a> -17.0%"
+			  attributes: "<n><&7>When in mainhand:<n><&7>Damage:<&c> +14.5<n><&7>Attack speed bonus:<&e> -2.4<n><&7>Movement speed bonus:<&a> -17.0%"
 			attribute_modifiers:
 	          generic_attack_damage:
 			      type: vanilla
@@ -704,18 +704,20 @@ item_iron_axe_03_use:
 	events:
 	    on player right clicks block with:item_iron_axe_03:
 		  - if <player.has_flag[iron_axe_03_cd]> = false:
-			- adjust <player> velocity:<player.location.direction.vector.mul[1.4]>
-			- animate <player> animation:ARM_SWING for:<server.online_players>
-			- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
-			- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:8
-			- feed <player> amount:-1
-			- flag <player> iron_axe_03_cd duration:5s
-			- wait 0.2
-			- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
-			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			    - hurt <[victim]> 10 source:<player> cause:entity_attack
-				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.6
+		    - if <player.is_sneaking> = false:
+			  - if <player.is_on_ground> = true:
+				- adjust <player> velocity:<player.location.direction.vector.mul[1.4]>
+				- animate <player> animation:ARM_SWING for:<server.online_players>
+				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
+				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:8
+				- feed <player> amount:-1
+				- flag <player> iron_axe_03_cd duration:5s
+				- wait 0.2
+				- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
+			 	  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
+			    	- hurt <[victim]> 10 source:<player> cause:entity_attack
+					- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
+					- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.6
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag[iron_axe_03_cd].expiration.formatted>"
 item_iron_axe_04:
@@ -747,7 +749,7 @@ item_iron_axe_04:
 			  gemstone: <[gemstone]>
 			  text: "<n><&7><&o>Clean and shiny, double-headed iron axe,<n><&7><&o>capable to chop enemies to pieces effortlessly."
 			  abilities: "<n><&7>Using:<n><&a> - Makes a leap forward, dealing 15 damage <n><&a> to all targets around the player.<n><&a> Can be used once in 6 seconds."
-			  attributes: "<n><&7>When in mainhand:<n><&7>Damage:<&c> +17<n><&7>Attack speed bonus:<&e> -2.8<n><&7>Бонус к скорости бега:<&a> -25.0%"
+			  attributes: "<n><&7>When in mainhand:<n><&7>Damage:<&c> +17<n><&7>Attack speed bonus:<&e> -2.8<n><&7>Movement speed bonus:<&a> -25.0%"
 			attribute_modifiers:
 	          generic_attack_damage:
 			      type: vanilla
@@ -770,17 +772,19 @@ item_iron_axe_04_use:
 	events:
 	    on player right clicks block with:item_iron_axe_04:
 		  - if <player.has_flag[iron_axe_04_cd]> = false:
-			- adjust <player> velocity:<player.location.direction.vector.mul[1.5]>
-			- animate <player> animation:ARM_SWING for:<server.online_players>
-			- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
-			- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:10
-			- feed <player> amount:-1
-			- flag <player> iron_axe_04_cd duration:6s
-			- wait 0.2
-			- foreach <player.location.find.living_entities.within[3].exclude[<player>]> as:victim:
-			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			    - hurt <[victim]> 15 source:<player> cause:entity_attack
-				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.8
+		    - if <player.is_sneaking> = false:
+			  - if <player.is_on_ground> = true:
+				- adjust <player> velocity:<player.location.direction.vector.mul[1.5]>
+				- animate <player> animation:ARM_SWING for:<server.online_players>
+				- playsound ENTITY_PLAYER_ATTACK_SWEEP <player> volume:1 pitch:0.1
+				- playeffect SWEEP_ATTACK <player.location> offset:0.7 quantity:10
+				- feed <player> amount:-1
+				- flag <player> iron_axe_04_cd duration:6s
+				- wait 0.2
+				- foreach <player.location.find.living_entities.within[3].exclude[<player>]> as:victim:
+			      - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
+			        - hurt <[victim]> 15 source:<player> cause:entity_attack
+				    - playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
+					- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.8
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag[iron_axe_04_cd].expiration.formatted>"
