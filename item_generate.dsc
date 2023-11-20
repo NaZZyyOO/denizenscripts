@@ -64,6 +64,8 @@ item_lore_regenerate:
 		      - define updated_display <[item].display.replace_text[<[item].display>].with[<[display_name]>]>
 			  - inventory adjust slot:<[slot]> display:<[updated_display]>
 		      - define lore <[item].lore>
+			  - if <[lore]||null> = null:
+			    - stop
 			  - if <[item].raw_nbt.get[Lingo]> = <element[string:ru]>:
 			    - define poison_origin "<&8>[Пустой Слот] - Яд."
 			    - if <[item].has_flag[poison]> = true:
