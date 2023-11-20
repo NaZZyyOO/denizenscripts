@@ -5,7 +5,7 @@ spawn_npc_click:
     events:
         on player right clicks entity:
           - ratelimit <player> 1t
-          - if <player.is_online> = true:
+          - if <context.entity.is_player> = true:
             - if <context.entity.name> == "Стражник Виктор":
               - inventory open d:spawn_dialogue_guard_viktor
             - if <context.entity.name> == "Стражник Кристер":
