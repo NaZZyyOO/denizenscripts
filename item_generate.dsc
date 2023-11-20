@@ -112,6 +112,7 @@ item_generate_event:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
+		after player picks up item:
 		  - if <player.has_flag[cd_regenerate]> = false:
 		    - foreach <player.inventory.map_slots.keys>:
 			  - wait 5t
