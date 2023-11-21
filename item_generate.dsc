@@ -3,10 +3,11 @@ item_generate:
 	definitions: item
 	debug: false
 	script:
-	    - define script <script[<[item].script.name>]||null>
-	    - define lore_for_item <list[]>
-		- if <[script]> = null:
-		  - stop
+	  - define script <script[<[item].script.name>]||null>
+	  - define lore_for_item <list[]>
+      - if <[script]> = null:
+		- stop
+	  - else:
 		- define gemstone "<&8>[Empty Slot] - Gemstone."
 		- define gemstone_upgrade <[script].data_key[data.stats.upgrades.gemstone]||null>
 		- if <[gemstone_upgrade]> = true:
