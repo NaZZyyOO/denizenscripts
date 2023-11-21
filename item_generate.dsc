@@ -100,19 +100,17 @@ item_lore_regenerate:
 				    - define gemstone_color <script[rarity_colors].data_key[<script[<[item].flag[gemstone]>].data_key[data.stats.rarity]>.color]>
 				    - define gemstone "<&7>[Інкрустація] - <element[<[gemstone_color]><script[ua_displays].data_key[<[item].flag[gemstone]>.display]>].parsed><&7>."
 			      - define lore <[lore].replace_text[<[gemstone_origin]>].with[<[gemstone]>]>
-	        - determine <[lore]>
+	          - determine <[lore]>
 item_generate_event:
     type: world
 	debug: false
 	events:
 		on player picks up item:
-		  - ratelimit <player> 1t
 		  - define item <context.item.script.name||null>
 		  - if <[item]> != null:
 		    - run item_generate def:<context.item> save:item
 			- define item <entry[item].created_queue.determination.get[1]>
 			- determine passively ITEM:<[item]>
-		  - wait 2s
 		  - if <player.has_flag[cd_regenerate]> = false:
 		    - foreach <player.inventory.map_slots.keys>:
 			  - wait 5t
