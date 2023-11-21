@@ -23,7 +23,8 @@ bleeding_event:
 			      - hurt 16 <context.entity> source:<context.damager>
 				  - flag <context.damager> bleeding:!
 			    - playsound sound:ENTITY_TURTLE_EGG_BREAK volume:1 pitch:0.6 <player.location>
-			    - playeffect effect:REDSTONE quantity:30 offset:0.7 special_data:1.2|red at:<context.entity.location>
+				- if <context.entity.location> != null:
+			      - playeffect effect:REDSTONE quantity:30 offset:0.7 special_data:1.2|red at:<context.entity.location>
 			- else:
 			  - if <context.entity.flag[bleeding]> < 100:
 			    - if <util.random.int[0].to[100]> <= 50:
