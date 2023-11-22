@@ -584,7 +584,8 @@ item_iron_axe_01_use:
 			    - if <[victim]||null> != null && <[victim].location> != null:
 			      - hurt 5 <[victim]> source:<player> cause:entity_attack
 			  	  - playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-				  - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.2
+				  - if <[victim].health> > 5:
+				    - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.2
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag_expiration[iron_axe_01_cd].from_now.formatted>"
 item_iron_axe_02:
@@ -651,7 +652,8 @@ item_iron_axe_02_use:
 			    - if <[victim]||null> != null && <[victim].location> != null:
 			      - hurt 7 <[victim]> source:<player> cause:entity_attack
 				  - playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-				  - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.3
+				  - if <[victim].health> > 5:
+				    - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.3
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag_expiration[iron_axe_02_cd].from_now.formatted>"
 item_iron_axe_03:
@@ -718,7 +720,8 @@ item_iron_axe_03_use:
 			    - if <[victim]||null> != null && <[victim].location> != null:
 			      - hurt 10 <[victim]> source:<player> cause:entity_attack
 				  - playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-				  - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.6
+				  - if <[victim].health> > 5:
+				    - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.6
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag_expiration[iron_axe_03_cd].from_now.formatted>"
 item_iron_axe_04:
@@ -785,6 +788,7 @@ item_iron_axe_04_use:
 			    - if <[victim]||null> != null && <[victim].location> != null:
 			      - hurt 15 <[victim]> source:<player> cause:entity_attack
 				  - playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
-				  - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.8
+				  - if <[victim].health> > 5:
+				    - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.8
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag_expiration[iron_axe_04_cd].from_now.formatted>"
