@@ -581,7 +581,7 @@ item_iron_axe_01_use:
 			- wait 0.2
 			- foreach <player.location.find.living_entities.within[4].exclude[<player>]> as:victim:
 			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			    - hurt <[victim]> 5 source:<player> cause:entity_attack
+			    - hurt 5 <[victim]> source:<player> cause:entity_attack
 				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
 				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.2
 		  - else:
@@ -647,7 +647,7 @@ item_iron_axe_02_use:
 			- wait 0.2
 			- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
 			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			    - hurt <[victim]> 7 source:<player> cause:entity_attack
+			    - hurt 7 <[victim]> source:<player> cause:entity_attack
 				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
 				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.3
 		  - else:
@@ -713,7 +713,7 @@ item_iron_axe_03_use:
 			- wait 0.2
 			- foreach <player.location.find.living_entities.within[2].exclude[<context.player>]> as:victim:
 			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			    - hurt <[victim]> 10 source:<player> cause:entity_attack
+			    - hurt 10 <[victim]> source:<player> cause:entity_attack
 				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
 				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.6
 		  - else:
@@ -779,7 +779,7 @@ item_iron_axe_04_use:
 			- wait 0.2
 			- foreach <player.location.find.living_entities.within[3].exclude[<player>]> as:victim:
 			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-			    - hurt <[victim]> 15 source:<player> cause:entity_attack
+			    - hurt 15 <[victim]> source:<player> cause:entity_attack
 				- playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
 				- push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.8
 		  - else:
