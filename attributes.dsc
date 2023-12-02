@@ -159,7 +159,7 @@ stats_calculation_event:
 		  - define new_slot <player.inventory.slot[<context.new_slot>].script.name||null>
 		  - define script <script[<[new_slot]>]||null>
 		  - if <[script]> != null:
-		    - if <script[<[mainhand_slot]>].data_key[data]||null> != null:
+		    - if <script[<[new_slot]>].data_key[data]||null> != null:
 		      - if <[script].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
 		        - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> = hand:
 		          - run stats_calculation_slot def:<[script]>|include save:attributes_new
