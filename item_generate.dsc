@@ -109,9 +109,12 @@ item_generate_event:
 		on player picks up item:
 		  - define item <context.item.script.name||null>
 		  - if <[item]> != null:
-		    - run item_generate def:<context.item> save:item
-			- define item <entry[item].created_queue.determination.get[1]>
-			- determine passively ITEM:<[item]>
+		    - if <script[<[item]>].data_key[data]||null> != null:
+		      - run item_generate def:<context.item> save:item
+			  - define item <entry[item].created_queue.determination.get[1]>
+			  - determine passively ITEM:<[item]>
+		  - else:
+		    - stop
 		  - if <player.has_flag[cd_regenerate]> = false:
 		    - foreach <player.inventory.map_slots.keys>:
 			  - wait 5t

@@ -217,6 +217,8 @@ stats_calculation_event:
 		        - run stats_calculation_slot def:<[script]>|exclude save:attributes_old
 			    - define attributes_old <entry[attributes_old].created_queue.determination.get[1]>
 			    - flag <player> stats_map:<[attributes_old]>
+		  - else:
+		    - stop
 		  - run stats_give
 		on player picks up item:
 		  - ratelimit <player> 1t
@@ -224,7 +226,7 @@ stats_calculation_event:
 		  - define script <script[<[item_script]>]||null>
 		  - if <[script]> != null:
 		    - flag <player> stats_map:<map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
-            - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
+            - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_SWING_OF_BLOW=1;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
 		    - wait 1s
 		    - run stats_calculation_all_slots def:<player> save:attributes
 		    - define attributes <entry[attributes].created_queue.determination.get[1]>
@@ -233,11 +235,11 @@ stats_calculation_event:
 		on player dies:
 		  - ratelimit <player> 1t
 		  - flag <player> stats_map:<map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
-		  - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
+		  - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_SWING_OF_BLOW=1;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
 		on player respawns:
 		  - ratelimit <player> 1t
 		  - flag <player> stats_map:<map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
-		  - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
+		  - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_SWING_OF_BLOW=1;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
 		  - run stats_calculation_all_slots def:<player> save:attributes
 		  - define attributes <entry[attributes].created_queue.determination.get[1]>
 		  - flag <player> stats_map:<[attributes]>
@@ -245,7 +247,7 @@ stats_calculation_event:
 		on player changes world from world to world:
 		  - ratelimit <player> 1t
 		  - flag <player> stats_map:<map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
-          - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
+          - flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_SWING_OF_BLOW=1;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
 		  - run stats_calculation_all_slots def:<player> save:attributes
 		  - define attributes <entry[attributes].created_queue.determination.get[1]>
 		  - flag <player> stats_map:<[attributes]>
@@ -254,6 +256,7 @@ stats_calculation_event:
 		  - ratelimit <player> 1t
 		  - if <context.area.has_flag[attribute_remove]> = true:
 		    - flag <player> stats_map:<map[GENERIC_ATTACK_DAMAGE=0;GENERIC_ATTACK_SPEED=0;GENERIC_MAX_HEALTH=0;GENERIC_MOVEMENT_SPEED=0;GENERIC_ARMOR=0;GENERIC_ARMOR_TOUGHNESS=0;GENERIC_ATTACK_DAMAGE=0;GENERIC_KNOCKBACK_RESISTANCE=0]>
+			- flag <player> custom_stats_map:<map[GENERIC_REEACH_DISTANCE=0;GENERIC_SWING_OF_BLOW=1;GENERIC_DEEPTH_OF_WOUND=0;METALURGIST=0;PRISTINE=0]>
 stats_give:
     type: task
 	debug: false
