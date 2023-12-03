@@ -579,13 +579,13 @@ item_iron_axe_01_use:
 			- flag <player> iron_axe_01_cd expire:3s
 			- feed <player> amount:-1
 			- wait 0.2
-			- foreach <player.location.find.living_entities.within[4].exclude[<context.player>].first> as:victim:
+			- foreach <player.location.find.living_entities.within[2].exclude[<player>].first> as:victim:
 			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
 			    - if <[victim]||null> != null && <[victim].location> != null:
 			      - hurt 5 <[victim]> source:<player> cause:entity_attack
-			  	  - playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
+				  - playeffect at:<[victim].location> effect:sweep_attack offset:0 quantity:1
 				  - if <[victim].health> > 5:
-				    - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.2
+				    - push <[victim]> origin:<[victim].location> destination:<player.location.forward[7].add[0,2,0]> no_rotate speed:0.3
 		  - else:
             - actionbar "<&6><&l>Weapon is not ready for use. <player.flag_expiration[iron_axe_01_cd].from_now.formatted>"
 item_iron_axe_02:
@@ -647,7 +647,7 @@ item_iron_axe_02_use:
 			- feed <player> amount:-1
 			- flag <player> iron_axe_02_cd expire:4s
 			- wait 0.2
-			- foreach <player.location.find.living_entities.within[2].exclude[<context.player>].first> as:victim:
+			- foreach <player.location.find.living_entities.within[2].exclude[<player>].first> as:victim:
 			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
 			    - if <[victim]||null> != null && <[victim].location> != null:
 			      - hurt 7 <[victim]> source:<player> cause:entity_attack
@@ -715,7 +715,7 @@ item_iron_axe_03_use:
 			- feed <player> amount:-1
 			- flag <player> iron_axe_03_cd expire:5s
 			- wait 0.2
-			- foreach <player.location.find.living_entities.within[2].exclude[<context.player>].first> as:victim:
+			- foreach <player.location.find.living_entities.within[2].exclude[<player>].first> as:victim:
 			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
 			    - if <[victim]||null> != null && <[victim].location> != null:
 			      - hurt 10 <[victim]> source:<player> cause:entity_attack
@@ -783,7 +783,7 @@ item_iron_axe_04_use:
 			- feed <player> amount:-1
 			- flag <player> iron_axe_04_cd expire:6s
 			- wait 0.2
-			- foreach <player.location.find.living_entities.within[3].exclude[<context.player>].first> as:victim:
+			- foreach <player.location.find.living_entities.within[3].exclude[<player>].first> as:victim:
 			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
 			    - if <[victim]||null> != null && <[victim].location> != null:
 			      - hurt 15 <[victim]> source:<player> cause:entity_attack
