@@ -15,8 +15,6 @@ stats_calculation_all_slots:
 		  - define script <script[<[item_script]>]||null>
 		  - if <[script]> = null:
 		    - foreach next
-		  - if <[<[script]>].data_key[data]||null> = null:
-		    - foreach next
 		  - if <[script].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
 		    - if <[value]> = <[player].held_item_slot>:
 		      - if <[script].data_key[data.stats.attribute_modifiers.<[script].data_key[data.stats.attribute_modifiers].keys.first>.slot]> != hand:
