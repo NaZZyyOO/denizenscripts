@@ -11,11 +11,11 @@ stats_calculation_all_slots:
 		  - define item <[player].inventory.slot[<[value]>]>
 		  - if <[item]> = null:
 		    - foreach next
-	      - if <script[<[item]>].data_key[data]||null> = null:
-		    - foreach next
 		  - define item_script <[item].script.name||null>
 		  - define script <script[<[item_script]>]||null>
 		  - if <[script]> = null:
+		    - foreach next
+		  - if <[<[script]>].data_key[data]||null> = null:
 		    - foreach next
 		  - if <[script].data_key[data.stats].keys.contains[attribute_modifiers]> = true:
 		    - if <[value]> = <[player].held_item_slot>:
