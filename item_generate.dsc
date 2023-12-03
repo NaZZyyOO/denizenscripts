@@ -113,8 +113,7 @@ item_generate_event:
 		      - run item_generate def:<context.item> save:item
 			  - define item <entry[item].created_queue.determination.get[1]>
 			  - determine passively ITEM:<[item]>
-		  - else:
-		    - stop
+		  - wait 1s
 		  - if <player.has_flag[cd_regenerate]> = false:
 		    - foreach <player.inventory.map_slots.keys>:
 			  - wait 5t
@@ -132,7 +131,7 @@ item_generate_event:
 		      - run item_lore_regenerate def:<[item]>|<[value]> save:lore
 			  - define lore <entry[lore].created_queue.determination.get[1]>
 			  - inventory adjust slot:<[value]> lore:<[lore]>
-		    - flag <player> cd_regenerate expire:5s
+		    - flag <player> cd_regenerate expire:1s
 ua_displays:
     type: data
 	debug: false
