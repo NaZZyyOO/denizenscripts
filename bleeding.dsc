@@ -12,16 +12,16 @@ bleeding_event:
 			  - if <context.entity.health> > 5:
 			    - if <context.entity.flag[bleeding]> <= 25:
 			      - hurt 4 <context.entity> source:<context.damager>
-				  - flag <context.damager> bleeding:!
+				  - flag <context.entity> bleeding:!
 			    - if <context.entity.flag[bleeding]> > 25 && <context.entity.flag[bleeding]> <= 50:
 			      - hurt 8 <context.entity> source:<context.damager>
-				  - flag <context.damager> bleeding:!
+				  - flag <context.entity> bleeding:!
 			    - if <context.entity.flag[bleeding]> > 50 && <context.entity.flag[bleeding]> <= 75:
 			      - hurt 12 <context.entity> source:<context.damager>
-				  - flag <context.damager> bleeding:!
+				  - flag <context.entity> bleeding:!
 			    - if <context.entity.flag[bleeding]> > 75 && <context.entity.flag[bleeding]> <= 100:
 			      - hurt 16 <context.entity> source:<context.damager>
-				  - flag <context.damager> bleeding:!
+				  - flag <context.entity> bleeding:!
 			    - playsound sound:ENTITY_TURTLE_EGG_BREAK volume:1 pitch:0.6 <player.location>
 				- if <context.entity.location> != null:
 			      - playeffect effect:REDSTONE quantity:30 offset:0.7 special_data:1.2|red at:<context.entity.location>
