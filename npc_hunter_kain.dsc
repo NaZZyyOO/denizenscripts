@@ -84,7 +84,7 @@ npc_hunter_kain:
 			- narrate "<&e>[Охотник Каин] <&6>- Не мог бы ли ты принести 32 куска сырой свинины? Она её больше всего любит."
 			- define hunter_kain_feed <element[hunter_kain_feed]>
 			- clickable quest_add def:<[hunter_kain_feed]>|<player> until:120s save:quest usages:1
-			- narrate "<&a><&l><element[Да].on_click[<entry[quest].command>]><reset>  / <&c><&l>Нет"
+			- narrate "<&a><&l><element[Да].on_click[<entry[quest]>]><reset>  / <&c><&l>Нет"
 			- waituntil <player.flag[quests].contains[hunter_kain_feed]>
 			- narrate "<&e>[Охотник Каин] <&6>- Между портом и лагерем беззаконников в лесу есть логово диких вепрей, можешь поохотиться на них. Ты его ни с чем не спутаешь, это такое большое плодовое дерево на островке слева от разрушенного маяка. <n> Хотя можешь, конечно, пойти и просто купить его на рынке или у фермера. <n> Как принесёшь, просто отдай всё мясо собаке."
 		on player clicks npc_hunter_kain_q_fox in npc_hunter_kain_d:
