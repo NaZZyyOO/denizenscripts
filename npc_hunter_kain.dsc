@@ -88,7 +88,7 @@ npc_hunter_kain:
 			  - flag <player> quests:<player.flag[quests].include[hunter_kain_feed]>
 			  - wait 5t
 			  - narrate "<&e>[Охотник Каин] <&6>- Между портом и лагерем беззаконников в лесу есть логово диких вепрей, можешь поохотиться на них. Ты его ни с чем не спутаешь, это такое большое плодовое дерево на островке слева от разрушенного маяка. <n> Хотя можешь, конечно, пойти и просто купить его на рынке или у фермера. <n> Как принесёшь, просто отдай всё мясо собаке."
-			- narrate "<&a><&l><element[Да].on_click[<entry[quest].command>]><reset>  / <&c><&l>Нет"
+			- narrate "<&a><&l><element[Да].on_click[<entry[quest].command>].on_hover[<&7>Нажмите,чтоб принять квест!]><reset>  / <&c><&l>Нет"
 		on player clicks npc_hunter_kain_q_fox in npc_hunter_kain_d:
           - determine passively cancelled
           - inventory close
