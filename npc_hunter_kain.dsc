@@ -110,9 +110,14 @@ npc_hunter_kain:
             - else:
               - narrate "<&e>[Охотник Каин] <&6>- Чего застыл? Страшно стало? Не бойся, лисы не такие опасные, если у тебя имеется хорошее оружие и ловкость."
           - else:
-            - narrate "<&e>[Охотник Каин] <&6>- Не мог бы ты помочь мне? Каждый день я прихожу сюда отловить несколько лис, чтобы они не нападали на прохожих, но сегодня я забыл своё ружьё. Поэтому предлагаю тебе, за не просто так, убить 10 лис вот у того большого дерева слева от меня. "
-            - flag <player> quests:<player.flag[quests].as_list.include[hunter_kain_fox]>
-			- flag <player> hunter_kain_fox_kill:0
+            - narrate "<&e>[Охотник Каин] <&6>- Не мог бы ты помочь мне? Каждый день я прихожу сюда отловить несколько лис, чтобы они не нападали на прохожих, но сегодня я забыл своё ружьё. "
+			- clickable until:120s usages:1 save:quest:
+			  - flag <player> quests:<player.flag[quests].include[hunter_kain_feed]>
+			  - flag <player> quests:<player.flag[quests].as_list.include[hunter_kain_fox]>
+			  - flag <player> hunter_kain_fox_kill:0
+			  - wait 10t
+			  - narrate "<&e>[Охотник Каин] <&6>- Предлагаю тебе, за не просто так, убить 10 лис вот у того большого дерева слева от меня."
+			- narrate "<&a><&l><element[Да].on_click[<entry[quest].command>].on_hover[<&7>Нажмите,чтоб принять квест!]><reset>  / <&c><&l>Нет"
 		on entity killed by entity:
 		  - if <context.damager.has_flag[hunter_kain_fox_kill]> = true:
             - if <context.entity.name> == "<&6>Голодная лисица":
