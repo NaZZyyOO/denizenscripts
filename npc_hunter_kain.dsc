@@ -120,7 +120,7 @@ npc_hunter_kain:
 			- narrate "<&a><&l><element[Да].on_click[<entry[quest].command>].on_hover[<&7>Нажмите,чтоб принять квест!]><reset>  / <&c><&l>Нет"
 		on entity killed by entity:
 		  - if <context.damager.has_flag[hunter_kain_fox_kill]> = true:
-            - if <context.entity.name> == "<&6>Голодная лисица":
+            - if <context.entity.name> == "Hungry fox":
 		      - flag <player> hunter_kain_fox_kill:+:1
 			  - wait 0.1
               - actionbar "<&7>Вы убили голодную лису! Вы убили уже <player.flag[hunter_kain_fox_kill]>."
