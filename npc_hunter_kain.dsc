@@ -75,7 +75,7 @@ npc_hunter_kain:
             - define quests <list[]>
             - flag <player> quests:<[quests]>
           - if <player.has_flag[hunter_kain_feed_cd]> = true:
-            - narrate "<&e>[Охотник Каин] <&6>- Хватит ей еды, а то разжиреет и вовсе охотиться перестанет. Приходи завтра, мы тут разбиваем лагерь каждый день. <player.flag[hunter_kain_feed_cd].expiration.formatted>"
+            - narrate "<&e>[Охотник Каин] <&6>- Хватит ей еды, а то разжиреет и вовсе охотиться перестанет. Приходи завтра, мы тут разбиваем лагерь каждый день. <player.flag_expiration[hunter_kain_feed_cd].from_now.formatted>"
             - stop
           - if <player.flag[quests].contains[hunter_kain_feed]> = true:
             - narrate "<&e>[Охотник Каин] <&6>- Просто отдай мясо собаке. Не бойся она тебя не укусит, если у тебя еда в руках."
@@ -96,7 +96,7 @@ npc_hunter_kain:
             - define quests <list[]>
             - flag <player> quests:<[quests]>
           - if <player.has_flag[hunter_kain_fox_cd]> = true:
-            - narrate "<&e>[Охотник Каин] <&6>- Ты славно поработал! Теперь лисы здесь появлятся ещё не скоро <player.flag[hunter_kain_fox_cd].expiration.formatted>"
+            - narrate "<&e>[Охотник Каин] <&6>- Ты славно поработал! Теперь лисы здесь появлятся ещё не скоро <player.flag_expiration[hunter_kain_fox_cd].from_now.formatted>"
             - stop
           - if <player.flag[quests].contains[hunter_kain_fox]> = true:
             - if <player.has_flag[hunter_kain_fox_kill_10]> = true:
