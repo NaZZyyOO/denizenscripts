@@ -118,15 +118,16 @@ npc_hunter_kain:
 			  - wait 10t
 			  - narrate "<&e>[Охотник Каин] <&6>- Предлагаю тебе, за не просто так, убить 10 лис вот у того большого дерева слева от меня."
 			- narrate "<&a><&l><element[Да].on_click[<entry[quest].command>].on_hover[<&7>Нажмите,чтоб принять квест!]><reset>  / <&c><&l>Нет"
-		on entity killed by entity:
-		  - if <context.damager.has_flag[hunter_kain_fox_kill]> = true:
-            - if <context.entity.name> == "Hungry fox":
-		      - flag <player> hunter_kain_fox_kill:+:1
-			  - wait 0.1
-              - actionbar "<&7>Вы убили голодную лису! Вы убили уже <player.flag[hunter_kain_fox_kill]>."
-			  - if <player.flag[hunter_kain_fox_kill]> = 10:
-			    - flag <player> hunter_kain_fox_kill:!
-			    - flag <player> hunter_kain_fox_kill_10
+		on mythicmob mob killed by:player:
+		  - if <context.killer.has_flag[hunter_kain_fox_kill]> = true:
+		    - if <context.mob> != null:
+              - if <context.mob.internal_name> = amber_fox:
+		        - flag <context.killer> hunter_kain_fox_kill:+:1
+			    - wait 0.1
+                - actionbar "<&7>Вы убили голодную лису! Вы убили уже <player.flag[hunter_kain_fox_kill]>." targets:<context.killer>
+			    - if <context.killer.flag[hunter_kain_fox_kill]> = 10:
+			      - flag <context.killer> hunter_kain_fox_kill:!
+			      - flag <context.killer> hunter_kain_fox_kill_10
 npc_hunter_kain_d:
   type: inventory
   debug: false
