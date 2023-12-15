@@ -32,7 +32,6 @@ item_generate:
 		    - define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>_gemact_poisonact_<[item].flag[poison]>]>]>
 		  - if <[item].flag[gemstone]> != false && <[item].flag[poison]> != false:
 		    - define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>_gemact_poisonact_<[item].flag[gemstone]>_<[item].flag[poison]>]>]>
-		- define item <[item].with[raw_nbt=<map[Lingo=string:en]>]>
 	    - determine <[item]>
 item_generate_event:
     type: world
