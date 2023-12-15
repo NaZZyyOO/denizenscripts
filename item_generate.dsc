@@ -14,13 +14,13 @@ item_generate:
 		- define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>]>]>
 		- if <[item].has_flag[gemstone]> = true:
 		  - define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>_gemact]>]>
-		  - if <[item].flag[gemstone]> != false:
-		    - define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>_gemact_<[item].flag[gemstone]>]>]>
+		- if <[item].flag[gemstone]> != false:
+		  - define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>_gemact_<[item].flag[gemstone]>]>]>
 	    - else:
 		  - if <[item].has_flag[poison]> = true:
 		    - define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>_poisonact]>]>
-		    - if <[item].flag[poison]> != false:
-		      - define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>_poisonact_<[item].flag[poison]>]>]>
+		  - if <[item].flag[poison]> != false:
+		    - define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>_poisonact_<[item].flag[poison]>]>]>
 		- if <[item].has_flag[gemstone]> = true && <[item].has_flag[poison]> = false:
 		  - define item <[item].with[raw_nbt=<map[ItemLingo=string:<[script].name>_gemact]>]>
 		- if <[item].has_flag[gemstone]> = false && <[item].has_flag[poison]> = true:
