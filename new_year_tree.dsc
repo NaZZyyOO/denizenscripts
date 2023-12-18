@@ -47,10 +47,10 @@ item_new_year_tree_use:
 	    on player right clicks block:
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_01]||false>:
 		    - determine passively cancelled
-			- execute as_op "schematic load new_year_tree_01"
+			- execute as_op "/schematic load new_year_tree_01"
 			- take from:<player.inventory> item:new_year_tree_01 quantity:1
 			- wait 1s
-			- execute as_op "paste"
+			- execute as_op "/paste"
 			- note <ellipsoid[ellipsoid@<player.location.simple.add[-1,0,0]>,7,10,5]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
@@ -59,10 +59,10 @@ item_new_year_tree_use:
 			- flag <ellipsoid[Tree_for_<player.name>]> tier:item_new_year_tree_01
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_02]||false>:
 		    - determine passively cancelled
-			- execute as_op "schematic load new_year_tree_02"
+			- execute as_op "/schematic load new_year_tree_02"
 			- take from:<player.inventory> item:new_year_tree_02 quantity:1
 			- wait 1s
-			- execute as_op "paste"
+			- execute as_op "/paste"
 			- note <ellipsoid[ellipsoid@<player.location.simple.add[-1,0,0]>,10,19,10]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
@@ -71,10 +71,10 @@ item_new_year_tree_use:
 			- flag <ellipsoid[Tree_for_<player.name>]> tier:item_new_year_tree_02
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_03]||false>:
 		    - determine passively cancelled
-			- execute as_op "schematic load new_year_tree_03"
+			- execute as_op "/schematic load new_year_tree_03"
 			- take from:<player.inventory> item:new_year_tree_03 quantity:1
 			- wait 1s
-			- execute as_op "paste"
+			- execute as_op "/paste"
 			- note <ellipsoid[ellipsoid@<player.location.simple.add[-2,0,0]>,10,27,10]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
