@@ -82,16 +82,16 @@ item_new_year_tree_use:
 			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
 			- flag <ellipsoid[Tree_for_<player.name>]> tier:item_new_year_tree_03
 	    on player breaks block:
-		  - foreach <context.location.ellipsoid>:
+		  - foreach <player.location.ellipsoid>:
 		    - if <[value].contains_text[Tree_for_]> = true:
 			  - if <player.is_op> = false:
 			    - determine passively cancelled
-		      - if <[value].flag[owner]> != <player.name>:
+		      - if <ellipsoid[<[value]>].flag[owner]> != <player.name>:
 			    - actionbar "<&7><&o>Странная магия не разрешает вам ломать эту ёлку..."
 			  - else:
-			    - foreach <[value].blocks> as:location:
+			    - foreach <ellipsoid[<[value]>].blocks> as:location:
 				  - adjust <[location]> block_type:air
-				- drop <[value].flag[tier]> <player.location> quantity:1
+				- drop <ellipsoid[<[value]>].flag[tier]> <player.location> quantity:1
 				- note remove as:Tree_for_<player.name>
 				- flag server gifts_location:<server.flag[gifts_location].as_map.exclude[<player.name>]>
 		on system time 00:01:
