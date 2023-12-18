@@ -51,6 +51,7 @@ item_new_year_tree_use:
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- execute as_op "/paste"
+			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
 			- note <ellipsoid[ellipsoid@<player.location.add[-1,0,0].simple>,7,12,7]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
@@ -63,6 +64,7 @@ item_new_year_tree_use:
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- execute as_op "/paste"
+			- playeffect at:<player.location.add[0,8,0]> effect:WAX_OFF quantity:600 offset:14 velocity:0,-10,0
 			- note <ellipsoid[ellipsoid@<player.location.add[-1,0,0].simple>,11,21,10]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
@@ -75,6 +77,7 @@ item_new_year_tree_use:
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- execute as_op "/paste"
+			- playeffect at:<player.location.add[0,10,0]> effect:WAX_OFF quantity:700 offset:18 velocity:0,-10,0
 			- note <ellipsoid[ellipsoid@<player.location.add[-2,0,0].simple>,10,29,12]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
