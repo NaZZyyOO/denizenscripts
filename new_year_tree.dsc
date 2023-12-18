@@ -82,7 +82,7 @@ item_new_year_tree_use:
 			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
 			- flag <ellipsoid[Tree_for_<player.name>]> tier:item_new_year_tree_03
 	    on player breaks block:
-		  - foreach <player.location.ellipsoid>:
+		  - foreach <player.location.ellipsoids>:
 		    - if <[value].contains_text[Tree_for_]> = true:
 			  - if <player.is_op> = false:
 			    - determine passively cancelled
