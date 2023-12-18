@@ -90,7 +90,7 @@ item_new_year_tree_use:
 			    - actionbar "<&7><&o>Странная магия не разрешает вам ломать эту ёлку..."
 			  - else:
 			    - foreach <ellipsoid[<[value]>].blocks> as:location:
-				  - if <server.flag[gifts_location].get[<player.name>].as_location.y> >= <[location].y>:
+				  - if <server.flag[gifts_location].get[<player.name>].as_location.y> <= <[location].y>:
 				    - adjust <[location]> block_type:air
 				- drop <ellipsoid[<[value]>].flag[tier]> <player.location> quantity:1
 				- note remove as:Tree_for_<player.name>
