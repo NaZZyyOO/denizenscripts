@@ -84,12 +84,13 @@ item_new_year_tree_use:
 	    on player breaks block:
 		  - foreach <context.location.ellipsoid>:
 		    - if <[value].contains_text[Tree_for_]> = true:
-		      - if <[value].flag[owner]> != <player.name>:
+			  - if <player.is_op> = false:
 			    - determine passively cancelled
+		      - if <[value].flag[owner]> != <player.name>:
 			    - actionbar "<&7><&o>Странная магия не разрешает вам ломать эту ёлку..."
 			  - else:
 			    - foreach <[value].blocks> as:location:
-				  - adjust <[value]> block_type:air
+				  - adjust <[location]> block_type:air
 				- drop <[value].flag[tier]> <player.location> quantity:1
 				- note remove as:Tree_for_<player.name>
 				- flag server gifts_location:<server.flag[gifts_location].as_map.exclude[<player.name>]>
