@@ -48,10 +48,10 @@ item_new_year_tree_use:
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_01]||false>:
 		    - determine passively cancelled
 			- execute as_op "/schematic load new_year_tree_01"
-			- take from:<player.inventory> item:new_year_tree_01 quantity:1
+			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- execute as_op "/paste"
-			- note <ellipsoid[ellipsoid@<player.location.simple.add[-1,0,0]>,7,10,5]> as:Tree_for_<player.name>
+			- note <ellipsoid[ellipsoid@<player.location.add[-1,0,0].simple>,7,10,5]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
@@ -60,10 +60,10 @@ item_new_year_tree_use:
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_02]||false>:
 		    - determine passively cancelled
 			- execute as_op "/schematic load new_year_tree_02"
-			- take from:<player.inventory> item:new_year_tree_02 quantity:1
+			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- execute as_op "/paste"
-			- note <ellipsoid[ellipsoid@<player.location.simple.add[-1,0,0]>,10,19,10]> as:Tree_for_<player.name>
+			- note <ellipsoid[ellipsoid@<player.location.add[-1,0,0].simple>,10,19,10]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
@@ -72,17 +72,17 @@ item_new_year_tree_use:
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_03]||false>:
 		    - determine passively cancelled
 			- execute as_op "/schematic load new_year_tree_03"
-			- take from:<player.inventory> item:new_year_tree_03 quantity:1
+			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- execute as_op "/paste"
-			- note <ellipsoid[ellipsoid@<player.location.simple.add[-2,0,0]>,10,27,10]> as:Tree_for_<player.name>
+			- note <ellipsoid[ellipsoid@<player.location.add[-2,0,0].simple>,10,27,10]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
 			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
 			- flag <ellipsoid[Tree_for_<player.name>]> tier:item_new_year_tree_03
 	    on player breaks block:
-		  - foreach <context.location.cuboids>:
+		  - foreach <context.location.ellipsoid>:
 		    - if <[value].contains_text[Tree_for_]> = true:
 		      - if <[value].flag[owner]> != <player.name>:
 			    - determine passively cancelled
