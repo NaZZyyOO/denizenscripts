@@ -1,3 +1,31 @@
+item_spruce_tree:
+    type: item
+	debug: false
+    material: spruce_sapling
+    display name: "<&6><&l>Новогодняя ёлка"
+    lore:
+    - ""
+    - "<&6>Ёлка, выращенная в лесу при помощи"
+    - "<&6>особых новогодних предметов."
+    - "<&6>Осталось лишь украсить её."
+item_xms_meal:
+    type: item
+	debug: false
+    material: bone_meal
+    display name: "<&b><&l>Рождественская пыльца"
+    lore:
+    - ""
+    - "<&6>Позволяет быстрее расти ёлке и "
+    - "<&6>в это же время наделяет её необычными"
+    - "<&6>свойствами, которые работают в новый год."
+item_xms_meal_use:
+    type: world
+	debug: false
+	events:
+	    on player right clicks spruce_sapling with:item_xms_meal:
+		  - adjust <context.location> block_type:air
+		  - drop <context.location> item_spruce_tree quantity:1
+		  - take iteminhand quantity:1 
 item_new_year_tree_01:
     type: item
     debug: false
