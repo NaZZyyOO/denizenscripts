@@ -10,7 +10,7 @@ krampus_abilities:
 			    - define loc <player.location.random_offset[5,5,5]>
 			    - if <[loc].material> = air:
 			      - teleport <context.entity> <[loc]>
-				  - define ray <context.entity.location.points_between[<player.location>].distance[0.5]>
+				  - define ray <context.entity.location.add[0,1.3,0].points_between[<player.location.add[0,1.3,0]>].distance[0.5]>
 				  - foreach <[ray]>:
 				    - wait 1t
 					- playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
@@ -43,4 +43,4 @@ krampus_abilities:
 				  - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:1000 offset:10 velocity:0,-1,0
 				  - foreach <context.entity.location.find.living_entities.within[10].exclude[<context.entity>]> as:victim:
 				    - cast SLOW a:5 d:4 <[victim]>
-					- hurt 4 <[victim]> source:<context.entity> cause:FREZEE
+					- hurt 4 <[victim]> source:<context.entity>
