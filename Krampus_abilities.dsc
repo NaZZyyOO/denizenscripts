@@ -15,9 +15,10 @@ krampus_abilities:
 					- hurt 4 <[victim]> source:<context.entity>
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - adjust <context.entity> gravity:false
+			  - flag <context.entity> teleport_storm expire:40s
 		      - repeat 10:
 			    - wait 2s
-			    - define loc <context.damager.location.random_offset[5,5,5]>
+			    - define loc <context.damager.location.add[0,5,0].random_offset[5,5,5]>
 			    - teleport <context.entity> <[loc]>
 			    - define ray <context.entity.location.add[0,1.3,0].points_between[<context.damager.location.add[0,1.3,0]>].distance[0.5]>
 				- foreach <[ray]>:
@@ -27,13 +28,12 @@ krampus_abilities:
 			      - if <[victim]> != <context.entity>:
 				    - hurt 3 <[victim]> source:<context.entity> cause:magic
 			  - adjust <context.entity> gravity:true
-			  - flag <context.entity> teleport_storm expire:20s
 			- if <context.entity.has_flag[summoning_wave]> = false:
 			  - if <context.entity.health_percentage> < 75:
 			    - if <util.random.int[0].to[100]> <= 20: 
 				  - flag <context.entity> summoning_wave expire:30s
 			      - repeat 10:
-				    - define loc <context.damager.location.random_offset[5,5,5]>
+				    - define loc <context.damager.location.add[0,5,0].random_offset[5,5,5]>
 				    - mythicspawn <[loc]> disobedience
 					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:300 offset:2
 					- narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
