@@ -5,7 +5,7 @@ krampus_abilities:
 		on entity damages entity:
 		  - if <context.entity.name> == "<&4>Крампус":
 		    - if <context.entity.has_flag[snow_storm]> = false:
-			  - if <util.random.int[0].to[100]> <= 10:
+			  - if <util.random.int[0].to[100]> <= 40:
 			    - flag <context.entity> snow_storm expire:20s
 				- repeat 5:
 				  - wait 10t
