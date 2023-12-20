@@ -1,4 +1,4 @@
-amber_wolf:
+krampus:
   Type: VINDICATOR
   Disguise:
     Type: Krampus
@@ -13,12 +13,38 @@ amber_wolf:
   - 1 players
   Modules:
     ThreatTable: true
-  Health: 15
+  Health: 350
   Damage: 4
   DamageModifiers:
   - HOT_FLOOR 0
   Options:
     MovementSpeed: 0.3
+    FollowRange: 40
+    Silent: false
+    KnockbackResistance: 0.5
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+disobedience:
+  Type: VINDICATOR
+  Disguise:
+    Type: disobedience
+  Display: '&6Непослух'
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 float
+  - 3 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Health: 15
+  Damage: 2
+  DamageModifiers:
+  - HOT_FLOOR 0
+  Options:
+    MovementSpeed: 0.35
     FollowRange: 40
     Silent: false
     KnockbackResistance: 0.5
