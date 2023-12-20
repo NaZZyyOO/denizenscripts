@@ -24,8 +24,8 @@ krampus_abilities:
 		on player damages entity:
 		  - if <context.entity.name> == "<&4>Крампус":
 			- if <context.entity.has_flag[summoning_wave]> = false:
-			  - if <util.random.int[0].to[100]> <= 20:
-			    - if <context.entity.health_percentage> <= 75 || <context.entity.health_percentage> <= 25:
+			  - if <context.entity.health_percentage> < 75:
+			    - if <util.random.int[0].to[100]> <= 20: 
 				  - flag <context.entity> summoning_wave expire:30s
 			      - repeat 10:
 				    - define loc <player.location.random_offset[5,5,5]>
