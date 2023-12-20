@@ -5,7 +5,7 @@ krampus_abilities:
 	    on player damages entity:
 		  - if <context.entity.name> == "<&4>Крампус":
 		    - if <context.entity.has_flag[teleport_storm]> = false:
-			  - if <util.random.int[0].to[100]> >= 30:
+			  - if <util.random.int[0].to[100]> <= 30:
 				- stop
 		      - repeat 10:
 			    - wait 2s
