@@ -8,10 +8,9 @@ krampus_abilities:
 		      - repeat 10:
 			    - wait 2s
 			    - define loc <player.location.random_offset[5,5,5]>
-				- flag <context.entity> teleport_storm expire:40s
 			    - if <[loc].material> = air:
 			      - teleport <context.entity> <[loc]>
-				  - define ray <player.location.points_between[<context.entity>].distance[0.5]>
+				  - define ray <context.entity.location.points_between[<player.location>].distance[0.5]>
 				  - foreach <[ray]>:
 				    - wait 1t
 					- playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
@@ -21,6 +20,7 @@ krampus_abilities:
 					      - hurt 3 <[victim]> source:<context.entity> cause:magic
 				- adjust <context.entity> gravity:false
 			  - adjust <context.entity> gravity:true
+			  - flag <context.entity> teleport_storm expire:40s
 		on player damages entity:
 		  - if <context.entity.name> == "<&4>Крампус":
 			- if <context.entity.has_flag[summoning_wave]> = false:
