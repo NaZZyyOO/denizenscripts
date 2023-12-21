@@ -20,6 +20,7 @@ krampus_abilities:
 			- if <util.random.int[0].to[100]> <= 60:
 			  - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
 			  - teleport <context.entity> <[loc]>
+			  - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 30:
 			    - define player <list[]>
@@ -30,6 +31,7 @@ krampus_abilities:
 			      - wait 15t
 			      - define loc <[player].get[1].location.add[0,3,0].random_offset[5,2,5]>
 			      - teleport <context.entity> <[loc]>
+				  - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
 			      - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
 				  - foreach <[ray]>:
 			        - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
