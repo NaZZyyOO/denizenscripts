@@ -18,9 +18,9 @@ krampus_abilities:
 			  - flag <context.entity> teleport_storm expire:40s
 		      - repeat 10:
 			    - wait 2s
-			    - define loc <context.damager.location.add[0,8,0].random_offset[5,5,5]>
+			    - define loc <context.damager.location.add[0,5,0].random_offset[5,5,5]>
 			    - teleport <context.entity> <[loc]>
-			    - define ray <context.entity.location.add[0,1.3,0].points_between[<context.damager.location.add[0,1.3,0]>]>
+			    - define ray <context.entity.location.add[0,1.3,0].points_between[<context.damager.location.add[0,1.3,0]>].distance[0.5]>
 				- foreach <[ray]>:
 				  - wait 1t
 			      - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
@@ -34,7 +34,7 @@ krampus_abilities:
 				  - flag <context.entity> summoning_wave expire:30s
 			      - repeat 10:
 				    - wait 10t
-				    - define loc <context.damager.location.add[0,8,0].random_offset[5,5,5]>
+				    - define loc <context.damager.location.add[0,5,0].random_offset[5,5,5]>
 				    - mythicspawn <[loc]> disobedience
 					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:300 offset:2
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
