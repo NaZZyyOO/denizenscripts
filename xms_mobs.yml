@@ -17,11 +17,15 @@ krampus:
   Damage: 4
   DamageModifiers:
   - HOT_FLOOR 0
+  - FALL 0
+  - FREEZE 0
+  - FIRE_TICK 1.5
+  - PROJECTILE 0.25
   Options:
-    MovementSpeed: 0.3
+    MovementSpeed: 0.35
     FollowRange: 40
     Silent: false
-    KnockbackResistance: 0.5
+    KnockbackResistance: 0.8
     PreventOtherDrops: true
     PreventRandomEquipment: true
 disobedience:
