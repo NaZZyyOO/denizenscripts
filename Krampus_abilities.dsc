@@ -27,7 +27,7 @@ krampus_abilities:
 			    - define players <context.entity.location.find_entities[player].within[10].exclude[<context.entity>]>
 		        - define player <[player].include[<[players].first>]>
 		        - repeat 5:
-			      - wait 10t
+			      - wait 15t
 			      - define loc <[player].get[1].location.add[0,3,0].random_offset[5,2,5]>
 			      - teleport <context.entity> <[loc]>
 			      - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
@@ -51,13 +51,6 @@ krampus_abilities:
 					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:100 offset:2
 					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
-		on entity damages entity:
-		  - if <context.entity> = null:
-			- stop
-		  - if <context.entity.name> == "<&4>Крампус":
-		    - if <util.random.int[0].to[100]> <= 50:
-			  - playsound sound:ENTITY_WITHER_HURT pitch:0.5 volume:1 <context.entity.location>
-		on entity damages entity:
 		  - if <context.damager.name> == "<&4>Крампус":
 		    - if <context.damager> = null:
 			  - stop
