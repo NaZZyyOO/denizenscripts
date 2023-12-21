@@ -23,16 +23,19 @@ krampus_abilities:
 			  - flag <context.entity> teleport_storm expire:40s
 		      - repeat 10:
 			    - wait 10t
-			    - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
-			    - teleport <context.entity> <[loc]>
-			    - define ray <context.entity.location.add[0,1.3,0].points_between[<context.damager.location.add[0,1.3,0]>].distance[0.5]>
-				- foreach <[ray]>:
-				  - wait 1t
-			      - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
-				  - foreach <[value].location.find.living_entities.within[0.3]> as:victim:
-				    - if <[victim]> != null:
-			          - if <[victim]> != <context.entity>:
-				        - hurt 3 <[victim]> source:<context.entity> cause:magic
+				- foreach <context.entity.find_entities[player].within[15]> as:player:
+				  - if <[player]> = null:
+				    - stop
+			      - define loc <[player].location.add[0,3,0].random_offset[5,2,5]>
+			      - teleport <context.entity> <[loc]>
+			      - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].location.add[0,1.3,0]>].distance[0.5]>
+				  - foreach <[ray]>:
+				    - wait 1t
+			        - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
+				    - foreach <[value].location.find.living_entities.within[0.3]> as:victim:
+				      - if <[victim]> != null:
+			            - if <[victim]> != <context.entity>:
+				          - hurt 3 <[victim]> source:<context.entity> cause:magic
 			  - playsound <player.location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			  - adjust <context.entity> gravity:true
 			- if <context.entity.has_flag[summoning_wave]> = false:
@@ -48,6 +51,6 @@ krampus_abilities:
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
 		  - if <context.damager.name> == "<&4>Крампус":
 		    - if <util.random.int[0].to[100]> <= 50:
-			  - push <context.damager> origin:<context.damager.location> destination:<context.damager.location.add[0,2,0]> no_rotate speed:0.5
+			  - adjust <context.damager> velocity:<context.damager.location.direction.vector.mul[1.2]>
 			- if <util.random.int[0].to[100]> <= 25:
-			  - push <context.entity> origin:<context.entity.location> destination:<context.damager.location.add[0,2,0]> no_rotate speed:0.5
+			  - adjust <context.entity> velocity:<context.entity.location.direction.vector.mul[-1.2]>
