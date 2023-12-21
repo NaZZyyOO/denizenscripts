@@ -3,9 +3,9 @@ krampus_abilities:
 	debug: false
 	events:
 		on entity damages entity:
+		  - if <context.entity> = null:
+			- stop
 		  - if <context.entity.name> == "<&4>Крампус":
-		    - if <context.entity> = null:
-			  - stop
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 65:
 			    - flag <context.entity> snow_storm expire:20s
@@ -20,6 +20,10 @@ krampus_abilities:
 			- if <util.random.int[0].to[100]> <= 60:
 			  - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
 			  - teleport <context.entity> <[loc]>
+		on entity damages entity:
+		  - if <context.entity> = null:
+			- stop
+		  - if <context.entity.name> == "<&4>Крампус":
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 45:
 			    - define player <list[]>
@@ -41,6 +45,10 @@ krampus_abilities:
 					      - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			    - flag <context.entity> teleport_storm expire:20s
 			    - adjust <context.entity> gravity:true
+		on entity damages entity:
+		  - if <context.entity> = null:
+			- stop
+		  - if <context.entity.name> == "<&4>Крампус":
 			- if <context.entity.has_flag[summoning_wave]> = false:
 			  - if <context.entity.health_percentage> < 75:
 			    - if <util.random.int[0].to[100]> <= 20: 
@@ -53,9 +61,11 @@ krampus_abilities:
 					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
 		on entity damages entity:
+		  - if <context.entity> = null:
+			- stop
 		  - if <context.entity.name> == "<&4>Крампус":
 		    - if <util.random.int[0].to[100]> <= 50:
-			  - playsound sound:ENTITY_WITHER_HURT pitch:0.5 volume:1 <player.location>
+			  - playsound sound:ENTITY_WITHER_HURT pitch:0.5 volume:1 <context.entity.location>
 		on entity damages entity:
 		  - if <context.damager.name> == "<&4>Крампус":
 		    - if <context.damager> = null:
