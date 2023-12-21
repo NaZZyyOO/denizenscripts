@@ -14,7 +14,7 @@ krampus_abilities:
 				    - cast SLOW a:5 d:4 <[victim]>
 					- hurt 4 <[victim]> source:<context.entity>
 				  - repeat 5:
-				   - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
+				    - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - adjust <context.entity> gravity:false
 			  - flag <context.entity> teleport_storm expire:40s
