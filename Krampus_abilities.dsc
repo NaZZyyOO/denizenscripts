@@ -23,7 +23,7 @@ krampus_abilities:
 		      - repeat 5:
 			    - wait 10t
 				- foreach <context.entity.find.living_entities.within[15]> as:player:
-				 - if <[player]> = null:
+				  - if <[player]> = null:
 				    - foreach stop
 				  - if <[player].is_player> = false:
 				    - foreach stop
