@@ -21,11 +21,9 @@ krampus_abilities:
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - adjust <context.entity> gravity:false
 		      - repeat 5:
-			    - wait 10t
-				- foreach <context.entity.find.living_entities.within[15]> as:player:
+			    - wait 15t
+				- foreach <context.entity.find_entities[player].within[15]> as:player:
 				  - if <[player]> = null:
-				    - foreach stop
-				  - if <[player].is_player> = false:
 				    - foreach stop
 			      - define loc <[player].location.add[0,3,0].random_offset[5,2,5]>
 			      - teleport <context.entity> <[loc]>
