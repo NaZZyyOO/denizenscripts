@@ -4,6 +4,8 @@ krampus_abilities:
 	events:
 		on entity damages entity:
 		  - if <context.entity.name> == "<&4>Крампус":
+		    - if <context.entity> = null:
+			  - stop
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
 			    - flag <context.entity> snow_storm expire:20s
@@ -50,6 +52,8 @@ krampus_abilities:
 					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
 		  - if <context.damager.name> == "<&4>Крампус":
+		    - if <context.damager> = null:
+			  - stop
 		    - if <util.random.int[0].to[100]> <= 50:
 			  - adjust <context.damager> velocity:<context.damager.location.direction.vector.mul[1.2]>
 			- if <util.random.int[0].to[100]> <= 25:
