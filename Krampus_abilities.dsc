@@ -7,7 +7,7 @@ krampus_abilities:
 		    - if <context.entity> = null:
 			  - stop
 		    - if <context.entity.has_flag[snow_storm]> = false:
-			  - if <util.random.int[0].to[100]> <= 35:
+			  - if <util.random.int[0].to[100]> <= 65:
 			    - flag <context.entity> snow_storm expire:20s
 				- repeat 5:
 				  - wait 10t
@@ -21,7 +21,7 @@ krampus_abilities:
 			  - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
 			  - teleport <context.entity> <[loc]>
 			- if <context.entity.has_flag[teleport_storm]> = false:
-			  - if <util.random.int[0].to[100]> <= 25:
+			  - if <util.random.int[0].to[100]> <= 45:
 			    - define player <list[]>
 			    - adjust <context.entity> gravity:false
 			    - define players <context.entity.location.find_entities[player].within[10].exclude[<context.entity>]>
