@@ -26,7 +26,7 @@ krampus_abilities:
 				- foreach <[ray]>:
 				  - wait 1t
 			      - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
-				  - foreach <[value].location.find.living_entities.within[0.5]> as:victim:
+				  - foreach <[value].location.find.living_entities.within[0.3]> as:victim:
 				    - if <[victim]> != null:
 			          - if <[victim]> != <context.entity>:
 				        - hurt 3 <[victim]> source:<context.entity> cause:magic
