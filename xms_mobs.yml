@@ -13,7 +13,7 @@ krampus:
   - 1 players
   Modules:
     ThreatTable: true
-  Health: 350
+  Health: 550
   Damage: 4
   DamageModifiers:
   - HOT_FLOOR 0

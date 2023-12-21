@@ -24,10 +24,10 @@ krampus_abilities:
 				- foreach <[ray]>:
 				  - wait 1t
 			      - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
+				- playsound <player.location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 				- foreach <[value].find.living_entities.within[2]> as:victim:
 			      - if <[victim]> != <context.entity>:
 				    - hurt 3 <[victim]> source:<context.entity> cause:magic
-					- playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			  - adjust <context.entity> gravity:true
 			- if <context.entity.has_flag[summoning_wave]> = false:
 			  - if <context.entity.health_percentage> < 75:
