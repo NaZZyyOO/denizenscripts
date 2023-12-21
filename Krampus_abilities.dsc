@@ -20,12 +20,13 @@ krampus_abilities:
 			  - teleport <context.entity> <[loc]>
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - adjust <context.entity> gravity:false
-			  - flag <context.entity> teleport_storm expire:40s
-		      - repeat 10:
+		      - repeat 5:
 			    - wait 10t
-				- foreach <context.entity.find_entities[player].within[15]> as:player:
-				  - if <[player]> = null:
-				    - stop
+				- foreach <context.entity.find.living_entities.within[15]> as:player:
+				 - if <[player]> = null:
+				    - foreach stop
+				  - if <[player].is_player> = false:
+				    - foreach stop
 			      - define loc <[player].location.add[0,3,0].random_offset[5,2,5]>
 			      - teleport <context.entity> <[loc]>
 			      - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].location.add[0,1.3,0]>].distance[0.5]>
@@ -35,8 +36,9 @@ krampus_abilities:
 				    - foreach <[value].location.find.living_entities.within[0.3]> as:victim:
 				      - if <[victim]> != null:
 			            - if <[victim]> != <context.entity>:
-				          - hurt 3 <[victim]> source:<context.entity> cause:magic
-			  - playsound <player.location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
+				          - hurt 1 <[victim]> source:<context.entity> cause:magic
+						  - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
+			  - flag <context.entity> teleport_storm expire:20s
 			  - adjust <context.entity> gravity:true
 			- if <context.entity.has_flag[summoning_wave]> = false:
 			  - if <context.entity.health_percentage> < 75:
