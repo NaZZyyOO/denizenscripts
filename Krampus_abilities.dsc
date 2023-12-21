@@ -15,6 +15,9 @@ krampus_abilities:
 					- hurt 4 <[victim]> source:<context.entity>
 				  - repeat 5:
 				    - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
+			- if <util.random.int[0].to[100]> <= 60:
+			  - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
+			  - teleport <context.entity> <[loc]>
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - adjust <context.entity> gravity:false
 			  - flag <context.entity> teleport_storm expire:40s
@@ -43,3 +46,8 @@ krampus_abilities:
 					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:100 offset:2
 					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
+		  - if <context.damager.name> == "<&4>Крампус":
+		    - if <util.random.int[0].to[100]> <= 50:
+			  - push <context.damager> origin:<context.damager.location> destination:<context.damager.location.add[0,2,0]> no_rotate speed:0.5
+			- if <util.random.int[0].to[100]> <= 25:
+			  - push <context.entity> origin:<context.entity.location> destination:<context.damager.location.add[0,2,0]> no_rotate speed:0.5
