@@ -12,7 +12,7 @@ krampus_abilities:
 				- repeat 5:
 				  - wait 10t
 				  - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
-				  - foreach <context.entity.location.find.living_entities.within[10].exclude[<context.entity>]> as:victim:
+				  - foreach <context.entity.location.find.living_entities.within[8].exclude[<context.entity>]> as:victim:
 				    - cast SLOW a:5 d:4 <[victim]>
 					- hurt 4 <[victim]> source:<context.entity>
 				  - repeat 5:
