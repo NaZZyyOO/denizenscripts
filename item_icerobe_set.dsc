@@ -179,7 +179,7 @@ icespear_generic:
           - playsound at:<context.projectile.location> sound:entity_stray_death volume:0.4 pitch:1.3
           - playsound at:<context.projectile.location> sound:block_glass_break volume:0.8 pitch:0.9
           - wait 1t
-         - remove <context.projectile>
+          - remove <context.projectile>
 
 icespear_hit:
   debug: false

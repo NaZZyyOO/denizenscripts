@@ -17,7 +17,7 @@ krampus_abilities:
 			  - adjust <context.entity> gravity:false
 			  - flag <context.entity> teleport_storm expire:40s
 		      - repeat 10:
-			    - wait 2s
+			    - wait 10t
 			    - define loc <context.damager.location.add[0,5,0].random_offset[5,5,5]>
 			    - teleport <context.entity> <[loc]>
 			    - define ray <context.entity.location.add[0,1.3,0].points_between[<context.damager.location.add[0,1.3,0]>].distance[0.5]>
@@ -27,6 +27,7 @@ krampus_abilities:
 				- foreach <[value].find.living_entities.within[2]> as:victim:
 			      - if <[victim]> != <context.entity>:
 				    - hurt 3 <[victim]> source:<context.entity> cause:magic
+					- playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			  - adjust <context.entity> gravity:true
 			- if <context.entity.has_flag[summoning_wave]> = false:
 			  - if <context.entity.health_percentage> < 75:
@@ -37,4 +38,5 @@ krampus_abilities:
 				    - define loc <context.damager.location.add[0,5,0].random_offset[5,5,5]>
 				    - mythicspawn <[loc]> disobedience
 					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:300 offset:2
+					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
