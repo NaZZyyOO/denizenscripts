@@ -36,7 +36,7 @@ krampus_abilities:
 				    - foreach <[value].find.living_entities.within[0.3]> as:victim:
 				      - if <[victim]> != null:
 			            - if <[victim]> != <context.entity>:
-				          - hurt 2 <[victim]> source:<context.entity> cause:magic
+				          - hurt 1 <[victim]> source:<context.entity> cause:magic
 					      - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			    - flag <context.entity> teleport_storm expire:20s
 			    - adjust <context.entity> gravity:true
@@ -51,6 +51,12 @@ krampus_abilities:
 					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:100 offset:2
 					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
+		on entity damages entity:
+		  - if <context.entity> = null:
+			- stop
+		  - if <context.entity.name> == "<&4>Крампус":
+		    - if <util.random.int[0].to[100]> <= 50:
+			  - playsound sound:ENTITY_WITHER_HURT pitch:0.5 volume:1 <context.entity.location>
 		on entity damages entity:
 		  - if <context.damager.name> == "<&4>Крампус":
 		    - if <context.damager> = null:
