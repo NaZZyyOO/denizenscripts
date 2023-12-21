@@ -9,10 +9,12 @@ krampus_abilities:
 			    - flag <context.entity> snow_storm expire:20s
 				- repeat 5:
 				  - wait 10t
-				  - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:1000 offset:10 velocity:0,-1,0
+				  - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
 				  - foreach <context.entity.location.find.living_entities.within[10].exclude[<context.entity>]> as:victim:
 				    - cast SLOW a:5 d:4 <[victim]>
 					- hurt 4 <[victim]> source:<context.entity>
+				  - repeat 5:
+				   - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - adjust <context.entity> gravity:false
 			  - flag <context.entity> teleport_storm expire:40s
@@ -24,10 +26,11 @@ krampus_abilities:
 				- foreach <[ray]>:
 				  - wait 1t
 			      - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
-				- playsound <player.location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
-				- foreach <[value].find.living_entities.within[2]> as:victim:
-			      - if <[victim]> != <context.entity>:
-				    - hurt 3 <[victim]> source:<context.entity> cause:magic
+				  - foreach <[value].location.find.living_entities.within[2]> as:victim:
+				    - if <[victim]> != null:
+			          - if <[victim]> != <context.entity>:
+				        - hurt 3 <[victim]> source:<context.entity> cause:magic
+			  - playsound <player.location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			  - adjust <context.entity> gravity:true
 			- if <context.entity.has_flag[summoning_wave]> = false:
 			  - if <context.entity.health_percentage> < 75:
@@ -37,6 +40,6 @@ krampus_abilities:
 				    - wait 10t
 				    - define loc <context.damager.location.add[0,5,0].random_offset[5,5,5]>
 				    - mythicspawn <[loc]> disobedience
-					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:300 offset:2
+					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:100 offset:2
 					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
