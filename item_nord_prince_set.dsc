@@ -219,8 +219,8 @@ nord_bear_abilities:
           - playsound <context.entity.location> sound:entity_polar_bear_hurt pitch:1 volume:1
         on nord_bear targets entity:
           - if <context.entity.has_flag[host]>:
-           - if <context.entity.flag[host]> = <context.target.name>:
-            - determine cancelled passively
+            - if <context.entity.flag[host]> = <context.target.name>:
+              - determine cancelled passively
         on player right clicks nord_bear with:item_forel:
           - heal <context.entity> 7
           - playsound at:<context.entity.location> sound:entity_fox_eat volume:1 pitch:0.1
