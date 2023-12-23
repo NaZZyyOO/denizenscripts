@@ -145,15 +145,15 @@ item_nord_helm_use:
                 - if <player.has_flag[icespear_cd]> = false:
                   - if <placeholder[mystery_mana].player[<player>]> > 5:
                     - determine passively cancelled
+					- flag <player> icespear_cd expire:10s
                     - execute "my rmmana <player.name> 6" as_server silent
-                    - take iteminhand
+                    - take iteminhand quantity:1
                     - wait 4t
                     - playeffect at:<player.location.add[0,0.8,0]> effect:soul_fire_flame quantity:20 offset:0.3 visibility:100
                     - playsound <player.location> sound:entity_stray_death pitch:1 volume:0.2
                     - playsound <player.location> sound:block_enchantment_table_use pitch:1 volume:0.4
                     - wait 10t
                     - playsound <player.location> sound:item_trident_throw pitch:1 volume:1
-                    - flag <player> icespear_cd expire:10s
                     - animate <player> animation:ARM_SWING for:<server.online_players>
                     - shoot icespear origin:<player.location.add[0,1.3,0]> speed:2 script:icespear_hit shooter:<player> save:glacial_spear
                     - define spear_hit_entities <entry[glacial_spear].shot_entities.get[1]>
