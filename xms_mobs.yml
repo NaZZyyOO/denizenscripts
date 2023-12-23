@@ -13,8 +13,8 @@ krampus:
   - 1 players
   Modules:
     ThreatTable: true
-  Health: 550
-  Damage: 4
+  Health: 1500
+  Damage: 9
   DamageModifiers:
   - HOT_FLOOR 0
   - FALL 0
@@ -43,8 +43,8 @@ disobedience:
   - 1 players
   Modules:
     ThreatTable: true
-  Health: 15
-  Damage: 2
+  Health: 75
+  Damage: 8
   DamageModifiers:
   - HOT_FLOOR 0
   Options:
