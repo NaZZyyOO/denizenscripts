@@ -140,7 +140,7 @@ item_nord_helm_use:
     events:
         on player right clicks block:
           - if <player.item_in_hand.material.name> = ice:
-            - if <player.entity.inventory.slot[HELMET].script.name.is[==].to[item_nord_helm]||false>:
+            - if <player.inventory.slot[HELMET].script.name.is[==].to[item_nord_helm]||false>:
               - if <player.is_sneaking> = true:
                 - if <player.has_flag[icespear_cd]> = false:
                   - if <placeholder[mystery_mana].player[<player>]> > 5:
@@ -182,10 +182,10 @@ item_nord_hood_use:
     type: world
     debug: false
     events:
-        after player right clicks block with:item_forel:
+        on player right clicks block with:item_forel:
           - if <player.vehicle||0> = 0:
             - if <player.inventory.slot[HELMET].script.name.is[==].to[item_nord_hood]||false>:
-              - if <player.entity.inventory.slot[CHESTPLATE].script.name.is[==].to[item_nord_chest]||false>:
+              - if <player.inventory.slot[CHESTPLATE].script.name.is[==].to[item_nord_chest]||false>:
                 - if <player.inventory.slot[LEGGINGS].script.name.is[==].to[item_nord_leggings]||false>:
                   - if <player.inventory.slot[BOOTS].script.name.is[==].to[item_nord_boots]||false>:
                     - if <player.is_sneaking> = true:
