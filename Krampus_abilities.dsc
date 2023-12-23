@@ -14,21 +14,24 @@ krampus_abilities:
 				  - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
 				  - foreach <context.entity.location.find.living_entities.within[8].exclude[<context.entity>]> as:victim:
 				    - cast SLOW a:5 d:4 <[victim]>
-					- hurt 4 <[victim]> source:<context.entity>
+					- hurt 11 <[victim]> source:<context.entity>
 				  - repeat 5:
 				    - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
 			- if <util.random.int[0].to[100]> <= 60:
-			  - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
-			  - teleport <context.entity> <[loc]>
-			  - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
+			  - repeat 10:
+			    - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
+				- if <[loc].material> != air:
+			      - teleport <context.entity> <[loc]>
+			      - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
+				  - repeat stop
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 30:
 			    - define player <list[]>
 			    - adjust <context.entity> gravity:false
 			    - define players <context.entity.location.find_entities[player].within[10].exclude[<context.entity>]>
 		        - define player <[player].include[<[players].first>]>
-		        - repeat 5:
-			      - wait 15t
+		        - repeat 3:
+			      - wait 1s
 			      - define loc <[player].get[1].location.add[0,3,0].random_offset[5,2,5]>
 			      - teleport <context.entity> <[loc]>
 				  - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
@@ -38,15 +41,15 @@ krampus_abilities:
 				    - foreach <[value].find.living_entities.within[0.3]> as:victim:
 				      - if <[victim]> != null:
 			            - if <[victim]> != <context.entity>:
-				          - hurt 1 <[victim]> source:<context.entity> cause:magic
+				          - hurt 15 <[victim]> source:<context.entity> cause:magic
 					      - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			    - flag <context.entity> teleport_storm expire:20s
 			    - adjust <context.entity> gravity:true
 			- if <context.entity.has_flag[summoning_wave]> = false:
 			  - if <context.entity.health_percentage> < 75:
 			    - if <util.random.int[0].to[100]> <= 20: 
-				  - flag <context.entity> summoning_wave expire:30s
-			      - repeat 10:
+				  - flag <context.entity> summoning_wave expire:25s
+			      - repeat 5:
 				    - wait 10t
 				    - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
 				    - mythicspawn <[loc]> disobedience
