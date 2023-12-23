@@ -138,7 +138,7 @@ item_nord_helm_use:
     type: world
     debug: false
     events:
-        after player right clicks block:
+        on player right clicks block:
           - if <player.item_in_hand.material.name> = ice:
             - if <player.entity.inventory.slot[CHESTPLATE].script.name.is[==].to[item_nord_helm]||false>:
               - if <player.is_sneaking> = true:
