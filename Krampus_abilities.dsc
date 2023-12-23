@@ -14,7 +14,7 @@ krampus_abilities:
 				  - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
 				  - foreach <context.entity.location.find.living_entities.within[8].exclude[<context.entity>]> as:victim:
 				    - cast SLOW a:5 d:4 <[victim]>
-					- hurt 11 <[victim]> source:<context.entity>
+					- hurt 8 <[victim]> source:<context.entity>
 				  - repeat 5:
 				    - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
 			- if <util.random.int[0].to[100]> <= 60:
@@ -33,6 +33,8 @@ krampus_abilities:
 		        - repeat 3:
 			      - wait 1s
 			      - define loc <[player].get[1].location.add[0,3,0].random_offset[5,2,5]>
+				  - if <[loc]> != air:
+				    - repeat next
 			      - teleport <context.entity> <[loc]>
 				  - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
 			      - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
@@ -41,7 +43,7 @@ krampus_abilities:
 				    - foreach <[value].find.living_entities.within[0.3]> as:victim:
 				      - if <[victim]> != null:
 			            - if <[victim]> != <context.entity>:
-				          - hurt 15 <[victim]> source:<context.entity> cause:magic
+				          - hurt 6 <[victim]> source:<context.entity> cause:magic
 					      - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			    - flag <context.entity> teleport_storm expire:20s
 			    - adjust <context.entity> gravity:true
