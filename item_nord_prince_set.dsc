@@ -140,7 +140,7 @@ item_nord_helm_use:
     events:
         on player right clicks block:
           - if <player.item_in_hand.material.name> = ice:
-            - if <player.entity.inventory.slot[CHESTPLATE].script.name.is[==].to[item_nord_helm]||false>:
+            - if <player.entity.inventory.slot[HELMET].script.name.is[==].to[item_nord_helm]||false>:
               - if <player.is_sneaking> = true:
                 - if <player.has_flag[icespear_cd]> = false:
                   - if <placeholder[mystery_mana].player[<player>]> > 5:
