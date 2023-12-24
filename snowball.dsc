@@ -25,11 +25,12 @@ custom_snowball:
 			  - playsound <player.location> sound:ENTITY_PLAYER_ATTACK_SWEEP pitch:0.8 volume:1.2
 			  - playeffect <player.location.add[0,0.5,0]> effect:sweep_attack quantity:3 offset:0.2
 		    - repeat 60:
-		      - wait 2t
+		      - wait 1t
 		      - foreach <player.location.find_entities[snowball].within[60]>:
 			    - if <[value]> != null:
 				  - if <[value].has_flag[snow_block]> = true:
-                    - playeffect effect:CLOUD <[value].location> quantity:5 offset:0.1 visibility:50	  
+                    - playeffect effect:CLOUD <[value].location> quantity:5 offset:0.1 visibility:50
+                    - rotate <[value]> yaw:20 duration:1t					
 		on player right clicks snow with:air:
 		  - if <player.is_sneaking> = true:
 		    - look <player> <player.precise_target_position> duration:2.4s
