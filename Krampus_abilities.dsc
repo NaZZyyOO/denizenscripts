@@ -3,7 +3,9 @@ krampus_abilities:
 	debug: false
 	events:
 		on entity damages entity:
-		  - if <context.entity.name> == "<&4>Крампус":
+		  - if <context.entity> = null:
+		    - stop
+		  - if <context.entity.name||null> == "<&4>Крампус":
 		    - if <context.entity> = null:
 			  - stop
 		    - if <context.entity.has_flag[snow_storm]> = false:
@@ -56,14 +58,14 @@ krampus_abilities:
 					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:100 offset:2
 					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
-		  - if <context.damager.name> == "<&4>Крампус":
-		    - if <context.damager> = null:
-			  - stop
+		  - if <context.damager> = null:
+			- stop
+		  - if <context.damager.name||null> == "<&4>Крампус":
 		    - if <util.random.int[0].to[100]> <= 50:
 			  - adjust <context.damager> velocity:<context.damager.location.direction.vector.mul[1.2]>
 			- if <util.random.int[0].to[100]> <= 25:
 			  - adjust <context.entity> velocity:<context.entity.location.direction.vector.mul[-1.2]>
 		on entity damaged by SUFFOCATION:
-		  - if <context.entity.name> == "<&4>Крампус":
+		  - if <context.entity.name||null> == "<&4>Крампус":
 		    - define loc <context.entity.location.add[0,1,0].random_offset[5,2,5]>
 			- teleport <[loc]> <context.entity>
