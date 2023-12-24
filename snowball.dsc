@@ -50,16 +50,16 @@ custom_snowball:
 			    - if <[value]> != null:
 			      - cast SLOW a:0 d:3 <[value]>
 		on projectile hits block:
-		  - if <context.projectile.has_flag[snow_block]> = true:
+		  - if <context.projectile.has_flag[snow_block_2]> = true:
 		    - if <context.shooter.is_player> = true:
 			  - if <util.random.int[0].to[100]> <= 80:
-		        - shoot <entity[snowball].with[item=snow_block]> origin:<context.hit_block> destination:<context.shooter.location> height:0.8 speed:0.6 save:snowball
-				- flag <entry[snowball].shot_entity> snow_block
+		        - shoot <entity[snowball].with[item=snow_block]> origin:<context.projectile.location> destination:<context.shooter.location> height:0.4 speed:0.3 save:snowball
+				- flag <entry[snowball].shot_entity> snow_block_2
 				- repeat 70:
 		          - wait 2t
 		          - foreach <player.location.find_entities[snowball].within[60]>:
 			        - if <[value]> != null:
-				      - if <[value].has_flag[snow_block]> = true:
+				      - if <[value].has_flag[snow_block_2]> = true:
                         - playeffect effect:FALLING_DUST special_data:snow_block <[value].location> quantity:5 offset:0.2 visibility:50
                         - rotate <[value]> yaw:20 duration:1t pitch:20			
 			  - else:
