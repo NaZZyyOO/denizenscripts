@@ -80,50 +80,50 @@ item_new_year_tree_use:
 			- wait 1s
 			- schematic paste name:new_year_tree_01 <player.location>
 			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
-			- note <ellipsoid[ellipsoid@<player.location.add[-1,0,0].simple>,7,12,7]> as:Tree_for_<player.name>
-			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
+			- note <cuboid[cuboid@<schematic[new_year_tree_01].cuboid[<player.location>]>]> as:Tree_for_<player.name>
+			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
 			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
-			- flag <ellipsoid[Tree_for_<player.name>]> tier:item_new_year_tree_01
+			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_01
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_02]||false>:
 		    - determine passively cancelled
 			- ~schematic load name:new_year_tree_02
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_02 <player.location>
-			- playeffect at:<player.location.add[0,8,0]> effect:WAX_OFF quantity:600 offset:14 velocity:0,-10,0
-			- note <ellipsoid[ellipsoid@<player.location.add[-1,0,0].simple>,11,21,10]> as:Tree_for_<player.name>
-			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
+			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
+			- note <cuboid[cuboid@<schematic[new_year_tree_02].cuboid[<player.location>]>]> as:Tree_for_<player.name>
+			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
 			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
-			- flag <ellipsoid[Tree_for_<player.name>]> tier:item_new_year_tree_02
+			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_02
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_03]||false>:
 		    - determine passively cancelled
 			- ~schematic load name:new_year_tree_03
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_03 <player.location>
-			- playeffect at:<player.location.add[0,10,0]> effect:WAX_OFF quantity:700 offset:18 velocity:0,-10,0
-			- note <ellipsoid[ellipsoid@<player.location.add[-2,0,0].simple>,10,29,12]> as:Tree_for_<player.name>
-			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
+			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
+			- note <cuboid[cuboid@<schematic[new_year_tree_03].cuboid[<player.location>]>]> as:Tree_for_<player.name>
+			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
 			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
-			- flag <ellipsoid[Tree_for_<player.name>]> tier:item_new_year_tree_03
+			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_03
 	    on player breaks block:
-		  - foreach <player.location.ellipsoids>:
+		  - foreach <player.location.cuboids>:
 		    - if <[value].contains_text[Tree_for_]> = true:
 			  - if <player.is_op> = false:
 			    - determine passively cancelled
-		      - if <ellipsoid[<[value]>].flag[owner]> != <player.name>:
+		      - if <cuboid[<[value]>].flag[owner]> != <player.name>:
 			    - actionbar "<&7><&o>Странная магия не разрешает вам ломать эту ёлку..."
 			  - else:
-			    - foreach <ellipsoid[<[value]>].blocks> as:location:
+			    - foreach <cuboid[<[value]>].blocks> as:location:
 				  - if <server.flag[gifts_location].get[<player.name>].as_location.y> <= <[location].y>:
 				    - adjust <[location]> block_type:air
-				- drop <ellipsoid[<[value]>].flag[tier]> <player.location> quantity:1
+				- drop <cuboid[<[value]>].flag[tier]> <player.location> quantity:1
 				- note remove as:Tree_for_<player.name>
 				- flag server gifts_location:<server.flag[gifts_location].as_map.exclude[<player.name>]>
 		on system time 00:01:
