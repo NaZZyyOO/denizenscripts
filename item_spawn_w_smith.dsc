@@ -359,7 +359,7 @@ item_iron_axe_02_use:
 			- feed <player> amount:-1
 			- flag <player> iron_axe_02_cd duration:30s
 			- wait 0.5
-			- foreach <player.location.find.living_entities.within[2].exclude[<player]> as:victim:
+			- foreach <player.location.find.living_entities.within[2].exclude[<player>]> as:victim:
 			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
 			    - hurt <[victim]> 7 source:<player> cause:entity_attack
 		  - else:
@@ -400,7 +400,7 @@ item_iron_axe_03_use:
 			- feed <player> amount:-1
 			- flag <player> iron_axe_03_cd duration:25s
 			- wait 0.5
-			- foreach <player.location.find.living_entities.within[2].exclude[<player]> as:victim:
+			- foreach <player.location.find.living_entities.within[2].exclude[<player>]> as:victim:
 			  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
 			    - hurt <[victim]> 9 source:<player> cause:entity_attack
 		  - else:
