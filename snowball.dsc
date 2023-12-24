@@ -51,9 +51,13 @@ custom_snowball:
 			      - cast SLOW a:0 d:3 <[value]>
 		on projectile hits block:
 		  - if <context.projectile.has_flag[snow_block]> = true:
-		    - if <context.shooter.is_player>:
-			  - playeffect <context.location> effect:FALLING_DUST offset:0.8 quantity:20 visibility:80 special_data:snow_block
-			  - playsound <context.location> sound:BLOCK_SNOW_PLACE pitch:0.6 volume:1
-			  - foreach <context.location.find_entities[player].within[3]>:
-			    - if <[value]> != null:
-			      - cast SLOW a:0 d:3 <[value]>
+		    - if <context.shooter.is_player> = true:
+			  - if <util.random.int[0].to[100]> <= 20:
+			    - determine passively cancelled
+		        - push <context.projectile> origin:<context.projectile.location> destination:<context.shooter.location> speed:0.5
+			  - else:
+			    - playeffect <context.location> effect:FALLING_DUST offset:0.8 quantity:20 visibility:80 special_data:snow_block
+			    - playsound <context.location> sound:BLOCK_SNOW_PLACE pitch:0.6 volume:1
+			    - foreach <context.location.find_entities[player].within[3]>:
+			      - if <[value]> != null:
+			        - cast SLOW a:0 d:3 <[value]>
