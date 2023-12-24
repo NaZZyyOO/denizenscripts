@@ -59,7 +59,7 @@ buff_evilsigh_use:
         on player kills entity:
           - if <player.has_flag[evil_sigh]> = true:
             - if <placeholder[mystery_mana].player[<player>]> < <placeholder[mystery_maxmana].player[<player>]>:
-		          - execute as_server silent "my addmana <player.name> 5"
+		      - execute as_server silent "my addmana <player.name> 5"
               - playeffect effect:MAGIC_CRIT at:<context.entity.location.add[0,0.7,0]> quantity:10 offset:0.2
               - playeffect effect:REDSTONE quantity:30 offset:0.55 at:<player.location> special_data:1.0|<color[#2427b3].hex>
               - playsound <player.location> sound:block_enchantment_table_use pitch:1.5 volume:0.5
