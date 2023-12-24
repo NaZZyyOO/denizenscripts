@@ -129,3 +129,44 @@ item_new_year_tree_use:
 			  - define loc <server.flag[gifts_location].get[<[value]>]>
 			  - adjust <[loc]> block_type:chest
 			  - inventory d:<[loc].inventory> set origin:generic[contents=<[contents]>]
+item_shard_white:
+    type: item
+	debug: false
+    material: white_dye
+    display name: "<&r><&l>Белые осколки"
+    lore:
+    - ""
+    - "<&6>Белые осколи, похожи на частички"
+    - "<&6>раздробленных костей. Такими можно "
+    - "<&6>украсить ёлку на новогодние праздники."
+item_shard_green:
+    type: item
+	debug: false
+    material: green_dye
+    display name: "<&2><&l>Зелёные осколки"
+    lore:
+    - ""
+    - "<&6>Зелёные осколи, похожи твёрдые"
+    - "<&6>листья деревьев. Такими можно "
+    - "<&6>украсить ёлку на новогодние праздники."
+item_shard_red:
+    type: item
+	debug: false
+    material: red_dye
+    display name: "<&4><&l>Зелёные осколки"
+    lore:
+    - ""
+    - "<&6>Красные осколи, похожи раздробленную,"
+    - "<&6>перекрашенную породу. Такими можно "
+    - "<&6>украсить ёлку на новогодние праздники."
+shard_drops:
+    type: world
+	debug: false
+	events:
+	    on entity killed by entity:
+		  - if <util.random.int[0].to[100]> <= 10:
+		    - drop <context.entity.location> item_shard_white quantity:1
+		  - if <util.random.int[0].to[100]> <= 5:
+		    - drop <context.entity.location> item_shard_green quantity:1
+		  - if <util.random.int[0].to[100]> <= 1:
+		    - drop <context.entity.location> item_shard_red quantity:1
