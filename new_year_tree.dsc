@@ -162,7 +162,7 @@ item_shard_red:
     type: item
 	debug: false
     material: red_dye
-    display name: "<&4><&l>Зелёные осколки"
+    display name: "<&4><&l>Красные осколки"
     lore:
     - ""
     - "<&6>Красные осколи, похожи раздробленную,"
