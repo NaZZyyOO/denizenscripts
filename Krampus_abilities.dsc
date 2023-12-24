@@ -33,8 +33,6 @@ krampus_abilities:
 		        - repeat 3:
 			      - wait 1s
 			      - define loc <[player].get[1].location.add[0,3,0].random_offset[5,2,5]>
-				  - if <[loc]> != air:
-				    - repeat next
 			      - teleport <context.entity> <[loc]>
 				  - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
 			      - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
@@ -65,3 +63,7 @@ krampus_abilities:
 			  - adjust <context.damager> velocity:<context.damager.location.direction.vector.mul[1.2]>
 			- if <util.random.int[0].to[100]> <= 25:
 			  - adjust <context.entity> velocity:<context.entity.location.direction.vector.mul[-1.2]>
+		on entity damaged by SUFFOCATION:
+		  - if <context.entity.name> == "<&4>Крампус":
+		    - define loc <context.entity.location.add[0,1,0].random_offset[5,2,5]>
+			- teleport <[loc]> <context.entity>
