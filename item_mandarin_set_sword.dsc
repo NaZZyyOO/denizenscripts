@@ -19,7 +19,6 @@ item_mandarin_sword:
       - generic.attack_damage/mainhand/0.0/12.0
       - generic.movement_speed/mainhand/1.0/+0.15
       - generic.attack_speed/mainhand/0.0/-1.0
-    enchantments:
 item_mandarin_helm:
     type: item
     debug: false
@@ -130,7 +129,7 @@ item_mandarin_set_use:
 					  - if <context.damager.item_in_hand.script.name.is[==].to[item_mandarin_sword]||false> = true:
 						- take from:<context.damager.inventory> item_mandarin quantity:1
 						- heal <context.damager> 6
-						- actionbar "<&6><&l>Сет и Нож мандаринов восстановили 6 ед. здоровья!"
+						- actionbar <&6><&l>Сет и Нож мандаринов восстановили 6 ед. здоровья!"
 				      - else:
 						- take from:<context.damager.inventory> quantity:1 item_mandarin
 						- heal <context.damager> 3
