@@ -75,10 +75,10 @@ item_new_year_tree_use:
 	    on player right clicks block:
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_01]||false>:
 		    - determine passively cancelled
-			- execute as_op "/schematic load new_year_tree_01"
+			- ~schematic load name:new_year_tree_01
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
-			- execute as_op "/paste"
+			- schematic paste name:new_year_tree_01 <player.location>
 			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
 			- note <ellipsoid[ellipsoid@<player.location.add[-1,0,0].simple>,7,12,7]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
@@ -88,10 +88,10 @@ item_new_year_tree_use:
 			- flag <ellipsoid[Tree_for_<player.name>]> tier:item_new_year_tree_01
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_02]||false>:
 		    - determine passively cancelled
-			- execute as_op "/schematic load new_year_tree_02"
+			- ~schematic load name:new_year_tree_02
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
-			- execute as_op "/paste"
+			- schematic paste name:new_year_tree_02 <player.location>
 			- playeffect at:<player.location.add[0,8,0]> effect:WAX_OFF quantity:600 offset:14 velocity:0,-10,0
 			- note <ellipsoid[ellipsoid@<player.location.add[-1,0,0].simple>,11,21,10]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
@@ -101,10 +101,10 @@ item_new_year_tree_use:
 			- flag <ellipsoid[Tree_for_<player.name>]> tier:item_new_year_tree_02
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_03]||false>:
 		    - determine passively cancelled
-			- execute as_op "/schematic load new_year_tree_03"
+			- ~schematic load name:new_year_tree_03
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
-			- execute as_op "/paste"
+			- schematic paste name:new_year_tree_03 <player.location>
 			- playeffect at:<player.location.add[0,10,0]> effect:WAX_OFF quantity:700 offset:18 velocity:0,-10,0
 			- note <ellipsoid[ellipsoid@<player.location.add[-2,0,0].simple>,10,29,12]> as:Tree_for_<player.name>
 			- flag <ellipsoid[Tree_for_<player.name>]> owner:<player.name>
