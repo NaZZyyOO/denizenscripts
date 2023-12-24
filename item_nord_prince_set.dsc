@@ -9,7 +9,7 @@ item_nord_helm:
     - "<&6>одному из королей севера. Впитал"
     - "<&6>частичку силы прошлого носителя."
     - ""
-    - "<&7>Использование:"
+    - "<&7>Бонус комплекта:"
     - "<&a> - При нажатии Shift + ПКМ с льдом в"
     - "<&a> руке, создаст из него ледяное копьё,"
     - "<&a> потребив 6 ед. маны, и бросит его."
@@ -37,7 +37,7 @@ item_nord_hood:
     - "<&6>вышитый зимними узорами. Впитал"
     - "<&6>частичку силы прошлого носителя."
     - ""
-    - "<&7>Использование:"
+    - "<&7>Бонус комплекта:"
     - "<&a> - При нажатии Shift + ПКМ с форелью"
     - "<&a> в руке, призовёт полярного медведя,"
     - "<&a> потребив 30 ед. маны. Медведь"
@@ -134,58 +134,56 @@ item_nord_boots:
     enchantments:
     - PROTECTION_ENVIRONMENTAL:2
     - DURABILITY:3
-item_nord_helm_use:
+item_nord_set_use:
     type: world
     debug: false
     events:
-        on player right clicks block:
+        after player right clicks block:
           - if <player.item_in_hand.material.name> = ice:
             - if <player.inventory.slot[HELMET].script.name.is[==].to[item_nord_helm]||false>:
-              - if <player.is_sneaking> = true:
-                - if <player.has_flag[icespear_cd]> = false:
-                  - if <placeholder[mystery_mana].player[<player>]> > 5:
-                    - determine passively cancelled
-					- flag <player> icespear_cd expire:10s
-                    - execute "my rmmana <player.name> 6" as_server silent
-                    - take iteminhand quantity:1
-                    - wait 4t
-                    - playeffect at:<player.location.add[0,0.8,0]> effect:soul_fire_flame quantity:20 offset:0.3 visibility:100
-                    - playsound <player.location> sound:entity_stray_death pitch:1 volume:0.2
-                    - playsound <player.location> sound:block_enchantment_table_use pitch:1 volume:0.4
-                    - wait 10t
-                    - playsound <player.location> sound:item_trident_throw pitch:1 volume:1
-                    - animate <player> animation:ARM_SWING for:<server.online_players>
-                    - shoot icespear origin:<player.location.add[0,1.3,0]> speed:2 script:icespear_hit shooter:<player> save:glacial_spear
-                    - define spear_hit_entities <entry[glacial_spear].shot_entities.get[1]>
-item_nord_set_use:
-    type: world
-	debug: false
-	events:
-	   on entity damages entity:
+              - if <player.entity.inventory.slot[CHESTPLATE].script.name.is[==].to[item_nord_chest]||false>:
+                - if <player.inventory.slot[LEGGINGS].script.name.is[==].to[item_nord_leggings]||false>:
+                  - if <player.inventory.slot[BOOTS].script.name.is[==].to[item_nord_boots]||false>:
+                    - if <player.is_sneaking> = true:
+                      - if <player.has_flag[icespear_cd]> = false:
+                        - if <placeholder[mystery_mana].player[<player>]> > 5:
+                          - determine passively cancelled
+                          - execute "my rmmana <player.name> 6" as_server silent
+                          - take iteminhand
+                          - wait 4t
+                          - playeffect at:<player.location.add[0,0.8,0]> effect:soul_fire_flame quantity:20 offset:0.3 visibility:100
+                          - playsound <player.location> sound:entity_stray_death pitch:1 volume:0.2
+                          - playsound <player.location> sound:block_enchantment_table_use pitch:1 volume:0.4
+                          - wait 10t
+                          - playsound <player.location> sound:item_trident_throw pitch:1 volume:1
+                          - flag <player> icespear_cd expire:10s
+                          - animate <player> animation:ARM_SWING for:<server.online_players>
+                          - shoot icespear origin:<player.location.add[0,1.3,0]> speed:2 script:icespear_hit shooter:<player> save:glacial_spear
+                          - define spear_hit_entities <entry[glacial_spear].shot_entities.get[1]>
+        on entity damages entity:
           - if <context.entity.is_player||null> = true:
             - if <context.entity.inventory.slot[CHESTPLATE].script.name.is[==].to[item_nord_chest]||false>:
               - if <context.entity.inventory.slot[LEGGINGS].script.name.is[==].to[item_nord_leggings]||false>:
                 - if <context.entity.inventory.slot[BOOTS].script.name.is[==].to[item_nord_boots]||false>:
-				  - if <context.entity.inventory.slot[HELMET].script.name.is[==].to[item_nord_helm]||false> || <context.entity.inventory.slot[HELMET].script.name.is[==].to[item_nord_hood]||false>:
-                    - if <context.entity.has_flag[icerobe_set_buff]> = false:
-                      - if <placeholder[mystery_mana].player[<player>]> > 5:
-                        - execute "my rmmana <player.name> 6" as_server silent
-                        - flag <context.entity> icerobe_set_buff expire:5s
-                        - cast SLOW amplifier:1 duration:5s <context.damager> hide_particles
-                        - cast SLOW_DIGGING amplifier:0 duration:5s <context.damager> hide_particles
-                        - hurt <context.damager> 10 source:<player> cause:FREEZE
-                        - playeffect at:<context.damager.location> effect:redstone quantity:20 offset:0.3 special_data:1|<color[#6b7cbb].hex> visibility:20
-                        - playsound <context.damager.location> sound:ENTITY_PLAYER_HURT_FREEZE volume:0.5 pitch:1
-                        - playsound <context.damager.location> sound:enchant_thorns_hit volume:0.5 pitch:1
+                  - if <context.entity.has_flag[icerobe_set_buff]> = false:
+                    - if <placeholder[mystery_mana].player[<player>]> > 5:
+                      - execute "my rmmana <player.name> 6" as_server silent
+                      - flag <context.entity> icerobe_set_buff expire:5s
+                      - cast SLOW amplifier:1 duration:5s <context.damager> hide_particles
+                      - cast SLOW_DIGGING amplifier:0 duration:5s <context.damager> hide_particles
+                      - hurt <context.damager> 10 source:<player> cause:FREEZE
+                      - playeffect at:<context.damager.location> effect:redstone quantity:20 offset:0.3 special_data:1|<color[#6b7cbb].hex> visibility:20
+                      - playsound <context.damager.location> sound:ENTITY_PLAYER_HURT_FREEZE volume:0.5 pitch:1
+                      - playsound <context.damager.location> sound:enchant_thorns_hit volume:0.5 pitch:1
 
-item_nord_hood_use:
+item_nord_set_use_2:
     type: world
     debug: false
     events:
-        on player right clicks block with:item_forel:
+        after player right clicks block with:item_forel:
           - if <player.vehicle||0> = 0:
             - if <player.inventory.slot[HELMET].script.name.is[==].to[item_nord_hood]||false>:
-              - if <player.inventory.slot[CHESTPLATE].script.name.is[==].to[item_nord_chest]||false>:
+              - if <player.entity.inventory.slot[CHESTPLATE].script.name.is[==].to[item_nord_chest]||false>:
                 - if <player.inventory.slot[LEGGINGS].script.name.is[==].to[item_nord_leggings]||false>:
                   - if <player.inventory.slot[BOOTS].script.name.is[==].to[item_nord_boots]||false>:
                     - if <player.is_sneaking> = true:
