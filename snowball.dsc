@@ -53,7 +53,7 @@ custom_snowball:
 		  - if <context.projectile.has_flag[snow_block]> = true:
 		    - if <context.shooter.is_player> = true:
 			  - if <util.random.int[0].to[100]> <= 80:
-		        - shoot <entity[snowball].with[item=snow_block]> destination:<context.shooter.location> height:0.8 speed:0.6 save:snowball
+		        - shoot <entity[snowball].with[item=snow_block]> origin:<context.hit_block> destination:<context.shooter.location> height:0.8 speed:0.6 save:snowball
 				- flag <entry[snowball].shot_entity> snow_block
 				- repeat 70:
 		          - wait 2t
