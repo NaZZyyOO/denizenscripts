@@ -18,7 +18,7 @@ item_nord_helm:
     - "<&a> Бросок, или серия бросков может быть"
     - "<&a> выполнен раз в 10 секунд."
     mechanisms:
-      custom_model_data: 3
+      custom_model_data: 4
       nbt_attributes:
       - generic.armor/head/0.0/2.0
       - generic.max_health/head/0.0/5.0
@@ -49,7 +49,7 @@ item_nord_hood:
     - "<&c> слушается ваших приказов, и потому"
     - "<&c> если вы его атакуете он на вас нападёт."
     mechanisms:
-      custom_model_data: 4
+      custom_model_data: 3
       nbt_attributes:
       - generic.armor/head/0.0/2.0
       - generic.max_health/head/0.0/5.0
@@ -75,7 +75,7 @@ item_nord_chest:
     - "<&a> потребляя 6 ед. маны."
     - "<&a> Активируется раз в 5 секунд."
     mechanisms:
-      custom_model_data: 3
+      custom_model_data: 4
       nbt_attributes:
       - generic.armor/chest/0.0/6.0
       - generic.max_health/chest/0.0/8.0
@@ -101,7 +101,7 @@ item_nord_leggings:
     - "<&a> потребляя 6 ед. маны."
     - "<&a> Активируется раз в 5 секунд."
     mechanisms:
-      custom_model_data: 4
+      custom_model_data: 3
       nbt_attributes:
       - generic.armor/legs/0.0/5.0
       - generic.max_health/legs/0.0/7.0
