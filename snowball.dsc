@@ -29,8 +29,8 @@ custom_snowball:
 		      - foreach <player.location.find_entities[snowball].within[60]>:
 			    - if <[value]> != null:
 				  - if <[value].has_flag[snow_block]> = true:
-                    - playeffect effect:CLOUD <[value].location> quantity:5 offset:0.2 visibility:50
-                    - rotate <[value]> yaw:20 duration:1t					
+                    - playeffect effect:FALLING_DUST <[value].location> quantity:5 offset:0.2 visibility:50 special_data:snow_block
+                    - rotate <[value]> yaw:20 duration:1t pitch:20				
 		on player right clicks snow with:air:
 		  - if <player.is_sneaking> = true:
 		    - look <player> <player.precise_target_position> duration:2.4s
