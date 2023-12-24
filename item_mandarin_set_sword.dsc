@@ -2,7 +2,7 @@ item_mandarin_sword:
     type: item
     debug: false
     material: golden_sword
-    display name: "<&l><&6>Нож для чистки мандаринов"
+    display name: "<&6><&l>Нож для чистки мандаринов"
     lore:
     - "<&6>Новогодний нож для чистки мандаринов,"
     - "<&6>давая мандаринам улучшенные свойства."
