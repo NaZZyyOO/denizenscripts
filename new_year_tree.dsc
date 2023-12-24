@@ -75,11 +75,12 @@ item_new_year_tree_use:
 	    on player right clicks block:
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_01]||false>:
 		    - determine passively cancelled
-			- take from:<player.inventory> iteminhand quantity:1
 			- ~schematic load name:new_year_tree_01
+			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_01 <schematic[new_year_tree_01].origin>
 			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
+			- note <cuboid[cuboid@<schematic[new_year_tree_01].cuboid[<player.location>]>]> as:Tree_for_<player.name>
 			- note <cuboid[<schematic[new_year_tree_01].cuboid[<player.location>]>]> as:Tree_for_<player.name>
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
@@ -88,11 +89,12 @@ item_new_year_tree_use:
 			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_01
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_02]||false>:
 		    - determine passively cancelled
-			- take from:<player.inventory> iteminhand quantity:1
 			- ~schematic load name:new_year_tree_02
+			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_02 <schematic[new_year_tree_02].origin>
 			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
+			- note <cuboid[cuboid@<schematic[new_year_tree_02].cuboid[<player.location>]>]> as:Tree_for_<player.name>
 			- note <cuboid[<schematic[new_year_tree_02].cuboid[<player.location>]>]> as:Tree_for_<player.name>
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
@@ -101,11 +103,12 @@ item_new_year_tree_use:
 			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_02
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_03]||false>:
 		    - determine passively cancelled
-			- take from:<player.inventory> iteminhand quantity:1
 			- ~schematic load name:new_year_tree_03
+			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_03 <schematic[new_year_tree_03].origin>
 			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
+			- note <cuboid[cuboid@<schematic[new_year_tree_03].cuboid[<player.location>]>]> as:Tree_for_<player.name>
 			- note <cuboid[<schematic[new_year_tree_03].cuboid[<player.location>]>]> as:Tree_for_<player.name>
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
