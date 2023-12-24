@@ -1,7 +1,7 @@
 item_xmas_bell:
     type: item
     debug: false
-    material: iron_axe
+    material: gold_nugget
     display name: "<&6><&l>Колокольчик"
     lore:
     - ""
@@ -11,7 +11,7 @@ item_xmas_bell:
     - "<&7>Использование:"
     - "<&a> - Звенит в колокольчик."
     mechanisms:
-      custom_model_data: 32
+      custom_model_data: 4
       nbt_attributes:
 	  - generic.movement_speed/mainhand/1.0/+0.05
 
