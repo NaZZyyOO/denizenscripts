@@ -6,7 +6,7 @@ item_krampus_horn:
     lore:
     - "<&6>Острый изогнутый рог, отрубленный"
     - "<&6>у Крампуса. Мощный оберег, хранящий"
-	- "<&6> в себе частичку демонической"
+	- "<&6>в себе частичку демонической"
     - "<&6>магии, и отпугивающий злых"
     - "<&6>духов и непослушных детей."
     mechanisms:
@@ -22,11 +22,7 @@ item_krampus_horn_use:
 	events:
 	    on player dies:
 		  - if <player.inventory.contains[item_krampus_horn].quantity[1]> = true:
-			- flag <player> keep_horn
-		on player respawns:
-		  - if <player.has_flag[keep_horn]> = true:
-		    - give to:<player.inventory> item_krampus_horn quantity:1
-	        - flag <player> keep_horn:!
+			- take from:<player.inventory> item_krampus_horn quantity:1
 		on entity targets player:
 		  - if <player.inventory.contains[item_krampus_horn].quantity[1]> = true:
 		    - if <util.random.int[100].to[0]> <= 5:
