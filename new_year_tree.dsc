@@ -96,7 +96,7 @@ item_new_year_tree_use:
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
-			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
+			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,1,5]>]>
 			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_01
 			- flag <player> have_tree
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_02]||false>:
@@ -122,7 +122,7 @@ item_new_year_tree_use:
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
-			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
+			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,1,5]>]>
 			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_02
 			- flag <player> have_tree
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_03]||false>:
@@ -148,7 +148,7 @@ item_new_year_tree_use:
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
-			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
+			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,1,5]>]>
 			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_03
 			- flag <player> have_tree
 	    on player breaks block:
