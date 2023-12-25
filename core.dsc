@@ -296,6 +296,51 @@ link_item:
           - announce <context.full_text.replace_text[<[link_key]>].with[[<player.item_in_hand.display><reset><&6>]]> to_console
         - else:
           - toast "<&6>Предмет в руке должен быть необычного качества" targets:<player> icon:iron_sword
+# Плановая остановка сервера. Команда на стоп.
+restart_daily:
+    type: world
+    debug: false
+    events:
+        on system time 04:55:
+          - narrate "<&8>[Wealth] <&7>- Плановая перезагрузка сервера." targets:<server.online_players>
+          - announce "Плановая перезагрузка сервера." to_console
+          - narrate "<&8>[Wealth] <&7>- Сервер будет перезагружен через 5 минут." targets:<server.online_players>
+          - announce "Сервер будет перезагружен через 5 минут." to_console
+          - wait 240s
+          - narrate "<&8>[Wealth] <&7>- Сервер будет перезагружен через 1 минуту." targets:<server.online_players>
+          - announce "Сервер будет перезагружен через 1 минуту." to_console
+          - wait 30s
+          - narrate "<&8>[Wealth] <&7>- Сервер будет перезагружен через 30 секунд." targets:<server.online_players>
+          - announce "Сервер будет перезагружен через 30 секунд." to_console
+          - wait 20s
+          - narrate "<&8>[Wealth] <&7>- Сервер будет перезагружен через 10 секунд." targets:<server.online_players>
+          - announce "Сервер будет перезагружен через 10 секунд." to_console
+          - wait 5s
+          - run stop_sequence
+		on server start:
+		  - ~schematic load name:new_year_tree_01
+		  - ~schematic load name:new_year_tree_02
+		  - ~schematic load name:new_year_tree_03
+stop_sequence:
+    debug: false
+    type: task
+    script:
+      - narrate "<&8>[Wealth] <&7>- Сервер будет перезагружен через 5 секунд." targets:<server.online_players>
+      - announce "Сервер будет перезагружен через 5 секунд." to_console
+      - wait 1s
+      - narrate "<&8>[Wealth] <&7>- Сервер будет перезагружен через 4 секунды." targets:<server.online_players>
+      - announce "Сервер будет перезагружен через 4 секунды." to_console
+      - wait 1s
+      - narrate "<&8>[Wealth] <&7>- Сервер будет перезагружен через 3 секунды." targets:<server.online_players>
+      - announce "Сервер будет перезагружен через 3 секунды." to_console
+      - wait 1s
+      - narrate "<&8>[Wealth] <&7>- Сервер будет перезагружен через 2 секунды." targets:<server.online_players>
+      - announce "Сервер будет перезагружен через 2 секунды." to_console
+      - wait 1s
+      - narrate "<&8>[Wealth] <&7>- Сервер будет перезагружен через 1 секунду." targets:<server.online_players>
+      - announce "Сервер будет перезагружен через 1 секунду." to_console
+      - wait 1s
+      - execute as_server stop
 # Универсальные диалоги.
 trade:
   type: item
