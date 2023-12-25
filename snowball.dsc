@@ -56,7 +56,7 @@ custom_snowball:
 			    - if <list[northeat|southeast|southeast|northwest].contains[<player.location.direction>]> = true:
 				  - if <util.random.int[0].to[100]> <= 50:
 				    - define destination <context.shooter.location.random_offset[0,0,10]>
-				  - else:
+				  - if <util.random.int[0].to[100]> <= 50:
 				    - define destination <context.shooter.location.random_offset[10,0,0]>
 		          - shoot <entity[snowball].with[item=snow_block]> origin:<context.projectile> destination:<[destination]> height:0.8 speed:0.6 save:snowball
 				  - flag <entry[snowball].shot_entity> snow_block_2
