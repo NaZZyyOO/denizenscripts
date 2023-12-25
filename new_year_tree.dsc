@@ -83,7 +83,7 @@ item_new_year_tree_use:
 			    - stop
 			- if <player.has_flag[have_tree]> = true:
 			  - stop
-			- foreach <context.location.to_cuboid[<player.location.add[30,30,30]>].blocks>:
+			- foreach <context.location.add[0,1,0].to_cuboid[<player.location.add[30,30,30]>].blocks>:
 			  - if <[value].material.name> != air:
 			    - narrate "<&7><&o>Размещению ёлки мешает какой-то блок..."
 			    - stop
@@ -109,7 +109,7 @@ item_new_year_tree_use:
 			    - stop
 		    - if <player.has_flag[have_tree]> = true:
 			  - stop
-			- foreach <context.location.to_cuboid[<player.location.add[30,30,30]>].blocks>:
+			- foreach <context.location.add[0,1,0].to_cuboid[<player.location.add[30,30,30]>].blocks>:
 			  - if <[value].material.name> != air:
 			    - narrate "<&7><&o>Размещению ёлки мешает какой-то блок..."
 			    - stop
@@ -135,7 +135,7 @@ item_new_year_tree_use:
 			    - stop
 			- if <player.has_flag[have_tree]> = true:
 			  - stop
-			- foreach <context.location.to_cuboid[<player.location.add[30,30,30]>].blocks>:
+			- foreach <context.location.add[0,1,0].to_cuboid[<player.location.add[30,30,30]>].blocks>:
 			  - if <[value].material.name> != air:
 			    - narrate "<&7><&o>Размещению ёлки мешает какой-то блок..."
 			    - stop
