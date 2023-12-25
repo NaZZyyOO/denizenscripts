@@ -54,14 +54,14 @@ custom_snowball:
 		    - if <context.shooter.is_player> = true:
 			  - if <util.random.int[0].to[100]> <= 80:
 			    - if <player.location.direction> = northeast:
-				  - define destination <context.projectile.location.direction.vector.add[0,0,1].mul[1.5]>
+				  - define destination <context.projectile.location.direction.vector.add[0,0,1].mul[2]>
 				- if <player.location.direction> = southeast:
-				  - define destination <context.projectile.location.direction.vector.add[-1,0,0].mul[1.5]>
+				  - define destination <context.projectile.location.direction.vector.add[-1,0,0].mul[2]>
 				- if <player.location.direction> = southwest:
-				  - define destination <context.projectile.location.direction.vector.add[1,0,0].mul[1.5]>
+				  - define destination <context.projectile.location.direction.vector.add[1,0,0].mul[2]>
 				- if <player.location.direction> = northwest:
-				  - define destination <context.projectile.location.direction.vector.add[0,0,1].mul[1.5]>
-		          - shoot <entity[snowball].with[item=snow_block]> origin:<context.projectile> destination:<[destination]> height:0.5 speed:0.4 save:snowball
+				  - define destination <context.projectile.location.direction.vector.add[0,0,1].mul[2]>
+		          - shoot <entity[snowball].with[item=snow_block]> origin:<context.projectile> destination:<[destination]> height:0.8 speed:0.6 save:snowball
 				- if <list[north|south|east|west].contains[<player.location.direction>]> = true:
 				  - shoot <entity[snowball].with[item=snow_block]> origin:<context.projectile> destination:<context.shooter.location> height:0.5 speed:0.4 save:snowball
 				- flag <entry[snowball].shot_entity> snow_block_2
