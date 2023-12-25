@@ -199,7 +199,7 @@ item_nord_set_use_2:
                           - flag <player> nord_bear_cd expire:60s
                           - wait 10t
                           - spawn nord_bear <player.location.add[0,0.1,0]> save:MyBear
-                          - disguise <entry[MyBear].spawned_entity> global as:polar_bear
+                          - disguise <entry[MyBear].spawned_entity> as:polar_bear global self
                           - adjust <entry[MyBear].spawned_entity> silent:true
                           - flag <entry[MyBear].spawned_entity> host:<player.name>
                           - mount <player>|<entry[MyBear].spawned_entity>
@@ -227,7 +227,8 @@ nord_bear:
     type: entity
     debug: false
     entity_type: zoglin
-
+    mechanisms:
+	    max_health: 60
 icespear:
     type: entity
     debug: false
