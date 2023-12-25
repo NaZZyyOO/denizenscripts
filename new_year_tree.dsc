@@ -87,8 +87,6 @@ item_new_year_tree_use:
 			  - if <[value].material.name> != air:
 			    - narrate "<&7><&o>Размещению ёлки мешает какой-то блок..."
 			    - stop
-			- if <schematic[new_year_tree_01].exist> = false:
-			  - ~schematic load name:new_year_tree_01
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_01 <context.location.add[0,1,0]> noair
@@ -114,8 +112,6 @@ item_new_year_tree_use:
 			  - if <[value].material.name> != air:
 			    - narrate "<&7><&o>Размещению ёлки мешает какой-то блок..."
 			    - stop
-		    - if <schematic[new_year_tree_02].exist> = false:
-			  - ~schematic load name:new_year_tree_02
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_02 <context.location.add[0,1,0]> noair
@@ -141,8 +137,6 @@ item_new_year_tree_use:
 			  - if <[value].material.name> != air:
 			    - narrate "<&7><&o>Размещению ёлки мешает какой-то блок..."
 			    - stop
-			- if <schematic[new_year_tree_03].exist> = false:
-		      - ~schematic load name:new_year_tree_03
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_03 <context.location.add[0,1,0]> noair
