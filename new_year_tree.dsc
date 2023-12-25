@@ -76,6 +76,8 @@ item_new_year_tree_use:
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_01]||false>:
 		    - determine passively cancelled
 			- define region <player.location.regions>
+			- if <[region].size> = 0:
+			  - stop
 			- if <[region].size> > 0:
 			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
@@ -96,6 +98,8 @@ item_new_year_tree_use:
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_02]||false>:
 		    - determine passively cancelled
 			- define region <player.location.regions>
+			- if <[region].size> = 0:
+			  - stop
 			- if <[region].size> > 0:
 			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
@@ -116,6 +120,8 @@ item_new_year_tree_use:
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_03]||false>:
 		    - determine passively cancelled
 			- define region <player.location.regions>
+			- if <[region].size> = 0:
+			  - stop
 			- if <[region].size> > 0:
 			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
