@@ -142,7 +142,7 @@ item_new_year_tree_use:
 			    - narrate "<&7><&o>Размещению ёлки мешает какой-то блок..."
 			    - stop
 			 - if <schematic[new_year_tree_03].exist> = false:
-		      - ~schematic load name:new_year_tree_03
+		       - ~schematic load name:new_year_tree_03
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_03 <context.location.add[0,1,0]> noair
