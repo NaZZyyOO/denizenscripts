@@ -86,9 +86,9 @@ item_new_year_tree_use:
 			- ~schematic load name:new_year_tree_01
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
-			- schematic paste name:new_year_tree_01 <player.location> noair
+			- schematic paste name:new_year_tree_01 <context.location> noair
 			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
-			- note <cuboid[<schematic[new_year_tree_01].cuboid[<player.location>]>]> as:Tree_for_<player.name>
+			- note <cuboid[<schematic[new_year_tree_01].cuboid[<context.location>]>]> as:Tree_for_<player.name>
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
@@ -108,9 +108,9 @@ item_new_year_tree_use:
 			- ~schematic load name:new_year_tree_02
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
-			- schematic paste name:new_year_tree_02 <player.location> noair
+			- schematic paste name:new_year_tree_02 <context.location> noair
 			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
-			- note <cuboid[<schematic[new_year_tree_02].cuboid[<player.location>]>]> as:Tree_for_<player.name>
+			- note <cuboid[<schematic[new_year_tree_02].cuboid[<context.location>]>]> as:Tree_for_<player.name>
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
@@ -130,9 +130,9 @@ item_new_year_tree_use:
 		    - ~schematic load name:new_year_tree_03
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
-			- schematic paste name:new_year_tree_03 <player.location> noair
+			- schematic paste name:new_year_tree_03 <context.location> noair
 			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
-			- note <cuboid[<schematic[new_year_tree_03].cuboid[<player.location>]>]> as:Tree_for_<player.name>
+			- note <cuboid[<schematic[new_year_tree_03].cuboid[<context.location>]>]> as:Tree_for_<player.name>
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
 			- if <server.has_flag[gifts_location]> = false:
 			  - flag server gifts_location:<map[]>
@@ -150,7 +150,7 @@ item_new_year_tree_use:
 			    - foreach <cuboid[<[value]>].blocks> as:location:
 				  - if <server.flag[gifts_location].get[<player.name>].as_location.y> <= <[location].y>:
 				    - adjust <[location]> block_type:air
-				- drop <cuboid[<[value]>].flag[tier]> <player.location> quantity:1
+				- drop <cuboid[<[value]>].flag[tier]> <context.location> quantity:1
 				- note remove as:Tree_for_<player.name>
 				- flag server gifts_location:<server.flag[gifts_location].as_map.exclude[<player.name>]>
 				- flag <player> have_tree:!
