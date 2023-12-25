@@ -86,7 +86,7 @@ item_new_year_tree_use:
 			- ~schematic load name:new_year_tree_01
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
-			- schematic paste name:new_year_tree_01 <context.location> noair
+			- schematic paste name:new_year_tree_01 <context.location.add[0,1,0]> noair
 			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
 			- note <cuboid[<schematic[new_year_tree_01].cuboid[<context.location.add[0,-1,0]>]>]> as:Tree_for_<player.name>
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
@@ -108,7 +108,7 @@ item_new_year_tree_use:
 			- ~schematic load name:new_year_tree_02
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
-			- schematic paste name:new_year_tree_02 <context.location> noair
+			- schematic paste name:new_year_tree_02 <context.location.add[0,1,0]> noair
 			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
 			- note <cuboid[<schematic[new_year_tree_02].cuboid[<context.location.add[0,-1,0]>]>]> as:Tree_for_<player.name>
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
@@ -130,7 +130,7 @@ item_new_year_tree_use:
 		    - ~schematic load name:new_year_tree_03
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
-			- schematic paste name:new_year_tree_03 <context.location> noair
+			- schematic paste name:new_year_tree_03 <context.location.add[0,1,0]> noair
 			- playeffect at:<player.location.add[0,6,0]> effect:WAX_OFF quantity:300 offset:9 velocity:0,-10,0
 			- note <cuboid[<schematic[new_year_tree_03].cuboid[<context.location.add[0,-1,0]>]>]> as:Tree_for_<player.name>
 			- flag <cuboid[Tree_for_<player.name>]> owner:<player.name>
