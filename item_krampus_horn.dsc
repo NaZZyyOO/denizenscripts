@@ -6,7 +6,7 @@ item_krampus_horn:
     lore:
     - "<&6>Острый изогнутый рог, отрубленный"
     - "<&6>у Крампуса. Мощный оберег, хранящий"
-	- "<&6>в себе частичку демонической"
+	- "<&6> в себе частичку демонической"
     - "<&6>магии, и отпугивающий злых"
     - "<&6>духов и непослушных детей."
     mechanisms:
@@ -22,13 +22,19 @@ item_krampus_horn_use:
 	events:
 	    on player dies:
 		  - if <player.inventory.contains[item_krampus_horn].quantity[1]> = true:
-			- take from:<player.inventory> item_krampus_horn quantity:1
+			- flag <player> keep_horn
+		on player respawns:
+		  - if <player.has_flag[keep_horn]> = true:
+		    - give to:<player.inventory> item_krampus_horn quantity:1
+	        - flag <player> keep_horn:!
 		on entity targets player:
 		  - if <player.inventory.contains[item_krampus_horn].quantity[1]> = true:
 		    - if <util.random.int[100].to[0]> <= 5:
-			  - determine passively cancelled
-              - playeffect <context.entity.location.add[0,0.7,0]> effect:REDSTONE special_data:1|<color[#191611].hex> quantity:20 offset:0.3
+			  - playeffect <context.entity.location.add[0,0.7,0]> effect:REDSTONE special_data:1|<color[#191611].hex> quantity:20 offset:0.3
               - playsound <context.entity.location> sound:entity_illusioner_prepare_mirror volume:0.5 pitch:1
+			  - repeat 50:
+			    - wait 2t
+			    - determine passively cancelled
 		on player kills entity:
 		  - if <player.inventory.contains[item_krampus_horn].quantity[1]> = true:
 		    - if <util.random.int[100].to[0]> <= 2:

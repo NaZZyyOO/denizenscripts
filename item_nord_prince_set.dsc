@@ -12,7 +12,7 @@ item_nord_helm:
     - "<&7>Бонус комплекта:"
     - "<&a> - При нажатии Shift + ПКМ с льдом в"
     - "<&a> руке, создаст из него ледяное копьё,"
-    - "<&a> потребив 6 ед. маны, и бросит его."
+    - "<&a> потребив 4 ед. маны, и бросит его."
     - "<&a> Копьё наносит 10 ед. урона, и за один"
     - "<&a> раз можно бросить серию из четырёх копий."
     - "<&a> Бросок, или серия бросков может быть"
@@ -148,7 +148,7 @@ item_nord_set_use:
                       - if <player.has_flag[icespear_cd]> = false:
                         - if <placeholder[mystery_mana].player[<player>]> > 5:
                           - determine passively cancelled
-                          - execute "my rmmana <player.name> 6" as_server silent
+                          - execute "my rmmana <player.name> 4" as_server silent
                           - take iteminhand
                           - wait 4t
                           - playeffect at:<player.location.add[0,0.8,0]> effect:soul_fire_flame quantity:20 offset:0.3 visibility:100
@@ -196,10 +196,10 @@ item_nord_set_use_2:
                           - playeffect at:<player.location.add[0,0.8,0]> effect:soul_fire_flame quantity:20 offset:0.3 visibility:100
                           - playeffect at:<player.location.add[0,0.8,0]> effect:campfire_cosy_smoke quantity:20 offset:0.5 visibility:100
                           - playsound <player.location> sound:entity_polar_bear_ambient pitch:1 volume:1
-                          - flag <player> nord_bear_cd expire:300s
+                          - flag <player> nord_bear_cd expire:60s
                           - wait 10t
                           - spawn nord_bear <player.location.add[0,0.1,0]> save:MyBear
-                          - disguise <entry[MyBear].spawned_entity> as:polar_bear
+                          - disguise <entry[MyBear].spawned_entity> global as:polar_bear
                           - adjust <entry[MyBear].spawned_entity> silent:true
                           - flag <entry[MyBear].spawned_entity> host:<player.name>
                           - mount <player>|<entry[MyBear].spawned_entity>
