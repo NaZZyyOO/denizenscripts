@@ -72,7 +72,7 @@ item_new_year_tree_use:
     type: world
 	debug: false
 	events:
-	    on player right clicks block:
+	    on player right clicks !air:
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_01]||false>:
 		    - determine passively cancelled
 			- define region <player.location.regions>
@@ -83,6 +83,10 @@ item_new_year_tree_use:
 			    - stop
 			- if <player.has_flag[have_tree]> = true:
 			  - stop
+			- foreach <player.location.to_cuboid[<player.location.add[30,30,30]>].blocks>:
+			  - if <[value].material.name> != air:
+			    - narrate "<&7><&o>Размещению ёлки мешает какой-то блок..."
+			    - stop
 			- ~schematic load name:new_year_tree_01
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
@@ -105,6 +109,10 @@ item_new_year_tree_use:
 			    - stop
 		    - if <player.has_flag[have_tree]> = true:
 			  - stop
+			- foreach <player.location.to_cuboid[<player.location.add[30,30,30]>].blocks>:
+			  - if <[value].material.name> != air:
+			    - narrate "<&7><&o>Размещению ёлки мешает какой-то блок..."
+			    - stop
 			- ~schematic load name:new_year_tree_02
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
@@ -127,6 +135,10 @@ item_new_year_tree_use:
 			    - stop
 			- if <player.has_flag[have_tree]> = true:
 			  - stop
+			- foreach <player.location.to_cuboid[<player.location.add[30,30,30]>].blocks>:
+			  - if <[value].material.name> != air:
+			    - narrate "<&7><&o>Размещению ёлки мешает какой-то блок..."
+			    - stop
 		    - ~schematic load name:new_year_tree_03
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
