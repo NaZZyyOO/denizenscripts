@@ -73,6 +73,12 @@ custom_snowball:
 			  - else:
 			    - playeffect <context.location> effect:FALLING_DUST offset:0.8 quantity:20 visibility:80 special_data:snow_block
 			    - playsound <context.location> sound:BLOCK_SNOW_PLACE pitch:0.6 volume:1
-			    - foreach <context.location.find_entities[player].within[3]>:
+			    - foreach <context.location.find_entities[player].within[1]>:
 			      - if <[value]> != null:
 			        - cast SLOW a:0 d:3 <[value]>
+		  - if <context.projectile.has_flag[snow_block_2]> = true:
+		    - playeffect <context.location> effect:FALLING_DUST offset:0.8 quantity:20 visibility:80 special_data:snow_block
+			- playsound <context.location> sound:BLOCK_SNOW_PLACE pitch:0.6 volume:1
+			- foreach <context.location.find_entities[player].within[1]>:
+			  - if <[value]> != null:
+			    - cast SLOW a:0 d:3 <[value]>
