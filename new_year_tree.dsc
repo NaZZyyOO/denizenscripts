@@ -75,9 +75,9 @@ item_new_year_tree_use:
 	    on player right clicks block:
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_01]||false>:
 		    - determine passively cancelled
-			- define region <player.location.regions.first>
+			- define region <player.location.regions>
 			- if <[region].size> > 0:
-			  - if <region[<[region]>].owners.contains[<player>]> = false:
+			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
@@ -91,9 +91,9 @@ item_new_year_tree_use:
 			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_01
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_02]||false>:
 		    - determine passively cancelled
-			- define region <player.location.regions.first>
+			- define region <player.location.regions>
 			- if <[region].size> > 0:
-			  - if <region[<[region]>].owners.contains[<player>]> = false:
+			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
@@ -107,9 +107,9 @@ item_new_year_tree_use:
 			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_02
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_03]||false>:
 		    - determine passively cancelled
-			- define region <player.location.regions.first>
+			- define region <player.location.regions>
 			- if <[region].size> > 0:
-			  - if <region[<[region]>].owners.contains[<player>]> = false:
+			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
