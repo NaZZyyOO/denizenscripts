@@ -162,6 +162,10 @@ item_new_year_tree_use:
 				- note remove as:Tree_for_<player.name>
 				- flag server gifts_location:<server.flag[gifts_location].as_map.exclude[<player.name>]>
 				- flag <player> have_tree:!
+		on player right clicks block:
+		  - foreach <player.location.cuboids>:
+		    - if <[value].contains_text[Tree_for_]> = true:
+			  - determine passively cancelled
 		on system time 00:01:
 		  - if <util.time_now.day_of_year> = 1:
 		    - foreach <server.flag[gifts_location].keys>:
