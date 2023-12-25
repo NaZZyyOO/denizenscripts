@@ -62,17 +62,17 @@ custom_snowball:
 				- if <player.location.direction> = northwest:
 				  - define destination <context.projectile.location.direction.vector.add[-1,0,0].mul[2]>
 		          - shoot <entity[snowball].with[item=snow_block]> origin:<context.projectile> destination:<[destination]> height:0.8 speed:0.6 save:snowball
+				  - flag <entry[snowball].shot_entity> snow_block_2
 				- if <list[north|south|east|west].contains[<player.location.direction>]> = true:
 				  - shoot <entity[snowball].with[item=snow_block]> origin:<context.projectile> destination:<context.shooter.location> height:0.8 speed:0.6 save:snowball
-				- if <entry[snowball].shot_entity> != null:
 				  - flag <entry[snowball].shot_entity> snow_block_2
-				  - repeat 70:
-		            - wait 2t
-		            - foreach <player.location.find_entities[snowball].within[60]>:
-                      - if <[value]> != null:
-				        - if <[value].has_flag[snow_block_2]> = true:
-                          - playeffect effect:FALLING_DUST special_data:snow_block <[value].location> quantity:5 offset:0.2 visibility:50
-                          - rotate <[value]> yaw:20 duration:1t pitch:20			
+				- repeat 70:
+		          - wait 2t
+		          - foreach <player.location.find_entities[snowball].within[60]>:
+                    - if <[value]> != null:
+				      - if <[value].has_flag[snow_block_2]> = true:
+                        - playeffect effect:FALLING_DUST special_data:snow_block <[value].location> quantity:5 offset:0.2 visibility:50
+                        - rotate <[value]> yaw:20 duration:1t pitch:20			
 			  - else:
 			    - playeffect <context.location> effect:FALLING_DUST offset:0.8 quantity:20 visibility:80 special_data:snow_block
 			    - playsound <context.location> sound:BLOCK_SNOW_PLACE pitch:0.6 volume:1
