@@ -79,6 +79,8 @@ item_new_year_tree_use:
 			- if <[region].size> > 0:
 			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
+			- if <player.has_flag[have_tree]> = true:
+			  - stop
 			- ~schematic load name:new_year_tree_01
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
@@ -90,12 +92,15 @@ item_new_year_tree_use:
 			  - flag server gifts_location:<map[]>
 			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
 			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_01
+			- flag <player> have_tree
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_02]||false>:
 		    - determine passively cancelled
 			- define region <player.location.regions>
 			- if <[region].size> > 0:
 			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
+		    - if <player.has_flag[have_tree]> = true:
+			  - stop
 			- ~schematic load name:new_year_tree_02
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
@@ -107,12 +112,15 @@ item_new_year_tree_use:
 			  - flag server gifts_location:<map[]>
 			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
 			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_02
+			- flag <player> have_tree
 		  - if <player.item_in_hand.script.name.is[==].to[item_new_year_tree_03]||false>:
 		    - determine passively cancelled
 			- define region <player.location.regions>
 			- if <[region].size> > 0:
 			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
+			- if <player.has_flag[have_tree]> = true:
+			  - stop
 		    - ~schematic load name:new_year_tree_03
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
@@ -124,6 +132,7 @@ item_new_year_tree_use:
 			  - flag server gifts_location:<map[]>
 			- flag server gifts_location:<server.flag[gifts_location].as_map.with[<player.name>].as[<player.location.add[5,0,5]>]>
 			- flag <cuboid[Tree_for_<player.name>]> tier:item_new_year_tree_03
+			- flag <player> have_tree
 	    on player breaks block:
 		  - foreach <player.location.cuboids>:
 		    - if <[value].contains_text[Tree_for_]> = true:
@@ -138,6 +147,7 @@ item_new_year_tree_use:
 				- drop <cuboid[<[value]>].flag[tier]> <player.location> quantity:1
 				- note remove as:Tree_for_<player.name>
 				- flag server gifts_location:<server.flag[gifts_location].as_map.exclude[<player.name>]>
+				- flag <player> have_tree:!
 		on system time 00:01:
 		  - if <util.time_now.day_of_year> = 1:
 		    - foreach <server.flag[gifts_location].keys>:
