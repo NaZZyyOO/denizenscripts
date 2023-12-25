@@ -79,6 +79,7 @@ item_new_year_tree_use:
 			- if <[region].size> > 0:
 			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
+			- ~schematic load name:new_year_tree_01
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_01 <player.location>
@@ -95,6 +96,7 @@ item_new_year_tree_use:
 			- if <[region].size> > 0:
 			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
+			- ~schematic load name:new_year_tree_02
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_02 <player.location>
@@ -111,6 +113,7 @@ item_new_year_tree_use:
 			- if <[region].size> > 0:
 			  - if <region[<[region].first>].owners.contains[<player>]> = false:
 			    - stop
+		    - ~schematic load name:new_year_tree_03
 			- take from:<player.inventory> iteminhand quantity:1
 			- wait 1s
 			- schematic paste name:new_year_tree_03 <player.location>
