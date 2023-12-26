@@ -37,4 +37,5 @@ item_evilvand_use:
                   - animate <player> animation:ARM_SWING for:<server.online_players>
                   - playsound sound:entity_evoker_fangs_attack pitch:1 volume:0.8 <player.location>
                   - playeffect at:<player.location.add[0,1,0]> effect:SPELL quantity:20 offset:0.3
-                  - spawn evoker_fangs <[target].location>
+				  - if <[target].location> != null:
+                    - spawn evoker_fangs <[target].location>
