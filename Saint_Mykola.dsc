@@ -95,7 +95,7 @@ trade_s_Mykola_high_weapon:
 		- define krampus_sword trade[inputs=item_red_ticket[quantity=15];result=item_krampus_sword[quantity=1];max_uses=99999;has_xp=false]
 	    - define christmas_sword trade[inputs=item_red_ticket[quantity=10];result=item_christmas_sword[quantity=1];max_uses=99999;has_xp=false]
 		- define blizzard_sphere trade[inputs=item_red_ticket[quantity=20];result=item_blizzard_sphere[quantity=1];max_uses=99999;has_xp=false]
-		- opentrades <[candy_sword_1]>|<[candy_sword_2]>|<[mandarin_dagger]>|<[frostmourne_sword]>|<[krampus_sword]>|<[christmas_sword]>| "title:Святий Миколай"
+		- opentrades <[candy_sword_1]>|<[candy_sword_2]>|<[mandarin_dagger]>|<[frostmourne_sword]>|<[krampus_sword]>|<[christmas_sword]>|<[blizzard_sphere]> "title:Святий Миколай"
 trade_s_Mykola_ticket:
     type: task
 	debug: false
