@@ -83,13 +83,13 @@ trade_s_Mykola_high_armor:
 	  - define nord_chest trade[inputs=item_red_ticket[quantity=6];result=item_nord_chest[quantity=1];max_uses=99999;has_xp=false]
 	  - define nord_leggs trade[inputs=item_red_ticket[quantity=5];result=item_nord_leggings[quantity=1];max_uses=99999;has_xp=false]
 	  - define nord_boots trade[inputs=item_red_ticket[quantity=3];result=item_nord_boots[quantity=1];max_uses=99999;has_xp=false]
-	  - opentrades <[mandarin_helm]>|<[mandarin_chest]>|<[mandarin_leggs]>|<[mandarin_boots]>|<[s_mykola_helm]>|<[s_mykola_chest]>|<[s_mykola_leggs]>|<[s_mykola_boots]>|<[nord_helm]>|<[nord_hood]>|<[chest]>|<[nord_leggs]>|<[nord_boots]> "title:Святий Миколай"
+	  - opentrades <[mandarin_helm]>|<[mandarin_chest]>|<[mandarin_leggs]>|<[mandarin_boots]>|<[s_mykola_helm]>|<[s_mykola_chest]>|<[s_mykola_leggs]>|<[s_mykola_boots]>|<[nord_helm]>|<[nord_hood]>|<[nord_chest]>|<[nord_leggs]>|<[nord_boots]> "title:Святий Миколай"
 trade_s_Mykola_high_weapon:
     debug: false
     type: task
     script:
-	    - define mandarin_dagger trade[inputs=item_green_ticket[quantity=10];result=item_mandarin_sword[quantity=1];max_uses=99999;has_xp=false]
-	    - define frostmourne_sword trade[inputs=item_white_ticket[quantity=20];result=item_frostmourne_sword[quantity=1];max_uses=99999;has_xp=false]
+	    - define mandarin_dagger trade[inputs=item_green_ticket[quantity=5];result=item_mandarin_sword[quantity=1];max_uses=99999;has_xp=false]
+	    - define frostmourne_sword trade[inputs=item_red_ticket[quantity=5];result=item_frostmourne_sword[quantity=1];max_uses=99999;has_xp=false]
 	    - define candy_sword_1 trade[inputs=item_white_ticket[quantity=10];result=item_xmas_candy_sword[quantity=1];max_uses=99999;has_xp=false]
 		- define candy_sword_2 trade[inputs=item_white_ticket[quantity=10];result=item_xmas_candy_sword_2[quantity=1];max_uses=99999;has_xp=false]
 		- define krampus_sword trade[inputs=item_red_ticket[quantity=15];result=item_krampus_sword[quantity=1];max_uses=99999;has_xp=false]
