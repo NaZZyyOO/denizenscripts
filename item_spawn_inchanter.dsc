@@ -3,55 +3,39 @@ item_offhand_wand_simple:
     type: item
     debug: false
     material: stick
-    display name: "<&f><&l>Basic Aspen Wand"
+    display name: "<&6><&l>Простой осиновый жезл"
+    lore:
+    - "<&6>Самый простой из зачарованных жезлов."
+    - "<&6>Именно на таких тренируются"
+    - "<&6>ученики зачарователей."
     mechanisms:
+      custom_model_data: 1
       unbreakable: true
-	data:
-	    stats:
-		    display:  "<&f><&l>Basic Aspen Wand"
-			rarity: common
-			custom_model_data: 1
-			lore:
-			  item: "<&8><&l>Item: <&c>Artifact"
-			  rare: "<&7><&l>Type: <&f>Common"
-			  text: "<n><&7><&o>The simplest of the enchanted wands.<n><&7><&o>Usually, the students of enchanters train with such wands."
-			  attributes: "<n><&7>Wnen in Second Hand:<n><&7>Movement speed bonus:<&a> +5.0%<n><&7>Max health bonus:<&c> +2"
-			attribute_modifiers:
-	          generic_movement_speed:
-			      type: vanilla
-			      operation: ADD_SCALAR
-				  amount: +0.05
-				  slot: offhand
-		      generic_max_health:
-			      type: vanilla
-			      operation: ADD_NUMBER
-				  amount: +2.0
-				  slot: offhand
+      nbt_attributes:
+      - generic.movement_speed/offhand/1.0/0.05
+      - generic.max_health/offhand/0.0/2.0
+    enchantments:
+    - durability:1
 item_offhand_enchanted_book:
     type: item
     debug: false
     material: book
-    display name: "<&f><&l>Magician's tome"
+    display name: "<&6><&l>Колдовской фолиант"
+    lore:
+    - "<&6>Простейший заговорённый фолиант,"
+    - "<&6>часто использующийся начинающими"
+    - "<&6>колдунами из-за своей дешевизны."
+    - ""
+    - "<&7>Когда во второстепенной руке:"
+    - "<&a> - 25% шанс поджечь цель на 30 секунд"
+    - "<&a> при ударе."
     mechanisms:
+      custom_model_data: 2
       unbreakable: true
-    data:
-	    stats:
-		    display:  "<&f><&l>Magician's tome"
-			rarity: common
-		    custom_model_data: 2
-			lore:
-			  item: "<&8><&l>Item: <&c>Tome"
-			  type: "<&7><&l>Kind: <&4>Magical"
-			  rare: "<&7><&l>Type: <&f>Common"
-			  text: "<n><&7><&o>Simplest enchanted tome,<n><&7><&o>often using by novice sorcerers<n><&7><&o>because of it's low price."
-			  abilities: "<n><&7>Wnen in Second Hand:<n><&a> - Has 25% chance to ignite target for 30 seconds on hit."
-			  attributes: "<n><&7>Wnen in Second Hand:<n><&7>Max health bonus:<&a> +2"
-			attribute_modifiers:
-	          generic_max_health:
-			      type: vanilla
-			      operation: ADD_NUMBER
-				  amount: +2
-				  slot: offhand
+      nbt_attributes:
+      - generic.max_health/offhand/0.0/2.0
+    enchantments:
+    - durability:1
 item_offhand_enchanted_book_use:
     type: world
     debug: false
@@ -62,33 +46,30 @@ item_offhand_enchanted_book_use:
               - if <context.cause> == ENTITY_ATTACK:
                 - if <util.random.int[0].to[100]> <= 25:
                   - burn <context.entity> duration:30s
-                  - playeffect <context.entity.location> effect:flame quantity:10 offset:0.2
                   - actionbar targets:<context.damager> "<&e>Ваш колдовской фолиант поджёг <context.entity.name>"
 item_offhand_oblerite_shards:
     type: item
     debug: false
     material: quartz
-    display name: "<&f><&l>Shards of Oblerite"
+    display name: "<&6><&l>Осколки облерита"
+    lore:
+    - "<&6>Зачарованные осколки редкого"
+    - "<&6>магического минерала."
+    - "<&6>Остаются ценными даже несмотря"
+    - "<&6>на сильные повреждения."
+    - ""
+    - "<&7>Когда во второстепенной руке:"
+    - "<&a> - 25% шанс нанести цели 2 ед. урона"
+    - "<&a> при ударе."
+    - "<&c> - 5% шанс получить 2 ед. урона"
+    - "<&c> при ударе."
     mechanisms:
+      custom_model_data: 1
       unbreakable: true
-    data:
-	    stats:
-		    display:  "<&f><&l>Shards of Oblerite"
-			rarity: common
-		    custom_model_data: 1
-			lore:
-			  item: "<&8><&l>Item: <&c>Artifact"
-			  type: "<&7><&l>Kind: <&4>Earthen"
-			  rare: "<&7><&l>Type: <&f>Common"
-			  text: "<n><&7><&o>Enchanted shards of rare magic mineral.<n><&7><&o>It remains valuable, even despite severe damage."
-			  abilities: "<n><&7>Wnen in Second Hand:<n><&a> - Has 25% chance to deal 2 damage to target on hit.<n><&c> - 5% chance to get 2 damage on hit."
-			  attributes: "<n><&7>Wnen in Second Hand:<n><&7>Movement speed bonus:<&a> +8.0%"
-			attribute_modifiers:
-	          generic_movement_speed:
-			      type: vanilla
-			      operation: ADD_SCALAR
-				  amount: +0.08
-				  slot: offhand
+      nbt_attributes:
+      - generic.movement_speed/offhand/1.0/0.08
+    enchantments:
+    - durability:1
 item_offhand_oblerite_shards_use:
     type: world
     debug: false
@@ -98,7 +79,7 @@ item_offhand_oblerite_shards_use:
             - if <context.damager.item_in_offhand.script.name||null> = item_offhand_oblerite_shards:
               - if <context.cause> == ENTITY_ATTACK:
 			    - if <context.entity> != null:
-				  - if <context.entity.health> > 1:
+				  - if <context.entity.health> > 5:
                     - if <util.random.int[0].to[100]> <= 25:
                       - hurt 2 <context.entity>
                       - playeffect effect:REDSTONE quantity:100 offset:0.35 at:<context.entity.location> special_data:1.3|red
@@ -111,27 +92,31 @@ item_offhand_cursed_bone:
     type: item
     debug: false
     material: bone
-    display name: "<&f><&l>Cursed Bone"
+    display name: "<&6><&l>Проклятая кость"
+    lore:
+    - "<&6>Резная кость, зачарованная"
+    - "<&6>слабой некротической магией."
+    - "<&6>Делает своего владельца сильнее"
+    - "<&6>взамен его же собственной жизненной силы."
+    - ""
+    - "<&7>Когда во второстепенной руке:"
+    - "<&a> - Наносит цели 1 ед. урона"
+    - "<&a> при ударе."
+    - "<&a> - 10% шанс применить на цель"
+    - "<&a> Отравление I (0.10) при ударе."
+    - "<&a> - Убийство противника восстанавливает"
+    - "<&a> 5 ед. сытости."
+    - "<&c> - Каждый удар применяет на"
+    - "<&c> владельца Голод (1.00)."
+    - "<&c> - С каждым отравлением сытость"
+    - "<&c> снижается на 1 ед."
     mechanisms:
+      custom_model_data: 3
       unbreakable: true
-	data:
-	    stats:
-		    display:  "<&f><&l>Cursed Bone"
-			rarity: common
-		    custom_model_data: 3
-			lore:
-			  item: "<&8><&l>Item: <&c>Artifact"
-			  type: "<&7><&l>Kind: <&4>Necrotic"
-			  rare: "<&7><&l>Type: <&f>Common"
-			  text: "<n><&7><&o>Carved human bone, enchanted with weak necrotic magic.<n><&7><&o>Makes its owner stronger, at cost of his own lifeforce."
-			  abilities: "<n><&7>Wnen in Second Hand:<n><&a> - Deals 1 damage to target on hit.<n><&a> - 10% chance to cast Poison I (0.10) to target on hit.<n><&a> - Killing an enemy restores 5 satiety.<n><&c> - Each hit applies Hunger I (1.00) to the wearer. <n><&c> - Every poison casting takes 1 satiety."
-			  attributes: "<n><&7>Wnen in Second Hand:<n><&7>Movement speed bonus:<&a> -10.0%"
-			attribute_modifiers:
-	          generic_movement_speed:
-			      type: vanilla
-			      operation: ADD_SCALAR
-				  amount: -0.1
-				  slot: offhand
+      nbt_attributes:
+      - generic.movement_speed/offhand/1.0/-0.1
+    enchantments:
+    - durability:1
 item_offhand_cursed_bone_use:
     type: world
     debug: false
@@ -161,32 +146,28 @@ item_offhand_ammonite_shell:
     type: item
     debug: false
     material: nautilus_shell
-    display name: "<&9><&l>Ammonite Shell"
+    display name: "<&6><&l>Панцирь Аммониты"
+    lore:
+    - "<&6>Зачарованный панцирь древнего моллюска."
+    - "<&6>Приложив его к уху, можно"
+    - "<&6>услышать шум моря."
+    - ""
+    - "<&7>Когда во второстепенной руке:"
+    - "<&a> - При получении урона применяет"
+    - "<&a> Сопротивление I (0.10), эффект"
+    - "<&a> срабатывает не чаще раза в 20 сек."
+    - "<&a> - При получении урона от нехватки"
+    - "<&a> кислорода, даёт возможность дышать"
+    - "<&a> под водой на одну минуту. Эффект"
+    - "<&a> срабатывает не чаще раза в две минуты."
     mechanisms:
       custom_model_data: 1
       unbreakable: true
-    data:
-	    stats:
-		    display:  "<&9><&l>Ammonite Shell"
-			rarity: rare
-		    custom_model_data: 1
-			lore:
-			  item: "<&8><&l>Item: <&c>Artifact"
-			  rare: "<&7><&l>Type: <&9>Rare"
-			  text: "<n><&7><&o>Enchanted shell of an ancient mollusk.<n><&7><&o>When you put it to your ear, you can hear the sound of the sea."
-			  abilities: "<n><&7>Wnen in Second Hand:<n><&a> - When the wearer takes damage, casts Resistance I (0.10).<n><&a> Triggers once in 20 seconds. <n><&a> - When the wearer take damage from lack of oxygen,<n><&a> casts Water breathing (0.10). Triggers once in 2 minutes."
-			  attributes: "<n><&7>Wnen in Second Hand:<n><&7>Defense:<&8> +4.0 <n><&7>Armor toughness: <&r>+1.0"
-			attribute_modifiers:
-	          generic_armor:
-			      type: vanilla
-			      operation: ADD_NUMBER
-				  amount: +4.0
-				  slot: offhand
-		      generic_armor_toughness:
-			      type: vanilla
-				  operation: ADD_NUMBER
-				  amount: +1.0
-				  slot: offhand
+      nbt_attributes:
+      - generic.armor/offhand/0.0/4.0
+      - generic.armor_toughness/offhand/0.0/1.0
+    enchantments:
+    - durability:5
 item_offhand_ammonite_shell_use:
     type: world
     debug: false
