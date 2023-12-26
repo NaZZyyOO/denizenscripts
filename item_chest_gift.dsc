@@ -14,12 +14,12 @@ item_chest_gift_use:
 	    on player right clicks block with:item_chest_gift:
 		  - determine passively cancelled
 		  - if <player.has_flag[gifts_limit]> = false:
-		    - flag <player> gifts_limit expire:1d
+		    - flag <player> gifts_limit:0 expire:1d
 		  - if <player.has_flag[cd]> = false:
 		    - if <player.flag[gifts_limit]> < 36:
 		      - take from:<player.inventory> item_chest_gift quantity:1
 		      - flag <player> cd expire:1s
-			  - flag <player> gifts_limit:+:1
+			  - flag <player> gifts_limit:+:1 expire:<player.flag_expiration[gifts_limit].from_now.in_seconds>
 			  - inject chest_gift_loottable
 			- else if <player.flag[gifts_limit]> > 35:
 			  - actionbar "<&7><&8>Ваш лимит на день закончился!.."
