@@ -165,6 +165,10 @@ item_nord_set_use:
                       - else:
                         - actionbar targets:<player> "<&6><&l>Вы не можете бросать копья так часто: <player.flag[icespear_cd].expiration.formatted>"
         on entity damages entity:
+		  - if <context.entity> = null:
+		    - stop
+		  - if <context.damager> = null:
+		    - stop
           - if <context.entity.is_player||null> = true:
             - if <context.entity.inventory.slot[CHESTPLATE].script.name.is[==].to[item_nord_chest]||false>:
               - if <context.entity.inventory.slot[LEGGINGS].script.name.is[==].to[item_nord_leggings]||false>:
