@@ -7,6 +7,9 @@ server_loottable_mechanics:
 	- define carma <placeholder[mystery_dcarma].player[<player>]>
 	# Делим ещё на 10.
     - define carma_percante <[carma].div[10]>
+	- if <player[Korvinius].is_online> = true:
+	  - if <placeholder[essentials_vanished].player[<player>]> = no:
+	    - define carma_percante <[carma_percante].add[0.01]>
 	# Влияние эффекта удачи на шанс
 	- define luck_amount <element[0]>
 	- if <player.has_effect[luck]> = true:
@@ -41,33 +44,23 @@ server_loottable_mechanics:
 	      - define final_chance <element[0.00001]>
 		- if <[script].data_key[<[value]>].contains[weight]> = false:
 	      - if <util.random.decimal[0].to[100]> < <[final_chance]>:
-		    - if <script[<[value]>]||null> != null:
-		      - run item_generate def:<item[<[value]>]> save:item
-			  - define item <entry[item].created_queue.determination.get[1]>
-              - drop <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <[loc]>
-			- else:
-			  - drop <[value]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <[loc]>
+            - drop <[value]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <[loc]>
 		- if <[script].data_key[<[value]>].contains[weight]> = true:
           - define type_random <[type_random].with[<[value]>].as[<[final_chance]>]>
 	- define size <[type_random].size>
-	- if <[size]> > 0:
+	- if <[size]> > 1:
 	  - foreach <[type_random].keys.random[<[size]>]>:
 	    - define random_item_min_quantity <[script].data_key[<[value]>.min_quantity]>
 		- define random_item_max_quantity <[script].data_key[<[value]>.max_quantity]>
-	    - define final_chance <[type_random].get[<[value]>]> 
+	    - define final_chance <[script].data_key[<[value]>.chance]> 
 	    - if <util.random.decimal[0].to[100]> <= <[final_chance]>:
-		  - if <script[<[value]>]||null> != null:
-		    - run item_generate def:<item[<[value]>]> save:item
-		    - define item <entry[item].created_queue.determination.get[1]>
-	        - drop <[item]> <[loc]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]>
-		    - stop
-		  - else:
-		    - drop <[value]> <[loc]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]>
+	      - drop <[value]> <[loc]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]>
+		  - stop
 custom_drop_event:
     type: world
 	debug: false
 	events:
-	     on mythicmob mob killed by:player:
+	     on mythicmob mob dies:
 		   - if <context.mob> != null:
 		     - if <context.entity.has_flag[no_drop]> = false:
 		       - define loottable_name <context.mob.internal_name.as_element||null>

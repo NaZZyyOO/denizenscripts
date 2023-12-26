@@ -16,7 +16,7 @@ item_nord_helm:
     - "<&a> Копьё наносит 10 ед. урона, и за один"
     - "<&a> раз можно бросить серию из четырёх копий."
     - "<&a> Бросок, или серия бросков может быть"
-    - "<&a> выполнен раз в 10 секунд."
+    - "<&a> выполнен раз в 3 секунды."
     mechanisms:
       custom_model_data: 3
       nbt_attributes:
@@ -42,9 +42,9 @@ item_nord_hood:
     - "<&a> в руке, призовёт полярного медведя,"
     - "<&a> потребив 30 ед. маны. Медведь"
     - "<&a> наносит 14 ед. урона за атаку, и имеет"
-    - "<&a> 40 ед. здоровья. Также, его можно"
+    - "<&a> 100 ед. здоровья. Также, его можно"
     - "<&a> покормить форелью чтобы вылечить."
-    - "<&a> Может быть призван раз в 1 минуту."
+    - "<&a> Может быть призван раз в минуту."
     - "<&c> - Но этот медведь дикий, и не всегда"
     - "<&c> слушается ваших приказов, и потому"
     - "<&c> если вы его атакуете он на вас нападёт."
@@ -73,7 +73,7 @@ item_nord_chest:
     - "<&a> её, наложив Замедление II (0.05)"
     - "<&a> и Утомление I (0.05), при этом"
     - "<&a> потребляя 6 ед. маны."
-    - "<&a> Активируется раз в 5 секунд."
+    - "<&a> Активируется раз в 3 секунды."
     mechanisms:
       custom_model_data: 3
       nbt_attributes:
@@ -99,7 +99,7 @@ item_nord_leggings:
     - "<&a> её, наложив Замедление II (0.05)"
     - "<&a> и Утомление I (0.05), при этом"
     - "<&a> потребляя 6 ед. маны."
-    - "<&a> Активируется раз в 5 секунд."
+    - "<&a> Активируется раз в 3 секунды."
     mechanisms:
       custom_model_data: 4
       nbt_attributes:
@@ -125,7 +125,7 @@ item_nord_boots:
     - "<&a> её, наложив Замедление II (0.05)"
     - "<&a> и Утомление I (0.05), при этом"
     - "<&a> потребляя 6 ед. маны."
-    - "<&a> Активируется раз в 5 секунд."
+    - "<&a> Активируется раз в 3 секунды."
     mechanisms:
       custom_model_data: 3
       nbt_attributes:
@@ -146,7 +146,7 @@ item_nord_set_use:
                   - if <player.inventory.slot[BOOTS].script.name.is[==].to[item_nord_boots]||false>:
                     - if <player.is_sneaking> = true:
                       - if <player.has_flag[icespear_cd]> = false:
-                        - if <placeholder[mystery_mana].player[<player>]> > 5:
+                        - if <placeholder[mystery_mana].player[<player>]> > 3:
                           - determine passively cancelled
                           - execute "my rmmana <player.name> 4" as_server silent
                           - take iteminhand
@@ -156,10 +156,14 @@ item_nord_set_use:
                           - playsound <player.location> sound:block_enchantment_table_use pitch:1 volume:0.4
                           - wait 10t
                           - playsound <player.location> sound:item_trident_throw pitch:1 volume:1
-                          - flag <player> icespear_cd expire:10s
+                          - flag <player> icespear_cd expire:3s
                           - animate <player> animation:ARM_SWING for:<server.online_players>
                           - shoot icespear origin:<player.location.add[0,1.3,0]> speed:2 script:icespear_hit shooter:<player> save:glacial_spear
                           - define spear_hit_entities <entry[glacial_spear].shot_entities.get[1]>
+                        - else:
+                          - actionbar targets:<player> "<&c><&l>Недостаточно маны."
+                      - else:
+                        - actionbar targets:<player> "<&6><&l>Вы не можете бросать копья так часто: <player.flag[icespear_cd].expiration.formatted>"
         on entity damages entity:
           - if <context.entity.is_player||null> = true:
             - if <context.entity.inventory.slot[CHESTPLATE].script.name.is[==].to[item_nord_chest]||false>:
@@ -168,7 +172,7 @@ item_nord_set_use:
                   - if <context.entity.has_flag[icerobe_set_buff]> = false:
                     - if <placeholder[mystery_mana].player[<player>]> > 5:
                       - execute "my rmmana <player.name> 6" as_server silent
-                      - flag <context.entity> icerobe_set_buff expire:5s
+                      - flag <context.entity> icerobe_set_buff expire:3s
                       - cast SLOW amplifier:1 duration:5s <context.damager> hide_particles
                       - cast SLOW_DIGGING amplifier:0 duration:5s <context.damager> hide_particles
                       - hurt <context.damager> 10 source:<player> cause:FREEZE
@@ -199,16 +203,23 @@ item_nord_set_use_2:
                           - flag <player> nord_bear_cd expire:60s
                           - wait 10t
                           - spawn nord_bear <player.location.add[0,0.1,0]> save:MyBear
-                          - disguise <entry[MyBear].spawned_entity> as:polar_bear
+                          - health <entry[MyBear].spawned_entity> 100 heal
+                          - disguise <entry[MyBear].spawned_entity> as:polar_bear players:<server.online_players>
                           - adjust <entry[MyBear].spawned_entity> silent:true
                           - flag <entry[MyBear].spawned_entity> host:<player.name>
+                          - rename <entry[MyBear].spawned_entity> "<&6>Медведь <player.name>"
                           - mount <player>|<entry[MyBear].spawned_entity>
+                        - else:
+                          - actionbar targets:<player> "<&c><&l>Недостаточно маны."
+                      - else:
+                        - actionbar targets:<player> "<&6><&l>Вы не можете совершать призыв так часто: <player.flag[nord_bear_cd].expiration.formatted>"
 
 nord_bear_abilities:
     type: world
     debug: false
     events:
         on nord_bear damages entity:
+          - playsound <context.entity.location> sound:entity_polar_bear_warning pitch:1 volume:1
           - determine passively <context.damage.mul[2]>
         on nord_bear dies:
           - determine passively NO_DROPS
@@ -220,15 +231,21 @@ nord_bear_abilities:
             - if <context.entity.flag[host]> = <context.target.name>:
               - determine cancelled passively
         on player right clicks nord_bear with:item_forel:
-          - heal <context.entity> 7
+          - animate <player> animation:ARM_SWING for:<server.online_players>
+          - heal <context.entity> 10
           - playsound at:<context.entity.location> sound:entity_fox_eat volume:1 pitch:0.1
+          - take iteminhand
+        on player right clicks nord_bear:
+          - if <player.item_in_hand.script.name.is[==].to[item_forel]> = false:
+            - if <context.entity.has_flag[host]>:
+              - if <context.entity.flag[host]> = <player.name>:
+                - mount <player>|<context.entity>
 
 nord_bear:
     type: entity
     debug: false
     entity_type: zoglin
-    mechanisms:
-	    max_health: 60
+
 icespear:
     type: entity
     debug: false
@@ -238,15 +255,15 @@ icespear_generic:
     type: world
     debug: false
     events:
-      on entity damaged by icespear:
-        - determine cancelled passively
-        - playeffect at:<context.entity.location> effect:redstone quantity:30 offset:0.35 special_data:1.5|<color[#6b7cbb].hex> visibility:100
-        - playeffect at:<context.entity.location> effect:block_crack quantity:20 offset:0.3 special_data:ICE visibility:100
-        - playsound at:<context.entity.location> sound:ENTITY_PLAYER_HURT_FREEZE volume:1 pitch:1
-        - playsound at:<context.entity.location> sound:entity_stray_death volume:0.4 pitch:1.3
-        - playsound at:<context.entity.location> sound:block_glass_break volume:0.8 pitch:0.9
-        - wait 1t
-        - remove <context.projectile>
+        on entity damaged by icespear:
+          - determine cancelled passively
+          - playeffect at:<context.entity.location> effect:redstone quantity:30 offset:0.35 special_data:1.5|<color[#6b7cbb].hex> visibility:100
+          - playeffect at:<context.entity.location> effect:block_crack quantity:20 offset:0.3 special_data:ICE visibility:100
+          - playsound at:<context.entity.location> sound:ENTITY_PLAYER_HURT_FREEZE volume:1 pitch:1
+          - playsound at:<context.entity.location> sound:entity_stray_death volume:0.4 pitch:1.3
+          - playsound at:<context.entity.location> sound:block_glass_break volume:0.8 pitch:0.9
+          - wait 1t
+          - remove <context.projectile>
 
 icespear_hit:
     debug: false
