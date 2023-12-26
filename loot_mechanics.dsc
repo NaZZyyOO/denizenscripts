@@ -60,11 +60,19 @@ custom_drop_event:
     type: world
 	debug: false
 	events:
-	     on mythicmob mob dies:
-		   - if <context.mob> != null:
-		     - if <context.entity.has_flag[no_drop]> = false:
-		       - define loottable_name <context.mob.internal_name.as_element||null>
-			   - if <[loottable_name]> = null:
-			     - stop
-			   - define loc <context.entity.location>
-			   - run server_loottable_mechanics def:<[loottable_name]>|<[loc]>|<player>
+	    on mythicmob mob killed by:player:
+		  - if <context.mob> != null:
+		    - if <context.entity.has_flag[no_drop]> = false:
+		      - define loottable_name <context.mob.internal_name.as_element||null>
+			  - if <[loottable_name]> = null:
+			    - stop
+			  - define loc <context.entity.location>
+		      - if <context.entity.has_flag[raid_boss]> = false:
+			    - run server_loottable_mechanics def:<[loottable_name]>|<[loc]>|<player>
+			  - else:
+			    - run raid_boss_drop def:<[loottable_name]>|<player>
+		on entity damages entity:
+		  - if <context.entity> != null:
+		    - if <context.has_flag[raid_boss]> = true:
+			  - if <context.entity.has_flag[damagers_top]> = false:
+			    - flag <context.entity> damagers_top:<map[]>
