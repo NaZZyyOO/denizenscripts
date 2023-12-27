@@ -102,14 +102,16 @@ raid_boss_drop:
 		  - define pos_2 <[first_three_pos].get[2]>
 		  - define pos_2_player <[damage_top].get[<[pos_2]>]>
 		  - define others_pos <[places_by_numerical].exclude[<[pos_2]>]>
-		- define first_three_pos <[places_by_numerical].get[<[damagers_size]>].to[last]>
-		- define pos_1 <[first_three_pos].get[3]>
-		- define pos_1_player <[damage_top].get[<[pos_1]>]>
+		- if <[damagers_size]> = 1:
+		  - define first_three_pos <[places_by_numerical].get[1]>
+		  - define pos_1 <[first_three_pos].get[3]>
+		  - define pos_1_player <[damage_top].get[<[pos_1]>]>
+		- if <[damagers_size]> = 0:
+		  - stop
 	    # Пробегаемся по всем предметам в таблице.
 	    - define script <script[<[loottable_name]>]||null>
 	    - if <[script]> = null:
 	      - stop
-		- define type_random <map[]>
 		- foreach <script[<[loottable_name]>].list_keys.exclude[type].exclude[debug]>:
 		  - if <[value]> = pos_1:
 		    - if <[pos_1_player]> = null:
@@ -123,7 +125,7 @@ raid_boss_drop:
 		  - if <[value]> = others_pos:
 		    - if <[others_pos]> = null:
 			  - foreach next
-		  - foreach <script[<[loottable_name]>].data_key[<[value]>].list_keys> as:item:
+		  - foreach <script[<[loottable_name]>].data_key[<[value]>].keys> as:item:
 	        - define random_item <[script].data_key[<[value]>.<[item]>]>
 			- define random_item_chance <[script].data_key[<[value]>.<[item]>.chance]>
 	        - define random_item_min_quantity <[script].data_key[<[value]>.<[item]>.min_quantity]>
