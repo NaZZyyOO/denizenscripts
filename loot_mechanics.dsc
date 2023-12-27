@@ -101,13 +101,12 @@ raid_boss_drop:
 		  - define first_two_pos <[places_by_numerical].get[<[size].sub[<[damagers_size].sub[1]>]>].to[last]>
 		  - define second_pos <[first_two_pos].get[1]
 		  - define pos_2 <[damage_top].get[<[second_pos]>]>
-		  - define others_pos <[places_by_numerical].exclude[<[pos_2]>]>
 	    - if <[damagers_size]> > 2:
 		  - define first_three_pos <[places_by_numerical].get[<[size].sub[<[damagers_size].sub[2]>]>].to[last]>
 		  - define third_pos <[first_three_pos].get[1]>
 		  - define pos_3 <[damage_top].get[<[third_pos]>]>
-		  - define pos_3_player <[damage_top].get[<[pos_3]>]>
-		  - define others_pos <[places_by_numerical].exclude[<[pos_3]>]>
+		- if <[damagers_size]> > 3:
+		  - define others_pos <[places_by_numerical].exclude[<[third_pos]>]>
 	    # Пробегаемся по всем предметам в таблице.
 	    - define script <script[<[loottable_name]>]||null>
 	    - if <[script]> = null:
