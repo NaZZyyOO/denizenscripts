@@ -130,4 +130,7 @@ dungeon_room_activate:
 			- else:
 			  - actionbar "<&6><&l>Кто-то уже был здесь. <server.flag_expiration[<context.area>_cd].from_now.formatted>"
 		  - if <context.area.has_flag[teleport_loc]> = true:
-		    - teleport <player> <context.area.flag[teleport_loc].parsed>
+		    - title title:<&font[fade:black]><&chr[0004]><&chr[F801]><&chr[0004]> fade_in:20t stay:2s fade_out:20t targets:<player>
+			- wait 40t
+			- teleport <player> <context.area.flag[teleport_loc].parsed>
+		    - rotate <player> yaw:9 duration:1s
