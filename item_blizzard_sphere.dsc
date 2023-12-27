@@ -34,21 +34,22 @@ item_blizzard_sphere_use:
           - if <player.item_in_hand.script.name.is[==].to[item_blizzard_sphere]||false>:
             - if <player.has_flag[blizzard_cd]> = false:
               - if <placeholder[mystery_mana].player[<player>]> > 39:
-                - flag <player> blizzard_cd expire:60s
-                - execute "my rmmana <player.name> 40" as_server silent
-                - animate <player> animation:ARM_SWING for:<server.online_players>
-                - playsound <player.location> sound:item_trident_riptide_3 volume:0.7 pitch:1
-                - playsound <player.location> sound:entity_illusioner_prepare_blindness volume:0.7 pitch:1
-                - playsound <player.location> sound:block_enchantment_table_use volume:0.7 pitch:1
-                - playsound <player.location> sound:blizzard volume:0.8 pitch:1 custom
-                - playeffect at:<player.location.add[-3,8,0].random_offset[5,0,5]> effect:snowflake quantity:5 offset:5 visibility:100 velocity:0.5,-1,0
-                - wait 10t
-                - playeffect at:<player.location.add[-3,8,0].random_offset[5,0,5]> effect:snowflake quantity:5 offset:5 visibility:100 velocity:0.5,-1,0
-                - wait 5t
-                - playeffect at:<player.location.add[-3,8,0].random_offset[5,0,5]> effect:snowflake quantity:10 offset:5 visibility:100 velocity:0.5,-1,0
-                - wait 3t
-                - repeat 80:
+			    - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
+                  - flag <player> blizzard_cd expire:60s
+                  - execute "my rmmana <player.name> 40" as_server silent
+                  - animate <player> animation:ARM_SWING for:<server.online_players>
+                  - playsound <player.location> sound:item_trident_riptide_3 volume:0.7 pitch:1
+                  - playsound <player.location> sound:entity_illusioner_prepare_blindness volume:0.7 pitch:1
+                  - playsound <player.location> sound:block_enchantment_table_use volume:0.7 pitch:1
+                  - playsound <player.location> sound:blizzard volume:0.8 pitch:1 custom
+                  - playeffect at:<player.location.add[-3,8,0].random_offset[5,0,5]> effect:snowflake quantity:5 offset:5 visibility:100 velocity:0.5,-1,0
+                  - wait 10t
+                  - playeffect at:<player.location.add[-3,8,0].random_offset[5,0,5]> effect:snowflake quantity:5 offset:5 visibility:100 velocity:0.5,-1,0
                   - wait 5t
-				  - hurt <player.location.find.living_entities.within[5].exclude[<player>]> 3
-                  - repeat 5:
-                    - playeffect at:<player.location.add[-3,8,0].random_offset[5,0,5]> effect:snowflake quantity:10 offset:5 visibility:100 velocity:0.5,-1,0
+                  - playeffect at:<player.location.add[-3,8,0].random_offset[5,0,5]> effect:snowflake quantity:10 offset:5 visibility:100 velocity:0.5,-1,0
+                  - wait 3t
+                  - repeat 80:
+                    - wait 5t
+				    - hurt <player.location.find.living_entities.within[5].exclude[<player>]> 3
+                    - repeat 5:
+                      - playeffect at:<player.location.add[-3,8,0].random_offset[5,0,5]> effect:snowflake quantity:10 offset:5 visibility:100 velocity:0.5,-1,0

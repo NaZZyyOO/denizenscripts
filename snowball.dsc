@@ -33,14 +33,15 @@ custom_snowball:
                     - rotate <[value]> yaw:20 duration:1t pitch:20				
 		on player right clicks snow with:air:
 		  - if <player.is_sneaking> = true:
-		    - look <player> <player.precise_target_position> duration:2.4s
-			- repeat 10:
-			  - wait 5t
-			  - playsound <player.location> sound:BLOCK_SNOW_PLACE pitch:0.1 volume:1
-			  - playeffect effect:CLOUD at:<player.precise_target_position.add[0,1,0]> visibility:80 quantity:10 offset:2.0
-			- wait 1.5s
-		    - give snowball quantity:1 to:<player.inventory>
-			- adjust <context.location> block_type:air
+		    - if <region[<player.location.regions.first].owners.contains[<player.name>]> = true || <player.location.in_region> = false:
+		      - look <player> <player.precise_target_position> duration:2.4s
+			  - repeat 10:
+			    - wait 5t
+			    - playsound <player.location> sound:BLOCK_SNOW_PLACE pitch:0.1 volume:1
+			    - playeffect effect:CLOUD at:<player.precise_target_position.add[0,1,0]> visibility:80 quantity:10 offset:2.0
+			  - wait 1.5s
+		      - give snowball quantity:1 to:<player.inventory>
+			  - adjust <context.location> block_type:air
 		on projectile hits !item_frame:
 		  - if <context.projectile.has_flag[snow_block]> = true:
 		    - if <context.shooter.is_player||null> = true:
