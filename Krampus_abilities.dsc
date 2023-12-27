@@ -2,14 +2,16 @@ krampus_abilities:
     type: world
 	debug: false
 	events:
-		on entity damages entity:
-		  - if <context.entity> = null:
+		on player damages entity:
+		  - if <context.entity||null> = null:
 		    - stop
-		  - if <context.damager> = null:
+		  - if <context.damager||null> = null:
 		    - stop
-		  - if <context.entity> != null:
+		  - if <context.entity||null> != null:
 		    - if <context.entity.health> < 10:
 		      - stop
+		  - if <context.entity.location||null> = null:
+		    - stop
 		  - if <context.entity.name||null> == "<&4>Крампус":
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
@@ -26,6 +28,8 @@ krampus_abilities:
 				    - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
 			- if <util.random.int[0].to[100]> <= 60:
 			  - repeat 10:
+			    - if <context.entity> = null:
+				  - stop
 			    - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
 				- if <[loc].material> != air:
 			      - teleport <context.entity> <[loc]>
