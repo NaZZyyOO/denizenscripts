@@ -131,7 +131,6 @@ raid_boss_drop:
 	        - define random_item_max_quantity <[script].data_key[<[value]>.<[item]>.max_quantity]>
 	        - if <util.random.decimal[0].to[100]> < <[random_item_chance]>:
 			  - if <[value]> = pos_1:
-			    - narrate <player[<[pos_1]>]>
                 - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_1]>].inventory>
 		      - if <[value]> = pos_2:
                 - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_2]>].inventory>
