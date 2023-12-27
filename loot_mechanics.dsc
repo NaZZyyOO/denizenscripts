@@ -70,7 +70,7 @@ custom_drop_event:
 		      - if <context.entity.has_flag[raid_boss]> = false:
 			    - run server_loottable_mechanics def:<[loottable_name]>|<[loc]>|<player>
 			  - else:
-			    - run raid_boss_drop def:<[loottable_name]>
+			    - run raid_boss_drop def:<[loottable_name]>|<context.entity>
 		on entity damages entity:
 		  - if <context.entity> != null:
 		    - if <context.entity.has_flag[raid_boss]> = true:
@@ -85,10 +85,10 @@ custom_drop_event:
                     - flag <context.entity> damagers_top:<context.entity.flag[damagers_top].with[<context.damager.name>].as[<[damage]>]>	  
 raid_boss_drop:
     type: task
-	definitions: loottable_name
+	definitions: loottable_name|entity
 	debug: false
 	script:
-	    - define damagers_top <context.entity.flag[damagers_top]>
+	    - define damagers_top <[entity].flag[damagers_top]>
 		- define damage_top <[damagers_top].invert>
 		- define places_by_numerical <[damage_top].list_keys.numerical>
 		- define damagers_size <[places_by_numerical].size>
