@@ -113,16 +113,16 @@ raid_boss_drop:
 	      - stop
 		- foreach <script[<[loottable_name]>].list_keys.exclude[type].exclude[debug]>:
 		  - if <[value]> = pos_1:
-		    - if <[pos_1]> = null:
+		    - if <[pos_1]||null> = null:
 			  - foreach next
 		  - if <[value]> = pos_2:
-		    - if <[pos_2]> = null:
+		    - if <[pos_2]||null> = null:
 			  - foreach next
 		  - if <[value]> = pos_3:
-		    - if <[pos_3]> = null:
+		    - if <[pos_3]||null> = null:
 			  - foreach next
 		  - if <[value]> = others_pos:
-		    - if <[others_pos]> = null:
+		    - if <[others_pos]||null> = null:
 			  - foreach next
 		  - foreach <script[<[loottable_name]>].data_key[<[value]>].keys> as:item:
 	        - define random_item <[script].data_key[<[value]>.<[item]>]>
@@ -131,12 +131,13 @@ raid_boss_drop:
 	        - define random_item_max_quantity <[script].data_key[<[value]>.<[item]>.max_quantity]>
 	        - if <util.random.decimal[0].to[100]> < <[random_item_chance]>:
 			  - if <[value]> = pos_1:
-                - give <[value]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <player[<[pos_1]>]>
+			    - narrate <player[<[pos_1]>]>
+                - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <player[<[pos_1]>]>
 		      - if <[value]> = pos_2:
-                - give <[value]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <player[<[pos_2]>]>
+                - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <player[<[pos_2]>]>
 		      - if <[value]> = pos_3:
-                - give <[value]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <player[<[pos_3]>]>
+                - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <player[<[pos_3]>]>
 			  - if <[value]> = others_pos:
-			    - foreach <[others_pos]> as:player:
+			    - foreach <[others_pos].keys> as:player:
 				  - define other_player <[damage_top].get[<[player]>]>
-				  - give <[value]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <[other_player]>
+				  - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <player[<[other_player]>]>
