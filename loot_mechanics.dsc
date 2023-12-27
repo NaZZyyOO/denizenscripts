@@ -8,7 +8,7 @@ server_loottable_mechanics:
 	# Делим ещё на 10.
     - define carma_percante <[carma].div[10]>
 	- if <player[Korvinius].is_online> = true:
-	  - if <placeholder[essentials_vanished].player[<player>]> = no:
+	  - if <placeholder[essentials_vanished].player[<player[Korvinius]>]> = no:
 	    - define carma_percante <[carma_percante].add[0.01]>
 	# Влияние эффекта удачи на шанс
 	- define luck_amount <element[0]>
@@ -108,7 +108,7 @@ raid_boss_drop:
 	    - if <[script]> = null:
 	      - stop
 		- define type_random <map[]>
-		- foreach <script[<[loottable_name]>].list_keys.exclude[type]>:
+		- foreach <script[<[loottable_name]>].list_keys.exclude[type].exclude[debug]>:
 		  - if <[value]> = pos_1:
 		    - if <[pos_1_player]> = null:
 			  - foreach next
