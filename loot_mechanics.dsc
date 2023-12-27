@@ -132,12 +132,12 @@ raid_boss_drop:
 	        - if <util.random.decimal[0].to[100]> < <[random_item_chance]>:
 			  - if <[value]> = pos_1:
 			    - narrate <player[<[pos_1]>]>
-                - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <player[<[pos_1]>]>
+                - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_1]>].inventory>
 		      - if <[value]> = pos_2:
-                - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <player[<[pos_2]>]>
+                - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_2]>].inventory>
 		      - if <[value]> = pos_3:
-                - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <player[<[pos_3]>]>
+                - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_3]>].inventory>
 			  - if <[value]> = others_pos:
 			    - foreach <[others_pos].keys> as:player:
 				  - define other_player <[damage_top].get[<[player]>]>
-				  - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <player[<[other_player]>]>
+				  - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[other_player]>].inventory>
