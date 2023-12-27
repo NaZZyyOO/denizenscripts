@@ -74,8 +74,14 @@ custom_drop_event:
 		on entity damages entity:
 		  - if <context.entity> != null:
 		    - if <context.entity.has_flag[raid_boss]> = true:
-			  - if <context.entity.has_flag[damagers_top]> = false:
-			    - flag <context.entity> damagers_top:<map[]>
+			  - if <context.damager.is_player> = true:
+			    - if <context.entity.has_flag[damagers_top]> = false:
+			      - flag <context.entity> damagers_top:<map[]>
+			    - else:
+			      - if <context.entity.flag[damagers_top].contains[<context.damager.name>]> = false:
+                    - flag <context.entity> damagers_top:<context.entity.flag[damagers_top].include[<map[<context.damager.name>=<context.damage>]>]>
+                  - else:
+                    - flag <context.entity> damagers_top:<context.entity.flag[damagers_top].as[<context.damager.name>].with[<context.damage.add[<context.entity.flag[damagers_top].get[<context.damager.name>]>]>]>		  
 raid_boss_drop:
     type: task
 	definitions: loottable_name
@@ -111,7 +117,7 @@ raid_boss_drop:
 		  - if <[value]> = others_pos:
 		    - if <[others_pos]> = null:
 			  - foreach next
-		  - foreach <script[<[loottable_name]>].data_key[<[value]>]> as:item:
+		  - foreach <script[<[loottable_name]>].data_key[<[value]>].list_keys> as:item:
 	        - define random_item <[script].data_key[<[value]>.<[item]>]>
 			- define random_item_chance <[script].data_key[<[value]>.<[item]>.chance]>
 	        - define random_item_min_quantity <[script].data_key[<[value]>.<[item]>.min_quantity]>
