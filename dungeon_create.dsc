@@ -1,0 +1,133 @@
+dungeon:
+    type: command
+    debug: false
+    name: dungeon
+	permission: dungeon.creation
+    usage: /dungeon
+    description: Create custom dungeons.
+    script:
+	  - if <context.source_type> = PLAYER:
+	    - if <context.args.size> = 5:
+		  - if <context.args.[1]> = CREATE:
+		    - define region <context.args.[2]>
+			- define room_name <context.args.[3]>
+			- define room_status <context.args.[4]>
+			- define spawn_cd <context.args.[5]>
+			- if <server.has_flag[server_rooms]> = false:
+			  - flag server server_rooms
+			- if <server.flag[server_rooms].as_list.contains[<[room_name]>]> = false:
+			  - flag server server_rooms:<server.flag[server_rooms].as_list.include[<[room_name]>]>
+			  - if <[room_status]> = local:
+			    - flag <cuboid[<[region]>]> room_local_cd:<[spawn_cd]>
+			  - if <[room_status]> = global:
+			    - flag <cuboid[<[region]>]> room_global_cd:<[spawn_cd]>
+			  - flag <cuboid[<[region]>]> room_name:<[room_name]>
+			  - narrate "<&8>[Wealth] <&7>- Комната была успешно добавлена в список комнат сервера."
+			- else:
+			  - narrate "<&8>[Wealth] <&7>- Комната с таким именем уже существует."
+		- if <context.args.size> = 3:
+		  - if <context.args.[1]> = DELETE:
+			- define region <context.args.[2]>
+			- define room_name <context.args.[3]>
+			- if <cuboid[<[region]>]> != null:
+			  - if <server.flag[server_rooms].as_list.contains[<[room_name]>]> = true:
+			    - narrate "<&8>[Wealth] <&7>- Комната и её спавнеры были успешно удалены из сервера."
+				- if <cuboid[<[region]>].has_flag[room_local_cd]> = true:
+			      - flag <cuboid[<[region]>]> room_local_cd:!
+				- if <cuboid[<[region]>].has_flag[room_global_cd]> = true:
+			      - flag <cuboid[<[region]>]> room_global_cd:!
+			    - flag <cuboid[<[region]>]> room_name:!
+			    - flag server server_rooms:<server.flag[server_rooms].as_list.exclude[<[room_name]>]>
+			    - foreach <cuboid[<[region]>].blocks_flagged[spawner]>:
+			      - flag <[value]> spawner:!
+			    - note remove as:<[region]> 
+			  - else:
+			    - narrate "<&8>[Wealth] <&7>- Комната с таким именем не существует."
+			- else:
+			  - narrate "<&8>[Wealth] <&7>- Регион с таким именем не существует."
+		- if <context.args.size> = 4:
+		  - if <context.args.[1]> = ADD:
+		    - define loc <player.location>
+			- define region <context.args.[2]>
+			- define mob <context.args.[3]>
+			- define chance <context.args.[4]>
+			- if <cuboid[<[region]>]> != null:
+			  - if <player.location.is_within[<[region]>]> = true:
+			    - if <[loc].has_flag[spawner]> = false:
+			      - flag <[loc]> spawner:<map[<[mob]>=<[chance]>]>
+			      - narrate "<&8>[Wealth] <&7>- Спавнер моба <[mob]> с шансом спавна <[chance]> по координатам <[loc].simple> добавлен."
+			    - else:
+		          - flag <[loc]> spawner:<[loc].flag[spawner].as_map.include[<map[<[mob]>=<[chance]>]>]>
+			      - narrate "<&8>[Wealth] <&7>- Спавнер моба <[mob]> с шансом спавна <[chance]> по координатам <[loc].simple> добавлен в список мобов для спавна."
+			  - else <player.location.is_within[<[region]>]> = false:
+			    - narrate "<&8>[Wealth] <&7>- Вы не находитесь в указанном регионе."
+			- else if <cuboid[<[region]>]> = null:
+			  - narrate "<&8>[Wealth] <&7>- Регион с таким именем не существует."
+        - if <context.args.size> = 3:
+		  - if <context.args.[1]> = REMOVE:
+		    - define loc <player.location>
+			- define mob <context.args.[2]>
+			- define chance <context.args.[3]>
+			- if <[loc].flag[spawner].size> = 1:
+			  - if <[loc].flag[spawner].as_map.contains[<[mob]>=<[chance]>]> = true:
+			    - flag <[loc]> spawner:!
+			    - narrate "<&8>[Wealth] <&7>- Спавнер моба <[mob]> с шансом спавна <[chance]> по координатам <[loc].simple> удален."
+			  - else:
+			    - narrate "<&8>[Wealth] <&7>- Моб <[mob]> с шансом спавна <[chance]> по координатам <[loc].simple> не существует в данном спавнере."
+			- if <[loc].flag[spawner].size> > 1:
+			  - if <[loc].flag[spawner].as_map.contains[<[mob]>=<[chance]>]> = true:
+		        - flag <[loc]> spawner:<[loc].flag[spawner].as_map.exclude[<map[<[mob]>=<[chance]>]>]>
+			    - narrate "<&8>[Wealth] <&7>- Спавнер моба <[mob]> с шансом спавна <[chance]> по координатам <[loc].simple> удален из списка мобов для спавна."
+			  - else:
+			    - narrate "<&8>[Wealth] <&7>- Моб <[mob]> с шансом спавна <[chance]> по координатам <[loc].simple> не существует в данном спавнере."
+		    - if <[loc].flag[spawner].size> = 0:
+			  - narrate "<&8>[Wealth] <&7>- В данном месте не существует ни одного спавнера."
+		- if <context.args.size> = 1:
+		  - if <context.args.[1]> = region:
+		    - narrate "<&8>[Wealth] <&7>- Вы находитесь в регионе(-нах) <player.location.cuboids>."
+		  - if <context.args.[1]> = region_name:
+		    - narrate "<&8>[Wealth] <&7>- Вы находитесь в данжен-комнате с названием <player.location.cuboids.first.flag[room_name]>."
+	    - if <context.args.size> = 3:
+		  - if <context.args.[1]> = teleport:
+		    - define region <context.args.[2]>
+			- define teleport_loc <context.args.[3]>
+			- flag <cuboid[<[region]>]> teleport_loc:<[teleport_loc]>
+dungeon_room_activate:
+    type: world
+	debug: false
+	events:
+	    on player enters cuboid:
+		  - if <context.area.has_flag[room_local_cd]> = true && <context.area.has_flag[teleport_loc]> = false:
+		    - if <player.has_flag[<context.area>_cd]> = false:
+		      - foreach <context.area.blocks_flagged[spawner]>:
+			    - flag <player> <context.area>_cd expire:<context.area.flag[room_local_cd]>
+			    - if <[value].flag[spawner].size> = 1:
+			      - define random_mob <[value].flag[spawner].keys.random>
+			      - define mob_spawn_chance <[value].flag[spawner].get[<[random_mob]>]>
+		          - if <util.random.int[0].to[100]> <= <[mob_spawn_chance]>:
+				    - mythicspawn <[random_mob]> <[value].add[0,1,0]>
+			    - else:
+			      - foreach <[value].flag[spawner].keys.random> as:random_mob:
+				    - define mob_spawn_chance <[value].flag[spawner].get[<[random_mob]>]>
+		            - if <util.random.int[0].to[100]> <= <[mob_spawn_chance]>:
+				      - mythicspawn <[random_mob]> <[value].add[0,1,0]>
+			- else:
+			  - actionbar "<&6><&l>Вы уже были здесь. <player.flag_expiration[<context.area>_cd].from_now.formatted>"
+		  - if <context.area.has_flag[room_global_cd]> = true && <context.area.has_flag[teleport_loc]> = false:
+		    - if <player.has_flag[<context.area>_cd]> = false:
+		      - foreach <context.area.blocks_flagged[spawner]>:
+			    - flag server <context.area>_cd expire:<context.area.flag[room_global_cd]>
+			    - if <[value].flag[spawner].size> = 1:
+			      - define random_mob <[value].flag[spawner].keys.random>
+			      - define mob_spawn_chance <[value].flag[spawner].get[<[random_mob]>]>
+		          - if <util.random.int[0].to[100]> <= <[mob_spawn_chance]>:
+				    - mythicspawn <[random_mob]> <[value].add[0,1,0]>
+			    - else:
+			      - foreach <[value].flag[spawner].keys.random> as:random_mob:
+				    - define mob_spawn_chance <[value].flag[spawner].get[<[random_mob]>]>
+		            - if <util.random.int[0].to[100]> <= <[mob_spawn_chance]>:
+				      - mythicspawn <[random_mob]> <[value].add[0,1,0]>
+			- else:
+			  - actionbar "<&6><&l>Кто-то уже был здесь. <server.flag_expiration[<context.area>_cd].from_now.formatted>"
+		  - if <context.area.has_flag[teleport_loc]> = true:
+		    - teleport <player> <context.area.flag[teleport_loc].parsed>
