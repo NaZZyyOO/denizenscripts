@@ -23,7 +23,7 @@ server_loottable_mechanics:
 	- if <[player].item_in_hand.enchantment_map.contains[looting]> = true:
 	  - define ench_lvl <[player].item_in_hand.enchantment_map.get[looting]>
 	- define type_random <map[]>
-	- foreach <script[<[loottable_name]>].keys.exclude[type]>:
+	- foreach <script[<[loottable_name]>].list_keys.exclude[type]>:
 	  - if <[value]> = xp:
 	    - define quantity <[script].data_key[<[value]>.quantity]>
 		- drop xp quantity:<[quantity]> <[loc]>
@@ -92,7 +92,7 @@ raid_boss_drop:
 		- define damage_top <[damagers_top].invert>
 		- define places_by_numerical <[damage_top].keys.numerical>
 		- define damagers_size <[places_by_numerical].size>
-		- define first_three_pos <[places_by_numerical].get[<[damagers_size].sub[<[damagers_size].sub[2]>]>].to[last]>
+		- define first_three_pos <[places_by_numerical].get[<[size].sub[<[size].sub[2]>]>].to[last]>
 		- if <[damagers_size]> > 2:
 		  - define pos_3 <[first_three_pos].get[1]>
 		  - define pos_3_player <[damage_top].get[<[pos_3]>]>
@@ -108,7 +108,7 @@ raid_boss_drop:
 	    - if <[script]> = null:
 	      - stop
 		- define type_random <map[]>
-		- foreach <script[<[loottable_name]>].keys.exclude[type].exclude[debug]>:
+		- foreach <script[<[loottable_name]>].list_keys.exclude[type].exclude[debug]>:
 		  - if <[value]> = pos_1:
 		    - if <[pos_1_player]> = null:
 			  - foreach next
@@ -121,7 +121,7 @@ raid_boss_drop:
 		  - if <[value]> = others_pos:
 		    - if <[others_pos]> = null:
 			  - foreach next
-		  - foreach <script[<[loottable_name]>].data_key[<[value]>].keys> as:item:
+		  - foreach <script[<[loottable_name]>].data_key[<[value]>].list_keys> as:item:
 	        - define random_item <[script].data_key[<[value]>.<[item]>]>
 			- define random_item_chance <[script].data_key[<[value]>.<[item]>.chance]>
 	        - define random_item_min_quantity <[script].data_key[<[value]>.<[item]>.min_quantity]>
