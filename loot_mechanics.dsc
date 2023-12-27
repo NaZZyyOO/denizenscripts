@@ -92,15 +92,17 @@ raid_boss_drop:
 		- define damage_top <[damagers_top].invert>
 		- define places_by_numerical <[damage_top].keys.numerical>
 		- define damagers_size <[places_by_numerical].size>
-		- define first_three_pos <[places_by_numerical].get[<[size].sub[<[size].sub[2]>]>].to[last]>
 		- if <[damagers_size]> > 2:
+		  - define first_three_pos <[places_by_numerical].get[<[size].sub[<[damagers_size].sub[2]>]>].to[last]>
 		  - define pos_3 <[first_three_pos].get[1]>
 		  - define pos_3_player <[damage_top].get[<[pos_3]>]>
 		  - define others_pos <[places_by_numerical].exclude[<[pos_3]>]>
 		- if <[damagers_size]> > 1:
+		  - define first_three_pos <[places_by_numerical].get[<[size].sub[<[damagers_size].sub[1]>]>].to[last]>
 		  - define pos_2 <[first_three_pos].get[2]>
 		  - define pos_2_player <[damage_top].get[<[pos_2]>]>
-		  - define others_pos <[places_by_numerical].exclude[<[pos_2]>]
+		  - define others_pos <[places_by_numerical].exclude[<[pos_2]>]>
+		- define first_three_pos <[places_by_numerical].get[<[damagers_size]>].to[last]>
 		- define pos_1 <[first_three_pos].get[3]>
 		- define pos_1_player <[damage_top].get[<[pos_1]>]>
 	    # Пробегаемся по всем предметам в таблице.
