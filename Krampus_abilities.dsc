@@ -7,11 +7,15 @@ krampus_abilities:
 		    - stop
 		  - if <context.damager> = null:
 		    - stop
+		  - if <context.entity.health> < 10:
+		    - stop
 		  - if <context.entity.name||null> == "<&4>Крампус":
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
 			    - flag <context.entity> snow_storm expire:20s
 				- repeat 5:
+				  - if <context.entity> = null:
+				    - stop
 				  - wait 10t
 				  - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
 				  - foreach <context.entity.location.find.living_entities.within[8].exclude[<context.entity>]> as:victim:
@@ -33,6 +37,8 @@ krampus_abilities:
 			    - define players <context.entity.location.find_entities[player].within[10].exclude[<context.entity>]>
 		        - define player <[player].include[<[players].first>]>
 		        - repeat 3:
+				  - if <context.entity> = null:
+				    - stop
 			      - wait 1s
 			      - define loc <[player].get[1].location.add[0,3,0].random_offset[5,2,5]>
 			      - teleport <context.entity> <[loc]>
@@ -52,6 +58,8 @@ krampus_abilities:
 			    - if <util.random.int[0].to[100]> <= 20: 
 				  - flag <context.entity> summoning_wave expire:25s
 			      - repeat 5:
+				    - if <context.entity> = null:
+				      - stop
 				    - wait 10t
 				    - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
 				    - mythicspawn <[loc]> disobedience
