@@ -7,8 +7,9 @@ krampus_abilities:
 		    - stop
 		  - if <context.damager> = null:
 		    - stop
-		  - if <context.entity.health> < 10:
-		    - stop
+		  - if <context.entity> != null:
+		    - if <context.entity.health> < 10:
+		      - stop
 		  - if <context.entity.name||null> == "<&4>Крампус":
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
@@ -32,6 +33,8 @@ krampus_abilities:
 				  - repeat stop
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 30:
+			    - if <context.entity> = null:
+				  - stop
 			    - define player <list[]>
 			    - adjust <context.entity> gravity:false
 			    - define players <context.entity.location.find_entities[player].within[10].exclude[<context.entity>]>
