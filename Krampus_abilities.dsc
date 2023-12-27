@@ -5,9 +5,9 @@ krampus_abilities:
 		on entity damages entity:
 		  - if <context.entity> = null:
 		    - stop
+		  - if <context.damager> = null:
+		    - stop
 		  - if <context.entity.name||null> == "<&4>Крампус":
-		    - if <context.entity> = null:
-			  - stop
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
 			    - flag <context.entity> snow_storm expire:20s
@@ -69,6 +69,5 @@ krampus_abilities:
 		  - if <context.entity.name||null> == "<&4>Крампус":
 		    - define loc <context.entity.location.add[0,1,0].random_offset[5,2,5]>
 			- teleport <[loc]> <context.entity>
-		on entity spawns:
-		  - if <context.entity.name||null> == "<&4>Крампус":
-		    - flag <context.entity> raid_boss
+		on mythicmob krampus spawns:
+		  - flag <context.entity> raid_boss

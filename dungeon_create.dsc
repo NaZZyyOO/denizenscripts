@@ -114,7 +114,7 @@ dungeon_room_activate:
 			- else:
 			  - actionbar "<&6><&l>Вы уже были здесь. <player.flag_expiration[<context.area>_cd].from_now.formatted>"
 		  - if <context.area.has_flag[room_global_cd]> = true && <context.area.has_flag[teleport_loc]> = false:
-		    - if <player.has_flag[<context.area>_cd]> = false:
+		    - if <server.has_flag[<context.area>_cd]> = false:
 		      - foreach <context.area.blocks_flagged[spawner]>:
 			    - flag server <context.area>_cd expire:<context.area.flag[room_global_cd]>
 			    - if <[value].flag[spawner].size> = 1:
