@@ -14,11 +14,11 @@ item_blizzard_sphere:
     - "<&6>с тех благословенных веков."
     - ""
     - "<&7>Использование:"
-    - "<&a> - Расходует 40 ед. маны, и призывает"
+    - "<&a> - Расходует 20 ед. маны, и призывает"
     - "<&a> вокруг персонажа кружащуюся снежную бурю,"
-    - "<&a> наносящую 3 ед. урона холодом в секунду всем"
+    - "<&a> наносящую 2 ед. урона холодом в секунду всем"
     - "<&a> в радиусе 5 метров вокруг. Снежная буря"
-    - "<&a> длится 20 секунд, и может быть вызвана"
+    - "<&a> длится 10 секунд, и может быть вызвана"
     - "<&a> лишь раз в одну минуту."
     mechanisms:
       custom_model_data: 1
@@ -33,7 +33,7 @@ item_blizzard_sphere_use:
         on player right clicks block with:item_blizzard_sphere:
           - if <player.item_in_hand.script.name.is[==].to[item_blizzard_sphere]||false>:
             - if <player.has_flag[blizzard_cd]> = false:
-              - if <placeholder[mystery_mana].player[<player>]> > 39:
+              - if <placeholder[mystery_mana].player[<player>]> > 19:
 			    - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
                   - flag <player> blizzard_cd expire:60s
                   - execute "my rmmana <player.name> 40" as_server silent
@@ -48,7 +48,7 @@ item_blizzard_sphere_use:
                   - wait 5t
                   - playeffect at:<player.location.add[-3,8,0].random_offset[5,0,5]> effect:snowflake quantity:10 offset:5 visibility:100 velocity:0.5,-1,0
                   - wait 3t
-                  - repeat 80:
+                  - repeat 50:
                     - wait 5t
 				    - hurt <player.location.find.living_entities.within[5].exclude[<player>]> 3
                     - repeat 5:
