@@ -32,10 +32,11 @@ item_evilvand_use:
             - else:
               - if <player.has_flag[item_evilvand_cooldown]> = false:
                 - if <placeholder[mystery_mana].player[<player>]> > 4:
-                  - execute "my rmmana <player.name> 5" as_server silent
-                  - flag <player> item_evilvand_cooldown duration:1s
-                  - animate <player> animation:ARM_SWING for:<server.online_players>
-                  - playsound sound:entity_evoker_fangs_attack pitch:1 volume:0.8 <player.location>
-                  - playeffect at:<player.location.add[0,1,0]> effect:SPELL quantity:20 offset:0.3
-				  - if <[target].location> != null:
-                    - spawn evoker_fangs <[target].location>
+				  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
+                    - execute "my rmmana <player.name> 5" as_server silent
+                    - flag <player> item_evilvand_cooldown duration:1s
+                    - animate <player> animation:ARM_SWING for:<server.online_players>
+                    - playsound sound:entity_evoker_fangs_attack pitch:1 volume:0.8 <player.location>
+                    - playeffect at:<player.location.add[0,1,0]> effect:SPELL quantity:20 offset:0.3
+				    - if <[target].location> != null:
+                      - spawn evoker_fangs <[target].location>

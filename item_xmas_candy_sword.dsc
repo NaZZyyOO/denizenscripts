@@ -26,7 +26,6 @@ item_xmas_candy_sword_use:
           - if <player.item_in_hand.script.name.is[==].to[item_xmas_candy_sword]||null>:
             - if <player.has_flag[candyblade_cd]> = false:
               - flag <player> candyblade_cd expire:2s
-              - animate <player> animation:EAT_FOOD for:<server.online_players>
               - wait 1t
               - playsound sound:block_calcite_break volume:1 pitch:2 <player.location>
               - wait 0.2s
