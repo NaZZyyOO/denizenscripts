@@ -16,7 +16,7 @@ item_blizzard_sphere:
     - "<&7>Использование:"
     - "<&a> - Расходует 40 ед. маны, и призывает"
     - "<&a> вокруг персонажа кружащуюся снежную бурю,"
-    - "<&a> наносящую 6 ед. урона холодом в секунду всем"
+    - "<&a> наносящую 3 ед. урона холодом в секунду всем"
     - "<&a> в радиусе 5 метров вокруг. Снежная буря"
     - "<&a> длится 20 секунд, и может быть вызвана"
     - "<&a> лишь раз в одну минуту."
@@ -49,6 +49,6 @@ item_blizzard_sphere_use:
                 - wait 3t
                 - repeat 80:
                   - wait 5t
-				  - hurt <player.location.find.living_entities.within[5].exclude[<player>]> 3 cause:FREEZE
+				  - hurt <player.location.find.living_entities.within[5].exclude[<player>]> 3
                   - repeat 5:
                     - playeffect at:<player.location.add[-3,8,0].random_offset[5,0,5]> effect:snowflake quantity:10 offset:5 visibility:100 velocity:0.5,-1,0
