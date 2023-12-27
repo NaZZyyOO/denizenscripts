@@ -79,7 +79,7 @@ custom_drop_event:
 			      - flag <context.entity> damagers_top:<map[]>
 			    - else:
 			      - if <context.entity.flag[damagers_top].contains[<context.damager.name>]> = false:
-                    - flag <context.entity> damagers_top:<context.entity.flag[damagers_top].include[<map[<context.damager.name>=<context.damage>]>]>
+                    - flag <context.entity> damagers_top:<context.entity.flag[damagers_top].as[<context.damager.name>].with[<context.damage>]>
                   - else:
                     - flag <context.entity> damagers_top:<context.entity.flag[damagers_top].as[<context.damager.name>].with[<context.damage.add[<context.entity.flag[damagers_top].get[<context.damager.name>]>]>]>		  
 raid_boss_drop:
