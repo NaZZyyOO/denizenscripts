@@ -81,7 +81,8 @@ custom_drop_event:
 			      - if <context.entity.flag[damagers_top].contains[<context.damager.name>]> = false:
                     - flag <context.entity> damagers_top:<context.entity.flag[damagers_top].as[<context.damager.name>].with[<context.damage>]>
                   - else:
-                    - flag <context.entity> damagers_top:<context.entity.flag[damagers_top].as[<context.damager.name>].with[<context.damage.add[<context.entity.flag[damagers_top].get[<context.damager.name>]>]>]>		  
+				    - define damage <context.entity.flag[damagers_top].get[<context.damager.name>].add[<context.damage>]>
+                    - flag <context.entity> damagers_top:<context.entity.flag[damagers_top].as[<context.damager.name>].with[<[damage]>]>	  
 raid_boss_drop:
     type: task
 	definitions: loottable_name
