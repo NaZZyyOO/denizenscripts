@@ -105,7 +105,7 @@ raid_boss_drop:
 			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 1-ое место!" targets:<player[<[pos_1]>]>
 		- if <[damagers_size]> = 2:
 		  - define first_two_pos <[places_by_numerical].get[<[damagers_size].sub[<[damagers_size].sub[1]>]>].to[last]>
-		  - define second_pos <[first_two_pos].get[1]
+		  - define second_pos <[first_two_pos].get[1]>
 		  - define pos_2 <[damage_top].get[<[second_pos]>]>
 		  - if <player[<[pos_2]>].is_online> = true:
 			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[second_pos]> ед. урона, заняв 2-ое место!" targets:<player[<[pos_2]>]>
