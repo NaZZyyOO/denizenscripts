@@ -12,7 +12,7 @@ krampus_abilities:
 				    - stop
 				  - wait 10t
 				  - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
-				  - foreach <context.entity.location.find.living_entities.within[8].exclude[<context.entity>]> as:victim:
+				  - foreach <context.entity.location.find_entities[player].within[8].exclude[<context.entity>]> as:victim:
 				    - cast SLOW a:5 d:4 <[victim]>
 					- hurt 8 <[victim]> source:<context.entity>
 				  - repeat 5:
@@ -44,7 +44,7 @@ krampus_abilities:
 			      - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
 				  - foreach <[ray]>:
 			        - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
-				    - foreach <[value].find.living_entities.within[0.3]> as:victim:
+				    - foreach <[value].find_entities[player].within[0.3]> as:victim:
 				      - if <[victim]> != null:
 			            - if <[victim]> != <context.entity>:
 				          - hurt 6 <[victim]> source:<context.entity> cause:magic
