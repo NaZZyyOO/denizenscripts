@@ -50,6 +50,6 @@ item_blizzard_sphere_use:
                   - wait 3t
                   - repeat 50:
                     - wait 5t
-				    - hurt 3 <player.location.find.living_entities.within[5].exclude[<player>]> source:<player> cause:custom
+				    - hurt 3 <player.location.find.living_entities.within[5].exclude[<player>]> source:<player>
                     - repeat 5:
                       - playeffect at:<player.location.add[-3,8,0].random_offset[5,0,5]> effect:snowflake quantity:10 offset:5 visibility:100 velocity:0.5,-1,0
