@@ -115,9 +115,9 @@ raid_boss_drop:
 			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 2-ое место!" targets:<player[<[pos_2]>]>
 	    - if <[damagers_size]> > 2:
 		  - define first_three_pos <[places_by_numerical].get[<[damagers_size].sub[<[damagers_size].sub[2]>]>].to[last]>
-		  - define first_pos <[first_three_pos].get[1]>
+		  - define first_pos <[first_three_pos].get[3]>
 		  - define second_pos <[first_three_pos].get[2]>
-		  - define third_pos <[first_three_pos].get[3]>
+		  - define third_pos <[first_three_pos].get[1]>
 		  - define pos_1 <[damage_top].get[<[first_pos]>]>
 		  - define pos_2 <[damage_top].get[<[second_pos]>]>
 		  - define pos_3 <[damage_top].get[<[third_pos]>]>
