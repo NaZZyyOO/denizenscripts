@@ -39,7 +39,7 @@ krampus_abilities:
 			          - define loc <player[<[player].get[1]>].location.add[0,3,0].random_offset[5,2,5]>
 			          - teleport <context.entity> <[loc]>
 				      - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
-			          - define ray <context.entity.location.add[0,1.3,0].points_between[<player[<[player].get[1]>].location.add[0,1.3,0]>].distance[0.5]>
+			          - define ray <context.entity.location.add[0,1.3,0].points_between[<player[<[player].get[1]>].location>].distance[0.5]>
 				      - foreach <[ray]>:
 			            - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
 				      - foreach <player[<[player].get[1]>].location.find_entities[player].within[0.8]> as:victim:
