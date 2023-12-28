@@ -2,7 +2,7 @@ krampus_abilities:
     type: world
 	debug: false
 	events:
-		on player damages entity:
+		on player entity entity:
 		  - if <context.entity.name||null> == "<&4>Крампус":
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
@@ -15,7 +15,7 @@ krampus_abilities:
 				    - hurt 8 <[victim]> source:<context.entity>
 				  - repeat 5:
 				    - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
-		on player damages entity:
+		on entity damages entity:
 		  - if <context.entity.name||null> == "<&4>Крампус":
 		  	- if <util.random.int[0].to[100]> <= 60:
 			  - repeat 10:
@@ -26,7 +26,7 @@ krampus_abilities:
 			      - teleport <context.entity> <[loc]>
 			      - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
 				  - repeat stop
-		on player damages entity:
+		on entity damages entity:
 		  - if <context.entity.name||null> == "<&4>Крампус":
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 30:
@@ -53,7 +53,7 @@ krampus_abilities:
 					      - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			    - flag <context.entity> teleport_storm expire:20s
 			    - adjust <context.entity> gravity:true
-		on player damages entity:
+		on entity damages entity:
 		  - if <context.entity.name||null> == "<&4>Крампус":
 			- if <context.entity.has_flag[summoning_wave]> = false:
 			  - if <context.entity.health_percentage> < 75:
@@ -68,7 +68,7 @@ krampus_abilities:
 					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:100 offset:2
 					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
-	    on player damages entity:
+	    on entity damages player:
 		  - if <context.damager.name||null> == "<&4>Крампус":
 		    - if <util.random.int[0].to[100]> <= 50:
 			  - adjust <context.damager> velocity:<context.damager.location.direction.vector.mul[1.2]>
