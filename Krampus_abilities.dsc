@@ -3,6 +3,8 @@ krampus_abilities:
 	debug: false
 	events:
 		on player damages entity:
+		  - if <context.entity||null> = null:
+		    - stop
 		  - if <context.entity.name||null> == "<&4>Крампус":
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
@@ -64,7 +66,7 @@ krampus_abilities:
 					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:100 offset:2
 					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
-		  - if <context.damager> = null:
+		  - if <context.damager||null> = null:
 			- stop
 		  - if <context.damager.name||null> == "<&4>Крампус":
 		    - if <util.random.int[0].to[100]> <= 50:
