@@ -3,8 +3,10 @@ krampus_abilities:
 	debug: false
 	events:
 		on player damages entity:
+		  - if <context.final_damage> >= <context.entity.health.round>:
+		    - stop
 		  - if <context.entity||null> != null && <context.entity.name||null> == "<&4>Крампус":
-		    - if <context.entity.has_flag[snow_storm]> = false && <context.entity.health> > 50:
+		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
 				- repeat 5:
 				  - if <context.entity.location||null> != null:
@@ -43,7 +45,7 @@ krampus_abilities:
 			        - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
 				    - foreach <[ray]>:
 			          - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
-				    - foreach <player[<[player].get[1]>].find_entities[player].within[0.8]> as:victim:
+				    - foreach <player[<[player].get[1]>].location.find_entities[player].within[0.8]> as:victim:
 				      - if <[victim]||null> != null:
 				        - hurt 6 <[victim]> source:<context.entity> cause:magic
 					    - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
