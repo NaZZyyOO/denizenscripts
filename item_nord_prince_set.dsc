@@ -275,7 +275,7 @@ icespear_hit:
     debug: false
     type: task
     script:
-        - hurt <[hit_entities]> 7 cause:FREEZE
+        - hurt <[hit_entities]> 7 source:<player> cause:FREEZE
 
 icespear_hit_block:
     type: world

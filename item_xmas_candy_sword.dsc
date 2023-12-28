@@ -37,7 +37,7 @@ item_xmas_candy_sword_use:
                 - playeffect at:<player.location.add[0,1.65,0]> effect:item_crack special_data:item_xmas_candy_sword quantity:3 offset:0.2 velocity:<player.location.direction.vector.div[10]>
               - if <player.item_in_hand.durability> < 54:
                 - inventory adjust slot:<player.held_item_slot> durability:<player.item_in_hand.durability.add[5]>
-              - else:
+              - else if <player.item_in_hand.durability> < 1:
                 - take <player.item_in_hand>
 
 
