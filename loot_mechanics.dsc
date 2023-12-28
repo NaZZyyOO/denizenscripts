@@ -101,17 +101,27 @@ raid_boss_drop:
 		- if <[damagers_size]> = 1:
 		  - define first_pos <[places_by_numerical].get[1]>
 		  - define pos_1 <[damage_top].get[<[first_pos]>]>
+		  - if <player[<[pos_1]>].is_online> = true:
+			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 1-ое место!" targets:<player[<[pos_1]>]>
 		- if <[damagers_size]> > 1:
 		  - define first_two_pos <[places_by_numerical].get[<[size].sub[<[damagers_size].sub[1]>]>].to[last]>
 		  - define second_pos <[first_two_pos].get[1]
 		  - define pos_2 <[damage_top].get[<[second_pos]>]>
+		  - if <player[<[pos_2]>].is_online> = true:
+			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[second_pos]> ед. урона, заняв 2-ое место!" targets:<player[<[pos_2]>]>
 	    - if <[damagers_size]> > 2:
 		  - define first_three_pos <[places_by_numerical].get[<[size].sub[<[damagers_size].sub[2]>]>].to[last]>
 		  - define third_pos <[first_three_pos].get[1]>
 		  - define pos_3 <[damage_top].get[<[third_pos]>]>
+		  - if <player[<[pos_3]>].is_online> = true:
+			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[third_pos]> ед. урона, заняв 3-ое место!" targets:<player[<[pos_3]>]>
 		- if <[damagers_size]> > 3:
 		  - define others_pos <[places_by_numerical].exclude[<[third_pos]>].exclude[<[second_pos]>].exclude[<[first_pos]>]>
-	    # Пробегаемся по всем предметам в таблице.
+		  - foreach <[others_pos].keys> as:damage:
+		    - define other_player <[damage_top].get[<[damage]>]>
+		    - if <player[<[other_player]>].is_online> = true:
+			  - narrate "<&8>[Wealth] <&7>- Вы нанесли <[damage]> ед. урона, не заняв ни одного из призовых мест!" targets:<player[<[other_player]>]>
+	    # Предмети в  таблиці
 	    - define script <script[<[loottable_name]>]||null>
 	    - if <[script]> = null:
 	      - stop
@@ -135,20 +145,12 @@ raid_boss_drop:
 	        - define random_item_max_quantity <[script].data_key[<[value]>.<[item]>.max_quantity]>
 	        - if <util.random.decimal[0].to[100]> < <[random_item_chance]>:
 			  - if <[value]> = pos_1:
-			    - if <player[<[pos_1]>].is_online> = true:
-			      - narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 1-ое место!" targets:<player[<[pos_1]>]>
                 - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_1]>].inventory>
 		      - if <[value]> = pos_2:
-			    - if <player[<[pos_2]>].is_online> = true:
-			      - narrate "<&8>[Wealth] <&7>- Вы нанесли <[second_pos]> ед. урона, заняв 2-ое место!" targets:<player[<[pos_2]>]>
                 - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_2]>].inventory>
 		      - if <[value]> = pos_3:
-			    - if <player[<[pos_3]>].is_online> = true:
-			      - narrate "<&8>[Wealth] <&7>- Вы нанесли <[third_pos]> ед. урона, заняв 3-ое место!" targets:<player[<[pos_3]>]>
                 - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_3]>].inventory>
 			  - if <[value]> = others_pos:
 			    - foreach <[others_pos].keys> as:damage:
 				  - define other_player <[damage_top].get[<[damage]>]>
-				  - if <player[<[others_pos]>].is_online> = true:
-				    - narrate "<&8>[Wealth] <&7>- Вы нанесли <[damage]> ед. урона, не заняв ни одного из призовых мест!" targets:<player[<[other_player]>]>
-				    - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[other_player]>].inventory>
+				  - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[other_player]>].inventory>
