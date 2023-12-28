@@ -3,9 +3,7 @@ krampus_abilities:
 	debug: false
 	events:
 		on player damages entity:
-		  - if <context.entity||null> = null:
-		    - stop
-		  - if <context.entity.name||null> == "<&4>Крампус":
+		  - if <context.entity||null> != null: && <context.entity.name||null> == "<&4>Крампус":
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
 			    - flag <context.entity> snow_storm expire:20s
@@ -14,9 +12,10 @@ krampus_abilities:
 				    - stop
 				  - wait 10t
 				  - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
-				  - foreach <context.entity.location.find_entities[player].within[8].exclude[<context.entity>]> as:victim:
-				    - cast SLOW a:5 d:4 <[victim]>
-					- hurt 8 <[victim]> source:<context.entity>
+				  - foreach <context.entity.location.find_entities[player].within[8]> as:victim:
+				    - if <[victim]> != null:
+				      - cast SLOW a:5 d:4 <[victim]>
+					  - hurt 8 <[victim]> source:<context.entity>
 				  - repeat 5:
 				    - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
 			- if <util.random.int[0].to[100]> <= 60:
@@ -28,6 +27,33 @@ krampus_abilities:
 			      - teleport <context.entity> <[loc]>
 			      - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
 				  - repeat stop
+			- if <context.entity.has_flag[teleport_storm]> = false:
+			  - if <util.random.int[0].to[100]> <= 30:
+			    - if <context.entity||null> = null:
+				  - stop
+			    - define player <list[]>
+			    - adjust <context.entity> gravity:false
+			    - define players <context.entity.location.find_entities[player].within[10]>
+				- if <[players].size> = 0:
+				  - stop
+		        - define player <[player].include[<[players].first>]>
+		        - repeat 3:
+				  - if <context.entity||null> = null:
+				    - stop
+			      - wait 1s
+			      - define loc <[player].get[1].location.add[0,3,0].random_offset[5,2,5]>
+			      - define loc <player[<[player].get[1]>].location.add[0,3,0].random_offset[5,2,5]>
+			      - teleport <context.entity> <[loc]>
+				  - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
+			      - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
+				  - foreach <[ray]>:
+			        - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
+				  - foreach <player[<[player].get[1]>].find_entities[player].within[0.8]> as:victim:
+				    - if <[victim]||null> != null:
+				      - hurt 6 <[victim]> source:<context.entity> cause:magic
+					  - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
+			    - flag <context.entity> teleport_storm expire:20s
+			    - adjust <context.entity> gravity:true
 			- if <context.entity.has_flag[summoning_wave]> = false:
 			  - if <context.entity.health_percentage> < 75:
 			    - if <util.random.int[0].to[100]> <= 20: 
