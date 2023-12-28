@@ -98,18 +98,18 @@ raid_boss_drop:
 		- define damagers_size <[places_by_numerical].size>
 		- if <[damagers_size]> = 0:
 		  - stop
-		- if <[damagers_size]> = 1:
+		- if <[damagers_size]> >= 1:
 		  - define first_pos <[places_by_numerical].get[1]>
 		  - define pos_1 <[damage_top].get[<[first_pos]>]>
 		  - if <player[<[pos_1]>].is_online> = true:
 			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 1-ое место!" targets:<player[<[pos_1]>]>
-		- if <[damagers_size]> = 2:
+		- if <[damagers_size]> >= 2:
 		  - define first_two_pos <[places_by_numerical].get[<[damagers_size].sub[<[damagers_size].sub[1]>]>].to[last]>
 		  - define second_pos <[first_two_pos].get[1]>
 		  - define pos_2 <[damage_top].get[<[second_pos]>]>
 		  - if <player[<[pos_2]>].is_online> = true:
 			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[second_pos]> ед. урона, заняв 2-ое место!" targets:<player[<[pos_2]>]>
-	    - if <[damagers_size]> = 3:
+	    - if <[damagers_size]> >= 3:
 		  - define first_three_pos <[places_by_numerical].get[<[damagers_size].sub[<[damagers_size].sub[2]>]>].to[last]>
 		  - define third_pos <[first_three_pos].get[1]>
 		  - define pos_3 <[damage_top].get[<[third_pos]>]>
