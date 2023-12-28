@@ -2,7 +2,7 @@ krampus_abilities:
     type: world
 	debug: false
 	events:
-		on player damages entity:
+		on entity damages entity:
 		  - if <context.final_damage> < <context.entity.health.round> && <context.entity.name||null> == "<&4>Крампус":
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
