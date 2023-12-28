@@ -42,7 +42,7 @@ krampus_abilities:
 				  - if <context.entity||null> = null:
 				    - stop
 			      - wait 1s
-			      - define loc <[player].get[1].location.add[0,3,0].random_offset[5,2,5]>
+			      - define loc <player[<[player].get[1]>].location.add[0,3,0].random_offset[5,2,5]>
 			      - teleport <context.entity> <[loc]>
 				  - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
 			      - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
