@@ -4,7 +4,6 @@ krampus_abilities:
 	events:
 		on player damages entity:
 		  - if <context.final_damage> < <context.entity.health.round> && <context.entity.name||null> == "<&4>Крампус":
-		    - define e_loc <context.entity.location||null>
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
 				- repeat 5:
@@ -15,17 +14,15 @@ krampus_abilities:
 				      - cast SLOW a:5 d:4 <[victim]>
 					  - hurt 8 <[victim]> source:<context.entity>
 				    - repeat 5:
-				      - playsound <[e_loc]> sound:BLOCK_SNOW_FALL pitch:2 volume:1
+				      - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
 				    - flag <context.entity> snow_storm expire:20s
-				  - else:
-				    - stop
 			- if <util.random.int[0].to[100]> <= 60:
 			  - repeat 10:
 			    - if <context.entity.location||null> != null:
 			      - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
 				  - if <[loc].material> != air:
 			        - teleport <context.entity> <[loc]>
-			        - playsound <[e_loc]> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
+			        - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
 				    - repeat stop
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 30:
@@ -41,7 +38,7 @@ krampus_abilities:
 			          - wait 1s
 			          - define loc <player[<[player].get[1]>].location.add[0,3,0].random_offset[5,2,5]>
 			          - teleport <context.entity> <[loc]>
-				      - playsound <[e_loc]> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
+				      - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
 			          - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
 				      - foreach <[ray]>:
 			            - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
