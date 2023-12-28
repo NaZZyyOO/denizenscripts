@@ -48,11 +48,10 @@ krampus_abilities:
 			      - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
 				  - foreach <[ray]>:
 			        - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
-				    - foreach <[value].find_entities[player].within[0.8]> as:victim:
-				      - if <[victim]||null> != null:
-			            - if <[victim]> != <context.entity>:
-				          - hurt 6 <[victim]> source:<context.entity> cause:magic
-					      - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
+				  - foreach <player[<[player].get[1]>].find_entities[player].within[0.8]> as:victim:
+				    - if <[victim]||null> != null:
+				      - hurt 6 <[victim]> source:<context.entity> cause:magic
+					  - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			    - flag <context.entity> teleport_storm expire:20s
 			    - adjust <context.entity> gravity:true
 			- if <context.entity.has_flag[summoning_wave]> = false:
