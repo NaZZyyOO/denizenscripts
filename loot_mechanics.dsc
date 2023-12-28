@@ -3,19 +3,19 @@ server_loottable_mechanics:
 	debug: false
 	definitions: loottable_name|loc|player
 	script:
-	# Переменная карма поделенная на 100.
+	# Карма ділена на 100
 	- define carma <placeholder[mystery_dcarma].player[<player>]>
-	# Делим ещё на 10.
+	# Ділимо ще на 10
     - define carma_percante <[carma].div[10]>
 	- if <player[Korvinius].is_online> = true:
 	  - if <placeholder[essentials_vanished].player[<player[Korvinius]>]> = no:
 	    - define carma_percante <[carma_percante].add[0.01]>
-	# Влияние эффекта удачи на шанс
+	# Вплив вдачі на шанс
 	- define luck_amount <element[0]>
 	- if <player.has_effect[luck]> = true:
 	  - define luck_amount <element[<util.random.decimal[0.001].to[0.003]>]>
 	- define final_coef <[carma_percante].add[<[luck_amount]>]>
-	# Пробегаемся по всем предметам в таблице.
+	# Предмети з таблиці
 	- define script <script[<[loottable_name]>]||null>
 	- if <[script]> = null:
 	  - stop
@@ -47,8 +47,9 @@ server_loottable_mechanics:
             - drop <[value]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> <[loc]>
 		- if <[script].data_key[<[value]>].contains[weight]> = true:
           - define type_random <[type_random].with[<[value]>].as[<[final_chance]>]>
+	# Випадіння лише одного предмету зі списку
 	- define size <[type_random].size>
-	- if <[size]> > 1:
+	- if <[size]> > 0:
 	  - foreach <[type_random].keys.random[<[size]>]>:
 	    - define random_item_min_quantity <[script].data_key[<[value]>.min_quantity]>
 		- define random_item_max_quantity <[script].data_key[<[value]>.max_quantity]>
@@ -88,8 +89,11 @@ raid_boss_drop:
 	definitions: loottable_name|entity
 	debug: false
 	script:
+	    # Мапа гравець=пошкодження
 	    - define damagers_top <[entity].flag[damagers_top]>
+		# Мапа пошкодження=гравець
 		- define damage_top <[damagers_top].invert>
+		# Список всіх пошкоджень
 		- define places_by_numerical <[damage_top].keys.numerical>
 		- define damagers_size <[places_by_numerical].size>
 		- if <[damagers_size]> = 0:
