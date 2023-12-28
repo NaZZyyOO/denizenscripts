@@ -10,7 +10,7 @@ krampus_abilities:
 			  - if <util.random.int[0].to[100]> <= 40:
 			    - flag <context.entity> snow_storm expire:20s
 				- repeat 5:
-				  - if <context.entity> = null:
+				  - if <context.entity||null> = null:
 				    - stop
 				  - wait 10t
 				  - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
@@ -21,7 +21,7 @@ krampus_abilities:
 				    - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
 			- if <util.random.int[0].to[100]> <= 60:
 			  - repeat 10:
-			    - if <context.entity> = null:
+			    - if <context.entity||null> = null:
 				  - stop
 			    - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
 				- if <[loc].material> != air:
@@ -30,14 +30,14 @@ krampus_abilities:
 				  - repeat stop
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 30:
-			    - if <context.entity> = null:
+			    - if <context.entity||null> = null:
 				  - stop
 			    - define player <list[]>
 			    - adjust <context.entity> gravity:false
 			    - define players <context.entity.location.find_entities[player].within[10].exclude[<context.entity>]>
 		        - define player <[player].include[<[players].first>]>
 		        - repeat 3:
-				  - if <context.entity> = null:
+				  - if <context.entity||null> = null:
 				    - stop
 			      - wait 1s
 			      - define loc <[player].get[1].location.add[0,3,0].random_offset[5,2,5]>
@@ -47,7 +47,7 @@ krampus_abilities:
 				  - foreach <[ray]>:
 			        - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
 				    - foreach <[value].find_entities[player].within[0.3]> as:victim:
-				      - if <[victim]> != null:
+				      - if <[victim]||null> != null:
 			            - if <[victim]> != <context.entity>:
 				          - hurt 6 <[victim]> source:<context.entity> cause:magic
 					      - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
@@ -58,7 +58,7 @@ krampus_abilities:
 			    - if <util.random.int[0].to[100]> <= 20: 
 				  - flag <context.entity> summoning_wave expire:25s
 			      - repeat 5:
-				    - if <context.entity> = null:
+				    - if <context.entity||null> = null:
 				      - stop
 				    - wait 10t
 				    - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
