@@ -3,7 +3,7 @@ krampus_abilities:
 	debug: false
 	events:
 		on player damages entity:
-		  - if <context.entity.name||null> == "<&4>Крампус":
+		  - if <context.entity||null> != null && <context.entity.name||null> == "<&4>Крампус":
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
 			    - flag <context.entity> snow_storm expire:20s
