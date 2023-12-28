@@ -35,7 +35,7 @@ krampus_abilities:
 			    - define players <context.entity.location.find_entities[player].within[10]>
 				- if <[players].size> = 0:
 				  - stop
-		        - define player <[player].include[<[players].first>]>
+		        - define player <[player].include[<[players].first.name>]>
 		        - repeat 3:
 				  - if <context.entity||null> = null:
 				    - stop
@@ -46,7 +46,7 @@ krampus_abilities:
 			      - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
 				  - foreach <[ray]>:
 			        - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
-				  - foreach <player[<[player].get[1].formatted>].find_entities[player].within[0.8]> as:victim:
+				  - foreach <player[<[player].get[1]>].find_entities[player].within[0.8]> as:victim:
 				    - if <[victim]||null> != null:
 				      - hurt 6 <[victim]> source:<context.entity> cause:magic
 					  - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
