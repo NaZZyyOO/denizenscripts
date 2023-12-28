@@ -4,16 +4,14 @@ krampus_abilities:
 	events:
 		on player damages entity:
 		  - if <context.final_damage> < <context.entity.health.round> && <context.entity.name||null> == "<&4>Крампус":
-		    - define e_loc <[e_loc]||null>
-			- if <[e_loc]> = null:
-			  - stop
+		    - define e_loc <context.entity.location||null>
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
 				- repeat 5:
-				  - if <[e_loc]||null> != null:
+				  - if <context.entity.location||null> != null:
 				    - wait 10t
-				    - playeffect effect:SNOWFLAKE at:<[e_loc].add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
-				    - foreach <[e_loc].find_entities[player].within[8]> as:victim:
+				    - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
+				    - foreach <context.entity.location.find_entities[player].within[8]> as:victim:
 				      - cast SLOW a:5 d:4 <[victim]>
 					  - hurt 8 <[victim]> source:<context.entity>
 				    - repeat 5:
@@ -23,7 +21,7 @@ krampus_abilities:
 				    - stop
 			- if <util.random.int[0].to[100]> <= 60:
 			  - repeat 10:
-			    - if <[e_loc]||null> != null:
+			    - if <context.entity.location||null> != null:
 			      - define loc <context.damager.location.add[0,3,0].random_offset[5,2,5]>
 				  - if <[loc].material> != air:
 			        - teleport <context.entity> <[loc]>
@@ -31,10 +29,10 @@ krampus_abilities:
 				    - repeat stop
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 30:
-			    - if <[e_loc]||null> != null:
+			    - if <context.entity.location||null> != null:
 			      - define player <list[]>
 			      - adjust <context.entity> gravity:false
-			      - define players <[e_loc].find_entities[player].within[10]>
+			      - define players <context.entity.location.find_entities[player].within[10]>
 				  - if <[players].size> > 0:
 		            - define player <[player].include[<[players].first.name>]>
 		            - repeat 3:
@@ -44,7 +42,7 @@ krampus_abilities:
 			          - define loc <player[<[player].get[1]>].location.add[0,3,0].random_offset[5,2,5]>
 			          - teleport <context.entity> <[loc]>
 				      - playsound <[e_loc]> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
-			          - define ray <[e_loc].add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
+			          - define ray <context.entity.location.add[0,1.3,0].points_between[<[player].get[1].location.add[0,1.3,0]>].distance[0.5]>
 				      - foreach <[ray]>:
 			            - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
 				      - foreach <player[<[player].get[1]>].location.find_entities[player].within[0.8]> as:victim:
@@ -68,10 +66,10 @@ krampus_abilities:
 		    - if <util.random.int[0].to[100]> <= 50:
 			  - adjust <context.damager> velocity:<context.damager.location.direction.vector.mul[1.2]>
 			- if <util.random.int[0].to[100]> <= 25:
-			  - adjust <context.entity> velocity:<[e_loc].direction.vector.mul[-1.2]>
+			  - adjust <context.entity> velocity:<context.entity.location.direction.vector.mul[-1.2]>
 		on entity damaged by SUFFOCATION:
 		  - if <context.entity.name||null> == "<&4>Крампус":
-		    - define loc <[e_loc].add[0,1,0].random_offset[5,2,5]>
+		    - define loc <context.entity.location.add[0,1,0].random_offset[5,2,5]>
 			- teleport <[loc]> <context.entity>
 		on mythicmob krampus spawns:
 		  - flag <context.entity> raid_boss
