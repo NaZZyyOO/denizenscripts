@@ -131,12 +131,20 @@ raid_boss_drop:
 	        - define random_item_max_quantity <[script].data_key[<[value]>.<[item]>.max_quantity]>
 	        - if <util.random.decimal[0].to[100]> < <[random_item_chance]>:
 			  - if <[value]> = pos_1:
+			    - if <player[<[pos_1]>].is_online> = true:
+			      - narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 1-ое место!" targets:<player[<[pos_1]>]>
                 - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_1]>].inventory>
 		      - if <[value]> = pos_2:
+			    - if <player[<[pos_2]>].is_online> = true:
+			      - narrate "<&8>[Wealth] <&7>- Вы нанесли <[second_pos]> ед. урона, заняв 2-ое место!" targets:<player[<[pos_2]>]>
                 - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_2]>].inventory>
 		      - if <[value]> = pos_3:
+			    - if <player[<[pos_3]>].is_online> = true:
+			      - narrate "<&8>[Wealth] <&7>- Вы нанесли <[third_pos]> ед. урона, заняв 3-ое место!" targets:<player[<[pos_3]>]>
                 - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_3]>].inventory>
 			  - if <[value]> = others_pos:
-			    - foreach <[others_pos].keys> as:player:
-				  - define other_player <[damage_top].get[<[player]>]>
-				  - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[other_player]>].inventory>
+			    - foreach <[others_pos].keys> as:damage:
+				  - define other_player <[damage_top].get[<[damage]>]>
+				  - if <player[<[others_pos]>].is_online> = true:
+				    - narrate "<&8>[Wealth] <&7>- Вы нанесли <[damage]> ед. урона, не заняв ни одного из призовых мест!" targets:<player[<[other_player]>]>
+				    - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[other_player]>].inventory>

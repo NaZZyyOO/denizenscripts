@@ -7,11 +7,11 @@ krampus:
 			min_quantity: 1
 			max_quantity: 1
 		item_evilvand:
-		    chance: 20
+		    chance: 40
 			min_quantity: 1
 			max_quantity: 1
 		item_krampus_horn:
-		    chance: 10
+		    chance: 20
 			min_quantity: 1
 			max_quantity: 1
 	    item_red_ticket:
@@ -26,13 +26,21 @@ krampus:
 		    chance: 80
 			min_quantity: 4
 			max_quantity: 7
+	    item_sapphire:
+		    chance: 50
+			min_quantity: 1
+			max_quantity: 2
+		item_taler_gold:
+		    chance: 100
+			min_quantity: 10
+			max_quantity: 30
 	pos_2:
 	    item_krampus_tooth:
 		    chance: 20
 			min_quantity: 1
 			max_quantity: 1
 		item_evilvand:
-		    chance: 10
+		    chance: 20
 			min_quantity: 1
 			max_quantity: 1
 	    item_red_ticket:
@@ -47,8 +55,20 @@ krampus:
 		    chance: 60
 			min_quantity: 4
 			max_quantity: 7
+	    item_sapphire:
+		    chance: 50
+			min_quantity: 1
+			max_quantity: 1
+		item_taler_gold:
+		    chance: 100
+			min_quantity: 10
+			max_quantity: 25
 	pos_3:
 	    item_krampus_tooth:
+		    chance: 10
+			min_quantity: 1
+			max_quantity: 1
+		item_evilvand:
 		    chance: 10
 			min_quantity: 1
 			max_quantity: 1
@@ -64,9 +84,21 @@ krampus:
 		    chance: 45
 			min_quantity: 4
 			max_quantity: 7
+		item_sapphire:
+		    chance: 45
+			min_quantity: 1
+			max_quantity: 1
+		item_taler_gold:
+		    chance: 100
+			min_quantity: 10
+			max_quantity: 20
 	others_pos:
 	    item_krampus_tooth:
-		    chance: 2
+		    chance: 5
+			min_quantity: 1
+			max_quantity: 1
+		item_evilvand:
+		    chance: 5
 			min_quantity: 1
 			max_quantity: 1
 	    item_red_ticket:
@@ -81,3 +113,11 @@ krampus:
 		    chance: 30
 			min_quantity: 4
 			max_quantity: 7
+		item_sapphire:
+		    chance: 40
+			min_quantity: 1
+			max_quantity: 1
+		item_taler_gold:
+		    chance: 100
+			min_quantity: 10
+			max_quantity: 18
