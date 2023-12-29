@@ -102,8 +102,12 @@ item_scroll_teleport_Krampus_use:
 		    - inventory flag slot:hand owner:<player.name>
 		  - if <player.item_in_hand.flag[owner]> = <player.name>:
 		    - if <player.has_flag[teleport_cd]> = false:
+			  - playeffect effect:REDSTONE at:<player.location.add[0,1,0]> special_data:1.2|<color[#6b7cbb].hex> quantity:50 offset:0.3
+			  - playsound sound:ENTITY_ENDERMAN_TELEPORT volume:1 pitch:1 <player.location>
 		      - teleport <player> <location[1555,87,1616,ocean]>
 			  - flag <player> teleport_cd expire:1h
+			- else:
+			  - actionbar "<&6>Вы сможете телепортироваться только через <player.flag_expiration[teleport_cd].from_now.formatted>"
 		  - else:
 		    - actionbar "<&7>Вы не владелец свитка..."
 			- stop
