@@ -3,15 +3,15 @@ krampus:
 	debug: false
 	pos_1:
 	    item_krampus_tooth:
-		    chance: 30
-			min_quantity: 1
-			max_quantity: 1
-		item_evilvand:
 		    chance: 40
 			min_quantity: 1
 			max_quantity: 1
+		item_evilvand:
+		    chance: 50
+			min_quantity: 1
+			max_quantity: 1
 		item_krampus_horn:
-		    chance: 20
+		    chance: 30
 			min_quantity: 1
 			max_quantity: 1
 	    item_red_ticket:
@@ -34,13 +34,17 @@ krampus:
 		    chance: 100
 			min_quantity: 10
 			max_quantity: 30
+		item_chest_gift:
+		    chance: 80
+			min_quantity: 1
+			max_quantity: 2
 	pos_2:
 	    item_krampus_tooth:
-		    chance: 20
+		    chance: 30
 			min_quantity: 1
 			max_quantity: 1
 		item_evilvand:
-		    chance: 20
+		    chance: 35
 			min_quantity: 1
 			max_quantity: 1
 	    item_red_ticket:
@@ -63,13 +67,17 @@ krampus:
 		    chance: 100
 			min_quantity: 10
 			max_quantity: 25
+		item_chest_gift:
+		    chance: 60
+			min_quantity: 1
+			max_quantity: 2
 	pos_3:
 	    item_krampus_tooth:
 		    chance: 10
 			min_quantity: 1
 			max_quantity: 1
 		item_evilvand:
-		    chance: 10
+		    chance: 20
 			min_quantity: 1
 			max_quantity: 1
 	    item_red_ticket:
@@ -92,13 +100,17 @@ krampus:
 		    chance: 100
 			min_quantity: 10
 			max_quantity: 20
+		item_chest_gift:
+		    chance: 50
+			min_quantity: 1
+			max_quantity: 2
 	others_pos:
 	    item_krampus_tooth:
 		    chance: 5
 			min_quantity: 1
 			max_quantity: 1
 		item_evilvand:
-		    chance: 5
+		    chance: 10
 			min_quantity: 1
 			max_quantity: 1
 	    item_red_ticket:
@@ -121,3 +133,7 @@ krampus:
 		    chance: 100
 			min_quantity: 10
 			max_quantity: 18
+		item_chest_gift:
+		    chance: 50
+			min_quantity: 1
+			max_quantity: 1

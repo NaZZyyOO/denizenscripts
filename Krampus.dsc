@@ -97,10 +97,10 @@ item_scroll_teleport_Krampus_use:
     type: world
 	debug: false
 	events:
-	    on player right clicks block with:item_scroll_teleport_Krampus:
+	    on player right clicks block with:item_scroll_teleport_krampus:
 		  - determine passively cancelled
 		  - if <player.item_in_hand.has_flag[owner]> = false:
-		    - inventory flag slot:hand owner:<player.name>
+		    - inventory flag slot:hand owner:<context.player.name>
 		  - if <player.item_in_hand.flag[owner]> = <player.name>:
 		    - if <player.has_flag[teleport_cd]> = false:
 			  - playeffect effect:REDSTONE at:<player.location.add[0,1,0]> special_data:1.2|<color[#6b7cbb].hex> quantity:50 offset:0.3
