@@ -80,13 +80,12 @@ krampus_abilities:
 		  - if <context.entity.name||null> == "<&4>Крампус":
 		    - foreach <context.damager.find_entities[player]> as:player:
 			  - teleport spawn <[player]>
-	    on player enters:
-		  - if <context.area> = entry_to_krampus:
-		    - if <server.has_flag[cu@krampus_cd]> = true:
-			  - determine passively cancelled
-		  - if <context.area> = entry_from_krampus:
-		    - if <server.has_flag[cu@krampus_cd]> = true:
-			  - determine passively cancelled
+	    on player enters entry_from_krampus:
+		  - if <server.has_flag[cu@krampus_cd]> = true:
+			- determine passively cancelled
+	    on player enters entry_to_krampus:
+		  - if <server.has_flag[cu@krampus_cd]> = true:
+		    - determine passively cancelled
 item_scroll_teleport_krampus:
     type: item
     debug: false
