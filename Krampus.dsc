@@ -72,7 +72,7 @@ krampus_abilities:
 			  - adjust <context.entity> velocity:<context.entity.location.direction.vector.mul[-1.2]>
 		on entity damaged by SUFFOCATION:
 		  - if <context.entity.name||null> == "<&4>Крампус":
-		    - define loc <context.entity.location.add[0,1,0].random_offset[5,2,5]>
+		    - define loc <location[1555,31,1548,ocean]>
 			- teleport <[loc]> <context.entity>
 		on mythicmob krampus spawns:
 		  - flag <context.entity> raid_boss
@@ -111,3 +111,4 @@ item_scroll_teleport_Krampus_use:
 			  - flag <player> teleport_cd expire:1h
 		  - else:
 		    - actionbar "<&7>Вы не владелец свитка..."
+			- stop
