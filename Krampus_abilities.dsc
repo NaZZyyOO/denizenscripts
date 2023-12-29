@@ -45,10 +45,10 @@ krampus_abilities:
 			          - define ray <context.entity.location.add[0,1.3,0].points_between[<player[<[player].get[1]>].location>].distance[0.5]>
 				      - foreach <[ray]>:
 			            - playeffect at:<[value]> effect:REDSTONE special_data:1.2|black quantity:50 offset:0.1
-				      - foreach <player[<[player].get[1]>].location.find_entities[player].within[0.8]> as:victim:
+				      - playsound <context.damager.location> sound:ENTITY_WITHER_SHOOT volume:0.5 pitch:0.6
+					  - foreach <player[<[player].get[1]>].location.find_entities[player].within[0.8]> as:victim:
 				        - if <[victim]||null> != null:
 				          - hurt 6 <[victim]> source:<context.entity> cause:magic
-					      - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			        - flag <context.entity> teleport_storm expire:20s
 			        - adjust <context.entity> gravity:true
 			# Виклик непослухів
@@ -68,6 +68,7 @@ krampus_abilities:
 		    - if <util.random.int[0].to[100]> <= 50:
 			  - adjust <context.damager> velocity:<context.damager.location.direction.vector.mul[1.2]>
 			- if <util.random.int[0].to[100]> <= 25:
+		      - playsound <context.entity.location> sound:ENTITY_WITHER_BREAK_BLOCK volume:0.5 pitch:0.6
 			  - adjust <context.entity> velocity:<context.entity.location.direction.vector.mul[-1.2]>
 		on entity damaged by SUFFOCATION:
 		  - if <context.entity.name||null> == "<&4>Крампус":
@@ -75,3 +76,4 @@ krampus_abilities:
 			- teleport <[loc]> <context.entity>
 		on mythicmob krampus spawns:
 		  - flag <context.entity> raid_boss
+		  - adjust <context.entity> item_in_hand:item_krampus_sword

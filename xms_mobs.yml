@@ -29,7 +29,7 @@ krampus:
     PreventOtherDrops: true
     PreventRandomEquipment: true
 disobedience:
-  Type: VINDICATOR
+  Type: SKELETON
   Disguise:
     Type: disobedience
   Display: '&6Непослух'
@@ -48,7 +48,7 @@ disobedience:
   DamageModifiers:
   - HOT_FLOOR 0
   Options:
-    MovementSpeed: 0.35
+    MovementSpeed: 0.4
     FollowRange: 40
     Silent: false
     KnockbackResistance: 0.5
