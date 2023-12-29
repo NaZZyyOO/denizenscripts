@@ -107,7 +107,7 @@ item_scroll_teleport_Krampus_use:
 		      - teleport <player> <location[1555,87,1616,ocean]>
 			  - flag <player> teleport_cd expire:1h
 			- else:
-			  - actionbar "<&6>Вы сможете телепортироваться только через <player.flag_expiration[teleport_cd].from_now.formatted>"
+			  - actionbar "<&6><&l>Вы сможете телепортироваться только через <player.flag_expiration[teleport_cd].from_now.formatted>"
 		  - else:
 		    - actionbar "<&7>Вы не владелец свитка..."
 			- stop
