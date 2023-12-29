@@ -83,9 +83,11 @@ krampus_abilities:
 	    on player enters entry_from_krampus:
 		  - if <server.has_flag[cu@krampus_cd]> = true:
 			- determine passively cancelled
+			- actionbar "<&6><&l>Кто-то уже был здесь. <server.flag_expiration[cu@krampus_cd].from_now.formatted>"
 	    on player enters entry_to_krampus:
 		  - if <server.has_flag[cu@krampus_cd]> = true:
 		    - determine passively cancelled
+			- actionbar "<&6><&l>Кто-то уже был здесь. <server.flag_expiration[cu@krampus_cd].from_now.formatted>"
 item_scroll_teleport_krampus:
     type: item
     debug: false
