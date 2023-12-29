@@ -112,7 +112,7 @@ item_scroll_teleport_Krampus_use:
 		  - determine passively cancelled
 		  - if <player.has_flag[teleport_cd]> = false:
 		    - if <player.item_in_hand.has_flag[owner]> = false:
-		      - inventory flag slot:hand owner:<context.player.name>
+		      - inventory flag slot:hand owner:<player.name>
 		    - if <player.item_in_hand.flag[owner]> = <player.name>:
 			  - playeffect effect:REDSTONE at:<player.location.add[0,1,0]> special_data:1.2|<color[#6b7cbb].hex> quantity:50 offset:0.3
 			  - playsound sound:ENTITY_ENDERMAN_TELEPORT volume:1 pitch:1 <player.location>
