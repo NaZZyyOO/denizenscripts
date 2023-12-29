@@ -51,8 +51,6 @@ krampus_abilities:
 					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:100 offset:2
 					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
-		on entity damages entity:
-		  - if <context.entity.name||null> == "<&4>Крампус":
 			- if <util.random.int[0].to[100]> <= 60:
 			  - repeat 10:
 			    - if <context.entity.location||null> != null:
