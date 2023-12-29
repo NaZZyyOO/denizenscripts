@@ -98,11 +98,13 @@ raid_boss_drop:
 		- define damagers_size <[places_by_numerical].size>
 		- if <[damagers_size]> = 0:
 		  - stop
+		# Якщо дамагер був 1
 		- if <[damagers_size]> = 1:
 		  - define first_pos <[places_by_numerical].get[1]>
 		  - define pos_1 <[damage_top].get[<[first_pos]>]>
 		  - if <player[<[pos_1]>].is_online> = true:
 			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 1-ое место!" targets:<player[<[pos_1]>]>
+	    # Якщо дамагерів було 2
 		- if <[damagers_size]> = 2:
 		  - define first_two_pos <[places_by_numerical]>
 		  - define first_pos <[first_two_pos].get[2]>
@@ -110,9 +112,10 @@ raid_boss_drop:
 		  - define pos_1 <[damage_top].get[<[first_pos]>]>
 		  - define pos_2 <[damage_top].get[<[second_pos]>]>
 		  - if <player[<[pos_1]>].is_online> = true:
-			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[second_pos]> ед. урона, заняв 1-ое место!" targets:<player[<[pos_1]>]>
+			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 1-ое место!" targets:<player[<[pos_1]>]>
 		  - if <player[<[pos_2]>].is_online> = true:
-			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 2-ое место!" targets:<player[<[pos_2]>]>
+			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[second_pos]> ед. урона, заняв 2-ое место!" targets:<player[<[pos_2]>]>
+		# Якщо дамагерів більше 2
 	    - if <[damagers_size]> > 2:
 		  - define first_three_pos <[places_by_numerical].get[<[damagers_size].sub[2]>].to[last]>
 		  - define first_pos <[first_three_pos].get[3]>
@@ -122,17 +125,18 @@ raid_boss_drop:
 		  - define pos_2 <[damage_top].get[<[second_pos]>]>
 		  - define pos_3 <[damage_top].get[<[third_pos]>]>
 		  - if <player[<[pos_1]>].is_online> = true:
-			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[second_pos]> ед. урона, заняв 1-ое место!" targets:<player[<[pos_1]>]>
+			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 1-ое место!" targets:<player[<[pos_1]>]>
 		  - if <player[<[pos_2]>].is_online> = true:
-			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 2-ое место!" targets:<player[<[pos_2]>]>
+			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[second_pos]> ед. урона, заняв 2-ое место!" targets:<player[<[pos_2]>]>
 		  - if <player[<[pos_3]>].is_online> = true:
-			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[first_pos]> ед. урона, заняв 3-ое место!" targets:<player[<[pos_3]>]>
-		- if <[damagers_size]> > 3:
-		  - define others_pos <[places_by_numerical].exclude[<[third_pos]>].exclude[<[second_pos]>].exclude[<[first_pos]>]>
-		  - foreach <[others_pos].keys> as:damage:
-		    - define other_player <[damage_top].get[<[damage]>]>
-		    - if <player[<[other_player]>].is_online> = true:
-			  - narrate "<&8>[Wealth] <&7>- Вы нанесли <[damage]> ед. урона, не заняв ни одного из призовых мест!" targets:<player[<[other_player]>]>
+			- narrate "<&8>[Wealth] <&7>- Вы нанесли <[third_pos]> ед. урона, заняв 3-ое место!" targets:<player[<[pos_3]>]>
+		  # Та якщо дамагерів більше 2, перевіряємо чи їх більше 3, якщо так, надати нагороду іншим позиціям топу.
+		  - if <[damagers_size]> > 3:
+		    - define others_pos <[places_by_numerical].exclude[<[third_pos]>].exclude[<[second_pos]>].exclude[<[first_pos]>]>
+		    - foreach <[others_pos].keys> as:damage:
+		      - define other_player <[damage_top].get[<[damage]>]>
+		      - if <player[<[other_player]>].is_online> = true:
+			    - narrate "<&8>[Wealth] <&7>- Вы нанесли <[damage]> ед. урона, не заняв ни одного из призовых мест!" targets:<player[<[other_player]>]>
 	    # Предмети в  таблиці
 	    - define script <script[<[loottable_name]>]||null>
 	    - if <[script]> = null:
