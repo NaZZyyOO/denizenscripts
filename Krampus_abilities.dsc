@@ -16,6 +16,8 @@ krampus_abilities:
 				    - repeat 5:
 				      - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
 				    - flag <context.entity> snow_storm expire:20s
+		on entity damages entity:
+		  - if <context.final_damage> < <context.entity.health.round> && <context.entity.name||null> == "<&4>Крампус":
 			- if <util.random.int[0].to[100]> <= 60:
 			  - repeat 10:
 			    - if <context.entity.location||null> != null:
@@ -24,6 +26,8 @@ krampus_abilities:
 			        - teleport <context.entity> <[loc]>
 			        - playsound <context.entity.location> sound:ENTITY_WITHER_HURT pitch:0.5 volume:1
 				    - repeat stop
+		on entity damages entity:
+		  - if <context.final_damage> < <context.entity.health.round> && <context.entity.name||null> == "<&4>Крампус":
 			- if <context.entity.has_flag[teleport_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 30:
 			    - if <context.entity.location||null> != null:
@@ -48,6 +52,8 @@ krampus_abilities:
 					      - playsound <[victim].location> sound:ENTITY_ZOMBIE_INFECT pitch:1.5 volume:1
 			        - flag <context.entity> teleport_storm expire:20s
 			        - adjust <context.entity> gravity:true
+		on entity damages entity:
+		  - if <context.final_damage> < <context.entity.health.round> && <context.entity.name||null> == "<&4>Крампус":
 			- if <context.entity.has_flag[summoning_wave]> = false:
 			  - if <context.entity.health_percentage> < 75:
 			    - if <util.random.int[0].to[100]> <= 20: 
@@ -59,7 +65,8 @@ krampus_abilities:
 					- playeffect at:<[loc]> effect:CAMPFIRE_SIGNAL_SMOKE quantity:100 offset:2
 					- playsound <[loc]> sound:PARTICLE_SOUL_ESCAPE pitch:0.6 volume:10
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
-		  - if <context.damager.name||null> == "<&4>Крампус":
+		on entity damages entity:
+		  - if <context.final_damage> < <context.entity.health.round> && <context.damager.name||null> == "<&4>Крампус":
 		    - if <util.random.int[0].to[100]> <= 50:
 			  - adjust <context.damager> velocity:<context.damager.location.direction.vector.mul[1.2]>
 			- if <util.random.int[0].to[100]> <= 25:
