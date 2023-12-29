@@ -77,7 +77,7 @@ krampus_abilities:
 		on mythicmob krampus spawns:
 		  - flag <context.entity> raid_boss
 		  - adjust <context.entity> item_in_hand:item_krampus_sword
-		on player move:
+		on player walks:
 		  - ratelimit <player> 1t
 		  - if <player.is_within[krampus_cave]> = true:
 		    - if <util.random.int[0].to[100]> <= 15:
