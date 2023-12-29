@@ -54,7 +54,7 @@ krampus_abilities:
 			# Виклик непослухів
 			- if <context.entity.has_flag[summoning_wave]> = false:
 			  - if <context.entity.health_percentage> < 75:
-			    - if <util.random.int[0].to[100]> <= 20: 
+			    - if <util.random.int[0].to[100]> <= 25: 
 				  - flag <context.entity> summoning_wave expire:25s
 			      - repeat 5:
 				    - wait 10t
@@ -65,9 +65,9 @@ krampus_abilities:
 			      - narrate "<&7><&o>Злобный смех Крампуса вызывает страх..."
 		  # Відкидання Крампуса або гравця
 		  - if <context.damager.name||null> == "<&4>Крампус":
-		    - if <util.random.int[0].to[100]> <= 50:
+		    - if <util.random.int[0].to[100]> <= 60:
 			  - adjust <context.damager> velocity:<context.damager.location.direction.vector.mul[1.2]>
-			- if <util.random.int[0].to[100]> <= 25:
+			- if <util.random.int[0].to[100]> <= 40:
 		      - playsound <context.entity.location> sound:ENTITY_WITHER_BREAK_BLOCK volume:0.5 pitch:0.6
 			  - adjust <context.entity> velocity:<context.entity.location.direction.vector.mul[-1.2]>
 		on entity damaged by SUFFOCATION:

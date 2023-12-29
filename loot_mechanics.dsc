@@ -167,6 +167,6 @@ raid_boss_drop:
 		      - if <[value]> = pos_3:
                 - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[pos_3]>].inventory>
 			  - if <[value]> = others_pos:
-			    - foreach <[others_pos].keys> as:damage:
+			    - foreach <[others_pos]> as:damage:
 				  - define other_player <[damage_top].get[<[damage]>]>
 				  - give <[item]> quantity:<util.random.int[<[random_item_min_quantity]>].to[<[random_item_max_quantity]>]> to:<player[<[other_player]>].inventory>
