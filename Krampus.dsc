@@ -76,6 +76,17 @@ krampus_abilities:
 			- teleport <[loc]> <context.entity>
 		on mythicmob krampus spawns:
 		  - flag <context.entity> raid_boss
+		on entity dies:
+		  - if <context.entity.name||null> == "<&4>Крампус":
+		    - foreach <context.damager.find_entities[player]> as:player:
+			  - teleport spawn <[player]>
+	    on player enters:
+		  - if <context.area> = entry_to_krampus:
+		    - if <server.has_flag[cu@krampus_cd]> = true:
+			  - determine passively cancelled
+		  - if <context.area> = entry_from_krampus:
+		    - if <server.has_flag[cu@krampus_cd]> = true:
+			  - determine passively cancelled
 item_scroll_teleport_krampus:
     type: item
     debug: false
@@ -99,10 +110,10 @@ item_scroll_teleport_Krampus_use:
 	events:
 	    on player right clicks block with:item_scroll_teleport_krampus:
 		  - determine passively cancelled
-		  - if <player.item_in_hand.has_flag[owner]> = false:
-		    - inventory flag slot:hand owner:<context.player.name>
-		  - if <player.item_in_hand.flag[owner]> = <player.name>:
-		    - if <player.has_flag[teleport_cd]> = false:
+		  - if <player.has_flag[teleport_cd]> = false:
+		    - if <player.item_in_hand.has_flag[owner]> = false:
+		      - inventory flag slot:hand owner:<context.player.name>
+		    - if <player.item_in_hand.flag[owner]> = <player.name>:
 			  - playeffect effect:REDSTONE at:<player.location.add[0,1,0]> special_data:1.2|<color[#6b7cbb].hex> quantity:50 offset:0.3
 			  - playsound sound:ENTITY_ENDERMAN_TELEPORT volume:1 pitch:1 <player.location>
 		      - teleport <player> <location[1555,87,1616,ocean]>
