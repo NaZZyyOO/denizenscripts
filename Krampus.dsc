@@ -76,8 +76,7 @@ krampus_abilities:
 			- teleport <[loc]> <context.entity>
 		on mythicmob krampus spawns:
 		  - flag <context.entity> raid_boss
-		  - adjust <context.entity> item_in_hand:item_krampus_sword		
-item_scroll_teleport_Krampus:
+item_scroll_teleport_krampus:
     type: item
     debug: false
     material: flower_banner_pattern
