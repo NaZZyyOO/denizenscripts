@@ -91,6 +91,8 @@ item_scroll_teleport_Krampus:
 	- "<&a> Мгновенно телепотирует в логово Крампуса."
 	- "<&a> Можно использовать раз в 1 час."
     mechanisms:
+	  unbreakable: true
+      hides: ITEM_DATA
       custom_model_data: 6
 item_scroll_teleport_Krampus_use:
     type: world
