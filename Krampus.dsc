@@ -120,5 +120,5 @@ item_scroll_teleport_Krampus_use:
 	        - else:
 		      - actionbar "<&7>Вы не владелец свитка..."
 			  - stop
-		 - else:
+		  - else:
 			- actionbar "<&6><&l>Вы сможете телепортироваться только через <player.flag_expiration[teleport_cd].from_now.formatted>"
