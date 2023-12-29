@@ -76,7 +76,12 @@ krampus_abilities:
 			- teleport <[loc]> <context.entity>
 		on mythicmob krampus spawns:
 		  - flag <context.entity> raid_boss
-		  - adjust <context.entity> item_in_hand:item_krampus_sword		
+		  - adjust <context.entity> item_in_hand:item_krampus_sword
+		on player walks:
+		  - ratelimit <player> 1t
+		  - if <player.location.is_within[krampus_cave]> = true:
+		    - if <util.random.int[0].to[100]> <= 15:
+              - playsound <context.old_location> sound:ENTITY_TURTLE_EGG_BREAK volume:1 pitch:0.6			
 item_scroll_teleport_Krampus:
     type: item
     debug: false
