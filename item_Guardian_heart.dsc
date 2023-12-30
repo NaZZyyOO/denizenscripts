@@ -9,7 +9,7 @@ item_Guardian_heart:
 	- "<&6>Хранителя. Приносит счастье и удачу, и"
     - "<&6>ускоряет духовный рост своего носителя."
     mechanisms:
-      custom_model_data: 10
+      custom_model_data: 11
       nbt_attributes:
 	  - generic.max_health/mainhand/0.0/5.0
       - generic.movement_speed/mainhand/1.0/+0.15
