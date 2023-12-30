@@ -8,14 +8,15 @@ krampus_abilities:
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
 				- repeat 5:
-				  - if <context.entity.location||null> != null:
+				  - define loc <context.entity.location||null>
+				  - if <[loc]> != null:
 				    - wait 10t
-				    - playeffect effect:SNOWFLAKE at:<context.entity.location.add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
-				    - foreach <context.entity.location.find_entities[player].within[8]> as:victim:
+				    - playeffect effect:SNOWFLAKE at:<[loc].add[0,6,0]> quantity:700 offset:10 velocity:0,-1,0
+				    - foreach <[loc].find_entities[player].within[8]> as:victim:
 				      - cast SLOW a:5 d:4 <[victim]>
 					  - hurt 8 <[victim]> source:<context.entity>
 				    - repeat 5:
-				      - playsound <context.entity.location> sound:BLOCK_SNOW_FALL pitch:2 volume:1
+				      - playsound <[loc]> sound:BLOCK_SNOW_FALL pitch:2 volume:1
 				    - flag <context.entity> snow_storm expire:20s
 			# Телепортація навколо гравця
 			- if <util.random.int[0].to[100]> <= 60:
