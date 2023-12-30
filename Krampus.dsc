@@ -79,7 +79,7 @@ krampus_abilities:
 		  - flag <context.entity> raid_boss
 		on entity dies:
 		  - if <context.entity.name||null> == "<&4>Крампус":
-		    - foreach <context.damager.find_entities[player]> as:player:
+		    - foreach <context.damager.find_entities[player].within[15]> as:player:
 			  - teleport spawn <[player]>
 	    on player enters entry_from_krampus:
 		  - if <server.has_flag[cu@krampus_cd]> = true:
