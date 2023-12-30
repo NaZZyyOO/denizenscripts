@@ -199,22 +199,23 @@ item_nord_set_use_2:
                       - if <player.has_flag[nord_bear_cd]> = false:
                         - if <placeholder[mystery_mana].player[<player>]> > 29:
 						  - if <player.worldguard.test_flag[pvp]> = true || <player.location.in_region> = false:
-                            - determine passively cancelled
-                            - animate <player> animation:ARM_SWING for:<server.online_players>
-                            - execute "my rmmana <player.name> 30" as_server silent
-                            - playsound <player.location> sound:ENTITY_EVOKER_PREPARE_SUMMON pitch:1 volume:1
-                            - playeffect at:<player.location.add[0,0.8,0]> effect:soul_fire_flame quantity:20 offset:0.3 visibility:100
-                            - playeffect at:<player.location.add[0,0.8,0]> effect:campfire_cosy_smoke quantity:20 offset:0.5 visibility:100
-                            - playsound <player.location> sound:entity_polar_bear_ambient pitch:1 volume:1
-                            - flag <player> nord_bear_cd expire:60s
-                            - wait 10t
-                            - spawn nord_bear <player.location.add[0,0.1,0]> save:MyBear
-                            - health <entry[MyBear].spawned_entity> 100 heal
-                            - disguise <entry[MyBear].spawned_entity> as:polar_bear players:<server.online_players>
-                            - adjust <entry[MyBear].spawned_entity> silent:true
-                            - flag <entry[MyBear].spawned_entity> host:<player.name>
-                            - rename <entry[MyBear].spawned_entity> "<&6>Медведь <player.name>"
-                            - mount <player>|<entry[MyBear].spawned_entity>
+						    - if <player.worldguard.test_flag[mob-spawning]> = true:
+                              - determine passively cancelled
+                              - animate <player> animation:ARM_SWING for:<server.online_players>
+                              - execute "my rmmana <player.name> 30" as_server silent
+                              - playsound <player.location> sound:ENTITY_EVOKER_PREPARE_SUMMON pitch:1 volume:1
+                              - playeffect at:<player.location.add[0,0.8,0]> effect:soul_fire_flame quantity:20 offset:0.3 visibility:100
+                              - playeffect at:<player.location.add[0,0.8,0]> effect:campfire_cosy_smoke quantity:20 offset:0.5 visibility:100
+                              - playsound <player.location> sound:entity_polar_bear_ambient pitch:1 volume:1
+                              - flag <player> nord_bear_cd expire:60s
+                              - wait 10t
+                              - spawn nord_bear <player.location.add[0,0.1,0]> save:MyBear
+                              - health <entry[MyBear].spawned_entity> 100 heal
+                              - disguise <entry[MyBear].spawned_entity> as:polar_bear players:<server.online_players>
+                              - adjust <entry[MyBear].spawned_entity> silent:true
+                              - flag <entry[MyBear].spawned_entity> host:<player.name>
+                              - rename <entry[MyBear].spawned_entity> "<&6>Медведь <player.name>"
+                              - mount <player>|<entry[MyBear].spawned_entity>
                         - else:
                           - actionbar targets:<player> "<&c><&l>Недостаточно маны."
                       - else:

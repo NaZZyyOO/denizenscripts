@@ -103,7 +103,7 @@ item_scroll_teleport_krampus:
 	- ""
 	- "<&7>Использование:"
 	- "<&a> Мгновенно телепотирует в логово Крампуса."
-	- "<&a> Можно использовать раз в 1 час."
+	- "<&a> Можно использовать раз в 12 часов."
     mechanisms:
 	  unbreakable: true
       hides: ITEM_DATA
@@ -121,7 +121,7 @@ item_scroll_teleport_Krampus_use:
 			  - playeffect effect:REDSTONE at:<player.location.add[0,1,0]> special_data:1.2|<color[#6b7cbb].hex> quantity:50 offset:0.3
 			  - playsound sound:ENTITY_ENDERMAN_TELEPORT volume:1 pitch:1 <player.location>
 		      - teleport <player> <location[1555,87,1616,ocean]>
-			  - flag <player> teleport_cd expire:1h
+			  - flag <player> teleport_cd expire:12h
 	        - else:
 		      - actionbar "<&7>Вы не владелец свитка..."
 			  - stop

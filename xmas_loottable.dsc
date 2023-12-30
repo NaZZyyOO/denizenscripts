@@ -27,7 +27,7 @@ krampus:
 			min_quantity: 4
 			max_quantity: 7
 	    item_sapphire:
-		    chance: 50
+		    chance: 20
 			min_quantity: 1
 			max_quantity: 2
 		item_taler_gold:
@@ -60,7 +60,7 @@ krampus:
 			min_quantity: 4
 			max_quantity: 7
 	    item_sapphire:
-		    chance: 50
+		    chance: 15
 			min_quantity: 1
 			max_quantity: 1
 		item_taler_gold:
@@ -93,7 +93,7 @@ krampus:
 			min_quantity: 4
 			max_quantity: 7
 		item_sapphire:
-		    chance: 45
+		    chance: 10
 			min_quantity: 1
 			max_quantity: 1
 		item_taler_gold:
@@ -126,7 +126,7 @@ krampus:
 			min_quantity: 4
 			max_quantity: 7
 		item_sapphire:
-		    chance: 40
+		    chance: 5
 			min_quantity: 1
 			max_quantity: 1
 		item_taler_gold:
