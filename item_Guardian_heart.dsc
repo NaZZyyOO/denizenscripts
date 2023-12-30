@@ -23,7 +23,7 @@ item_Guardian_heart_use:
 	    on player right clicks block with:item_Guardian_heart:
 		  - if <player.has_flag[fragment_gift]> = true:
 		    - if <player.has_flag[second_fragment_gift]> = true:
-		    ## Кормит раз в 15 минут
+		    # Кормит раз в 15 минут
 		      - if <player.has_flag[heart_feed]> = false:
 			    - flag <player> heart_feed expire:15m
 			    - execute "feed <player.name>" as_server silent
@@ -39,16 +39,14 @@ item_Guardian_heart_use:
 		  - if <player.has_flag[fragment_gift]> = true:
 		    - if <player.has_flag[second_fragment_gift]> = true:
 			  - if <player.inventory.contains[item_Guardian_heart].quantity[1]> = true:
-			    - if <player.inventory.contains[item_fragment_of_Guardian_heart].quantity[1]> = false:
-				  - if <player.inventory.contains[item_second_fragment_of_Guardian_heart].quantity[1]> = false:
-		            - if <util.random.int[0].to[100]> <= 90:
-			          - flag <player> heart_keep
-                    - else:
-                      - determine passively NO_DROPS
-                      - determine passively KEEP_INV
-				      - playsound <player.location> sound:ENTITY_ILLUSIONER_PREPARE_MIRROR volume:1 pitch:1
-				      - playeffect at:<player.location.add[0,1,0]> effect:REDSTONE special_data:1.5|<color[#f91905].hex> quantity:30 offset:0.3
-			          - actionbar targets:<player> "<element[Сердце Хранителя сохранило ваш инвентарь.].color[#f91905].bold>"
+		        - if <util.random.int[0].to[100]> <= 90:
+			      - flag <player> heart_keep
+                - else:
+                  - determine passively NO_DROPS
+                  - determine passively KEEP_INV
+				  - playsound <player.location> sound:ENTITY_ILLUSIONER_PREPARE_MIRROR volume:1 pitch:1
+				  - playeffect at:<player.location.add[0,1,0]> effect:REDSTONE special_data:1.5|<color[#f91905].hex> quantity:30 offset:0.3
+			      - actionbar targets:<player> "<element[Сердце Хранителя сохранило ваш инвентарь.].color[#f91905].bold>"
 		on player respawns:
 		  - if <player.has_flag[heart_keep]> = true:
 		    - give to:<player.inventory> item_Guardian_heart quantity:1
