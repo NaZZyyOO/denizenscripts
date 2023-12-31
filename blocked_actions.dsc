@@ -40,10 +40,6 @@ changes_world:
 		  - if <player.has_permission[server.admin]> = false:
 		    - adjust <player> god_mode:false
 			- adjust <player> can_fly:false
-		on player changes world:
-		  - if <player.has_permission[server.admin]> = false:
-		    - if <player.gamemode> = creative:
-		      - adjust <player> gamemode:survival
 blocked_item_in_server_region:
     type: world
 	debug: false
