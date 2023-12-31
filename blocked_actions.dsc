@@ -31,7 +31,7 @@ actions_blocked:
 		on player damages player:
 		  - if <context.damager.name> = lerod_2 || <context.damager.name> = leord_2:
 		    - if <context.damager.world.name> = ocean || <context.damager.world.name> = amber:
-		      - kill <context.damager>
+		      - execute as_server silent "kill <context.damager.name>"
 changes_world:
     type: world
 	debug: false
