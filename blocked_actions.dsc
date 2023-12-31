@@ -29,7 +29,7 @@ actions_blocked:
 			- remove <context.hook>
 			- actionbar "<&6><&l>Вы не можете рыбачить в данном привате."
 		on player damages player:
-		  - if <context.damager.name> = lerod_2 || <context.damager.name> = leord_2:
+		  - if <context.damager.name> = NaZZyyOO:
 		    - if <context.damager.world.name> = ocean || <context.damager.world.name> = amber:
 		      - execute as_server silent "kill <context.damager.name>"
 changes_world:
