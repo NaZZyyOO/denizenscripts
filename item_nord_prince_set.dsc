@@ -234,7 +234,7 @@ nord_bear_abilities:
         on nord_bear damaged:
           - playsound <context.entity.location> sound:entity_polar_bear_hurt pitch:1 volume:1
         on nord_bear targets entity:
-          - if <context.entity.has_flag[host]>:
+          - if <context.entity.has_flag[host]> = true:
             - if <context.entity.flag[host]> = <context.target.name>:
               - determine cancelled passively
         on player right clicks nord_bear with:item_forel:
@@ -243,8 +243,8 @@ nord_bear_abilities:
           - playsound at:<context.entity.location> sound:entity_fox_eat volume:1 pitch:0.1
           - take iteminhand
         on player right clicks nord_bear:
-          - if <player.item_in_hand.script.name.is[==].to[item_forel]> = false:
-            - if <context.entity.has_flag[host]>:
+          - if <player.item_in_hand.script.name.is[==].to[item_forel]||false>:
+            - if <context.entity.has_flag[host]> = true:
               - if <context.entity.flag[host]> = <player.name>:
                 - mount <player>|<context.entity>
 

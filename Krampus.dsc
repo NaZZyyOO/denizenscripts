@@ -5,7 +5,7 @@ krampus_abilities:
 		on entity damages entity:
 		  - if <context.entity||null> = null:
 		    - stop
-		  - if <context.final_damage> < <context.entity.health.round> && <context.entity.name||null> == "<&4>Крампус":
+		  - if <context.entity.health.round||false> > <context.final_damage> && <context.entity.name||null> == "<&4>Крампус":
 		    # Снігопад
 		    - if <context.entity.has_flag[snow_storm]> = false:
 			  - if <util.random.int[0].to[100]> <= 40:
