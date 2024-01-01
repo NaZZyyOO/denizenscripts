@@ -162,16 +162,17 @@ item_new_year_tree_use:
 				- note remove as:Tree_for_<player.name>
 				- flag server gifts_location:<server.flag[gifts_location].as_map.exclude[<player.name>]>
 				- flag <player> have_tree:!
-		on player right clicks block:
+		on player right clicks !chest:
 		  - foreach <player.location.cuboids>:
 		    - if <[value].contains_text[Tree_for_]> = true:
 			  - determine passively cancelled
-		on system time 00:01:
+		on system time 11:01:
 		  - if <util.time_now.day_of_year> = 1:
 		    - foreach <server.flag[gifts_location].keys>:
 			  - define loc <server.flag[gifts_location].get[<[value]>]>
 			  - adjust <[loc]> block_type:chest
-			  - inventory d:<[loc].inventory> set origin:generic[contents=<[contents]>]
+			  - inventory d:<location[<[loc]>].inventory> set origin:generic[contents=item_red_ticket[quantity=4]|item_green_ticket[quantity=10]|item_white_ticket[quantity=30]|item_second_fragment_of_Guardian_heart[quantity=1]]
+              - flag <player[<[value]>]> second_fragment_gift
 item_shard_white:
     type: item
 	debug: false
