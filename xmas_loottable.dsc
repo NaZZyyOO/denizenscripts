@@ -7,7 +7,7 @@ krampus:
 			min_quantity: 1
 			max_quantity: 1
 		item_evilvand:
-		    chance: 50
+		    chance: 35
 			min_quantity: 1
 			max_quantity: 1
 		item_krampus_horn:
@@ -15,7 +15,7 @@ krampus:
 			min_quantity: 1
 			max_quantity: 1
 	    item_red_ticket:
-		    chance: 30
+		    chance: 40
 			min_quantity: 1
 			max_quantity: 3
 		item_green_ticket:
@@ -44,11 +44,11 @@ krampus:
 			min_quantity: 1
 			max_quantity: 1
 		item_evilvand:
-		    chance: 35
+		    chance: 20
 			min_quantity: 1
 			max_quantity: 1
 	    item_red_ticket:
-		    chance: 20
+		    chance: 30
 			min_quantity: 1
 			max_quantity: 3
 		item_green_ticket:
@@ -77,11 +77,11 @@ krampus:
 			min_quantity: 1
 			max_quantity: 1
 		item_evilvand:
-		    chance: 20
+		    chance: 10
 			min_quantity: 1
 			max_quantity: 1
 	    item_red_ticket:
-		    chance: 15
+		    chance: 20
 			min_quantity: 1
 			max_quantity: 3
 		item_green_ticket:
@@ -110,7 +110,7 @@ krampus:
 			min_quantity: 1
 			max_quantity: 1
 		item_evilvand:
-		    chance: 10
+		    chance: 5
 			min_quantity: 1
 			max_quantity: 1
 	    item_red_ticket:
