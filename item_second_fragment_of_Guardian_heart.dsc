@@ -37,9 +37,12 @@ item_second_fragment_of_Guardian_heart_use:
 			- if <player.inventory.contains[item_second_fragment_of_Guardian_heart].quantity[1]> = true:
 			  - if <util.random.int[0].to[100]> <= 95:
 			    - flag <player> second_fragment_keep_inv
+				- determine passively <context.drops.exclude[item_Guardian_heart]>
 		      - else:
 				- determine passively NO_DROPS
 			    - determine passively KEEP_INV
+				- determine passively NO_XP
+				- determine passively KEELP_LEVEL
 				- actionbar targets:<player> "<&4><&l>Осколок сердца Хранителя сохранил ваш инвентарь."
 			- else:
 			  - stop

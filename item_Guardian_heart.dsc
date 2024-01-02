@@ -41,9 +41,12 @@ item_Guardian_heart_use:
 			  - if <player.inventory.contains[item_Guardian_heart].quantity[1]> = true:
 		        - if <util.random.int[0].to[100]> <= 90:
 			      - flag <player> heart_keep
+				  - determine passively <context.drops.exclude[item_Guardian_heart]>
                 - else:
                   - determine passively NO_DROPS
                   - determine passively KEEP_INV
+				  - determine passively NO_XP
+				  - determine passively KEELP_LEVEL
 				  - playsound <player.location> sound:ENTITY_ILLUSIONER_PREPARE_MIRROR volume:1 pitch:1
 				  - playeffect at:<player.location.add[0,1,0]> effect:REDSTONE special_data:1.5|<color[#f91905].hex> quantity:30 offset:0.3
 			      - actionbar targets:<player> "<element[Сердце Хранителя сохранило ваш инвентарь.].color[#f91905].bold>"

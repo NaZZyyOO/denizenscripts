@@ -23,7 +23,7 @@ item_krampus_horn_use:
 	    on player dies:
 		  - if <player.inventory.contains[item_krampus_horn].quantity[1]> = true:
 			- flag <player> keep_horn
-			- take item_krampus_horn quantity:1 from:<player.inventory>
+			- determine passively <context.drops.exclude[item_krampus_horn]>
 		on player respawns:
 		  - if <player.has_flag[keep_horn]> = true:
 		    - give to:<player.inventory> item_krampus_horn quantity:1
