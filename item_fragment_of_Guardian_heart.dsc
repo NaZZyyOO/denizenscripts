@@ -42,7 +42,7 @@ item_fragment_of_Guardians_heart_use:
 				- determine passively NO_DROPS
 			    - determine passively KEEP_INV
 				- determine passively NO_XP
-				- determine passively KEELP_LEVEL
+				- determine passively KEEP_LEVEL
 				- actionbar targets:<player> "<&4><&l>Осколок сердца Хранителя сохранил ваш инвентарь."
 			- else:
 			  - stop
