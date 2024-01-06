@@ -69,9 +69,9 @@ fishing_enter:
           - define steprange <element[0.7]>
           - define count <[radius].div[<[steprange]>].round>
           - define range <element[0.0]>
-		  - define loc <context.hook.location>
+		  - define loc <context.hook.location.add[0,-1,0]>
           - repeat <[count]>:
-            - wait 5t
+            - wait 1t
             - define range <[range].add[<[steprange]>]>
             - define frequency <element[80]>
             - define circle <element[360]>
@@ -84,5 +84,5 @@ fishing_enter:
               - define y <[range].mul[<[sinx]>]>
               - define angle <[angle].add[<[step]>]>
               - define xy <[loc].add[<[x]>,0.0,<[y]>]>
-              - playeffect effect:REDSTONE quantity:1 offset:0.1 at:<[xy]> special_data:1.5|white visibility:50
-              - playeffect effect:REDSTONE quantity:1 offset:0.1 at:<[xy]> special_data:1.4|<color[aqua].hex> visibility:50
+              - playeffect effect:REDSTONE quantity:1 offset:0.3 at:<[xy]> special_data:1.4|white visibility:50
+              - playeffect effect:REDSTONE quantity:1 offset:0.3 at:<[xy]> special_data:1.4|<color[aqua].hex> visibility:50
