@@ -83,25 +83,25 @@ fishing_enter:
 			  - remove <context.hook>
 			  - actionbar "<&6><&l>Вы не можете здесь рыбачить."
         on player fishes while FISHING:
-		  - waituntil <player.fish_hook_in_open_water> = true
-		  - define radius <element[6]>
-          - define steprange <element[0.7]>
-          - define count <[radius].div[<[steprange]>].round>
-          - define range <element[0.0]>
-		  - define loc <context.hook.location>
-          - repeat <[count]>:
-            - wait 5t
-            - define range <[range].add[<[steprange]>]>
-            - define frequency <element[80]>
-            - define circle <element[360]>
-            - define step <[circle].div[<[frequency]>].round>
-            - define angle <element[0]>
-            - repeat <[frequency]>:
-              - define cosx <[angle].cos>
-              - define sinx <[angle].sin>
-              - define x <[range].mul[<[cosx]>]>
-              - define y <[range].mul[<[sinx]>]>
-              - define angle <[angle].add[<[step]>]>
-              - define xy <[loc].add[<[x]>,0.0,<[y]>]>
-              - playeffect effect:REDSTONE quantity:1 offset:0.1 at:<[xy]> special_data:1.5|white visibility:50
-              - playeffect effect:REDSTONE quantity:1 offset:0.1 at:<[xy]> special_data:1.4|<color[aqua].hex> visibility:50
+		  - waituntil <context.hook.fish_hook_in_open_water> = true:
+		    - define radius <element[6]>
+            - define steprange <element[0.7]>
+            - define count <[radius].div[<[steprange]>].round>
+            - define range <element[0.0]>
+		    - define loc <context.hook.location>
+            - repeat <[count]>:
+              - wait 5t
+              - define range <[range].add[<[steprange]>]>
+              - define frequency <element[80]>
+              - define circle <element[360]>
+              - define step <[circle].div[<[frequency]>].round>
+              - define angle <element[0]>
+              - repeat <[frequency]>:
+                - define cosx <[angle].cos>
+                - define sinx <[angle].sin>
+                - define x <[range].mul[<[cosx]>]>
+                - define y <[range].mul[<[sinx]>]>
+                - define angle <[angle].add[<[step]>]>
+                - define xy <[loc].add[<[x]>,0.0,<[y]>]>
+                - playeffect effect:REDSTONE quantity:1 offset:0.1 at:<[xy]> special_data:1.5|white visibility:50
+                - playeffect effect:REDSTONE quantity:1 offset:0.1 at:<[xy]> special_data:1.4|<color[aqua].hex> visibility:50
