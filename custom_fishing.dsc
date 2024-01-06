@@ -82,14 +82,14 @@ fishing_enter:
 			  - determine passively cancelled
 			  - remove <context.hook>
 			  - actionbar "<&6><&l>Вы не можете здесь рыбачить."
-        on player fishes while BITE:
+        on player fishes while FISHING:
 		  - define radius <element[6]>
           - define steprange <element[0.7]>
           - define count <[radius].div[<[steprange]>].round>
           - define range <element[0.0]>
 		  - define loc <context.hook.location>
           - repeat <[count]>:
-            - wait 10t
+            - wait 5t
             - define range <[range].add[<[steprange]>]>
             - define frequency <element[80]>
             - define circle <element[360]>
@@ -103,4 +103,4 @@ fishing_enter:
               - define angle <[angle].add[<[step]>]>
               - define xy <[loc].add[<[x]>,0.0,<[y]>]>
               - playeffect effect:REDSTONE quantity:1 offset:0.1 at:<[xy]> special_data:1.5|white visibility:20
-              - playeffect effect:REDSTONE at:<[xy]> quantity:1 offset:1.5,1.5,1.5 special_data:1.4|<color[aqua].hex> visibility:50 velocity:0.0,<util.random.decimal[0.0].to[0.025]>,0.0		
+              - playeffect effect:REDSTONE at:<[xy]> offset:0.1 quantity:1 special_data:1.4|<color[aqua].hex> visibility:50
