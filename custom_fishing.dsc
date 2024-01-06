@@ -82,11 +82,12 @@ fishing_enter:
 			  - determine passively cancelled
 			  - remove <context.hook>
 			  - actionbar "<&6><&l>Вы не можете здесь рыбачить."
-        on player fishes item while FISHING:
+        on player fishes while FISHING:
 		  - define radius <element[5]>
           - define steprange <element[0.7]>
           - define count <[radius].div[<[steprange]>].round>
           - define range <element[0.0]>
+		  - define loc <context.hook.location>
           - repeat <[count]>:
             - wait 10t
             - define range <[range].add[<[steprange]>]>
