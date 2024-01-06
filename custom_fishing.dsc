@@ -65,6 +65,8 @@ fishing_enter:
 			  - actionbar "<&6><&l>Вы не можете здесь рыбачить."
         on player fishes while FISHING:
 		  - waituntil <context.hook.fish_hook_in_open_water> = true
+		  - if <context.hook||null> = null:
+		    - stop
 		  - define radius <element[6]>
           - define steprange <element[0.7]>
           - define count <[radius].div[<[steprange]>].round>
@@ -85,4 +87,4 @@ fishing_enter:
               - define angle <[angle].add[<[step]>]>
               - define xy <[loc].add[<[x]>,0.0,<[y]>]>
               - playeffect effect:REDSTONE quantity:1 offset:0.3 at:<[xy]> special_data:1.4|white visibility:50
-              - playeffect effect:REDSTONE quantity:1 offset:0.3 at:<[xy]> special_data:1.4|<color[aqua].hex> visibility:50
+              - playeffect effect:REDSTONE quantity:1 offset:0.3 at:<[xy]> special_data:1.4|blue visibility:50
