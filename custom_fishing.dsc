@@ -82,8 +82,8 @@ fishing_enter:
 			  - determine passively cancelled
 			  - remove <context.hook>
 			  - actionbar "<&6><&l>Вы не можете здесь рыбачить."
-        on player fishes while FISHING:
-		  - define radius <element[5]>
+        on player fishes while BITE:
+		  - define radius <element[6]>
           - define steprange <element[0.7]>
           - define count <[radius].div[<[steprange]>].round>
           - define range <element[0.0]>
