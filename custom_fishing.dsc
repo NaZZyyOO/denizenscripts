@@ -102,5 +102,5 @@ fishing_enter:
               - define y <[range].mul[<[sinx]>]>
               - define angle <[angle].add[<[step]>]>
               - define xy <[loc].add[<[x]>,0.0,<[y]>]>
-              - playeffect effect:REDSTONE quantity:1 offset:0.1 at:<[xy]> special_data:1.5|white visibility:20
-              - playeffect effect:REDSTONE at:<[xy]> offset:0.1 quantity:1 special_data:1.4|<color[aqua].hex> visibility:50
+              - playeffect effect:REDSTONE quantity:1 offset:0.1 at:<[xy]> special_data:1.5|white visibility:50
+              - playeffect effect:REDSTONE quantity:1 offset:0.1 at:<[xy]> special_data:1.4|<color[aqua].hex> visibility:50
