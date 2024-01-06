@@ -83,6 +83,7 @@ fishing_enter:
 			  - remove <context.hook>
 			  - actionbar "<&6><&l>Вы не можете здесь рыбачить."
         on player fishes while FISHING:
+		  - waituntil <player.fish_hook_in_open_water> = true
 		  - define radius <element[6]>
           - define steprange <element[0.7]>
           - define count <[radius].div[<[steprange]>].round>
